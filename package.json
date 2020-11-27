@@ -1,11 +1,11 @@
 {
-  "name": "willhow.com",
-  "description": "My little plot of digital land",
-  "version": "3.0.0",
-  "author": "William Howell <wlm.howell@gmail.com>",
+  "name": "virtual.furnalequinox.com",
+  "description": "The web platform for Furnal Equinox's virtual convention",
+  "version": "1.0.0",
+  "author": "Furnal Equinox",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/willowell/virtual.furnalequinox.com"
   },
   "private": true,
   "license": "MIT",
@@ -43,8 +43,6 @@
     "modern-normalize": "1.0.0",
     "node-sass": "4.14.1",
     "popper.js": "1.16.1",
-    "prism-themes": "^1.5.0",
-    "prismjs": "1.22.0",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "17.0.1",
@@ -53,9 +51,7 @@
     "stylelint-config-sass-guidelines": "^7.1.0",
     "textlint": "11.7.6",
     "textlint-rule-write-good": "^1.6.2",
-    "twin.macro": "^1.12.1",
-    "typescript": "4.1.2",
-    "typescript-plugin-tw-template": "^2.1.0"
+    "typescript": "4.1.2"
   },
   "dependencies": {
     "gatsby": "2.27.3",
@@ -66,25 +62,18 @@
     "gatsby-plugin-manifest": "2.7.0",
     "gatsby-plugin-netlify": "2.6.0",
     "gatsby-plugin-offline": "3.5.0",
-    "gatsby-plugin-postcss": "^3.2.0",
-    "gatsby-plugin-purgecss": "^5.0.0",
     "gatsby-plugin-react-helmet": "3.5.0",
     "gatsby-plugin-sass": "^2.6.0",
     "gatsby-plugin-sharp": "2.9.0",
     "gatsby-plugin-sitemap": "2.7.0",
-    "gatsby-plugin-tailwindcss": "^1.0.3",
     "gatsby-plugin-twitter": "2.5.0",
     "gatsby-plugin-typescript": "^2.7.0",
     "gatsby-remark-copy-linked-files": "2.5.0",
     "gatsby-remark-images": "3.6.0",
-    "gatsby-remark-prismjs": "3.8.0",
     "gatsby-remark-responsive-iframe": "2.6.0",
     "gatsby-remark-smartypants": "2.5.0",
     "gatsby-source-filesystem": "2.6.1",
     "gatsby-transformer-remark": "2.11.1",
-    "gatsby-transformer-sharp": "2.7.0",
-    "postcss": "^8.1.10",
-    "styled-components": "^5.2.1",
-    "tailwindcss": "^2.0.1"
+    "gatsby-transformer-sharp": "2.7.0"
   }
 }

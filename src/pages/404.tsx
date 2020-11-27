@@ -18,7 +18,7 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
           <div className='container'>
             <header>
               <h1>404</h1>
-              <p className='text-8xl'>Whoops!</p>
+              <p className='h1'>Whoops!</p>
               <img src='https://http.cat/404' />
             </header>
           </div>

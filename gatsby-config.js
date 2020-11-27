@@ -3,12 +3,12 @@
 ///==============================================================================================///
 module.exports = {
   siteMetadata: {
-    title: 'William Howell',
+    title: 'Furnal Equinox',
     author: {
-      name: 'William Howell',
+      name: 'Furnal Equinox',
     },
-    description: 'My little plot of digital land',
-    siteUrl: 'https://www.willhow.com',
+    description: 'The web platform for Furnal Equinox\'s virtual convention',
+    siteUrl: 'https://www.virtual.furnalequinox.com',
   },
 
 ///==============================================================================================///
@@ -18,9 +18,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'William Howell',
-        short_name: 'William Howell',
-        description: 'My little plot of digital land',
+        name: 'Furnal Equinox',
+        short_name: 'Furnal Equinox',
+        description: 'The web platform for Furnal Equinox\'s virtual convention',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#673ab7',
@@ -47,8 +47,6 @@ module.exports = {
     'gatsby-plugin-sitemap',
 
     'gatsby-plugin-offline',
-
-    //TODO: RSS Feed?
 
 
 ///==============================================================================================///
@@ -102,22 +100,6 @@ module.exports = {
             },
           },
 
-          /// CODE HIGHLIGHTS
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: '>',
-              aliases: {},
-              showLineNumbers: true,
-              noInlineHighlight: false,
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: true
-              }
-            }
-          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
         ],
@@ -149,17 +131,6 @@ module.exports = {
 ///==============================================================================================///
 ///                                          STYLING                                             ///
 ///==============================================================================================///
-    'gatsby-plugin-sass',
-
-    'gatsby-plugin-postcss',
-
-    'gatsby-plugin-tailwindcss',
-
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        tailwind: true
-      }
-    }
-  ],
+    'gatsby-plugin-sass'
+  ]
 }
