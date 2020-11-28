@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Logo from '../../../content/images/logo.png'
 
 interface Props {
   title: string
@@ -8,13 +9,12 @@ interface Props {
 
 const Navibar: React.FC<Props> = ({ location, title }: Props) => {
   return (
-    <nav className='navbar navbar-expand navbar-dark flex-column flex-md-row bg-primary sticky-top'>
+    <nav className='navbar navbar-expand navbar-light flex-column flex-md-row bg-white sticky-top py-0'>
       <div className='container'>
-        <Link className='text-center' to='/'>
-          <h1 className='navbar-brand mb-0'>{title}</h1>
+        <Link className='navbar-brand mr-2' to='/'>
+          <img src={Logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
         </Link>
-        <div className='navbar-nav-scroll'>
-          <ul className='navbar-nav bd-navbar-nav flex-row'>
+          <ul className='navbar-nav flex-row'>
             <li
               className={
                 location.pathname === '/' ? 'nav-item active' : 'nav-item'
@@ -36,7 +36,6 @@ const Navibar: React.FC<Props> = ({ location, title }: Props) => {
               </Link>
             </li>
           </ul>
-        </div>
         <div className='navbar-nav flex-row ml-md-auto d-none d-md-flex' />
       </div>
     </nav>
