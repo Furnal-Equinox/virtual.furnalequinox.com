@@ -18,7 +18,8 @@ const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <Layout location={location}>
       <Meta site={meta} />
-      {posts.map((post, i) => (
+      <h1 className='text-center p-5'>Hello, everyone!</h1>
+      {/* {posts.map((post, i) => (
         <Post
           data={post as PostByPathQuery}
           options={{
@@ -26,7 +27,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
           }}
           key={i}
         />
-      ))}
+      ))} */}
     </Layout>
   )
 }
