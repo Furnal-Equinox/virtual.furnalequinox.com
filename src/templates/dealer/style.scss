@@ -1,0 +1,53 @@
+@import 'scss/colors.scss';
+@import 'scss/fonts.scss';
+
+.article {
+  padding-bottom: 10px;
+  padding-top: 40px;
+
+  .info {
+    border-bottom: 1px solid $gray-200;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    word-break: break-word;
+
+    h1 {
+      letter-spacing: -0.5px;
+    }
+
+    .badge {
+      margin-right: 3px;
+    }
+
+    time {
+      color: $gray-500;
+      display: inline;
+      font-size: $font-size-xs;
+      margin-right: 10px;
+    }
+  }
+
+  .content {
+    padding-bottom: 10px;
+
+    h2 {
+      margin-bottom: 20px;
+      padding-top: 10px;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+
+    blockquote {
+      background-color: $gray-100;
+      border-left: 5px solid $gray-200;
+      padding: 0.25em 1.5em;
+
+      a {
+        display: block;
+        word-break: break-word;
+      }
+    }
+  }
+}

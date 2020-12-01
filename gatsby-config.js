@@ -1,15 +1,19 @@
+const urljoin = require('url-join')
+const path = require('path')
+const config = require('./site-config')
+
 ///==============================================================================================///
 ///                                    SITE METADATA                                             ///
 ///==============================================================================================///
 module.exports = {
   siteMetadata: {
-    title: 'Furnal Equinox',
+    title: config.siteTitle,
     author: {
-      name: 'Furnal Equinox',
+      name: config.siteTitle,
     },
-    description: 'The web platform for Furnal Equinox\'s virtual convention',
-    siteUrl: 'https://www.virtual.furnalequinox.com',
-    logo: 'https://www.virtual.furnalequinox.com/logo.png'
+    description: config.siteDescription,
+    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
+    logo: `${urljoin(config.siteUrl, config.pathPrefix)}/logo.png`
   },
 
 ///==============================================================================================///
@@ -19,13 +23,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Furnal Equinox',
-        short_name: 'Furnal Equinox',
-        description: 'The web platform for Furnal Equinox\'s virtual convention',
-        start_url: '/',
-        background_color: '#fff',
-        theme_color: '#673ab7',
-        display: 'standalone',
+        name: config.siteTitle,
+        short_name: config.siteTitleShort,
+        description: config.siteDescription,
+        start_url: config.pathPrefix,
+        theme_color: config.themeColor,
+        background_color: config.backgroundColor,
+        
+        display: 'minimal-ui',
         icon: 'static/logo.png'
       },
     },
@@ -60,6 +65,22 @@ module.exports = {
         path: `${__dirname}/content/images/`,
         name: 'images',
       },
+    },
+
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/dealers/`,
+        name: 'dealers',
+      }
+    },
+
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/gallery/`,
+        name: 'gallery',
+      }
     },
 
 ///==============================================================================================///

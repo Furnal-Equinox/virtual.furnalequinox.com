@@ -1,10 +1,11 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 
-import { IndexQueryQuery, PostByPathQuery } from '../../types/graphql-types'
-import Post from '../templates/post/post'
+import { IndexQueryQuery } from '../../types/graphql-types'
 import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
+
+import BackgroundImage from '../../content/images/moritz-mentges-unsplash.jpg'
 
 interface Props {
   data: IndexQueryQuery
@@ -12,7 +13,6 @@ interface Props {
 }
 
 const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
-  const posts = data.remark.posts
   const meta = data.site?.meta
 
   return (
@@ -22,6 +22,11 @@ const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
         <section className='text-center'>
           <h1 className='p-5'>Bonjour, tout le monde !</h1>
         </section>
+        <section>
+          <div className='cover-image'>
+            <img src={BackgroundImage}/>
+          </div>
+        </section>
       </div>
     </Layout>
   )
@@ -29,7 +34,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
 
 export default BlogIndex
 
-export const pageQuery = graphql`
+export const indexQuery = graphql`
   query IndexQuery {
     site {
       meta: siteMetadata {
@@ -39,31 +44,6 @@ export const pageQuery = graphql`
         }
         description
         siteUrl
-      }
-    }
-    remark: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      posts: edges {
-        post: node {
-          html
-          frontmatter {
-            layout
-            title
-            path
-            category
-            tags
-            description
-            date(formatString: "YYYY/MM/DD")
-            image {
-              childImageSharp {
-                fluid(maxWidth: 500) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
       }
     }
   }

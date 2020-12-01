@@ -42,7 +42,7 @@ const Profile: React.FC<Props> = ({ location, data }: Props) => {
 
 export default Profile
 
-export const query = graphql`
+export const profileQuery = graphql`
   query ProfilePageQuery {
     profile: file(name: { eq: "profile" }) {
       childImageSharp {
