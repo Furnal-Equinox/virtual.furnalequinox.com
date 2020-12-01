@@ -13,16 +13,17 @@ import { DealerBySlugQuery } from '../../../types/graphql-types'
 
 interface Props {
   data: DealerBySlugQuery
+  location: Location
 }
 
-const Dealer: React.FC<Props> = ({ data }: Props) => {
+const Dealer: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
   const banner = post?.banner ?? null
 
   return (
     <Layout location={location}>
-    <div className='article' key={postNode.slug}>
+    <div className='article' key={postNode?.fields?.slug}>
       <h1>{post?.dealer}</h1>
     </div>
     <div className='content'>

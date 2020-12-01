@@ -8,6 +8,7 @@ import Badge from '../../components/badge/badge'
 import './style.scss'
 import Layout from '../../components/layout/layout'
 import Meta from '../../components/meta/meta'
+import { PostBySlugQuery } from '../../../types/graphql-types'
 
 const getDescription = (content: string): string => {
   const body = content.replace(
@@ -22,24 +23,25 @@ const getDescription = (content: string): string => {
 }
 
 interface Props {
-  data: any
+  data: PostBySlugQuery
+  location: Location
 }
 
-const Post: React.FC<Props> = ({ data }: Props) => {
+const Post: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
-  const post = postNode.frontmatter
+  const post = postNode?.frontmatter
   const image = post?.image ?? null
 
   return (
     <Layout location={location}>
       <Meta
-          title={post?.frontmatter?.title || ''}
+          title={post?.title || ''}
           site={data.site?.meta}
       />
-      <div className='article' key={postNode.slug}>
+      <div className='article' key={postNode?.fields?.slug}>
         <div className='container'>
           <div className='info'>
-            <Link style={{ boxShadow: 'none' }} to={postNode.slug}>
+            <Link style={{ boxShadow: 'none' }} to={'.'}>
               <h1>{post?.title}</h1>
               <time dateTime={post?.date}>{post?.date}</time>
             </Link>
