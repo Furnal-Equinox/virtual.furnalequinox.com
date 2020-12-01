@@ -711,8 +711,8 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___layout'
   | 'childMarkdownRemark___frontmatter___path'
   | 'childMarkdownRemark___frontmatter___category'
-  | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___tags'
+  | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___image___sourceInstanceName'
   | 'childMarkdownRemark___frontmatter___image___absolutePath'
   | 'childMarkdownRemark___frontmatter___image___relativePath'
@@ -1644,8 +1644,8 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___layout'
   | 'frontmatter___path'
   | 'frontmatter___category'
-  | 'frontmatter___description'
   | 'frontmatter___tags'
+  | 'frontmatter___description'
   | 'frontmatter___image___sourceInstanceName'
   | 'frontmatter___image___absolutePath'
   | 'frontmatter___image___relativePath'
@@ -1967,8 +1967,8 @@ export type MarkdownRemarkFrontmatter = {
   layout?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   category?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description?: Maybe<Scalars['String']>;
   image?: Maybe<File>;
   dealer?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
@@ -1991,8 +1991,8 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   layout?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<FileFilterInput>;
   dealer?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
@@ -3510,6 +3510,20 @@ export type DealersIndexQueryQuery = { site?: Maybe<{ meta?: Maybe<(
         & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
           Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'path'>
           & { banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+        )> }
+      ) }> } };
+
+export type GalleryQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GalleryQueryQuery = { site?: Maybe<{ meta?: Maybe<(
+      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
+      & { author?: Maybe<Pick<SiteSiteMetadataAuthor, 'name'>> }
+    )> }>, remark: { artworks: Array<{ artwork: (
+        Pick<MarkdownRemark, 'id'>
+        & { frontmatter?: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title' | 'artist' | 'url'>
+          & { image?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> }
         )> }
       ) }> } };
 

@@ -37,13 +37,13 @@ const Navibar: React.FC<Props> = ({ location, title }: Props) => {
             </li>
             <li
               className={
-                location.pathname === '/profile/'
+                location.pathname === '/gallery/'
                   ? 'nav-item active'
                   : 'nav-item'
               }
             >
-              <Link to='/profile/' className='nav-link'>
-                Profile
+              <Link to='/gallery/' className='nav-link'>
+                Gallery
               </Link>
             </li>
           </ul>
