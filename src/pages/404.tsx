@@ -6,7 +6,7 @@ import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
 
 interface Props {
-    location: Location
+  location: Location
 }
 
 const NotFound: React.FC<Props> = ({ location }: Props) => {

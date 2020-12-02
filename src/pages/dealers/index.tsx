@@ -6,12 +6,11 @@ import Layout from '../../components/layout/layout'
 import { DealersIndexQueryQuery, ImageSharpFluid } from '../../../types/graphql-types'
 
 interface Props {
-  data: DealersIndexQueryQuery,
+  data: DealersIndexQueryQuery
   location: Location
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
-
   const dealers = data.remark.dealers
   const meta = data.site?.meta
 

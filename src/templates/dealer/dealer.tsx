@@ -10,7 +10,6 @@ import Layout from '../../components/layout/layout'
 import Meta from '../../components/meta/meta'
 import { DealerBySlugQuery } from '../../../types/graphql-types'
 
-
 interface Props {
   data: DealerBySlugQuery
   location: Location
@@ -23,17 +22,17 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
 
   return (
     <Layout location={location}>
-    <div className='article' key={postNode?.fields?.slug}>
-      <h1>{post?.dealer}</h1>
-    </div>
-    <div className='content'>
-      {banner?.childImageSharp?.fluid && (
-        <Img
-          fluid={banner.childImageSharp.fluid as FluidObject}
-          style={{ display: 'block', margin: '0 auto' }}
-        />
-      )}
-    </div>
+      <div className='article' key={postNode?.fields?.slug}>
+        <h1>{post?.dealer}</h1>
+      </div>
+      <div className='content'>
+        {banner?.childImageSharp?.fluid && (
+          <Img
+            fluid={banner.childImageSharp.fluid as FluidObject}
+            style={{ display: 'block', margin: '0 auto' }}
+          />
+        )}
+      </div>
     </Layout>
   )
 }

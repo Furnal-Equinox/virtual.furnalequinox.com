@@ -7,7 +7,7 @@ import Img, { FluidObject } from 'gatsby-image'
 import { GalleryQueryQuery } from '../../types/graphql-types'
 
 interface Props {
-  data: GalleryQueryQuery,
+  data: GalleryQueryQuery
   location: Location
 }
 

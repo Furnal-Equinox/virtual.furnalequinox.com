@@ -5,12 +5,12 @@ import { SiteSiteMetadata } from '../../../types/graphql-types'
 
 interface Props {
   site:
-    | Pick<
-        SiteSiteMetadata,
-        'title' | 'description' | 'author' | 'siteUrl'
-      >
-    | null
-    | undefined
+  | Pick<
+  SiteSiteMetadata,
+  'title' | 'description' | 'author' | 'siteUrl'
+  >
+  | null
+  | undefined
   title?: string
 }
 

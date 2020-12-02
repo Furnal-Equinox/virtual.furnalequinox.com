@@ -35,8 +35,8 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <Layout location={location}>
       <Meta
-          title={post?.title || ''}
-          site={data.site?.meta}
+        title={post?.title || ''}
+        site={data.site?.meta}
       />
       <div className='article' key={postNode?.fields?.slug}>
         <div className='container'>
