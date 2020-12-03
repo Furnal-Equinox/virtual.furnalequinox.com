@@ -37,7 +37,19 @@ module.exports = {
 
     'gatsby-plugin-react-helmet',
     
-    'gatsby-plugin-netlify',
+    /// Netlify headers and redirects go here.
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+
+      },
+    },
+
+    /// Prevent Gatsby from automatically generating hashes for its bundled output files.
+    /// See https://community.netlify.com/t/support-guide-making-the-most-of-netlifys-cdn-cache/127
+    /// for more information - tl;dr, Gatsby's hashes invalidate Netlify's cache even if Gatsby
+    /// generates a new hash for a file that has not changed.
+    'gatsby-plugin-remove-fingerprints',
 
     'gatsby-plugin-sitemap',
 
