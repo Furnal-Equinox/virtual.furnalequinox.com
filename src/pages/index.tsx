@@ -1,9 +1,12 @@
 import { graphql } from 'gatsby'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 import { IndexQueryQuery } from '../../types/graphql-types'
 import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
+
+import config from '../../site-config'
 
 import BackgroundImage from '../../content/images/moritz-mentges-unsplash.jpg'
 
@@ -13,11 +16,10 @@ interface Props {
 }
 
 const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
-  const meta = data.site?.meta
-
   return (
     <Layout location={location}>
-      <Meta site={meta} />
+      <Helmet title={`About | ${config.siteTitle}`} />
+      <Meta />
       <div>
         <section className='text-center'>
           <h1 className='p-5'>Bonjour, tout le monde !</h1>
@@ -37,13 +39,8 @@ export default BlogIndex
 export const indexQuery = graphql`
   query IndexQuery {
     site {
-      meta: siteMetadata {
+      siteMetadata {
         title
-        author {
-          name
-        }
-        description
-        siteUrl
       }
     }
   }

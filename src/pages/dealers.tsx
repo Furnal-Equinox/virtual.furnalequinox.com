@@ -1,9 +1,12 @@
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
-import Meta from '../../components/meta/meta'
-import Layout from '../../components/layout/layout'
-import { DealersIndexQueryQuery, ImageSharpFluid } from '../../../types/graphql-types'
+import Meta from '../components/meta/meta'
+import Layout from '../components/layout/layout'
+import { DealersIndexQueryQuery } from '../../types/graphql-types'
+
+import config from '../../site-config'
 
 interface Props {
   data: DealersIndexQueryQuery
@@ -12,11 +15,11 @@ interface Props {
 
 const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
   const dealers = data.remark.dealers
-  const meta = data.site?.meta
 
   return (
     <Layout location={location}>
-      <Meta site={meta} />
+      <Helmet title={`Dealers' Den | ${config.siteTitle}`} />
+      <Meta customDescription={'Dealers\' Den and Artists\' Alley'} />
       <div>
         {dealers.map(dealer => (
           <div key={dealer.dealer.id}>
@@ -34,16 +37,6 @@ export default DealersIndex
 
 export const dealersQuery = graphql`
   query DealersIndexQuery {
-    site {
-      meta: siteMetadata {
-        title
-        author {
-          name
-        }
-        description
-        siteUrl
-      }
-    }
     remark: allMarkdownRemark(
       sort: { fields: [frontmatter___title], order: DESC }
       filter: { frontmatter: { layout: { eq: "dealer" } } }

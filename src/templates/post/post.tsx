@@ -1,6 +1,7 @@
 import { graphql, Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 import Button from '../../components/button/button'
 import Badge from '../../components/badge/badge'
@@ -8,7 +9,11 @@ import Badge from '../../components/badge/badge'
 import './style.scss'
 import Layout from '../../components/layout/layout'
 import Meta from '../../components/meta/meta'
+
+import config from '../../../site-config'
+
 import { PostBySlugQuery } from '../../../types/graphql-types'
+
 
 const getDescription = (content: string): string => {
   const body = content.replace(
@@ -34,9 +39,13 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
 
   return (
     <Layout location={location}>
+      <Helmet>
+            <title>{`${post?.title} | ${config.siteTitle}`}</title>
+      </Helmet>
       <Meta
-        title={post?.title || ''}
-        site={data.site?.meta}
+        postPath={postNode?.fields?.slug}
+        postNode={postNode}
+        postSEO
       />
       <div className='article' key={postNode?.fields?.slug}>
         <div className='container'>
@@ -67,16 +76,6 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
 
 export const postQuery = graphql`
   query PostBySlug($slug: String!) {
-    site {
-      meta: siteMetadata {
-        title
-        description
-        siteUrl
-        author {
-          name
-        }
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       fields {

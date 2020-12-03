@@ -3499,13 +3499,20 @@ export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
 
+export type AdultQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AdultQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+export type BlogQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type BlogQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
 export type DealersIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DealersIndexQueryQuery = { site?: Maybe<{ meta?: Maybe<(
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
-      & { author?: Maybe<Pick<SiteSiteMetadataAuthor, 'name'>> }
-    )> }>, remark: { dealers: Array<{ dealer: (
+export type DealersIndexQueryQuery = { remark: { dealers: Array<{ dealer: (
         Pick<MarkdownRemark, 'id' | 'html'>
         & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
           Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'path'>
@@ -3516,10 +3523,7 @@ export type DealersIndexQueryQuery = { site?: Maybe<{ meta?: Maybe<(
 export type GalleryQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GalleryQueryQuery = { site?: Maybe<{ meta?: Maybe<(
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
-      & { author?: Maybe<Pick<SiteSiteMetadataAuthor, 'name'>> }
-    )> }>, remark: { artworks: Array<{ artwork: (
+export type GalleryQueryQuery = { remark: { artworks: Array<{ artwork: (
         Pick<MarkdownRemark, 'id'>
         & { frontmatter?: Maybe<(
           Pick<MarkdownRemarkFrontmatter, 'title' | 'artist' | 'url'>
@@ -3530,15 +3534,27 @@ export type GalleryQueryQuery = { site?: Maybe<{ meta?: Maybe<(
 export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexQueryQuery = { site?: Maybe<{ meta?: Maybe<(
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
-      & { author?: Maybe<Pick<SiteSiteMetadataAuthor, 'name'>> }
-    )> }> };
+export type IndexQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
-export type ProfilePageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type LoginQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProfilePageQueryQuery = { profile?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixed_WithWebpFragment> }> }> };
+export type LoginQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+export type ShopQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ShopQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+export type StreamThreeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StreamThreeQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+export type StreamTwoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StreamTwoQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 export type DealerBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -3558,10 +3574,7 @@ export type PostBySlugQueryVariables = Exact<{
 }>;
 
 
-export type PostBySlugQuery = { site?: Maybe<{ meta?: Maybe<(
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
-      & { author?: Maybe<Pick<SiteSiteMetadataAuthor, 'name'>> }
-    )> }>, markdownRemark?: Maybe<(
+export type PostBySlugQuery = { markdownRemark?: Maybe<(
     Pick<MarkdownRemark, 'html'>
     & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
       Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'date' | 'category' | 'tags'>

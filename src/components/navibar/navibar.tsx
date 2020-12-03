@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Logo from '../../../content/images/logo.png'
 
+import NavbarLinks from '../../data/navbar-links'
+
 interface Props {
   title: string
   location: Location
@@ -15,37 +17,20 @@ const Navibar: React.FC<Props> = ({ location, title }: Props) => {
           <img src={Logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
         </Link>
         <ul className='navbar-nav flex-row'>
-          <li
-            className={
-              location.pathname === '/' ? 'nav-item active' : 'nav-item'
-            }
-          >
-            <Link to='/' className='nav-link'>
-                Home
-            </Link>
-          </li>
-          <li
-            className={
-              location.pathname === '/dealers/'
-                ? 'nav-item active'
-                : 'nav-item'
-            }
-          >
-            <Link to='/dealers/' className='nav-link'>
-                Dealers
-            </Link>
-          </li>
-          <li
-            className={
-              location.pathname === '/gallery/'
-                ? 'nav-item active'
-                : 'nav-item'
-            }
-          >
-            <Link to='/gallery/' className='nav-link'>
-                Gallery
-            </Link>
-          </li>
+          {NavbarLinks.map(elem => 
+            <li 
+              key={elem.id}
+              className={
+                location.pathname === elem.to 
+                  ? 'nav-item active' 
+                  : 'nav-item'
+              }
+            >
+              <Link to={elem.to} className='nav-link'>
+                {elem.name}
+              </Link>
+            </li> 
+          )}
         </ul>
         <div className='navbar-nav flex-row ml-md-auto d-none d-md-flex' />
       </div>
