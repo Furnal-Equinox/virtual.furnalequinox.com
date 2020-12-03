@@ -1,20 +1,31 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import './style.scss'
+import { ImageSharpFluid } from '../../../types/graphql-types'
+
 
 interface Props {
-  path: string
-  label: string
-  primary: boolean
+  title: string
+  dealer: string
+  description: string
+  banner: string
+  slug: string
 }
 
-const Card: React.FC<Props> = ({ path, label, primary }: Props) => {
+const Card: React.FC<Props> = ({ title, dealer, description, banner, slug }: Props) => {
   return (
-    <div className="card" style={{ width: '18rem' }}>
-      <img src="..." className="card-img-top" alt="..." />
+    <div className="card mb-5 shadow-sm">
+      <img src={banner} className='card-img-top'></img>
       <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" className="btn btn-primary">Go somewhere</a>
+        <p className="card-text text-center">
+          {description}
+        </p>
+        <div className="d-flex justify-content-between align-items-center">
+          <Link to={`.${slug}`} className="btn btn-outline-primary">View</Link>
+          <p className='m-0'>
+            {dealer}  
+          </p>
+        </div>
       </div>
     </div>
   )

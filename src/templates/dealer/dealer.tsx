@@ -25,6 +25,7 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
   const banner = post?.banner ?? null
+  const images = post?.images ?? null
 
   return (
     <Layout location={location}>
@@ -36,16 +37,30 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
         postNode={postNode}
         postSEO
       />
-      <div className='article' key={postNode?.fields?.slug}>
-        <h1>{post?.dealer}</h1>
-      </div>
-      <div className='content'>
-        {banner?.childImageSharp?.fluid && (
-          <Img
-            fluid={banner.childImageSharp.fluid as FluidObject}
-            style={{ display: 'block', margin: '0 auto' }}
-          />
-        )}
+      <div>
+        <section className='pt-0'>
+          <div className='content'>
+            {banner?.childImageSharp?.fluid && (
+              <Img
+                fluid={banner.childImageSharp.fluid as FluidObject}
+                style={{ display: 'block', margin: '0 auto' }}
+              />
+            )}
+          </div>
+        </section>
+        <section className='jumbotron text-center bg-white py-1'>
+          <h1>{post?.title}</h1>
+          <h2>by {post?.dealer}</h2>
+          <p className='lead'>{post?.description}</p>
+        </section>
+        <section>
+          {images?.map(image =>
+            <Img
+              fluid={image?.childImageSharp?.fluid as FluidObject}
+              className='d-block my-2'
+            />
+          )}
+        </section>
       </div>
     </Layout>
   )
@@ -65,7 +80,14 @@ export const dealerQuery = graphql`
         url
         banner {
           childImageSharp {
-            fluid(maxWidth: 500) {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        images {
+          childImageSharp {
+            fluid {
               ...GatsbyImageSharpFluid
             }
           }
