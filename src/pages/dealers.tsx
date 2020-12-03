@@ -21,6 +21,7 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`Dealers' Den | ${config.siteTitle}`} />
       <Meta customDescription={'Dealers\' Den and Artists\' Alley'} />
       <div>
+        <section>
         {dealers.map(dealer => (
           <div key={dealer.dealer.id}>
             <Link to={`.${dealer.dealer.fields?.slug ?? ''}`}>
@@ -28,6 +29,10 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
             </Link>
           </div>
         ))}
+        </section>
+        <section>
+
+        </section>
       </div>
     </Layout>
   )
@@ -52,6 +57,8 @@ export const dealersQuery = graphql`
             title
             dealer
             description
+            kind
+            priority
             path
             banner {
               childImageSharp {

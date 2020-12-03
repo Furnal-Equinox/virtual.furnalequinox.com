@@ -14,6 +14,35 @@ This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://g
 * Styled with Sass using Bootstrap.
 * Deploys to Netlify with nothing more than what is in `netlify.toml`.
 
+# What's in This Repository?
+Loose Files
+* `.estlintrc.js` and `.estlintignore`: configuration files for ESLint, which helps enforce consistency and avoid some ambiguities and errors.
+* `.gitignore`: tells Git which folders and files to ignore to keep the repository size down on GitHub.
+* `.stylelintrc.js`: configuration file for stylelint, which does the same thing as ESLint but for CSS and its cousins like SASS / SCSS.
+* `.textlintrc`: configuration file for textlint, which can check prose for grammar problems.
+* `LICENSE`: the license file.
+* `README.md`: what you're reading right now!
+* `gatsby-browser.js`: Gatsby injects whatever is in here into the final HTML. This is good for global CSS and JS utilities like Bootstrap and jQuery.
+* `gatsby-config.js`: configuration file for Gatsby. This is where all of the plugins for Gatsby go, such as the one that allows Gatsby to understand Markdown files. This is also where Gatsby keeps metadata about the website.
+* `gatsby-node.js`: this file instructs Gatsby how to do some things during the build process, such as generating slugs and programmatically generating pages.
+* `netlify.toml`: configuration file for Netlify. Tells Netlify how to build the website and what folder should be deployed.
+* `package.json`: this file tells NPM / Yarn what this project's dependencies are.
+* `site-config.js`: I adapted this file from the `./data/SiteConfig.js` file from the Gatsby Advanced Starter. This is the single source of truth for metadata for the website.
+* `tsconfig.json`: configuration file for the TypeScript compiler.
+* `yarn.lock`: Yarn automatically generates this file to save the exact version of packages that match the specification in `package.json`. This makes sure any copy of this website will be using the same dependencies.
+
+Folders
+* `/content/`: holds all images and text to be added to the website.
+* `/src/`: holds the source code for the website.
+  * `/components/`: holds the source code for UI components.
+  * `/data/`: holds the source code for any static data that is needed only inside `/src/`, such as the links in the navbar component.
+  * `/pages/`: holds the source code for each page. Gatsby generates a web page for each of the files in this folder.
+  * `/scss/`: holds the global SCSS for the website, namely colors, fonts, and any configuration of Bootstrap.
+  * `/templates/`: holds the templates for generated pages. Gatsby uses these in `gatsby-node.js` to programmatically generate pages for the data in `/content/`.
+  * `html.tsx`: Gatsby optionally uses this file as the base HTML file for any HTML file it generates.
+* `/static/`: holds the favicon and logo.
+* `/types/`: holds any TypeScript type declaration files. At the moment, the only file is the one Gatsby generates for all the GraphQL queries in the website.
+
 # Environment Details
 This website was built with these tools, if for some reason the website build fails due to a compatibility issue with these tools.
 * NodeJS version: 14.15.0 (lts/fermium)
