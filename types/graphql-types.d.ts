@@ -749,11 +749,10 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___image___publicURL'
   | 'childMarkdownRemark___frontmatter___image___id'
   | 'childMarkdownRemark___frontmatter___image___children'
-  | 'childMarkdownRemark___frontmatter___artist'
-  | 'childMarkdownRemark___frontmatter___url'
   | 'childMarkdownRemark___frontmatter___dealer'
   | 'childMarkdownRemark___frontmatter___kind'
   | 'childMarkdownRemark___frontmatter___premium'
+  | 'childMarkdownRemark___frontmatter___url'
   | 'childMarkdownRemark___frontmatter___banner___sourceInstanceName'
   | 'childMarkdownRemark___frontmatter___banner___absolutePath'
   | 'childMarkdownRemark___frontmatter___banner___relativePath'
@@ -827,6 +826,7 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___images___publicURL'
   | 'childMarkdownRemark___frontmatter___images___id'
   | 'childMarkdownRemark___frontmatter___images___children'
+  | 'childMarkdownRemark___frontmatter___artist'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1710,11 +1710,10 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___image___childMarkdownRemark___timeToRead'
   | 'frontmatter___image___childMarkdownRemark___tableOfContents'
   | 'frontmatter___image___childMarkdownRemark___children'
-  | 'frontmatter___artist'
-  | 'frontmatter___url'
   | 'frontmatter___dealer'
   | 'frontmatter___kind'
   | 'frontmatter___premium'
+  | 'frontmatter___url'
   | 'frontmatter___banner___sourceInstanceName'
   | 'frontmatter___banner___absolutePath'
   | 'frontmatter___banner___relativePath'
@@ -1840,6 +1839,7 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___images___childMarkdownRemark___timeToRead'
   | 'frontmatter___images___childMarkdownRemark___tableOfContents'
   | 'frontmatter___images___childMarkdownRemark___children'
+  | 'frontmatter___artist'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1974,13 +1974,13 @@ export type MarkdownRemarkFrontmatter = {
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   description?: Maybe<Scalars['String']>;
   image?: Maybe<File>;
-  artist?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
   dealer?: Maybe<Scalars['String']>;
   kind?: Maybe<Scalars['String']>;
   premium?: Maybe<Scalars['Boolean']>;
+  url?: Maybe<Scalars['String']>;
   banner?: Maybe<File>;
   images?: Maybe<Array<Maybe<File>>>;
+  artist?: Maybe<Scalars['String']>;
 };
 
 
@@ -2000,13 +2000,13 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   tags?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<FileFilterInput>;
-  artist?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
   dealer?: Maybe<StringQueryOperatorInput>;
   kind?: Maybe<StringQueryOperatorInput>;
   premium?: Maybe<BooleanQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
   banner?: Maybe<FileFilterInput>;
   images?: Maybe<FileFilterListInput>;
+  artist?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
