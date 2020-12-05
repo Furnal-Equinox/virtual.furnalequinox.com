@@ -6,16 +6,15 @@ Hello! This repository houses the code for Furnal Equinox's web platform hosted 
 This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://github.com/jaxx2104/gatsby-starter-bootstrap), heavily modified to suit our needs.
 
 
-
-
 # Features
 * Most of the code is in TypeScript rather than JavaScript for type safety.
 * The code adheres to [Standard JS](https://standardjs.com/), with a few adjustments for consistency across JSX.
 * Styled with Sass using Bootstrap.
 * Deploys to Netlify with nothing more than what is in `netlify.toml`.
 
+
 # What's in This Repository?
-Loose Files
+### Loose Files
 * `.estlintrc.js` and `.estlintignore`: configuration files for ESLint, which helps enforce consistency and avoid some ambiguities and errors.
 * `.gitignore`: tells Git which folders and files to ignore to keep the repository size down on GitHub.
 * `.stylelintrc.js`: configuration file for stylelint, which does the same thing as ESLint but for CSS and its cousins like SASS / SCSS.
@@ -31,17 +30,27 @@ Loose Files
 * `tsconfig.json`: configuration file for the TypeScript compiler.
 * `yarn.lock`: Yarn automatically generates this file to save the exact version of packages that match the specification in `package.json`. This makes sure any copy of this website will be using the same dependencies.
 
-Folders
+### Folders
 * `/content/`: holds all images and text to be added to the website.
+  * `/dealers/`: holds the images and info for each individual dealer.
+  * `/gallery/`: likewise, but for the images in the art gallery.
+  * `/images/`: general images used throughout the website, like the logo and the splash image.
+  * `/posts/`: holds the images and text for each blog post.
+* `/docs/`: holds all the sketches, UI mockups, and WIP screenshots.
 * `/src/`: holds the source code for the website.
-  * `/components/`: holds the source code for UI components.
+  * `/components/`: holds the source code for UI components. 
+    * Each component has:
+      * `(something).tsx`, which represents the structure of that component.
+      * (optional) `(something).scss`, which represents the presentation of that component. The SCSS file is modularized to the component and has no effect outside of the component.
+    * A special `layout` component that specifies the layout for each page.
   * `/data/`: holds the source code for any static data that is needed only inside `/src/`, such as the links in the navbar component.
   * `/pages/`: holds the source code for each page. Gatsby generates a web page for each of the files in this folder.
   * `/scss/`: holds the global SCSS for the website, namely colors, fonts, and any configuration of Bootstrap.
-  * `/templates/`: holds the templates for generated pages. Gatsby uses these in `gatsby-node.js` to programmatically generate pages for the data in `/content/`.
+  * `/templates/`: holds the templates for generated pages. Gatsby uses these in `gatsby-node.js` to programmatically generate pages for the data in `/content/`. Each template also has its own SCSS file.
   * `html.tsx`: Gatsby optionally uses this file as the base HTML file for any HTML file it generates.
 * `/static/`: holds the favicon and logo.
 * `/types/`: holds any TypeScript type declaration files. At the moment, the only file is the one Gatsby generates for all the GraphQL queries in the website.
+
 
 # Environment Details
 This website was built with these tools, if for some reason the website build fails due to a compatibility issue with these tools.
@@ -50,15 +59,20 @@ This website was built with these tools, if for some reason the website build fa
 * Yarn version: 1.22.10
 * Gatsby CLI version: 2.14.1
 
+
 # Build Instructions
 ***Assuming a Unix operating system such as macOS or Linux***
 
-1. Clone or download this repository.
-2. `cd` into the directory and run `yarn`.
-3. Run `gastby develop` to start the local development server.
+0. Make sure you have installed NodeJS for your system. I recommend the workflow described [here on Tania Rascia's blog](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/#nodejs). 
+   1. Since this project uses a specific version, be sure to run `nvm install lts/fermium` and then `nvm alias default lts/fermium` (to set this version as the default) or `nvm use lts/fermium` (to use this version just for this session - you will have to run this every time you start a terminal, though!).
+   2. Run `npm i -g yarn` to install Yarn.
+1. Click on the green "Code" button at the top of the repository and clone or download this repository.
+2. `cd` into the directory and run `yarn` to install all the dependencies for this website.
+3. Run `gatsby develop` to start the local development server.
 4. If all went well, the website will be ready at `http://localhost:8000/`.
 5. Enjoy!!
-   
+
+
 # Deploy Instructions
 ***Warning: You must have access to the Netlify team in order to deploy to virtual.furnalequinox.com***
 
