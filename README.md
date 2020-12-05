@@ -1,7 +1,9 @@
 # virtual.furnalequinox.com
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8cad1cab-da94-4033-82b7-24b9fd36514d/deploy-status)](https://app.netlify.com/sites/virtual-furnal-equinox/deploys)
 ### The web platform for Furnal Equinox's virtual convention
 
 Hello! This repository houses the code for Furnal Equinox's web platform hosted at https://virtual.furnalequinox.com.
+Since this website is hosted on Netlify, you can also access it at https://virtual-furnal-equinox.netlify.app/.
 
 This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://github.com/jaxx2104/gatsby-starter-bootstrap), heavily modified to suit our needs.
 
