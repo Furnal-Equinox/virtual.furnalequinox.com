@@ -38,7 +38,9 @@ This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://g
   * `/gallery/`: likewise, but for the images in the art gallery.
   * `/images/`: general images used throughout the website, like the logo and the splash image.
   * `/posts/`: holds the images and text for each blog post.
-* `/docs/`: holds all the sketches, UI mockups, and WIP screenshots.
+* `/docs/`: holds all the sketches, UI mockups, and WIP screenshots. The `README.md` has a list of helpful links.
+* `/scripts/`: Scripts used to help automate stuff. These don't play any direct role in the website - they're just helpful tools.
+  * `docxToMD.hs`: (WIP) A Haskell script that converts dealer .docx files to Markdown files and corrects the structure to match the structure in `/dealers/`.
 * `/src/`: holds the source code for the website.
   * `/components/`: holds the source code for UI components. 
     * Each component has:

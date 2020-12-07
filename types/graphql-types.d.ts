@@ -2777,6 +2777,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___cacheDigest'
   | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___createLinkInHead'
+  | 'pluginCreator___pluginOptions___devMode'
+  | 'pluginCreator___pluginOptions___analyzerMode'
+  | 'pluginCreator___pluginOptions___analyzerPort'
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
@@ -3033,6 +3036,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___cacheDigest'
   | 'pluginOptions___output'
   | 'pluginOptions___createLinkInHead'
+  | 'pluginOptions___devMode'
+  | 'pluginOptions___analyzerMode'
+  | 'pluginOptions___analyzerPort'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
@@ -3197,6 +3203,9 @@ export type SitePluginPluginOptions = {
   cacheDigest?: Maybe<Scalars['String']>;
   output?: Maybe<Scalars['String']>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
+  devMode?: Maybe<Scalars['Boolean']>;
+  analyzerMode?: Maybe<Scalars['String']>;
+  analyzerPort?: Maybe<Scalars['Date']>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
@@ -3231,6 +3240,14 @@ export type SitePluginPluginOptions = {
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
+
+export type SitePluginPluginOptionsAnalyzerPortArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
   name?: Maybe<StringQueryOperatorInput>;
@@ -3249,6 +3266,9 @@ export type SitePluginPluginOptionsFilterInput = {
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   output?: Maybe<StringQueryOperatorInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
+  devMode?: Maybe<BooleanQueryOperatorInput>;
+  analyzerMode?: Maybe<StringQueryOperatorInput>;
+  analyzerPort?: Maybe<DateQueryOperatorInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;

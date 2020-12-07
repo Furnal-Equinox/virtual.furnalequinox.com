@@ -53,6 +53,16 @@ module.exports = {
 
     'gatsby-plugin-sitemap',
 
+    /// Bundle size analysis
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        devMode: true,
+        analyzerMode: "server",
+        analyzerPort: "8001",
+      },
+    },
+
 ///==============================================================================================///
 ///                              IMAGES AND STATIC DATA                                          ///
 ///==============================================================================================///
