@@ -20,7 +20,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
     <Layout location={location}>
       <Helmet title={`About | ${config.siteTitle}`} />
       <Meta />
-      <div>
+      <div className='container'>
         <section className='text-center'>
           <h1 className='p-5'>Bonjour, tout le monde !</h1>
         </section>

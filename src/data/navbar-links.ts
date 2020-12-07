@@ -12,11 +12,16 @@ const NavbarLinks: NavbarLink[] = [
   },
   {
     id: 1,
+    to: '/news/',
+    name: 'News'
+  },
+  {
+    id: 2,
     to: '/dealers/',
     name: 'Dealers\' Den'
   },
   {
-    id: 2,
+    id: 3,
     to: '/gallery/',
     name: 'Gallery'
   }

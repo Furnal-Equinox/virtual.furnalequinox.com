@@ -36,6 +36,7 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
   const image = post?.image ?? null
+  const html = postNode?.html ?? ''
 
   return (
     <Layout location={location}>
@@ -68,6 +69,12 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
               />
             )}
           </div>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: html,
+            }}
+          />
         </div>
       </div>
     </Layout>

@@ -9,14 +9,10 @@ interface Props {
 
 const Footer: React.FC<Props> = ({ author, title }: Props) => (
   <div className='footer'>
-    <div className='container'>
+    <div className='container text-center'>
       <hr className='border-primary' />
       <p>
-        {title}
-        <Link to='/profile/'>
-          <br />
-          <strong>{author}</strong> on Profile
-        </Link>
+        <strong>{ title }</strong>
       </p>
     </div>
   </div>

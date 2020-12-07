@@ -1,14 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import './style.scss'
 
-interface Props {
-  path: string
-  label: string
-  primary: boolean
-}
-
-const MockCard: React.FC<Props> = ({ path, label, primary }: Props) => {
+const MockCard: React.FC = () => {
   return (
     <div className="card mb-5 shadow-sm">
       <svg 

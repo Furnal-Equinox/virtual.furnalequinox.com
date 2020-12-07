@@ -25,7 +25,7 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
   const banner = post?.banner ?? null
-  const images = post?.images ?? null
+  const html = postNode?.html ?? ''
 
   return (
     <Layout location={location}>
@@ -54,12 +54,16 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
           <p className='lead'>{post?.description}</p>
         </section>
         <section>
-          {images?.map(image =>
-            <Img
-              fluid={image?.childImageSharp?.fluid as FluidObject}
-              className='d-block my-2'
+          <div className='article' key={postNode?.fields?.slug}>
+            <div className='container'>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{
+                __html: html,
+              }}
             />
-          )}
+            </div>
+          </div>
         </section>
       </div>
     </Layout>
@@ -79,13 +83,6 @@ export const dealerQuery = graphql`
         description
         url
         banner {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        images {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid

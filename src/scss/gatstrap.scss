@@ -80,11 +80,32 @@ p {
   margin-bottom: 20px;
 }
 
+
 img {
-  margin-bottom: 15px;
+  margin: 0;
   max-width: 100%;
 }
 
-img:hover {
-  animation: pulse 0.5s;
+/*
+html {
+  font-size: 1rem;
 }
+
+@include media-breakpoint-down(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+*/

@@ -3,28 +3,26 @@ import { Helmet } from 'react-helmet'
 import urljoin from "url-join";
 
 import config from '../../../site-config'
+import { PostBySlugQuery } from '../../../types/graphql-types';
 
 interface Props {
-  postNode: any
+  postNode: PostBySlugQuery
   postPath: any
   postSEO: any
   customDescription?: string
 }
 
 const Meta: React.FC<any> = ({ postNode, postPath, postSEO, customDescription }: Props) => {
-  let title: string
-  let description: string
+  let title: string | null | undefined
+  let description: string | null | undefined
   let image: string = config.siteLogo
   let postURL: string
 
   if (postSEO) {
-    const postMeta = postNode.frontmatter;
-    title = postMeta.title
+    const postMeta = postNode?.markdownRemark?.frontmatter;
+    title = postMeta?.title
 
-    description = 
-      postMeta.description
-        ? postMeta.description
-        : postNode.excerpt
+    description = postMeta?.description
 
     postURL = urljoin(config.siteUrl, config.pathPrefix, postPath)
   } else {
@@ -105,7 +103,7 @@ const Meta: React.FC<any> = ({ postNode, postPath, postSEO, customDescription }:
   return (
     <Helmet>
       {/* General tags */}
-      <meta name="description" content={description} />
+      <meta name="description" content={description ?? ''} />
       <meta name="image" content={image} />
 
       {/* Schema.org tags */}
@@ -116,8 +114,8 @@ const Meta: React.FC<any> = ({ postNode, postPath, postSEO, customDescription }:
       {/* OpenGraph tags */}
       <meta property="og:url" content={postSEO ? postURL : config.siteUrl} />
       {postSEO ? <meta property="og:type" content="article" /> : null}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      <meta property="og:title" content={title ?? ''} />
+      <meta property="og:description" content={description ?? ''} />
       <meta property="og:image" content={image} />
     </Helmet>
   )

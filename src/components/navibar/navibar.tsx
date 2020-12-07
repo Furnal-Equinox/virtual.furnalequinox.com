@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Logo from '../../../content/images/logo.png'
 
+import './style.scss'
+
 import NavbarLinks from '../../data/navbar-links'
 
 interface Props {

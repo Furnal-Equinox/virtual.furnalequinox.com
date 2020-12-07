@@ -23,7 +23,9 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
   return (
     <div>
       <Navibar title={siteMetadata.title} location={location} />
-      {children}
+      <section className='py-5'>
+        { children }
+      </section>
       <Footer title={siteMetadata.title} author={siteMetadata.author.name} />
     </div>
   )

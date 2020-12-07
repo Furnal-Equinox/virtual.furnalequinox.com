@@ -7,11 +7,15 @@ description: 'Apparel, buttons, stickers, charms, dakimakuras and more all made 
 url: 'https://www.beastwithin.ca/'
 path: 'dealers/beast-within/'
 banner: './BW-logo.png'
-images:
-    - './booth2.jpg'
-    - './products.jpg'
-    - './shirt-show.png'
 layout: dealer
 ---
 
 # Here's my awesome store!!
+
+![My Booth](booth2.jpg)
+
+# Cool, right?
+
+![Some of My Products](products.jpg)
+
+![Some Shirts](shirt-show.png)

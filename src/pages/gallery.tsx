@@ -21,7 +21,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
     <Layout location={location}>
       <Helmet title={`Gallery | ${config.siteTitle}`} />
       <Meta customDescription='Art Gallery' />
-      <div>
+      <div className='container'>
         {artworks.map(artwork => (
           artwork.artwork.frontmatter?.image?.childImageSharp?.fluid &&
           <Img
