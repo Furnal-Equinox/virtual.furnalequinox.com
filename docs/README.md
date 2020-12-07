@@ -10,6 +10,8 @@
 
 [React Docs](https://reactjs.org/docs/getting-started.html)
 
+[GraphQL Docs](https://graphql.org/learn/)
+
 ### Gatsby and Netlify
 
 [Gatsby Docs](https://www.gatsbyjs.com/docs/)
@@ -34,6 +36,8 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Font Awesome Docs - React](https://fontawesome.com/how-to-use/on-the-web/using-with/react)
 
+[react-fontawesome](https://github.com/FortAwesome/react-fontawesome)
+
 ### Related Projects
 
 [Gatsby Advanced Starter](https://github.com/Vagr9K/gatsby-advanced-starter)
@@ -47,4 +51,14 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 ### Testing
 
 [testmysite.io](https://testmysite.io/)
+
+### Related Blog Posts, Forum Posts, and Articles
+
+[How to add Font Awesome to a Gatsby site](https://medium.com/@johnny02/how-to-add-font-awesome-to-a-gatsby-site-89da940924d5)
+
+### Haskell Script
+
+[Turtle Tutorial](https://hackage.haskell.org/package/turtle-1.5.21/docs/Turtle-Tutorial.html)
+
+[Turtle.Prelude](https://hackage.haskell.org/package/turtle-1.5.21/docs/Turtle-Prelude.html)
 

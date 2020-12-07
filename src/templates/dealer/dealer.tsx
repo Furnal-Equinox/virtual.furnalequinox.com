@@ -13,6 +13,7 @@ import Meta from '../../components/meta/meta'
 import config from '../../../site-config'
 
 import { DealerBySlugQuery } from '../../../types/graphql-types'
+import Icon from '../../components/icon/icon'
 
 
 
@@ -56,12 +57,13 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
         <section>
           <div className='article' key={postNode?.fields?.slug}>
             <div className='container'>
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: html,
-              }}
-            />
+              <Icon name='facebook' title='facebook'/>
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{
+                  __html: html,
+                }}
+              />
             </div>
           </div>
         </section>
