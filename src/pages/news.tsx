@@ -23,8 +23,8 @@ const Blog: React.FC<Props> = ({ data, location }: Props) => {
       <Meta customDescription='Blog posts' />
       <div className='container'>
         {posts.map(post =>
-          <section className='jumbotron' key={post?.post?.fields?.slug}>
-            <div className='container'>
+          <section className='p-3 mx-3 my-5 bg-light text-left rounded' key={post?.post?.fields?.slug}>
+            <div className='col'>
               <h1>{post?.post?.frontmatter?.title ?? ''}</h1>
               <p className='lead'>{post?.post?.frontmatter?.description}</p>
               <a 

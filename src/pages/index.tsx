@@ -10,6 +10,8 @@ import config from '../../site-config'
 
 import BackgroundImage from '../../content/images/moritz-mentges-unsplash.jpg'
 
+import './index.scss'
+
 interface Props {
   data: IndexQueryQuery
   location: Location
@@ -18,17 +20,15 @@ interface Props {
 const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <Layout location={location}>
-      <Helmet title={`About | ${config.siteTitle}`} />
+      <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
-      <div className='container'>
-        <section className='text-center'>
-          <h1 className='p-5'>Bonjour, tout le monde !</h1>
-        </section>
-        <section>
-          <div className='cover-image'>
-            <img src={BackgroundImage}/>
+      <div className="d-flex h-100 text-center text-white bg-image">
+        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+          <div className="px-3">
+            <h1>Cover your page.</h1>
+            <p className="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
           </div>
-        </section>
+        </div>
       </div>
     </Layout>
   )

@@ -23,8 +23,8 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`Dealers' Den | ${config.siteTitle}`} />
       <Meta custolgescription={'Dealers\' Den and Artists\' Alley'} />
       <div>
-        <section className='jumbotron text-center'>
-          <div className='container'>
+        <section className='container-fluid py-3 py-lg-5 bg-light text-center'>
+          <div className='col-lg-6 col-md-8 mx-auto'>
             <h1>Dealers (Live Data)</h1>
             <p className='lead'>Check out all these cool dealers!</p>
           </div>
@@ -32,13 +32,13 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
         <section className='py-5'>
           <CardGrid data={dealers} />
         </section>
-        <section className='jumbotron text-center'>
-          <div className='container'>
+        <section className='container-fluid py-3 py-lg-5 bg-light text-center'>
+          <div className='col-lg-6 col-md-8 mx-auto'>
             <h1>Dealers (Mock Grid)</h1>
             <p className='lead'>Check out all these cool dealers!</p>
           </div>
         </section>
-        <section className='py-5'>
+        <section className='py-3 py-lg-5'>
           <div className='container'>
             <div className='row'>
               <div className='col-lg-12'>
