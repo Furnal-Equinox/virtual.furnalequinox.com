@@ -1,10 +1,10 @@
-interface NavbarLink {
+interface NavLink {
   id: number
   to: string
   name: string
 } 
 
-const NavbarLinks: NavbarLink[] = [
+export const NavbarLinks: NavLink[] = [
   {
     id: 0,
     to: '/',
@@ -27,4 +27,10 @@ const NavbarLinks: NavbarLink[] = [
   }
 ]
 
-export default NavbarLinks
+export const FooterLinks: NavLink[] = [
+  {
+    id: 0,
+    to: '',
+    name: ''
+  }
+]
