@@ -4,7 +4,7 @@ import './style.scss'
 
 const MockCard: React.FC = () => {
   return (
-    <Link to={`.`}>
+    <Link to={`.`} className='clickable-card'>
       <div className="card mb-5 shadow-sm">
         <svg 
           className="bd-placeholder-img card-img-top" 

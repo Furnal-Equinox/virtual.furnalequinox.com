@@ -13,28 +13,41 @@ interface Props {
 
 const Navibar: React.FC<Props> = ({ location, title }: Props) => {
   return (
-    <nav className='navbar navbar-expand navbar-light flex-column flex-md-row bg-white sticky-top py-0'>
+    <nav className='navbar navbar-expand-md navbar-light bg-white sticky-top py-0'>
       <div className='container'>
         <Link className='navbar-brand mr-2' to='/'>
           <img src={Logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
         </Link>
-        <ul className='navbar-nav flex-row'>
-          {NavbarLinks.map(elem => 
-            <li 
-              key={elem.id}
-              className={
-                location.pathname === elem.to 
-                  ? 'nav-item active' 
-                  : 'nav-item'
-              }
-            >
-              <Link to={elem.to} className='nav-link'>
-                {elem.name}
-              </Link>
-            </li> 
-          )}
-        </ul>
-        <div className='navbar-nav flex-row ml-md-auto d-none d-md-flex' />
+
+        <button 
+          className="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarCollapse" 
+          aria-controls="navbarCollapse" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className='collapse navbar-collapse' id='navbarCollapse'>
+          <ul className='navbar-nav me-auto mb-2 mb-md-0'>
+            {NavbarLinks.map(elem => 
+              <li 
+                key={elem.id}
+                className={
+                  location.pathname === elem.to 
+                    ? 'nav-item active' 
+                    : 'nav-item'
+                }
+              >
+                <Link to={elem.to} className='nav-link'>
+                  {elem.name}
+                </Link>
+              </li> 
+            )}
+          </ul>
+        </div>
       </div>
     </nav>
   )

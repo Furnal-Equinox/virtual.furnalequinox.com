@@ -12,3 +12,11 @@
     font-size: 3.5rem;
   }
 }
+
+a.clickable-card {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
