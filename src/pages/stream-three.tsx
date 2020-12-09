@@ -15,8 +15,6 @@ interface Props {
 }
 
 const StreamThree: React.FC<Props> = ({ data, location }: Props) => {
-  const meta = data.site?.meta
-  
   return (
     <Layout location={location}>
       <Helmet title={`Stream 3 | ${config.siteTitle}`} />

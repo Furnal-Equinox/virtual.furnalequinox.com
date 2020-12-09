@@ -8,8 +8,6 @@ import Layout from '../components/layout/layout'
 
 import config from '../../site-config'
 
-import BackgroundImage from '../../content/images/moritz-mentges-unsplash.jpg'
-
 import './index.scss'
 
 interface Props {
@@ -22,11 +20,11 @@ const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
     <Layout location={location}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
-      <div className="d-flex h-100 text-center text-white bg-image">
-        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-          <div className="px-3">
+      <div className='d-flex h-100 text-center text-white bg-image'>
+        <div className='cover-container d-flex w-100 h-100 p-3 mx-auto flex-column'>
+          <div className='px-3'>
             <h1>Cover your page.</h1>
-            <p className="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <p className='lead'>Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
           </div>
         </div>
       </div>

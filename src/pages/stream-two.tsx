@@ -8,7 +8,6 @@ import Layout from '../components/layout/layout'
 import config from '../../site-config'
 import { StreamTwoQueryQuery } from '../../types/graphql-types'
 
-
 interface Props {
   data: StreamTwoQueryQuery
   location: Location

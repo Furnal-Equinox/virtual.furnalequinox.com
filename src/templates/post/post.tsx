@@ -14,7 +14,6 @@ import config from '../../../site-config'
 
 import { PostBySlugQuery } from '../../../types/graphql-types'
 
-
 const getDescription = (content: string): string => {
   const body = content.replace(
     /<blockquote>/g,
@@ -41,7 +40,7 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <Layout location={location}>
       <Helmet>
-            <title>{`${post?.title} | ${config.siteTitle}`}</title>
+        <title>{`${post?.title} | ${config.siteTitle}`}</title>
       </Helmet>
       <Meta
         postPath={postNode?.fields?.slug}
@@ -70,9 +69,9 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
             )}
           </div>
           <div
-            className="content"
+            className='content'
             dangerouslySetInnerHTML={{
-              __html: html,
+              __html: html
             }}
           />
         </div>

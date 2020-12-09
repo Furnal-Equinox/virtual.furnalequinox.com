@@ -15,8 +15,6 @@ import config from '../../../site-config'
 import { DealerBySlugQuery } from '../../../types/graphql-types'
 import Icon from '../../components/icon/icon'
 
-
-
 interface Props {
   data: DealerBySlugQuery
   location: Location
@@ -31,7 +29,7 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <Layout location={location}>
       <Helmet>
-            <title>{`${post?.title} | ${config.siteTitle}`}</title>
+        <title>{`${post?.title} | ${config.siteTitle}`}</title>
       </Helmet>
       <Meta
         postPath={postNode?.fields?.slug}
@@ -59,9 +57,9 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
             <div className='container'>
               <Icon name='facebook' title='facebook'/>
               <div
-                className="content"
+                className='content'
                 dangerouslySetInnerHTML={{
-                  __html: html,
+                  __html: html
                 }}
               />
             </div>

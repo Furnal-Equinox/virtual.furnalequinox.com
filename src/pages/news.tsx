@@ -6,8 +6,7 @@ import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
 
 import config from '../../site-config'
-import Post from '../templates/post/post'
-import { BlogQueryQuery, PostBySlugQuery } from '../../types/graphql-types'
+import { BlogQueryQuery } from '../../types/graphql-types'
 
 interface Props {
   data: BlogQueryQuery

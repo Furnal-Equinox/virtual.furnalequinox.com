@@ -15,8 +15,6 @@ interface Props {
 }
 
 const Shop: React.FC<Props> = ({ data, location }: Props) => {
-  const meta = data.site?.meta
-  
   return (
     <Layout location={location}>
       <Helmet title={`Shop | ${config.siteTitle}`} />
