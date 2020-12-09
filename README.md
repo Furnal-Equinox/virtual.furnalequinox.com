@@ -9,21 +9,23 @@ This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://g
 
 
 # Features
-* Most of the code is in TypeScript rather than JavaScript for type safety.
-* The code adheres to [Standard JS](https://standardjs.com/), with a few adjustments for consistency across JSX.
+* Built using [Gatsby](https://www.gatsbyjs.com/), a static site generator for [React](https://reactjs.org/).
+* Written mostly in [TypeScript](https://www.typescriptlang.org) to help catch bugs, errors, and other weirdness from JavaScript's dynamic type system at compile time.
+* Adheres to [Standard JS](https://standardjs.com/), with a few adjustments for consistency across JSX.
 * Styled with Sass using Bootstrap.
 * Deploys to Netlify with nothing more than what is in `netlify.toml`.
+* Uses the Gatsby cache during deployment for fast build times!
 
 
 # What's in This Repository?
-### Loose Files
+### Loose Files 📄
 * `.estlintrc.js` and `.estlintignore`: configuration files for ESLint, which helps enforce consistency and avoid some ambiguities and errors.
 * `.gitignore`: tells Git which folders and files to ignore to keep the repository size down on GitHub.
 * `.stylelintrc.js`: configuration file for stylelint, which does the same thing as ESLint but for CSS and its cousins like SASS / SCSS.
 * `.textlintrc`: configuration file for textlint, which can check prose for grammar problems.
 * `LICENSE`: the license file.
 * `README.md`: what you're reading right now!
-* `gatsby-browser.js`: Gatsby injects whatever is in here into the final HTML. This is good for global CSS and JS utilities like Bootstrap and jQuery.
+* `gatsby-browser.js`: Gatsby injects whatever is in here into the final HTML. This is good for global JS utilities like jQuery and Popper.js.
 * `gatsby-config.js`: configuration file for Gatsby. This is where all of the plugins for Gatsby go, such as the one that allows Gatsby to understand Markdown files. This is also where Gatsby keeps metadata about the website.
 * `gatsby-node.js`: this file instructs Gatsby how to do some things during the build process, such as generating slugs and programmatically generating pages.
 * `netlify.toml`: configuration file for Netlify. Tells Netlify how to build the website and what folder should be deployed.
@@ -32,13 +34,17 @@ This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://g
 * `tsconfig.json`: configuration file for the TypeScript compiler.
 * `yarn.lock`: Yarn automatically generates this file to save the exact version of packages that match the specification in `package.json`. This makes sure any copy of this website will be using the same dependencies.
 
-### Folders
+### Folders 📂
 * `/content/`: holds all images and text to be added to the website.
   * `/dealers/`: holds the images and info for each individual dealer.
   * `/gallery/`: likewise, but for the images in the art gallery.
   * `/images/`: general images used throughout the website, like the logo and the splash image.
   * `/posts/`: holds the images and text for each blog post.
 * `/docs/`: holds all the sketches, UI mockups, and WIP screenshots. The `README.md` has a list of helpful links.
+  * `/Form Input/`: notes on info and data needed from dealers and artists.
+  * `/Routines/`: notes on some common stuff like adding new pages.
+  * `/Sketches/`: any UI mock-ups and sketches, categorized by date.
+  * `/WIP Screenshots/`: Screen shots I have taken of the website.
 * `/scripts/`: Scripts used to help automate stuff. These don't play any direct role in the website - they're just helpful tools.
   * `docxToMD.hs`: (WIP) A Haskell script that converts dealer .docx files to Markdown files and corrects the structure to match the structure in `/dealers/`.
 * `/src/`: holds the source code for the website.
@@ -46,9 +52,10 @@ This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://g
     * Each component has:
       * `(something).tsx`, which represents the structure of that component.
       * (optional) `(something).scss`, which represents the presentation of that component. The SCSS file is modularized to the component and has no effect outside of the component.
-    * A special `layout` component that specifies the layout for each page.
+    * A special `layout` component that specifies the layout for each page. This is where I've included the global CSS files since every page uses this component.
   * `/data/`: holds the source code for any static data that is needed only inside `/src/`, such as the links in the navbar component.
   * `/pages/`: holds the source code for each page. Gatsby generates a web page for each of the files in this folder.
+    * `index.tsx`: in particular, this is the home page! 
   * `/scss/`: holds the global SCSS for the website, namely colors, fonts, and any configuration of Bootstrap.
   * `/templates/`: holds the templates for generated pages. Gatsby uses these in `gatsby-node.js` to programmatically generate pages for the data in `/content/`. Each template also has its own SCSS file.
   * `html.tsx`: Gatsby optionally uses this file as the base HTML file for any HTML file it generates.
@@ -56,12 +63,12 @@ This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://g
 * `/types/`: holds any TypeScript type declaration files. At the moment, the only file is the one Gatsby generates for all the GraphQL queries in the website.
 
 
-# Environment Details
+# Environment Details 🌎
 This website was built with these tools, if for some reason the website build fails due to a compatibility issue with these tools.
-* NodeJS version: 14.15.0 (lts/fermium)
-* NPM version: 6.14.9
-* Yarn version: 1.22.10
-* Gatsby CLI version: 2.14.1
+* [NodeJS](https://nodejs.org/en/) version: 14.15.0 (lts/fermium)
+* [NPM](https://www.npmjs.com/) version: 6.14.9
+* [Yarn](https://yarnpkg.com/) version: 1.22.10
+* [Gatsby](https://www.gatsbyjs.com/) CLI version: 2.14.1
 
 
 # Build Instructions
@@ -78,7 +85,9 @@ This website was built with these tools, if for some reason the website build fa
 
 
 # Deploy Instructions
-***Warning: You must have access to the Netlify team in order to deploy to virtual.furnalequinox.com***
+***⚠️Warning: You must have access to the Netlify team in order to deploy to virtual.furnalequinox.com⚠️***
+
+***⚠️Warning: I have turned off automatic deploys. Deploys must be done via the Netlify CLI.⚠️***
 
 Deployment can be handled either through Netlify's website or through the Netlify CLI.
 Triggering a deploy on the website is as simple as pressing a button.
