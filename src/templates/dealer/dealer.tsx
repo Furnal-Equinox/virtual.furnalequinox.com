@@ -13,8 +13,9 @@ import { DealerBySlugQuery, PostBySlugQuery } from '../../../types/graphql-types
 import Icon from '../../components/icon/icon'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconName } from '@fortawesome/fontawesome-svg-core'
+import { Deviantart, Facebook, Furaffinity } from '@icons-pack/react-simple-icons'
 
-import '../../utils/fontawesome'
+
 
 interface Props {
   data: DealerBySlugQuery
@@ -56,9 +57,17 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
             </div>
             <div className='col-lg-6 text-center py-1'>
               <h1>Social media links</h1>
-              <FontAwesomeIcon icon={['fab', 'twitter']} />
-              <FontAwesomeIcon icon={['fab', 'facebook-f']} />
-              <FontAwesomeIcon icon={['fab', 'deviantart']} />
+              <div className='row'>
+                <div className='col'>
+                  <Furaffinity />
+                </div>
+                <div className='col'>
+                  <Facebook />
+                </div>
+                <div className='col'>
+                  <Deviantart size='2rem' />
+                </div>
+              </div>
             </div>
           </div>
         </section>

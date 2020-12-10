@@ -1,15 +1,19 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconName } from '@fortawesome/fontawesome-svg-core'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
+import '../../utils/fontawesome'
+
+import './style.scss'
 
 interface Props {
-  name: string
+  icon: IconProp
   title: string
 }
 
-const Icon: React.FC<Props> = ({ name, title }: Props) => (
-  <div className='icon' title={title}>
-    <FontAwesomeIcon icon={name as IconName} />
+const Icon: React.FC<Props> = ({ icon, title }: Props) => (
+  <div className='icon-container' title={title}>
+    <FontAwesomeIcon icon={icon} size='2x' className='icon' />
   </div>
 )
 
