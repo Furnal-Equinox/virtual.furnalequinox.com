@@ -3,36 +3,58 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library, IconName } from '@fortawesome/fontawesome-svg-core'
 
 import {
-  faApple,
-  faAws,
-  faFacebook,
+  faBehance,
+  faDeviantart,
+  faDiscord,
+  faEtsy,
+  faFacebookF,
   faGithub,
   faHtml5,
-  faJs,
-  faNode,
-  faPhp,
-  faReact,
+  faInstagram,
+  faPinterestP,
+  faSteamSymbol,
+  faTelegramPlane,
+  faTumblr,
+  faTwitch,
   faTwitter,
-  faVuejs
+  faYoutube
 } from '@fortawesome/free-brands-svg-icons'
 import './style.scss'
 
 library.add(
-  faApple,
-  faAws,
-  faFacebook,
+  faBehance,
+  faDeviantart,
+  faDiscord,
+  faEtsy,
+  faFacebookF,
   faGithub,
-  faHtml5,
-  faJs,
-  faNode,
-  faPhp,
-  faReact,
+  faInstagram,
+  faPinterestP,
+  faSteamSymbol,
+  faTelegramPlane,
+  faTumblr,
+  faTwitch,
   faTwitter,
-  faVuejs
+  faYoutube
 )
 
 interface Props {
-  name: 'apple' | 'aws' | 'php' | 'node' | 'vuejs' | 'react' | 'js' | 'html5'
+  name: 'behance' 
+      | 'deviantart' 
+      | 'discord' 
+      | 'etsy' 
+      | 'facebook' 
+      | 'furaffinity'
+      | 'github' 
+      | 'instagram'
+      | 'picarto'
+      | 'pinterest'
+      | 'steam'
+      | 'telegram'
+      | 'tumblr'
+      | 'twitch'
+      | 'twitter'
+      | 'youtube'
   title: string
 }
 

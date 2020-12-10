@@ -3,12 +3,38 @@ import { Helmet } from 'react-helmet'
 import urljoin from 'url-join'
 
 import config from '../../../site-config'
-import { PostBySlugQuery } from '../../../types/graphql-types'
+import { GatsbyImageSharpFluidFragment, MarkdownRemark, MarkdownRemarkFields, MarkdownRemarkFrontmatter, Maybe, PostBySlugQuery } from '../../../types/graphql-types'
 
 interface Props {
-  postNode: PostBySlugQuery
+  postNode: { 
+    markdownRemark?: Maybe<(
+      Pick<
+        MarkdownRemark, 
+        'html'
+      > & { 
+        fields?: Maybe<
+          Pick<
+            MarkdownRemarkFields, 
+            'slug'
+          >
+        >, 
+        frontmatter?: Maybe<(
+          Pick<
+            MarkdownRemarkFrontmatter, 
+            'title' | 'description' | 'date' | 'category' | 'tags'
+          > & { 
+            image?: Maybe<{ 
+              childImageSharp?: Maybe<{ 
+                fluid?: Maybe<GatsbyImageSharpFluidFragment> 
+              }> 
+            }> 
+          }
+        )> 
+      }
+    )> 
+  }
   postPath: any
-  postSEO: any
+  postSEO: boolean
   customDescription?: string
 }
 

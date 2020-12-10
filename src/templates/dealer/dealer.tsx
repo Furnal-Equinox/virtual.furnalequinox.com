@@ -3,16 +3,13 @@ import Img, { FluidObject } from 'gatsby-image'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import Button from '../../components/button/button'
-import Badge from '../../components/badge/badge'
-
 import './style.scss'
 import Layout from '../../components/layout/layout'
 import Meta from '../../components/meta/meta'
 
 import config from '../../../site-config'
 
-import { DealerBySlugQuery } from '../../../types/graphql-types'
+import { DealerBySlugQuery, PostBySlugQuery } from '../../../types/graphql-types'
 import Icon from '../../components/icon/icon'
 
 interface Props {
