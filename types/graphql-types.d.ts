@@ -710,45 +710,9 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___date'
   | 'childMarkdownRemark___frontmatter___layout'
   | 'childMarkdownRemark___frontmatter___path'
+  | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___category'
   | 'childMarkdownRemark___frontmatter___tags'
-  | 'childMarkdownRemark___frontmatter___description'
-  | 'childMarkdownRemark___frontmatter___image___sourceInstanceName'
-  | 'childMarkdownRemark___frontmatter___image___absolutePath'
-  | 'childMarkdownRemark___frontmatter___image___relativePath'
-  | 'childMarkdownRemark___frontmatter___image___extension'
-  | 'childMarkdownRemark___frontmatter___image___size'
-  | 'childMarkdownRemark___frontmatter___image___prettySize'
-  | 'childMarkdownRemark___frontmatter___image___modifiedTime'
-  | 'childMarkdownRemark___frontmatter___image___accessTime'
-  | 'childMarkdownRemark___frontmatter___image___changeTime'
-  | 'childMarkdownRemark___frontmatter___image___birthTime'
-  | 'childMarkdownRemark___frontmatter___image___root'
-  | 'childMarkdownRemark___frontmatter___image___dir'
-  | 'childMarkdownRemark___frontmatter___image___base'
-  | 'childMarkdownRemark___frontmatter___image___ext'
-  | 'childMarkdownRemark___frontmatter___image___name'
-  | 'childMarkdownRemark___frontmatter___image___relativeDirectory'
-  | 'childMarkdownRemark___frontmatter___image___dev'
-  | 'childMarkdownRemark___frontmatter___image___mode'
-  | 'childMarkdownRemark___frontmatter___image___nlink'
-  | 'childMarkdownRemark___frontmatter___image___uid'
-  | 'childMarkdownRemark___frontmatter___image___gid'
-  | 'childMarkdownRemark___frontmatter___image___rdev'
-  | 'childMarkdownRemark___frontmatter___image___ino'
-  | 'childMarkdownRemark___frontmatter___image___atimeMs'
-  | 'childMarkdownRemark___frontmatter___image___mtimeMs'
-  | 'childMarkdownRemark___frontmatter___image___ctimeMs'
-  | 'childMarkdownRemark___frontmatter___image___atime'
-  | 'childMarkdownRemark___frontmatter___image___mtime'
-  | 'childMarkdownRemark___frontmatter___image___ctime'
-  | 'childMarkdownRemark___frontmatter___image___birthtime'
-  | 'childMarkdownRemark___frontmatter___image___birthtimeMs'
-  | 'childMarkdownRemark___frontmatter___image___blksize'
-  | 'childMarkdownRemark___frontmatter___image___blocks'
-  | 'childMarkdownRemark___frontmatter___image___publicURL'
-  | 'childMarkdownRemark___frontmatter___image___id'
-  | 'childMarkdownRemark___frontmatter___image___children'
   | 'childMarkdownRemark___frontmatter___dealer'
   | 'childMarkdownRemark___frontmatter___kind'
   | 'childMarkdownRemark___frontmatter___premium'
@@ -789,7 +753,135 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___banner___publicURL'
   | 'childMarkdownRemark___frontmatter___banner___id'
   | 'childMarkdownRemark___frontmatter___banner___children'
+  | 'childMarkdownRemark___frontmatter___images'
+  | 'childMarkdownRemark___frontmatter___images___sourceInstanceName'
+  | 'childMarkdownRemark___frontmatter___images___absolutePath'
+  | 'childMarkdownRemark___frontmatter___images___relativePath'
+  | 'childMarkdownRemark___frontmatter___images___extension'
+  | 'childMarkdownRemark___frontmatter___images___size'
+  | 'childMarkdownRemark___frontmatter___images___prettySize'
+  | 'childMarkdownRemark___frontmatter___images___modifiedTime'
+  | 'childMarkdownRemark___frontmatter___images___accessTime'
+  | 'childMarkdownRemark___frontmatter___images___changeTime'
+  | 'childMarkdownRemark___frontmatter___images___birthTime'
+  | 'childMarkdownRemark___frontmatter___images___root'
+  | 'childMarkdownRemark___frontmatter___images___dir'
+  | 'childMarkdownRemark___frontmatter___images___base'
+  | 'childMarkdownRemark___frontmatter___images___ext'
+  | 'childMarkdownRemark___frontmatter___images___name'
+  | 'childMarkdownRemark___frontmatter___images___relativeDirectory'
+  | 'childMarkdownRemark___frontmatter___images___dev'
+  | 'childMarkdownRemark___frontmatter___images___mode'
+  | 'childMarkdownRemark___frontmatter___images___nlink'
+  | 'childMarkdownRemark___frontmatter___images___uid'
+  | 'childMarkdownRemark___frontmatter___images___gid'
+  | 'childMarkdownRemark___frontmatter___images___rdev'
+  | 'childMarkdownRemark___frontmatter___images___ino'
+  | 'childMarkdownRemark___frontmatter___images___atimeMs'
+  | 'childMarkdownRemark___frontmatter___images___mtimeMs'
+  | 'childMarkdownRemark___frontmatter___images___ctimeMs'
+  | 'childMarkdownRemark___frontmatter___images___atime'
+  | 'childMarkdownRemark___frontmatter___images___mtime'
+  | 'childMarkdownRemark___frontmatter___images___ctime'
+  | 'childMarkdownRemark___frontmatter___images___birthtime'
+  | 'childMarkdownRemark___frontmatter___images___birthtimeMs'
+  | 'childMarkdownRemark___frontmatter___images___blksize'
+  | 'childMarkdownRemark___frontmatter___images___blocks'
+  | 'childMarkdownRemark___frontmatter___images___publicURL'
+  | 'childMarkdownRemark___frontmatter___images___id'
+  | 'childMarkdownRemark___frontmatter___images___children'
+  | 'childMarkdownRemark___frontmatter___gifs'
+  | 'childMarkdownRemark___frontmatter___gifs___sourceInstanceName'
+  | 'childMarkdownRemark___frontmatter___gifs___absolutePath'
+  | 'childMarkdownRemark___frontmatter___gifs___relativePath'
+  | 'childMarkdownRemark___frontmatter___gifs___extension'
+  | 'childMarkdownRemark___frontmatter___gifs___size'
+  | 'childMarkdownRemark___frontmatter___gifs___prettySize'
+  | 'childMarkdownRemark___frontmatter___gifs___modifiedTime'
+  | 'childMarkdownRemark___frontmatter___gifs___accessTime'
+  | 'childMarkdownRemark___frontmatter___gifs___changeTime'
+  | 'childMarkdownRemark___frontmatter___gifs___birthTime'
+  | 'childMarkdownRemark___frontmatter___gifs___root'
+  | 'childMarkdownRemark___frontmatter___gifs___dir'
+  | 'childMarkdownRemark___frontmatter___gifs___base'
+  | 'childMarkdownRemark___frontmatter___gifs___ext'
+  | 'childMarkdownRemark___frontmatter___gifs___name'
+  | 'childMarkdownRemark___frontmatter___gifs___relativeDirectory'
+  | 'childMarkdownRemark___frontmatter___gifs___dev'
+  | 'childMarkdownRemark___frontmatter___gifs___mode'
+  | 'childMarkdownRemark___frontmatter___gifs___nlink'
+  | 'childMarkdownRemark___frontmatter___gifs___uid'
+  | 'childMarkdownRemark___frontmatter___gifs___gid'
+  | 'childMarkdownRemark___frontmatter___gifs___rdev'
+  | 'childMarkdownRemark___frontmatter___gifs___ino'
+  | 'childMarkdownRemark___frontmatter___gifs___atimeMs'
+  | 'childMarkdownRemark___frontmatter___gifs___mtimeMs'
+  | 'childMarkdownRemark___frontmatter___gifs___ctimeMs'
+  | 'childMarkdownRemark___frontmatter___gifs___atime'
+  | 'childMarkdownRemark___frontmatter___gifs___mtime'
+  | 'childMarkdownRemark___frontmatter___gifs___ctime'
+  | 'childMarkdownRemark___frontmatter___gifs___birthtime'
+  | 'childMarkdownRemark___frontmatter___gifs___birthtimeMs'
+  | 'childMarkdownRemark___frontmatter___gifs___blksize'
+  | 'childMarkdownRemark___frontmatter___gifs___blocks'
+  | 'childMarkdownRemark___frontmatter___gifs___publicURL'
+  | 'childMarkdownRemark___frontmatter___gifs___id'
+  | 'childMarkdownRemark___frontmatter___gifs___children'
+  | 'childMarkdownRemark___frontmatter___social___behance'
+  | 'childMarkdownRemark___frontmatter___social___deviantart'
+  | 'childMarkdownRemark___frontmatter___social___discord'
+  | 'childMarkdownRemark___frontmatter___social___etsy'
+  | 'childMarkdownRemark___frontmatter___social___facebook'
+  | 'childMarkdownRemark___frontmatter___social___furaffinity'
+  | 'childMarkdownRemark___frontmatter___social___github'
+  | 'childMarkdownRemark___frontmatter___social___instagram'
+  | 'childMarkdownRemark___frontmatter___social___picarto'
+  | 'childMarkdownRemark___frontmatter___social___pinterest'
+  | 'childMarkdownRemark___frontmatter___social___steam'
+  | 'childMarkdownRemark___frontmatter___social___telegram'
+  | 'childMarkdownRemark___frontmatter___social___tumblr'
+  | 'childMarkdownRemark___frontmatter___social___twitch'
+  | 'childMarkdownRemark___frontmatter___social___twitter'
+  | 'childMarkdownRemark___frontmatter___social___youtube'
+  | 'childMarkdownRemark___frontmatter___streaming___saturday'
+  | 'childMarkdownRemark___frontmatter___streaming___sunday'
   | 'childMarkdownRemark___frontmatter___artist'
+  | 'childMarkdownRemark___frontmatter___image___sourceInstanceName'
+  | 'childMarkdownRemark___frontmatter___image___absolutePath'
+  | 'childMarkdownRemark___frontmatter___image___relativePath'
+  | 'childMarkdownRemark___frontmatter___image___extension'
+  | 'childMarkdownRemark___frontmatter___image___size'
+  | 'childMarkdownRemark___frontmatter___image___prettySize'
+  | 'childMarkdownRemark___frontmatter___image___modifiedTime'
+  | 'childMarkdownRemark___frontmatter___image___accessTime'
+  | 'childMarkdownRemark___frontmatter___image___changeTime'
+  | 'childMarkdownRemark___frontmatter___image___birthTime'
+  | 'childMarkdownRemark___frontmatter___image___root'
+  | 'childMarkdownRemark___frontmatter___image___dir'
+  | 'childMarkdownRemark___frontmatter___image___base'
+  | 'childMarkdownRemark___frontmatter___image___ext'
+  | 'childMarkdownRemark___frontmatter___image___name'
+  | 'childMarkdownRemark___frontmatter___image___relativeDirectory'
+  | 'childMarkdownRemark___frontmatter___image___dev'
+  | 'childMarkdownRemark___frontmatter___image___mode'
+  | 'childMarkdownRemark___frontmatter___image___nlink'
+  | 'childMarkdownRemark___frontmatter___image___uid'
+  | 'childMarkdownRemark___frontmatter___image___gid'
+  | 'childMarkdownRemark___frontmatter___image___rdev'
+  | 'childMarkdownRemark___frontmatter___image___ino'
+  | 'childMarkdownRemark___frontmatter___image___atimeMs'
+  | 'childMarkdownRemark___frontmatter___image___mtimeMs'
+  | 'childMarkdownRemark___frontmatter___image___ctimeMs'
+  | 'childMarkdownRemark___frontmatter___image___atime'
+  | 'childMarkdownRemark___frontmatter___image___mtime'
+  | 'childMarkdownRemark___frontmatter___image___ctime'
+  | 'childMarkdownRemark___frontmatter___image___birthtime'
+  | 'childMarkdownRemark___frontmatter___image___birthtimeMs'
+  | 'childMarkdownRemark___frontmatter___image___blksize'
+  | 'childMarkdownRemark___frontmatter___image___blocks'
+  | 'childMarkdownRemark___frontmatter___image___publicURL'
+  | 'childMarkdownRemark___frontmatter___image___id'
+  | 'childMarkdownRemark___frontmatter___image___children'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -885,6 +977,10 @@ export type FileFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
+};
+
+export type FileFilterListInput = {
+  elemMatch?: Maybe<FileFilterInput>;
 };
 
 export type FileGroupConnection = {
@@ -1604,71 +1700,9 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___date'
   | 'frontmatter___layout'
   | 'frontmatter___path'
+  | 'frontmatter___description'
   | 'frontmatter___category'
   | 'frontmatter___tags'
-  | 'frontmatter___description'
-  | 'frontmatter___image___sourceInstanceName'
-  | 'frontmatter___image___absolutePath'
-  | 'frontmatter___image___relativePath'
-  | 'frontmatter___image___extension'
-  | 'frontmatter___image___size'
-  | 'frontmatter___image___prettySize'
-  | 'frontmatter___image___modifiedTime'
-  | 'frontmatter___image___accessTime'
-  | 'frontmatter___image___changeTime'
-  | 'frontmatter___image___birthTime'
-  | 'frontmatter___image___root'
-  | 'frontmatter___image___dir'
-  | 'frontmatter___image___base'
-  | 'frontmatter___image___ext'
-  | 'frontmatter___image___name'
-  | 'frontmatter___image___relativeDirectory'
-  | 'frontmatter___image___dev'
-  | 'frontmatter___image___mode'
-  | 'frontmatter___image___nlink'
-  | 'frontmatter___image___uid'
-  | 'frontmatter___image___gid'
-  | 'frontmatter___image___rdev'
-  | 'frontmatter___image___ino'
-  | 'frontmatter___image___atimeMs'
-  | 'frontmatter___image___mtimeMs'
-  | 'frontmatter___image___ctimeMs'
-  | 'frontmatter___image___atime'
-  | 'frontmatter___image___mtime'
-  | 'frontmatter___image___ctime'
-  | 'frontmatter___image___birthtime'
-  | 'frontmatter___image___birthtimeMs'
-  | 'frontmatter___image___blksize'
-  | 'frontmatter___image___blocks'
-  | 'frontmatter___image___publicURL'
-  | 'frontmatter___image___childImageSharp___gatsbyImageData'
-  | 'frontmatter___image___childImageSharp___id'
-  | 'frontmatter___image___childImageSharp___children'
-  | 'frontmatter___image___id'
-  | 'frontmatter___image___parent___id'
-  | 'frontmatter___image___parent___children'
-  | 'frontmatter___image___children'
-  | 'frontmatter___image___children___id'
-  | 'frontmatter___image___children___children'
-  | 'frontmatter___image___internal___content'
-  | 'frontmatter___image___internal___contentDigest'
-  | 'frontmatter___image___internal___description'
-  | 'frontmatter___image___internal___fieldOwners'
-  | 'frontmatter___image___internal___ignoreType'
-  | 'frontmatter___image___internal___mediaType'
-  | 'frontmatter___image___internal___owner'
-  | 'frontmatter___image___internal___type'
-  | 'frontmatter___image___childMarkdownRemark___id'
-  | 'frontmatter___image___childMarkdownRemark___excerpt'
-  | 'frontmatter___image___childMarkdownRemark___rawMarkdownBody'
-  | 'frontmatter___image___childMarkdownRemark___fileAbsolutePath'
-  | 'frontmatter___image___childMarkdownRemark___html'
-  | 'frontmatter___image___childMarkdownRemark___htmlAst'
-  | 'frontmatter___image___childMarkdownRemark___excerptAst'
-  | 'frontmatter___image___childMarkdownRemark___headings'
-  | 'frontmatter___image___childMarkdownRemark___timeToRead'
-  | 'frontmatter___image___childMarkdownRemark___tableOfContents'
-  | 'frontmatter___image___childMarkdownRemark___children'
   | 'frontmatter___dealer'
   | 'frontmatter___kind'
   | 'frontmatter___premium'
@@ -1735,7 +1769,217 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___banner___childMarkdownRemark___timeToRead'
   | 'frontmatter___banner___childMarkdownRemark___tableOfContents'
   | 'frontmatter___banner___childMarkdownRemark___children'
+  | 'frontmatter___images'
+  | 'frontmatter___images___sourceInstanceName'
+  | 'frontmatter___images___absolutePath'
+  | 'frontmatter___images___relativePath'
+  | 'frontmatter___images___extension'
+  | 'frontmatter___images___size'
+  | 'frontmatter___images___prettySize'
+  | 'frontmatter___images___modifiedTime'
+  | 'frontmatter___images___accessTime'
+  | 'frontmatter___images___changeTime'
+  | 'frontmatter___images___birthTime'
+  | 'frontmatter___images___root'
+  | 'frontmatter___images___dir'
+  | 'frontmatter___images___base'
+  | 'frontmatter___images___ext'
+  | 'frontmatter___images___name'
+  | 'frontmatter___images___relativeDirectory'
+  | 'frontmatter___images___dev'
+  | 'frontmatter___images___mode'
+  | 'frontmatter___images___nlink'
+  | 'frontmatter___images___uid'
+  | 'frontmatter___images___gid'
+  | 'frontmatter___images___rdev'
+  | 'frontmatter___images___ino'
+  | 'frontmatter___images___atimeMs'
+  | 'frontmatter___images___mtimeMs'
+  | 'frontmatter___images___ctimeMs'
+  | 'frontmatter___images___atime'
+  | 'frontmatter___images___mtime'
+  | 'frontmatter___images___ctime'
+  | 'frontmatter___images___birthtime'
+  | 'frontmatter___images___birthtimeMs'
+  | 'frontmatter___images___blksize'
+  | 'frontmatter___images___blocks'
+  | 'frontmatter___images___publicURL'
+  | 'frontmatter___images___childImageSharp___gatsbyImageData'
+  | 'frontmatter___images___childImageSharp___id'
+  | 'frontmatter___images___childImageSharp___children'
+  | 'frontmatter___images___id'
+  | 'frontmatter___images___parent___id'
+  | 'frontmatter___images___parent___children'
+  | 'frontmatter___images___children'
+  | 'frontmatter___images___children___id'
+  | 'frontmatter___images___children___children'
+  | 'frontmatter___images___internal___content'
+  | 'frontmatter___images___internal___contentDigest'
+  | 'frontmatter___images___internal___description'
+  | 'frontmatter___images___internal___fieldOwners'
+  | 'frontmatter___images___internal___ignoreType'
+  | 'frontmatter___images___internal___mediaType'
+  | 'frontmatter___images___internal___owner'
+  | 'frontmatter___images___internal___type'
+  | 'frontmatter___images___childMarkdownRemark___id'
+  | 'frontmatter___images___childMarkdownRemark___excerpt'
+  | 'frontmatter___images___childMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___images___childMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___images___childMarkdownRemark___html'
+  | 'frontmatter___images___childMarkdownRemark___htmlAst'
+  | 'frontmatter___images___childMarkdownRemark___excerptAst'
+  | 'frontmatter___images___childMarkdownRemark___headings'
+  | 'frontmatter___images___childMarkdownRemark___timeToRead'
+  | 'frontmatter___images___childMarkdownRemark___tableOfContents'
+  | 'frontmatter___images___childMarkdownRemark___children'
+  | 'frontmatter___gifs'
+  | 'frontmatter___gifs___sourceInstanceName'
+  | 'frontmatter___gifs___absolutePath'
+  | 'frontmatter___gifs___relativePath'
+  | 'frontmatter___gifs___extension'
+  | 'frontmatter___gifs___size'
+  | 'frontmatter___gifs___prettySize'
+  | 'frontmatter___gifs___modifiedTime'
+  | 'frontmatter___gifs___accessTime'
+  | 'frontmatter___gifs___changeTime'
+  | 'frontmatter___gifs___birthTime'
+  | 'frontmatter___gifs___root'
+  | 'frontmatter___gifs___dir'
+  | 'frontmatter___gifs___base'
+  | 'frontmatter___gifs___ext'
+  | 'frontmatter___gifs___name'
+  | 'frontmatter___gifs___relativeDirectory'
+  | 'frontmatter___gifs___dev'
+  | 'frontmatter___gifs___mode'
+  | 'frontmatter___gifs___nlink'
+  | 'frontmatter___gifs___uid'
+  | 'frontmatter___gifs___gid'
+  | 'frontmatter___gifs___rdev'
+  | 'frontmatter___gifs___ino'
+  | 'frontmatter___gifs___atimeMs'
+  | 'frontmatter___gifs___mtimeMs'
+  | 'frontmatter___gifs___ctimeMs'
+  | 'frontmatter___gifs___atime'
+  | 'frontmatter___gifs___mtime'
+  | 'frontmatter___gifs___ctime'
+  | 'frontmatter___gifs___birthtime'
+  | 'frontmatter___gifs___birthtimeMs'
+  | 'frontmatter___gifs___blksize'
+  | 'frontmatter___gifs___blocks'
+  | 'frontmatter___gifs___publicURL'
+  | 'frontmatter___gifs___childImageSharp___gatsbyImageData'
+  | 'frontmatter___gifs___childImageSharp___id'
+  | 'frontmatter___gifs___childImageSharp___children'
+  | 'frontmatter___gifs___id'
+  | 'frontmatter___gifs___parent___id'
+  | 'frontmatter___gifs___parent___children'
+  | 'frontmatter___gifs___children'
+  | 'frontmatter___gifs___children___id'
+  | 'frontmatter___gifs___children___children'
+  | 'frontmatter___gifs___internal___content'
+  | 'frontmatter___gifs___internal___contentDigest'
+  | 'frontmatter___gifs___internal___description'
+  | 'frontmatter___gifs___internal___fieldOwners'
+  | 'frontmatter___gifs___internal___ignoreType'
+  | 'frontmatter___gifs___internal___mediaType'
+  | 'frontmatter___gifs___internal___owner'
+  | 'frontmatter___gifs___internal___type'
+  | 'frontmatter___gifs___childMarkdownRemark___id'
+  | 'frontmatter___gifs___childMarkdownRemark___excerpt'
+  | 'frontmatter___gifs___childMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___gifs___childMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___gifs___childMarkdownRemark___html'
+  | 'frontmatter___gifs___childMarkdownRemark___htmlAst'
+  | 'frontmatter___gifs___childMarkdownRemark___excerptAst'
+  | 'frontmatter___gifs___childMarkdownRemark___headings'
+  | 'frontmatter___gifs___childMarkdownRemark___timeToRead'
+  | 'frontmatter___gifs___childMarkdownRemark___tableOfContents'
+  | 'frontmatter___gifs___childMarkdownRemark___children'
+  | 'frontmatter___social___behance'
+  | 'frontmatter___social___deviantart'
+  | 'frontmatter___social___discord'
+  | 'frontmatter___social___etsy'
+  | 'frontmatter___social___facebook'
+  | 'frontmatter___social___furaffinity'
+  | 'frontmatter___social___github'
+  | 'frontmatter___social___instagram'
+  | 'frontmatter___social___picarto'
+  | 'frontmatter___social___pinterest'
+  | 'frontmatter___social___steam'
+  | 'frontmatter___social___telegram'
+  | 'frontmatter___social___tumblr'
+  | 'frontmatter___social___twitch'
+  | 'frontmatter___social___twitter'
+  | 'frontmatter___social___youtube'
+  | 'frontmatter___streaming___saturday'
+  | 'frontmatter___streaming___saturday___start'
+  | 'frontmatter___streaming___saturday___end'
+  | 'frontmatter___streaming___sunday'
+  | 'frontmatter___streaming___sunday___start'
+  | 'frontmatter___streaming___sunday___end'
   | 'frontmatter___artist'
+  | 'frontmatter___image___sourceInstanceName'
+  | 'frontmatter___image___absolutePath'
+  | 'frontmatter___image___relativePath'
+  | 'frontmatter___image___extension'
+  | 'frontmatter___image___size'
+  | 'frontmatter___image___prettySize'
+  | 'frontmatter___image___modifiedTime'
+  | 'frontmatter___image___accessTime'
+  | 'frontmatter___image___changeTime'
+  | 'frontmatter___image___birthTime'
+  | 'frontmatter___image___root'
+  | 'frontmatter___image___dir'
+  | 'frontmatter___image___base'
+  | 'frontmatter___image___ext'
+  | 'frontmatter___image___name'
+  | 'frontmatter___image___relativeDirectory'
+  | 'frontmatter___image___dev'
+  | 'frontmatter___image___mode'
+  | 'frontmatter___image___nlink'
+  | 'frontmatter___image___uid'
+  | 'frontmatter___image___gid'
+  | 'frontmatter___image___rdev'
+  | 'frontmatter___image___ino'
+  | 'frontmatter___image___atimeMs'
+  | 'frontmatter___image___mtimeMs'
+  | 'frontmatter___image___ctimeMs'
+  | 'frontmatter___image___atime'
+  | 'frontmatter___image___mtime'
+  | 'frontmatter___image___ctime'
+  | 'frontmatter___image___birthtime'
+  | 'frontmatter___image___birthtimeMs'
+  | 'frontmatter___image___blksize'
+  | 'frontmatter___image___blocks'
+  | 'frontmatter___image___publicURL'
+  | 'frontmatter___image___childImageSharp___gatsbyImageData'
+  | 'frontmatter___image___childImageSharp___id'
+  | 'frontmatter___image___childImageSharp___children'
+  | 'frontmatter___image___id'
+  | 'frontmatter___image___parent___id'
+  | 'frontmatter___image___parent___children'
+  | 'frontmatter___image___children'
+  | 'frontmatter___image___children___id'
+  | 'frontmatter___image___children___children'
+  | 'frontmatter___image___internal___content'
+  | 'frontmatter___image___internal___contentDigest'
+  | 'frontmatter___image___internal___description'
+  | 'frontmatter___image___internal___fieldOwners'
+  | 'frontmatter___image___internal___ignoreType'
+  | 'frontmatter___image___internal___mediaType'
+  | 'frontmatter___image___internal___owner'
+  | 'frontmatter___image___internal___type'
+  | 'frontmatter___image___childMarkdownRemark___id'
+  | 'frontmatter___image___childMarkdownRemark___excerpt'
+  | 'frontmatter___image___childMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___image___childMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___image___childMarkdownRemark___html'
+  | 'frontmatter___image___childMarkdownRemark___htmlAst'
+  | 'frontmatter___image___childMarkdownRemark___excerptAst'
+  | 'frontmatter___image___childMarkdownRemark___headings'
+  | 'frontmatter___image___childMarkdownRemark___timeToRead'
+  | 'frontmatter___image___childMarkdownRemark___tableOfContents'
+  | 'frontmatter___image___childMarkdownRemark___children'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1866,16 +2110,20 @@ export type MarkdownRemarkFrontmatter = {
   date?: Maybe<Scalars['Date']>;
   layout?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   category?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-  description?: Maybe<Scalars['String']>;
-  image?: Maybe<File>;
   dealer?: Maybe<Scalars['String']>;
   kind?: Maybe<Scalars['String']>;
   premium?: Maybe<Scalars['Boolean']>;
   url?: Maybe<Scalars['String']>;
   banner?: Maybe<File>;
+  images?: Maybe<Array<Maybe<File>>>;
+  gifs?: Maybe<Array<Maybe<File>>>;
+  social?: Maybe<MarkdownRemarkFrontmatterSocial>;
+  streaming?: Maybe<MarkdownRemarkFrontmatterStreaming>;
   artist?: Maybe<Scalars['String']>;
+  image?: Maybe<File>;
 };
 
 
@@ -1891,16 +2139,96 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   date?: Maybe<DateQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  image?: Maybe<FileFilterInput>;
   dealer?: Maybe<StringQueryOperatorInput>;
   kind?: Maybe<StringQueryOperatorInput>;
   premium?: Maybe<BooleanQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
   banner?: Maybe<FileFilterInput>;
+  images?: Maybe<FileFilterListInput>;
+  gifs?: Maybe<FileFilterListInput>;
+  social?: Maybe<MarkdownRemarkFrontmatterSocialFilterInput>;
+  streaming?: Maybe<MarkdownRemarkFrontmatterStreamingFilterInput>;
   artist?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<FileFilterInput>;
+};
+
+export type MarkdownRemarkFrontmatterSocial = {
+  behance?: Maybe<Scalars['String']>;
+  deviantart?: Maybe<Scalars['String']>;
+  discord?: Maybe<Scalars['String']>;
+  etsy?: Maybe<Scalars['String']>;
+  facebook?: Maybe<Scalars['String']>;
+  furaffinity?: Maybe<Scalars['String']>;
+  github?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
+  picarto?: Maybe<Scalars['String']>;
+  pinterest?: Maybe<Scalars['String']>;
+  steam?: Maybe<Scalars['String']>;
+  telegram?: Maybe<Scalars['String']>;
+  tumblr?: Maybe<Scalars['String']>;
+  twitch?: Maybe<Scalars['String']>;
+  twitter?: Maybe<Scalars['String']>;
+  youtube?: Maybe<Scalars['String']>;
+};
+
+export type MarkdownRemarkFrontmatterSocialFilterInput = {
+  behance?: Maybe<StringQueryOperatorInput>;
+  deviantart?: Maybe<StringQueryOperatorInput>;
+  discord?: Maybe<StringQueryOperatorInput>;
+  etsy?: Maybe<StringQueryOperatorInput>;
+  facebook?: Maybe<StringQueryOperatorInput>;
+  furaffinity?: Maybe<StringQueryOperatorInput>;
+  github?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
+  picarto?: Maybe<StringQueryOperatorInput>;
+  pinterest?: Maybe<StringQueryOperatorInput>;
+  steam?: Maybe<StringQueryOperatorInput>;
+  telegram?: Maybe<StringQueryOperatorInput>;
+  tumblr?: Maybe<StringQueryOperatorInput>;
+  twitch?: Maybe<StringQueryOperatorInput>;
+  twitter?: Maybe<StringQueryOperatorInput>;
+  youtube?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MarkdownRemarkFrontmatterStreaming = {
+  saturday?: Maybe<Array<Maybe<MarkdownRemarkFrontmatterStreamingSaturday>>>;
+  sunday?: Maybe<Array<Maybe<MarkdownRemarkFrontmatterStreamingSunday>>>;
+};
+
+export type MarkdownRemarkFrontmatterStreamingFilterInput = {
+  saturday?: Maybe<MarkdownRemarkFrontmatterStreamingSaturdayFilterListInput>;
+  sunday?: Maybe<MarkdownRemarkFrontmatterStreamingSundayFilterListInput>;
+};
+
+export type MarkdownRemarkFrontmatterStreamingSaturday = {
+  start?: Maybe<Scalars['String']>;
+  end?: Maybe<Scalars['String']>;
+};
+
+export type MarkdownRemarkFrontmatterStreamingSaturdayFilterInput = {
+  start?: Maybe<StringQueryOperatorInput>;
+  end?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MarkdownRemarkFrontmatterStreamingSaturdayFilterListInput = {
+  elemMatch?: Maybe<MarkdownRemarkFrontmatterStreamingSaturdayFilterInput>;
+};
+
+export type MarkdownRemarkFrontmatterStreamingSunday = {
+  start?: Maybe<Scalars['String']>;
+  end?: Maybe<Scalars['String']>;
+};
+
+export type MarkdownRemarkFrontmatterStreamingSundayFilterInput = {
+  start?: Maybe<StringQueryOperatorInput>;
+  end?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MarkdownRemarkFrontmatterStreamingSundayFilterListInput = {
+  elemMatch?: Maybe<MarkdownRemarkFrontmatterStreamingSundayFilterInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2107,6 +2435,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2245,6 +2575,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2449,6 +2781,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___author___name'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___logo'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2541,6 +2875,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3481,13 +3817,10 @@ export type DealerBySlugQueryVariables = Exact<{
 }>;
 
 
-export type DealerBySlugQuery = { markdownRemark?: Maybe<(
-    Pick<MarkdownRemark, 'html'>
-    & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
+export type DealerBySlugQuery = { markdownRemark?: Maybe<{ fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
       Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'url'>
-      & { banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-    )> }
-  )> };
+      & { social?: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'deviantart' | 'facebook' | 'furaffinity' | 'picarto' | 'twitter' | 'behance' | 'discord' | 'etsy' | 'github' | 'instagram' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'youtube'>>, banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, images?: Maybe<Array<Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>>> }
+    )> }> };
 
 export type PostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];

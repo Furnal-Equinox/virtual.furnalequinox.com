@@ -58,6 +58,7 @@ This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://g
     * `index.tsx`: in particular, this is the home page! 
   * `/scss/`: holds the global SCSS for the website, namely colors, fonts, and any configuration of Bootstrap.
   * `/templates/`: holds the templates for generated pages. Gatsby uses these in `gatsby-node.js` to programmatically generate pages for the data in `/content/`. Each template also has its own SCSS file.
+  * `/utils/`: assorted utility functions that don't fit anywhere else or are used in multiple places.
   * `html.tsx`: Gatsby optionally uses this file as the base HTML file for any HTML file it generates.
 * `/static/`: holds the favicon and logo.
 * `/types/`: holds any TypeScript type declaration files. At the moment, the only file is the one Gatsby generates for all the GraphQL queries in the website.

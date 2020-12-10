@@ -20,8 +20,10 @@ const BlogIndex: React.FC<Props> = ({ data, location }: Props) => {
     <Layout location={location}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
-      <div className='d-flex h-100 text-center text-white bg-image'>
+      <div className='container text-center'>
         <h1>Please pardon the mess! We're working on making this website as awesome as possible!</h1>
+      </div>
+      <div className='d-flex h-100 text-center text-white bg-image'>
         <div className='cover-container d-flex w-100 h-100 p-3 mx-auto flex-column'>
           <div className='px-3'>
             <h1>Cover your page.</h1>
