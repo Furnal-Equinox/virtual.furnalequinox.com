@@ -2148,7 +2148,7 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
-"@types/json-schema@^7.0.3", "@types/json-schema@^7.0.5":
+"@types/json-schema@^7.0.3", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5":
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
   integrity sha512-3c+yGKvVP5Y9TYBEibGNR+kLtijnj7mYrXRg+WpFb2X9xm04g/DXYkfg4hmzJQosc9snFNUPkbYIhu+KAm6jJw==
@@ -12628,6 +12628,13 @@ pupa@^2.0.1:
   integrity sha512-l1jNAspIBSFqbT+y+5FosojNpVpF94nlI+wDUpqP9enwOTfHx9f0gh5nB96vl+6yTpsJsypeNrwfzPrKuHB41A==
   dependencies:
     escape-goat "^2.0.0"
+
+purify-ts@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/purify-ts/-/purify-ts-0.16.1.tgz#45c8ac5e131afb24180ef604c233671b182adf20"
+  integrity sha512-BX0Su8dRitLCDcgf8hxsAdr2BVWdf/C4ObVn2tPx6n6r4ys9IqDidaAWXUgqT/EHe5+9Z+uaZnQ/x4xxiMzQRw==
+  dependencies:
+    "@types/json-schema" "^7.0.4"
 
 q@^1.1.2:
   version "1.5.1"

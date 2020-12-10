@@ -1,4 +1,4 @@
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
 import React from 'react'
 import { Helmet } from 'react-helmet'
@@ -9,11 +9,10 @@ import Meta from '../../components/meta/meta'
 
 import config from '../../../site-config'
 
-import { DealerBySlugQuery, PostBySlugQuery } from '../../../types/graphql-types'
-import Icon from '../../components/icon/icon'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconName } from '@fortawesome/fontawesome-svg-core'
-import { Deviantart, Facebook, Furaffinity } from '@icons-pack/react-simple-icons'
+import { DealerBySlugQuery } from '../../../types/graphql-types'
+
+import SocialLinks, { SocialLink } from '../../components/social-links/social-links'
+import { Maybe, Just, Nothing } from 'purify-ts'
 
 
 
@@ -26,6 +25,90 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
   const banner = post?.banner ?? null
+  const socialLinks = post?.social
+
+  //TODO: refactor this mess of a converter!!!
+  const reducedSocialLinks: Maybe<SocialLink>[] = [
+    socialLinks?.behance ? Just({
+      name: 'behance',
+      url: socialLinks?.behance
+    }) : Nothing
+    ,
+    socialLinks?.deviantart ? Just({
+      name: 'deviantart',
+      url: socialLinks?.deviantart
+    }) : Nothing
+    ,
+    socialLinks?.discord ? Just({
+      name: 'discord',
+      url: socialLinks?.discord
+    }) : Nothing
+    ,
+    socialLinks?.etsy ? Just({
+      name: 'etsy',
+      url: socialLinks?.etsy
+    }) : Nothing
+    ,
+    socialLinks?.facebook ? Just({
+      name: 'facebook',
+      url: socialLinks?.facebook
+    }) : Nothing
+    ,
+    socialLinks?.furaffinity ? Just({
+      name: 'furaffinity',
+      url: socialLinks?.furaffinity
+    }) : Nothing
+    ,
+    socialLinks?.github ? Just({
+      name: 'github',
+      url: socialLinks?.github
+    }) : Nothing
+    ,
+    socialLinks?.instagram ? Just({
+      name: 'instagram',
+      url: socialLinks?.instagram
+    }) : Nothing
+    ,
+    socialLinks?.picarto ? Just({
+      name: 'picarto',
+      url: socialLinks?.picarto
+    }) : Nothing
+    ,
+    socialLinks?.pinterest ? Just({
+      name: 'pinterest',
+      url: socialLinks?.pinterest
+    }) : Nothing
+    ,
+    socialLinks?.steam ? Just({
+      name: 'steam',
+      url: socialLinks?.steam
+    }) : Nothing
+    ,
+    socialLinks?.telegram ? Just({
+      name: 'telegram',
+      url: socialLinks?.telegram
+    }) : Nothing
+    ,
+    socialLinks?.tumblr ? Just({
+      name: 'tumblr',
+      url: socialLinks?.tumblr
+    }) : Nothing
+    ,
+    socialLinks?.twitch ? Just({
+      name: 'twitch',
+      url: socialLinks?.twitch
+    }) : Nothing
+    ,
+    socialLinks?.twitter ? Just({
+      name: 'twitter',
+      url: socialLinks?.twitter
+    }) : Nothing
+    ,
+    socialLinks?.youtube ? Just({
+      name: 'youtube',
+      url: socialLinks?.youtube
+    }) : Nothing
+  ]
 
   return (
     <Layout location={location}>
@@ -57,17 +140,7 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
             </div>
             <div className='col-lg-6 text-center py-1'>
               <h1>Social media links</h1>
-              <div className='row'>
-                <div className='col'>
-                  <Furaffinity />
-                </div>
-                <div className='col'>
-                  <Facebook />
-                </div>
-                <div className='col'>
-                  <Deviantart size='2rem' />
-                </div>
-              </div>
+              <SocialLinks data={reducedSocialLinks}/>
             </div>
           </div>
         </section>
