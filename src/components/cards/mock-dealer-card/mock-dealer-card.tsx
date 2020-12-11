@@ -6,9 +6,9 @@ import ClickableInternalCard from '../clickable-internal-card/clickable-internal
 const MockDealerCard: React.FC = () => {
   return (
     <ClickableInternalCard slug={'.'}>
-      <div className='card mb-5 shadow-sm'>
+      <div className='card rounded-card mb-5 shadow-sm'>
         <svg 
-          className='bd-placeholder-img card-img-top' 
+          className='bd-placeholder-img card-img-top rounded-card-img-top' 
           width='100%' 
           height='225' 
           xmlns='http://www.w3.org/2000/svg' 

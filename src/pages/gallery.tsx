@@ -27,6 +27,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
           <Img
             fluid={artwork.artwork.frontmatter?.image?.childImageSharp?.fluid as FluidObject}
             style={{ display: 'block', margin: '0 auto' }}
+            className='rounded-3'
           />
         ))}
       </div>

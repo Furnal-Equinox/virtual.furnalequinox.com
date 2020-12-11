@@ -6,9 +6,9 @@ import ClickableExternalCard from '../clickable-external-card/clickable-external
 const MockShopItemCard: React.FC = () => {
   return (
     <ClickableExternalCard url='https://furnalequinox.com'>
-      <div className='card mb-5 shadow-sm'>
+      <div className='card rounded-card mb-5 shadow-sm'>
         <svg 
-          className='bd-placeholder-img card-img-top' 
+          className='bd-placeholder-img card-img- rounded-card-img-top' 
           width='100%' 
           height='225' 
           xmlns='http://www.w3.org/2000/svg' 
