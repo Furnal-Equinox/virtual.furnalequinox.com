@@ -22,7 +22,8 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
                 alt='Image of a cat hiding under some papers' 
               />
               <p className='lead'>
-                Oops! We couldn't find the page you were looking for. Please go back and try again.
+                Oops! We couldn't find the page you were looking for.<br />
+                Please go back and try again.<br />
                 If you think you've found an error, email{' '}
                 <a
                   href='mailto:ardal@furnalequinox.com'
