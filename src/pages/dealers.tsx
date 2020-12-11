@@ -2,7 +2,7 @@ import { graphql, Link } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import MockCard from '../components/mock-card/mock-card'
+import MockDealerCard from '../components/cards/mock-dealer-card/mock-dealer-card'
 import CardGrid from '../components/card-grid/card-grid'
 import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
@@ -42,40 +42,40 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
           <div className='container'>
             <div className='row'>
               <div className='col-lg-12'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-12'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-12'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockCard />
+                <MockDealerCard />
               </div>
             </div>
           </div>

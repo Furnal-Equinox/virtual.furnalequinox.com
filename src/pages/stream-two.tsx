@@ -19,6 +19,9 @@ const StreamTwo: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`Stream 2 | ${config.siteTitle}`} />
       <Meta />
       <div>
+        <div className='container text-center'>
+          <h1>Please pardon the mess! We're working on making this website as awesome as possible!</h1>
+        </div>
       </div>
     </Layout>
   )

@@ -16,9 +16,12 @@ interface Props {
 const Adult: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <Layout location={location}>
-      <Helmet title={`About | ${config.siteTitle}`} />
+      <Helmet title={`Adult | ${config.siteTitle}`} />
       <Meta customDescription='Adults-only section' />
       <div>
+        <div className='container text-center'>
+          <h1>Please pardon the mess! We're working on making this website as awesome as possible!</h1>
+        </div>
       </div>
     </Layout>
   )

@@ -20,6 +20,9 @@ const StreamThree: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`Stream 3 | ${config.siteTitle}`} />
       <Meta customDescription='Panel Stream Three'/>
       <div>
+        <div className='container text-center'>
+          <h1>Please pardon the mess! We're working on making this website as awesome as possible!</h1>
+        </div>
       </div>
     </Layout>
   )

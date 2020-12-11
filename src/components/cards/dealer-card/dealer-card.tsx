@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import './style.scss'
+
+import ClickableInternalCard from '../clickable-internal-card/clickable-internal-card'
 
 interface Dealer {
   title: string
@@ -12,9 +13,9 @@ interface Dealer {
 
 type Props = Dealer
 
-const Card: React.FC<Props> = ({ title, dealer, description, banner, slug }: Props) => {
+const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug }: Props) => {
   return (
-    <Link to={`.${slug}`} className='clickable-card'>
+    <ClickableInternalCard slug={`.${slug}`}>
       <div className='card mb-5 shadow-sm'>
         <img src={banner} className='card-img-top'></img>
         <div className='card-body'>
@@ -28,8 +29,8 @@ const Card: React.FC<Props> = ({ title, dealer, description, banner, slug }: Pro
           </div>
         </div>
       </div>
-    </Link>
+    </ClickableInternalCard>
   )
 }
 
-export default Card
+export default DealerCard
