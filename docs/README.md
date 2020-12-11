@@ -38,6 +38,10 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [react-fontawesome](https://github.com/FortAwesome/react-fontawesome)
 
+[Simple Icons](https://simpleicons.org/)
+
+[react-simple-icons](https://github.com/icons-pack/react-simple-icons)
+
 ### Related Projects
 
 [Gatsby Advanced Starter](https://github.com/Vagr9K/gatsby-advanced-starter)
@@ -54,7 +58,11 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 ### Related Blog Posts, Forum Posts, and Articles
 
+[Controlling color with Sass color functions](https://thoughtbot.com/blog/controlling-color-with-sass-color-functions)
+
 [How to add Font Awesome to a Gatsby site](https://medium.com/@johnny02/how-to-add-font-awesome-to-a-gatsby-site-89da940924d5)
+
+[Using Font Awesome with Gatsby and React](https://brockduncan.com/using-fontawesome-with-gatsby-and-react/)
 
 ### Haskell Script
 

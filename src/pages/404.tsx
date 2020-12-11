@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { siteMetadata } from '../../gatsby-config'
-
 import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
 
@@ -12,15 +10,29 @@ interface Props {
 const NotFound: React.FC<Props> = ({ location }: Props) => {
   return (
     <Layout location={ location } >
-      <Meta site={ siteMetadata } title='404' />
+      <Meta />
       <div>
-        <section className='text-center'>
-          <div className='container'>
-            <header>
+        <section className='container py-3 py-lg-5 text-center'>
+          <div className='row'>
+            <div className='col mx-auto'>
               <h1>404</h1>
-              <p className='h1'>Whoops!</p>
-              <img src='https://http.cat/404' />
-            </header>
+              <img 
+                src='https://http.cat/404' 
+                className='rounded-3' 
+                alt='Image of a cat hiding under some papers' 
+              />
+              <p className='lead'>
+                Oops! We couldn't find the page you were looking for. Please go back and try again.
+                If you think you've found an error, email{' '}
+                <a
+                  href='mailto:ardal@furnalequinox.com'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Ardal
+                </a>.
+              </p>
+            </div>
           </div>
         </section>
       </div>

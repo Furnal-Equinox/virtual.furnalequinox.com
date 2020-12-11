@@ -16,7 +16,7 @@ const Meta: React.FC<Props> = ({ postNode, postPath, postSEO, customDescription 
   let title: string | null | undefined
   let description: string | null | undefined
   let image: string = config.siteLogo
-  let postURL: string
+  let postURL: string = ''
 
   if (postSEO) {
     const postMeta = postNode?.markdownRemark?.frontmatter
@@ -55,7 +55,7 @@ const Meta: React.FC<Props> = ({ postNode, postPath, postSEO, customDescription 
   }
 
   const blogURL = urljoin(config.siteUrl, config.pathPrefix)
-  const schemaOrgJSONLD = [
+  const schemaOrgJSONLD: any = [
     {
       '@context': 'http://schema.org',
       '@type': 'WebSite',
