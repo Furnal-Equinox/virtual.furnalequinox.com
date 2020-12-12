@@ -3786,10 +3786,10 @@ export type LoginQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type LoginQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
-export type BlogQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type NewsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BlogQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, remark: { posts: Array<{ post: (
+export type NewsQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, remark: { posts: Array<{ post: (
         Pick<MarkdownRemark, 'html'>
         & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
           Pick<MarkdownRemarkFrontmatter, 'layout' | 'title' | 'path' | 'category' | 'tags' | 'description' | 'date'>
