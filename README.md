@@ -10,6 +10,7 @@ This is website is based on [jaxx2104's Gatsby with Bootstrap starter](https://g
 
 # Features
 * Built using [Gatsby](https://www.gatsbyjs.com/), a static site generator for [React](https://reactjs.org/).
+* Covered by Netlify's [pa11y](https://pa11y.org/) plugin!
 * Written mostly in [TypeScript](https://www.typescriptlang.org) to help catch bugs, errors, and other weirdness from JavaScript's dynamic type system at compile time.
 * Adheres to [Standard JS](https://standardjs.com/), with a few adjustments for consistency across JSX.
 * Styled with Sass using Bootstrap.
