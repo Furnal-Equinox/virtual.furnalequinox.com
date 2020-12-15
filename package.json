@@ -78,6 +78,7 @@
     "gatsby-source-filesystem": "2.6.1",
     "gatsby-transformer-remark": "2.11.1",
     "gatsby-transformer-sharp": "2.7.0",
-    "react-icons": "^4.1.0"
+    "react-icons": "^4.1.0",
+    "react-player": "^2.7.0"
   }
 }
