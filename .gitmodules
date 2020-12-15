@@ -1,0 +1,3 @@
+[submodule "content"]
+	path = content
+	url = git@github.com:Furnal-Equinox/web-platform-content.git
