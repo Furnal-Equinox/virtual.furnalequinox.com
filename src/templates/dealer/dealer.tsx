@@ -14,8 +14,6 @@ import { DealerBySlugQuery } from '../../../types/graphql-types'
 import SocialLinks, { SocialLink } from '../../components/social-links/social-links'
 import { Maybe, Just, Nothing } from 'purify-ts'
 
-
-
 interface Props {
   data: DealerBySlugQuery
   location: Location
@@ -27,83 +25,68 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
   const banner = post?.banner ?? null
   const socialLinks = post?.social
 
-  //TODO: refactor this mess of a converter!!!
-  const reducedSocialLinks: Maybe<SocialLink>[] = [
+  // TODO: refactor this mess of a converter!!!
+  const reducedSocialLinks: Array<Maybe<SocialLink>> = [
     socialLinks?.behance ? Just({
       name: 'behance',
       url: socialLinks?.behance
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.deviantart ? Just({
       name: 'deviantart',
       url: socialLinks?.deviantart
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.discord ? Just({
       name: 'discord',
       url: socialLinks?.discord
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.etsy ? Just({
       name: 'etsy',
       url: socialLinks?.etsy
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.facebook ? Just({
       name: 'facebook',
       url: socialLinks?.facebook
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.furaffinity ? Just({
       name: 'furaffinity',
       url: socialLinks?.furaffinity
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.github ? Just({
       name: 'github',
       url: socialLinks?.github
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.instagram ? Just({
       name: 'instagram',
       url: socialLinks?.instagram
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.picarto ? Just({
       name: 'picarto',
       url: socialLinks?.picarto
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.pinterest ? Just({
       name: 'pinterest',
       url: socialLinks?.pinterest
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.steam ? Just({
       name: 'steam',
       url: socialLinks?.steam
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.telegram ? Just({
       name: 'telegram',
       url: socialLinks?.telegram
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.tumblr ? Just({
       name: 'tumblr',
       url: socialLinks?.tumblr
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.twitch ? Just({
       name: 'twitch',
       url: socialLinks?.twitch
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.twitter ? Just({
       name: 'twitter',
       url: socialLinks?.twitter
-    }) : Nothing
-    ,
+    }) : Nothing,    
     socialLinks?.youtube ? Just({
       name: 'youtube',
       url: socialLinks?.youtube

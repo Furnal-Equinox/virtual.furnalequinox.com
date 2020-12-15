@@ -44,7 +44,7 @@ export const NavbarLinks: NavLink[] = [
     id: 7,
     to: '/adult/',
     name: 'Adult'
-  },
+  }
 ]
 
 export const FooterLinks: NavLink[] = [

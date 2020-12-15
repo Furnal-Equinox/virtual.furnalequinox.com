@@ -23,7 +23,7 @@ import {
 
 export interface SocialLink {
   name: 
-    'behance' 
+  'behance' 
   | 'deviantart' 
   | 'discord' 
   | 'etsy' 
@@ -43,7 +43,7 @@ export interface SocialLink {
 }
 
 interface Props {
-  data: Maybe<SocialLink>[]
+  data: Array<Maybe<SocialLink>>
 }
 
 const SocialLinks: React.FC<Props> = ({ data }: Props) => {
@@ -77,7 +77,7 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
           Just: x => (
             <div className='col'>
               <a href={x.url} target='_blank' rel='noopener noreferrer' className='icon-link'>
-              {matchIconName(x)}
+                {matchIconName(x)}
               </a>
             </div>
           ),
