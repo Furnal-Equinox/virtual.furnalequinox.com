@@ -10,7 +10,7 @@ const config = {
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   postsPerPage: 4, // Amount of posts displayed per listing page.
 
-  copyright: 'Copyright © 2020. Furnal Equinox', // Copyright string for the footer of the website and RSS feed.
+  copyright: 'Copyright © 2020 Anthropomorphic Events of Ontario', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#673ab7', // Used for setting manifest and progress theme colors.
   backgroundColor: '#ffffff' // Used for setting manifest background color.
 };

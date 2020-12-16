@@ -1,18 +1,16 @@
-import { Link } from 'gatsby'
 import React from 'react'
 import './style.scss'
 
 interface Props {
-  author: string
-  title: string
+  copyright: string
 }
 
-const Footer: React.FC<Props> = ({ author, title }: Props) => (
+const Footer: React.FC<Props> = ({ copyright }: Props) => (
   <div className='footer'>
     <div className='container text-center py-2'>
       <div className='col'>
         <p className='m-0'>
-          <strong>{ title }</strong>
+          <strong>{ copyright }</strong>
         </p>
       </div>
     </div>

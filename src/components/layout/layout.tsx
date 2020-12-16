@@ -3,7 +3,7 @@ import emergence from 'emergence.js'
 
 import Navibar from '../navibar/navibar'
 import Footer from '../footer/footer'
-import { siteMetadata } from '../../../gatsby-config'
+import config from '../../../site-config'
 
 import 'modern-normalize/modern-normalize.css'
 import 'scss/gatstrap.scss'
@@ -22,11 +22,11 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
 
   return (
     <div className='h-100 w-100'>
-      <Navibar title={siteMetadata.title} location={location} />
+      <Navibar title={config.title} location={location} />
       <section className='pt-0 pb-5'>
         { children }
       </section>
-      <Footer title={siteMetadata.title} author={siteMetadata.author.name} />
+      <Footer copyright={config.copyright} />
     </div>
   )
 }
