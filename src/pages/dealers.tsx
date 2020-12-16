@@ -90,8 +90,8 @@ export default DealersIndex
 export const dealersQuery = graphql`
   query DealersIndexQuery {
     remark: allMarkdownRemark(
-      sort: { fields: [frontmatter___title], order: DESC }
       filter: { frontmatter: { layout: { eq: "dealer" } } }
+      sort: { fields: [frontmatter___premium], order: DESC }
     ) {
       dealers: edges {
         dealer: node {
