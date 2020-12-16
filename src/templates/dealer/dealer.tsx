@@ -23,6 +23,7 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
   const banner = post?.banner ?? null
+  const images = post?.images ?? null
   const socialLinks = post?.social
 
   // TODO: refactor this mess of a converter!!!
@@ -162,6 +163,19 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+        <section className='container'>
+          <div className='row'>
+          {images?.map(image => (
+            image?.childImageSharp?.fluid &&
+            <div className='col-12'>
+              <Img
+                fluid={image?.childImageSharp?.fluid as FluidObject}
+                className='d-block rounded-3 my-3'
+              />
+            </div>
+          ))}
           </div>
         </section>
       </div>
