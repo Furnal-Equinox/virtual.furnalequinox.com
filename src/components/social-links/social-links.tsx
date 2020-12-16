@@ -50,22 +50,22 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
   /* Oh, how I wish TypeScript had a match expression! */
   const matchIconName = ({ name }: SocialLink) => {
     switch (name) {
-      case 'behance': return <Behance size='3rem' className='icon behance' />
-      case 'deviantart': return <Deviantart size='3rem' className='icon deviantart' />
-      case 'discord': return <Discord size='3rem' className='icon discord' />
-      case 'etsy': return <Etsy size='3rem' className='icon etsy' />
-      case 'facebook': return <Facebook size='3rem' className='icon facebook' />
-      case 'furaffinity': return <Furaffinity size='3rem' className='icon furaffinity' />
-      case 'github': return <Github size='3rem' className='icon github' />
-      case 'instagram': return <Instagram size='3rem' className='icon instagram' />
-      case 'picarto': return <PicartoDotTv size='3rem' className='icon picarto' />
-      case 'pinterest': return <Pinterest size='3rem' className='icon pinterest' />
-      case 'steam': return <Steam size='3rem' className='icon steam' />
-      case 'telegram': return <Telegram size='3rem' className='icon telegram' />
-      case 'tumblr': return <Tumblr size='3rem' className='icon tumblr' />
-      case 'twitch': return <Twitch size='3rem' className='icon twitch' />
-      case 'twitter': return <Twitter size='3rem' className='icon twitter' />
-      case 'youtube': return <Youtube size='3rem' className='icon youtube' />
+      case 'behance': return <Behance size='2rem' className='icon behance' />
+      case 'deviantart': return <Deviantart size='2rem' className='icon deviantart' />
+      case 'discord': return <Discord size='2rem' className='icon discord' />
+      case 'etsy': return <Etsy size='2rem' className='icon etsy' />
+      case 'facebook': return <Facebook size='2rem' className='icon facebook' />
+      case 'furaffinity': return <Furaffinity size='2rem' className='icon furaffinity' />
+      case 'github': return <Github size='2rem' className='icon github' />
+      case 'instagram': return <Instagram size='2rem' className='icon instagram' />
+      case 'picarto': return <PicartoDotTv size='2rem' className='icon picarto' />
+      case 'pinterest': return <Pinterest size='2rem' className='icon pinterest' />
+      case 'steam': return <Steam size='2rem' className='icon steam' />
+      case 'telegram': return <Telegram size='2rem' className='icon telegram' />
+      case 'tumblr': return <Tumblr size='2rem' className='icon tumblr' />
+      case 'twitch': return <Twitch size='2rem' className='icon twitch' />
+      case 'twitter': return <Twitter size='2rem' className='icon twitter' />
+      case 'youtube': return <Youtube size='2rem' className='icon youtube' />
       default: const _checkExhaustive: never = name 
     }
   }

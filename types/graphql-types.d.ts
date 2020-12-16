@@ -2435,6 +2435,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2573,6 +2575,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2777,6 +2781,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___author___name'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___logo'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2869,6 +2875,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3811,7 +3819,7 @@ export type DealerBySlugQueryVariables = Exact<{
 
 export type DealerBySlugQuery = { markdownRemark?: Maybe<{ fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
       Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'url'>
-      & { social?: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'deviantart' | 'facebook' | 'furaffinity' | 'picarto' | 'twitter' | 'behance' | 'discord' | 'etsy' | 'github' | 'instagram' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'youtube'>>, banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, images?: Maybe<Array<Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>>> }
+      & { social?: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'deviantart' | 'facebook' | 'furaffinity' | 'picarto' | 'twitter' | 'behance' | 'discord' | 'etsy' | 'github' | 'instagram' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'youtube'>>, streaming?: Maybe<{ saturday?: Maybe<Array<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSaturday, 'start' | 'end'>>>>, sunday?: Maybe<Array<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSunday, 'start' | 'end'>>>> }>, banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, images?: Maybe<Array<Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>>> }
     )> }> };
 
 export type PostBySlugQueryVariables = Exact<{

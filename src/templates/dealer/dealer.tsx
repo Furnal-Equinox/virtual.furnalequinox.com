@@ -116,14 +116,51 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
         </section>
         <section className='container'>
           <div className='row'>
-            <div className='col-lg-6 text-center py-1'>
+            <div className='col-lg-6 text-left p-1'>
               <h1>{post?.title}</h1>
               <h2>by {post?.dealer}</h2>
               <p className='lead'>{post?.description}</p>
             </div>
-            <div className='col-lg-6 text-center py-1'>
-              <h1>Social media links</h1>
-              <SocialLinks data={reducedSocialLinks}/>
+            <div className='col-lg-6 text-center p-2'>
+              { reducedSocialLinks.length > 0
+                ?
+                <>
+                  <h2>Say hello!</h2>
+                  <SocialLinks data={reducedSocialLinks}/>
+                </>
+                :
+                <>
+                  <h2>I do not have any social media links to share!</h2>
+                </>
+              }
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-lg-6 p-2'>
+              <h2>Streaming Times</h2>
+              <h3>Saturday, March 20th</h3>
+              <ul>
+                {post?.streaming?.saturday?.map((block, i) =>
+                  <li key={`saturday-time-${i}`}>
+                    {`${block?.start} to ${block?.end}`}
+                  </li>
+                )}
+              </ul>
+              <h3>Sunday, March 21st</h3>
+              <ul>
+                {post?.streaming?.sunday?.map((block, i) =>
+                  <li key={`sunday-time-${i}`}>
+                    {`${block?.start} to ${block?.end}`}
+                  </li>
+                )}
+              </ul>
+            </div>
+            <div className='col-lg-6 p-2'>
+              <div className='d-grid'>
+                <a href={post?.url ?? ''} target='_blank' rel='noopener noreferrer' className='btn btn-primary rounded-pill'>
+                  Check out my store!
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -160,7 +197,17 @@ export const dealerQuery = graphql`
           tumblr
           twitch
           youtube
+        }
+        streaming {
+          saturday {
+            start
+            end
           }
+          sunday {
+            start
+            end
+          }
+        }
         banner {
           childImageSharp {
             fluid {
