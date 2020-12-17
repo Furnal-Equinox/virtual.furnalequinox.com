@@ -8,6 +8,10 @@ import Layout from '../components/layout/layout'
 import config from '../../site-config'
 import { StreamTwoQueryQuery } from '../../types/graphql-types'
 
+/*
+ * See https://github.com/cookpete/react-player#responsive-player
+ */
+
 interface Props {
   data: StreamTwoQueryQuery
   location: Location
