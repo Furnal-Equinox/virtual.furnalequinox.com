@@ -90,8 +90,13 @@ export default DealersIndex
 export const dealersQuery = graphql`
   query DealersIndexQuery {
     remark: allMarkdownRemark(
-      filter: { frontmatter: { layout: { eq: "dealer" } } }
-      sort: { fields: [frontmatter___premium], order: DESC }
+      filter: { 
+        frontmatter: { 
+          layout: { eq: "dealer" }
+          isAdult: { eq: false } 
+        }
+      }
+      sort: { fields: [frontmatter___isPremium], order: DESC }
     ) {
       dealers: edges {
         dealer: node {
@@ -105,7 +110,7 @@ export const dealersQuery = graphql`
             dealer
             description
             kind
-            premium
+            isPremium
             path
             banner {
               childImageSharp {

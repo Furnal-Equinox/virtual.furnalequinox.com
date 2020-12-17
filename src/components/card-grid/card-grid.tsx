@@ -6,7 +6,7 @@ interface Props {
   data: Array<{
     dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
       fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>
-      frontmatter?: Maybe<(Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'kind' | 'premium' | 'path'> & {
+      frontmatter?: Maybe<(Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'kind' | 'isPremium' | 'path'> & {
         banner?: Maybe<{
           childImageSharp?: Maybe<{
             fluid?: Maybe<GatsbyImageSharpFluidFragment>
@@ -20,7 +20,7 @@ interface Props {
 const CardGrid: React.FC<Props> = ({ data }: Props) => {
   const cards = data.map(dealer =>
     <div 
-      className={`${(dealer?.dealer?.frontmatter?.premium ?? false) ? 'col-lg-12' : 'col-lg-4'}`} 
+      className={`${(dealer?.dealer?.frontmatter?.isPremium ?? false) ? 'col-lg-12' : 'col-lg-4'}`} 
       key={dealer?.dealer?.fields?.slug ?? '#'}>
       <DealerCard
         title={dealer?.dealer?.frontmatter?.title ?? 'Store Name'}
