@@ -7,7 +7,7 @@ interface Props {
 
 const CharityMeter: React.FC<Props> = ({}: Props) => {
   return (
-    <div className="progress">
+    <div className="progress progress-larger">
       <div 
         className="progress-bar progress-bar-striped progress-bar-animated" 
         role="progressbar" 
