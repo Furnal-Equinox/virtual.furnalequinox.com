@@ -3780,10 +3780,10 @@ export type GalleryQueryQuery = { remark: { artworks: Array<{ artwork: (
         )> }
       ) }> } };
 
-export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type HomeQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 export type LoginQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
