@@ -21,15 +21,30 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
     <Layout location={location}>
       <Helmet title={`Gallery | ${config.siteTitle}`} />
       <Meta customDescription='Art Gallery' />
-      <div className='container'>
-        {artworks.map(artwork => (
-          artwork.artwork.frontmatter?.image?.childImageSharp?.fluid &&
-          <Img
-            fluid={artwork.artwork.frontmatter?.image?.childImageSharp?.fluid as FluidObject}
-            style={{ display: 'block', margin: '0 auto' }}
-            className='rounded-3'
-          />
-        ))}
+      <div>
+        <section className='container text-center py-3 py-lg-5'>
+          <div className='row'>
+            {artworks.map(({ artwork }) => (
+              artwork.frontmatter?.image?.childImageSharp?.fluid &&
+              <div className='col-lg-12'>
+                <Img
+                  fluid={artwork.frontmatter?.image?.childImageSharp?.fluid as FluidObject}
+                  style={{ display: 'block', margin: '0 auto' }}
+                  className='rounded-3'
+                />
+                <h2>{`"${artwork.frontmatter?.title}" by ${artwork.frontmatter?.artist}`}</h2>
+                <a 
+                  href={artwork.frontmatter?.url ?? ''} 
+                  target='_blank' 
+                  rel='noopener noreferrer' 
+                  className='btn btn-primary'
+                >
+                  Check them out here!
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </Layout>
   )
