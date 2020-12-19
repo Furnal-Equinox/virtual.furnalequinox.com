@@ -28,7 +28,7 @@ const StreamThree: React.FC<Props> = ({ data, location }: Props) => {
         <section className='py-3 py-lg-5'>
           <div className='container text-center'>
             <div className='row'>
-              <ResponsivePlayer url='https://youtu.be/SJ5G6c2os3k' />
+              <ResponsivePlayer url='https://youtu.be/21X5lGlDOfg' />
             </div>
           </div>
         </section>
