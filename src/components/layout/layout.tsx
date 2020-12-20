@@ -21,13 +21,13 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
   })
 
   return (
-    <div className='h-100 w-100'>
+    <>
       <Navibar title={config.title} location={location} />
-      <section className='pt-0 pb-5'>
+      <div className='layout-container d-flex flex-column justify-content-between'>
         { children }
-      </section>
-      <Footer copyright={config.copyright} />
-    </div>
+        <Footer copyright={config.copyright} />
+      </div>
+    </>
   )
 }
 
