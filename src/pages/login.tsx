@@ -9,6 +9,8 @@ import Meta from '../components/meta/meta'
 import { LoginQueryQuery } from '../../types/graphql-types'
 
 import config from '../../site-config'
+import IdentityModal, { useIdentityContext } from 'react-netlify-identity-widget'
+import 'react-netlify-identity-widget/styles.css'
 
 interface Props {
   data: LoginQueryQuery
@@ -16,15 +18,24 @@ interface Props {
 }
 
 const Login: React.FC<Props> = ({ data, location }: Props) => {
+  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false)
+  const email = identity.user?.email ?? 'Unknown'
+
+  const isLoggedIn = identity.isLoggedIn
+
   return (
     <Layout location={location}>
       <Helmet title={`Login | ${config.siteTitle}`} />
       <Meta />
-      <LoginCard 
-        titleOne='Welcome!'
-        subtitleOne='Please sign up or log in to continue.'
-        loginButtonText='Log in'
-      />
+      <LoginCard>
+        <h1 className='card-title'>Welcome</h1>
+        <p className='h2'>Please sign up or log in to continue.</p>
+        <button className='btn btn-primary' onClick={() => setDialog(true)}>
+          {isLoggedIn ? `You are logged in as ${email}` : 'Log in'}
+        </button>
+      </LoginCard> 
+      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
     </Layout>
   )
 }

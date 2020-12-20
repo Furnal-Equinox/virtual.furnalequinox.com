@@ -49,7 +49,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-identity',
       options: {
-        url: 'https://virtual.furnalequinox.com/.netlify/identity'
+        url: 'https://virtual.furnalequinox.com/'
       }
     },
 
