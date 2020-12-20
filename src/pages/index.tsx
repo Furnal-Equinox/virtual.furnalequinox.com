@@ -31,6 +31,22 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
             </div>
           </div>
         </section>
+        <section className='py-3 py-lg-5'>
+          <div className='table-responsive'>
+            <table className='table table-striped table-hover'>
+              <thead>
+                <tr>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
         <section className='py-5 bg-secondary'>
           <div className='container text-center text-white'>
             <div className='row'>
