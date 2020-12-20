@@ -1,29 +1,53 @@
 ---
+# Note the bars at the top and bottom of this section! This is a special YAML segment
+# called frontmatter. gatsby-transformer-remark parses the YAML here into data fields.
+
+# If you look at a post under /posts/, you will see that the text below this YAML segment
+# is rendered as the body of the post.
+
+# gatsby-node.js uses this field to determine which template to use
+# for generating a page.
 layout: dealer
 
+# the dealer's store's name
 title: 'Title'
 
 dealer: 'Dealer\'s name'
 
+# we're not using this field, but you could use this to distinguish
+# dealers that specialize in 2D / 3D art verses dealers that specialize in merchandise
 kind: 'dealer'
 
-premium: true # whether or not the dealer has paid for a premium spot
+# whether or not the dealer's content is 18+ / NSFW
+isAdult: false 
 
+# whether or not the dealer has paid for a premium spot
+isPremium: true 
+
+# A short blurb describing the store
 description: 'Description'
 
+# The URL of the dealer's store or website.
 url: 'Dealer\'s website'
 
+# A big image that the website uses as a thumbnail on the dealers page
+# and as a hero image on the dealer's individual page.
 banner: './the-image-file-in-the-same-folder-as-this-file.png'
 
+# Optional images.
 images:
     - './the-image-file-in-the-same-folder-as-this-file-2.png'
     - './the-image-file-in-the-same-folder-as-this-file-3.png'
     - './the-image-file-in-the-same-folder-as-this-file-4.png'
 
+# Optional GIFs.
 gifs:
     - './an-optional-gif.gif'
 
-social: # You can fill in as many of these as you like.
+# Social media URLs.
+# Use the full URL, not just the username.
+# You can fill in as many of these as you like.
+social:
     behance: ''
     deviantart: 'Dealer\'s DeviantArt'
     discord: ''
@@ -41,7 +65,13 @@ social: # You can fill in as many of these as you like.
     twitter: 'Dealer\'s Twitter'
     youtube: ''
 
-streaming: # times here are based in the 24-hour clock.
+# Times when the dealer is streaming / doing a panel.
+# times here are based in the 24-hour clock.
+# The home page will use these times to display a table
+# showing when everyone is streaming.
+# You can add and name the days whatever you like - just be sure
+# you change the code that references these values!
+streaming: 
     saturday:
       - start: '0:00'
         end: '1:00'

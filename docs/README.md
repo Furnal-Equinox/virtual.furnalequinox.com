@@ -70,3 +70,12 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Turtle.Prelude](https://hackage.haskell.org/package/turtle-1.5.21/docs/Turtle-Prelude.html)
 
+### Localization
+
+[How to approach multi-language Gatsby apps](https://itnext.io/techniques-approaches-for-multi-language-gatsby-apps-8ba13ff433c5)
+
+[Localization and internalization with Gatsby (i18n)](https://www.gatsbyjs.com/docs/how-to/adding-common-features/localization-i18n/)
+
+[gatsby-plugin-i18n](https://github.com/angeloocana/gatsby-plugin-i18n)
+
+[The DEMO for the plugin above](https://github.com/angeloocana/gatsby-plugin-i18n/tree/master/packages/gatsby-starter-default-i18n)
