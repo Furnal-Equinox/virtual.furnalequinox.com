@@ -32,6 +32,7 @@ By the way, when you see "I" in this document, that's me, Ardal, the original au
 * Styled with Sass using Bootstrap.
 * Deploys to Netlify with nothing more than what is in `netlify.toml`.
 * Uses the Gatsby cache during deployment for fast build times!
+* Uses Storybook for previewing and designing components in isolation!
 
 # 💾 What's in This Repository? 💾
 ### 📄 Loose Files 📄
