@@ -10,25 +10,25 @@ export const NavbarLinks: NavLink[] = [
     to: '/',
     name: 'Home'
   },
-  {
-    id: 1,
-    to: '/stream-two/',
-    name: 'Stream 2'
-  },
-  {
-    id: 2,
-    to: '/stream-three/',
-    name: 'Stream 3'
-  },
-  {
-    id: 3,
-    to: '/news/',
-    name: 'News'
-  },
+  // {
+  //   id: 1,
+  //   to: '/stream-two/',
+  //   name: 'Stream 2'
+  // },
+  // {
+  //   id: 2,
+  //   to: '/stream-three/',
+  //   name: 'Stream 3'
+  // },
+  // {
+  //   id: 3,
+  //   to: '/news/',
+  //   name: 'News'
+  // },
   {
     id: 4,
     to: '/dealers/',
-    name: 'Dealers\' Den'
+    name: 'Dealers Den'
   },
   {
     id: 5,

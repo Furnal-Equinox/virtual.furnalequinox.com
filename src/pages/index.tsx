@@ -19,6 +19,8 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ data, location }: Props) => {
+  //const dealers = data.remark.dealers
+
   return (
     <Layout location={location}>
       <Helmet title={`Home | ${config.siteTitle}`} />
@@ -31,17 +33,50 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
             </div>
           </div>
         </section>
-        <section className='py-3 py-lg-5'>
-          <div className='table-responsive'>
+        <section className='py-3 py-lg-5 bg-white'>
+          <div className='container table-responsive'>
+            <div className='text-center'>
+              
+            </div>
             <table className='table table-striped table-hover'>
               <thead>
                 <tr>
-
+                  <th scope='col'>Starting Time</th>
+                  <th scope='col'>Event Name</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  
+                  <th scope='row'>12:00 PM</th>
+                  <td>Opening Ceremony</td>
+                </tr>
+                <tr>
+                  <th scope='row'>12:00 PM</th>
+                  <td>Opening Ceremony</td>
+                </tr>
+                <tr>
+                  <th scope='row'>12:00 PM</th>
+                  <td>Opening Ceremony</td>
+                </tr>
+                <tr>
+                  <th scope='row'>12:00 PM</th>
+                  <td>Opening Ceremony</td>
+                </tr>
+                <tr>
+                  <th scope='row'>12:00 PM</th>
+                  <td>Opening Ceremony</td>
+                </tr>
+                <tr>
+                  <th scope='row'>12:00 PM</th>
+                  <td>Opening Ceremony</td>
+                </tr>
+                <tr>
+                  <th scope='row'>12:00 PM</th>
+                  <td>Opening Ceremony</td>
+                </tr>
+                <tr>
+                  <th scope='row'>12:00 PM</th>
+                  <td>Opening Ceremony</td>
                 </tr>
               </tbody>
             </table>

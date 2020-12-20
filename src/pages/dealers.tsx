@@ -20,8 +20,8 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
 
   return (
     <Layout location={location}>
-      <Helmet title={`Dealers' Den | ${config.siteTitle}`} />
-      <Meta customDescription={'Dealers\' Den'} />
+      <Helmet title={`Dealers Den | ${config.siteTitle}`} />
+      <Meta customDescription={'Dealers Den'} />
       <div>
         <section className='container-fluid py-3 py-lg-5 bg-light text-center'>
           <div className='col-lg-6 col-md-8 mx-auto'>
