@@ -20,6 +20,12 @@
 
 [Netlify Docs - Identity](https://docs.netlify.com/visitor-access/identity/)
 
+### Testing
+
+[Storybook](https://www.learnstorybook.com/)
+
+[Visual Testing with Storybook](https://www.gatsbyjs.com/docs/how-to/testing/visual-testing-with-storybook)
+
 ### Styling
 
 [Tailwind CSS Docs](https://tailwindcss.com/docs)
