@@ -11,7 +11,7 @@ import SocialCard from '../components/cards/social-card/social-card'
 
 import config from '../../site-config'
 import { HomeQueryQuery } from '../../types/graphql-types'
-import './index.scss'
+
 
 interface Props {
   data: HomeQueryQuery

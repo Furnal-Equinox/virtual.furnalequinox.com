@@ -18,17 +18,20 @@ const Login: React.FC<Props> = ({ data, location }: Props) => {
     <Layout location={location}>
       <Helmet title={`Login | ${config.siteTitle}`} />
       <Meta />
-      <div className='d-flex h-100 text-center'>
-        <section className='d-flex w-100 h-100 p-3 mx-auto flex-column"'>
-          <h1>Welcome to Virtual Furnal Equinox!</h1>
-          <h2>Please sign up or login to continue.</h2>
-          <p>We will destroy your credentials 1 to 2 weeks after Furnal Equinox.</p>
-          <div className='d-grid'>
+      <div className='card mx-auto my-auto' style={{ width: '22rem' }}>
+        <div className='card-body'>
+          <div className='d-flex flex-column justify-content-between align-items-center text-center'>
+            <h1 className='card-title'>
+              Welcome to<br />
+              Virtual Furnal Equinox!
+            </h1>
+            <h2 className='card-subtitle'>Please sign up or login to continue.</h2>
+            <p className='card-subtitle'>We will destroy your credentials 1 to 2 weeks after Furnal Equinox.</p>
             <button className='btn btn-primary btn-lg rounded-pill'>
               Log in
             </button>
           </div>
-        </section>
+        </div>
       </div>
     </Layout>
   )

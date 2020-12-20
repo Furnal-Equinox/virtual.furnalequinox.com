@@ -23,7 +23,7 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
   return (
     <>
       <Navibar title={config.title} location={location} />
-      <div className='layout-container d-flex flex-column justify-content-between'>
+      <div className='layout-container d-flex flex-column justify-content-between bg-image'>
         { children }
         <Footer copyright={config.copyright} />
       </div>
