@@ -45,6 +45,14 @@ module.exports = {
       },
     },
 
+    /// React Netlify Identity Widget
+    {
+      resolve: 'gatsby-plugin-netlify-identity',
+      options: {
+        url: 'https://virtual.furnalequinox.com/.netlify/identity'
+      }
+    },
+
     /// Prevent Gatsby from automatically generating hashes for its bundled output files.
     /// See https://community.netlify.com/t/support-guide-making-the-most-of-netlifys-cdn-cache/127
     /// for more information - tl;dr, Gatsby's hashes invalidate Netlify's cache even if Gatsby

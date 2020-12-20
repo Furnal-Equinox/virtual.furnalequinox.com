@@ -68,6 +68,9 @@
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^3.13.0",
+    "@reach/dialog": "^0.12.1",
+    "@reach/tabs": "^0.12.1",
+    "@reach/visually-hidden": "^0.12.0",
     "gatsby": "2.27.5",
     "gatsby-image": "2.6.0",
     "gatsby-link": "2.6.1",
@@ -75,6 +78,7 @@
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-manifest": "2.7.0",
     "gatsby-plugin-netlify": "2.6.0",
+    "gatsby-plugin-netlify-identity": "^0.0.3",
     "gatsby-plugin-react-helmet": "3.5.0",
     "gatsby-plugin-remove-fingerprints": "^0.0.2",
     "gatsby-plugin-sass": "^2.6.0",
@@ -90,6 +94,7 @@
     "gatsby-transformer-remark": "2.11.1",
     "gatsby-transformer-sharp": "2.7.0",
     "react-icons": "^4.1.0",
+    "react-netlify-identity-widget": "^0.2.7",
     "react-player": "^2.7.0"
   }
 }
