@@ -151,19 +151,48 @@ module.exports = {
 ///                                           SEARCH                                             ///
 ///==============================================================================================///
     
-    // {
-    //   resolve: 'gatsby-plugin-local-search',
-    //   options: {
-    //     name: 'pages',
-    //     engine: 'flexsearch',
-    //     engineOptions: 'speed',
-    //     query: ``,
-    //     ref: 'id',
-    //     index: ['title', 'body'],
-    //     store: ['id', 'path', 'title'],
-    //     normalizer: null
-    //   }
-    // },
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        name: 'dealersSFW',
+        engine: 'flexsearch',
+        engineOptions: 'speed',
+        query: `
+          {
+            allMarkdownRemark(
+              filter: {
+                frontmatter: {
+                  layout: { eq: "dealer" }
+                  isAdult: { eq: false }
+                }
+              }
+            ) {
+              nodes {
+                id
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  dealer
+                  description
+                }
+              }
+            }
+          }
+        `,
+        ref: 'id',
+        index: ['title'],
+        store: ['id', 'slug', 'title', 'dealer', 'description'],
+        normalizer: ({ data }) => data.allMarkdownRemark.nodes.map(node => ({
+          id: node.id,
+          slug: node.fields.slug,
+          title: node.frontmatter.title,
+          dealer: node.frontmatter.dealer,
+          description: node.frontmatter.description
+        }))
+      }
+    },
 
 ///==============================================================================================///
 ///                                         TYPESCRIPT                                           ///
