@@ -151,7 +151,19 @@ module.exports = {
 ///                                           SEARCH                                             ///
 ///==============================================================================================///
     
-    //TODO
+    // {
+    //   resolve: 'gatsby-plugin-local-search',
+    //   options: {
+    //     name: 'pages',
+    //     engine: 'flexsearch',
+    //     engineOptions: 'speed',
+    //     query: ``,
+    //     ref: 'id',
+    //     index: ['title', 'body'],
+    //     store: ['id', 'path', 'title'],
+    //     normalizer: null
+    //   }
+    // },
 
 ///==============================================================================================///
 ///                                         TYPESCRIPT                                           ///

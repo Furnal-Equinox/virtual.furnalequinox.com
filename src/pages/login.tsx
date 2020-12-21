@@ -20,7 +20,6 @@ interface Props {
 const Login: React.FC<Props> = ({ data, location }: Props) => {
   const identity = useIdentityContext()
   const [dialog, setDialog] = React.useState(false)
-  const email = identity.user?.email ?? 'Unknown'
 
   const isLoggedIn = identity.isLoggedIn
 
@@ -32,7 +31,7 @@ const Login: React.FC<Props> = ({ data, location }: Props) => {
         <h1 className='card-title'>Welcome</h1>
         <p className='h2'>Please sign up or log in to continue.</p>
         <button className='btn btn-primary' onClick={() => setDialog(true)}>
-          {isLoggedIn ? `You are logged in as ${email}` : 'Log in'}
+          {isLoggedIn ? 'You are logged in' : 'Log in'}
         </button>
       </LoginCard> 
       <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
