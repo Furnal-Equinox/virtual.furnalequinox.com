@@ -13,6 +13,7 @@ import SocialCard from '../components/cards/social-card/social-card'
 import { AdultQueryQuery } from '../../types/graphql-types'
 import config from '../../site-config'
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
+import Jumbotron from '../components/jumbotron/jumbotron'
 
 interface Props {
   data: AdultQueryQuery
@@ -72,12 +73,7 @@ const Adult: React.FC<Props> = ({ data, location }: Props) => {
             </div>
           </div>
         </section>
-        <section className='container-fluid py-3 py-lg-5 bg-light text-center'>
-          <div className='col-lg-6 col-md-8 mx-auto'>
-            <h1>Dealers (Mock Grid)</h1>
-            <p className='lead'>Check out all these cool dealers!</p>
-          </div>
-        </section>
+        <Jumbotron title='Dealers (Mock Data)' subtitle='Check out all these cool dealers!' /> 
         <section className='py-3 py-lg-5'>
           <div className='container'>
             <div className='row'>

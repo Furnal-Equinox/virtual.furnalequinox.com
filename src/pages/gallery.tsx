@@ -9,6 +9,7 @@ import { GalleryQueryQuery } from '../../types/graphql-types'
 
 import config from '../../site-config'
 import GalleryItemCard from '../components/cards/gallery-item-card/gallery-item-card'
+import Jumbotron from '../components/jumbotron/jumbotron'
 
 interface Props {
   data: GalleryQueryQuery
@@ -23,12 +24,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`Gallery | ${config.siteTitle}`} />
       <Meta customDescription='Art Gallery' />
       <div>
-        <section className='container-fluid py-3 py-lg-5 bg-light text-center'>
-          <div className='col-lg-6 col-md-8 mx-auto'>
-            <h1>Art Gallery (Live Data)</h1>
-            <p className='lead'>Check out all these cool art pieces!</p>
-          </div>
-        </section>
+        <Jumbotron title='Art Gallery (Live Data)' subtitle='Check out these cool art pieces!' />
         <section className='container text-center py-3 py-lg-5'>
           <div className='row'>
             {artworks.map(({ artwork }) => (
