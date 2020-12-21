@@ -6,12 +6,11 @@ import './style.scss'
 
 import { NavbarLinks } from '../../data/navbar-links'
 
-interface Props {
-  title: string
+export interface Props {
   location: Location
 }
 
-const Navibar: React.FC<Props> = ({ location, title }: Props) => {
+const Navibar: React.FC<Props> = ({ location }: Props) => {
   return (
     <nav className='navbar navbar-expand-md navbar-light bg-white sticky-top py-0'>
       <div className='container'>

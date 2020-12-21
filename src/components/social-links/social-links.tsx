@@ -42,7 +42,7 @@ export interface SocialLink {
   url: string
 }
 
-interface Props {
+export interface Props {
   data: Array<Maybe<SocialLink>>
 }
 

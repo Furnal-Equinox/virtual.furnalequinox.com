@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import './style.scss'
 
-interface Props {
+export interface Props {
   url: string
 }
 

@@ -1,23 +1,25 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
-interface Props {
-  path: string
+export interface Props {
   label: string
-  primary: boolean
+  state?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
+  hasOutline: boolean
+  size?: 'sm' | 'lg'
 }
 
-const Button: React.FC<Props> = ({ path, label, primary }: Props) => {
+const Button: React.FC<Props> = ({ state = undefined, hasOutline = false, size = undefined, label, ...props }: Props) => {
   return (
-    <Link className='readmore' to={path}>
-      <span
-        className={`btn btn-outline-primary btn-block ${
-          primary ? 'btn-outline-primary' : 'btn-outline-secondary'
-        }`}
-      >
-        {label}
-      </span>
-    </Link>
+    <button
+      type='button'
+      className={[
+        'btn rounded-pill',
+        `btn${hasOutline ? '-outline' : ''}${state !== undefined ? `-${state}` : '-primary'}`,
+        `btn${size !== undefined ? `-${size}` : ''}`
+      ].join(' ')}
+      {...props}
+    >
+      {label}
+    </button>
   )
 }
 
