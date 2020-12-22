@@ -10,7 +10,7 @@ export interface Props {
   size?: 'sm' | 'lg'
 }
 
-const Anchor: React.FC<Props> = ({ 
+const Link: React.FC<Props> = ({ 
   state = undefined, 
   hasOutline = false, 
   size = undefined, 
@@ -36,4 +36,4 @@ const Anchor: React.FC<Props> = ({
   )
 }
 
-export default Anchor
+export default Link 

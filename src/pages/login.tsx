@@ -11,6 +11,7 @@ import { LoginQueryQuery } from '../../types/graphql-types'
 import config from '../../site-config'
 import IdentityModal, { useIdentityContext } from 'react-netlify-identity-widget'
 import 'react-netlify-identity-widget/styles.css'
+import Button from '../components/button/button'
 
 interface Props {
   data: LoginQueryQuery
@@ -28,11 +29,15 @@ const Login: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`Login | ${config.siteTitle}`} />
       <Meta />
       <LoginCard>
-        <h1 className='card-title'>Welcome</h1>
+        <h1 className='card-title'>Welcome!</h1>
         <p className='h2'>Please sign up or log in to continue.</p>
-        <button className='btn btn-primary' onClick={() => setDialog(true)}>
-          {isLoggedIn ? 'You are logged in' : 'Log in'}
-        </button>
+        <div style={{ width: '10rem' }}>
+          <Button 
+            label={isLoggedIn ? 'You are logged in' : 'Log in'}
+            isFullwidth 
+            onClick={() => setDialog(true)} 
+          />
+        </div>
       </LoginCard> 
       <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
     </Layout>

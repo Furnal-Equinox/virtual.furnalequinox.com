@@ -6,6 +6,7 @@ export interface Props {
   hasOutline?: boolean
   isFullwidth?: boolean
   size?: 'sm' | 'lg'
+  onClick?: () => void
 }
 
 const Button: React.FC<Props> = ({ 
