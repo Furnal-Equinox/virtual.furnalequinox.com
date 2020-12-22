@@ -8,7 +8,7 @@ import ResponsivePlayer from '../components/responsive-player/responsive-player'
 
 import config from '../../site-config'
 import { StreamTwoQueryQuery } from '../../types/graphql-types'
-import SocialCard from '../components/cards/social-card/social-card'
+import { SocialCard } from '../components/cards'
 
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import CharityMeter from '../components/charity-meter/charity-meter'

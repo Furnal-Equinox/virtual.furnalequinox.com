@@ -8,7 +8,7 @@ import Layout from '../components/layout/layout'
 import config from '../../site-config'
 
 import { StreamThreeQueryQuery } from '../../types/graphql-types'
-import SocialCard from '../components/cards/social-card/social-card'
+import { SocialCard } from '../components/cards'
 
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import ResponsivePlayer from '../components/responsive-player/responsive-player'

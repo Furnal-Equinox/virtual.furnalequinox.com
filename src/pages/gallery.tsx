@@ -8,7 +8,7 @@ import Img, { FluidObject } from 'gatsby-image'
 import { GalleryQueryQuery } from '../../types/graphql-types'
 
 import config from '../../site-config'
-import GalleryItemCard from '../components/cards/gallery-item-card/gallery-item-card'
+import { GalleryItemCard } from '../components/cards'
 import Jumbotron from '../components/jumbotron/jumbotron'
 
 interface Props {

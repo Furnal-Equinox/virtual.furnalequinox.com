@@ -7,7 +7,7 @@ import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import ResponsivePlayer from '../components/responsive-player/responsive-player'
-import SocialCard from '../components/cards/social-card/social-card'
+import { SocialCard } from '../components/cards'
 
 import config from '../../site-config'
 import { HomeQueryQuery } from '../../types/graphql-types'

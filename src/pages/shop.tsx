@@ -8,7 +8,7 @@ import Layout from '../components/layout/layout'
 import { ShopQueryQuery } from '../../types/graphql-types'
 
 import config from '../../site-config'
-import MockShopItemCard from '../components/cards/mock-shop-item-card/mock-shop-item-card'
+import { ShopItemCard } from '../components/cards'
 import Jumbotron from '../components/jumbotron/jumbotron'
 
 interface Props {
@@ -27,40 +27,40 @@ const Shop: React.FC<Props> = ({ data, location }: Props) => {
           <div className='container'>
             <div className='row'>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
               <div className='col-lg-4'>
-                <MockShopItemCard />
+                <ShopItemCard />
               </div>
             </div>
           </div>

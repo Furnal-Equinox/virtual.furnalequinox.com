@@ -6,7 +6,7 @@ import CharityMeter from '../components/charity-meter/charity-meter'
 
 import Layout from '../components/layout/layout'
 import Meta from '../components/meta/meta'
-import MockDealerCard from '../components/cards/mock-dealer-card/mock-dealer-card'
+import DealerCard from '../components/cards/dealer-card/dealer-card'
 import ResponsivePlayer from '../components/responsive-player/responsive-player'
 import SocialCard from '../components/cards/social-card/social-card'
 
@@ -78,22 +78,22 @@ const Adult: React.FC<Props> = ({ data, location }: Props) => {
           <div className='container'>
             <div className='row'>
               <div className='col-lg-4'>
-                <MockDealerCard />
+                <DealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockDealerCard />
+                <DealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockDealerCard />
+                <DealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockDealerCard />
+                <DealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockDealerCard />
+                <DealerCard />
               </div>
               <div className='col-lg-4'>
-                <MockDealerCard />
+                <DealerCard />
               </div>
             </div>
           </div>

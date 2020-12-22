@@ -3,7 +3,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import Layout from '../components/layout/layout'
-import LoginCard from '../components/cards/login-card/login-card'
+import { LoginCard } from '../components/cards'
 import Meta from '../components/meta/meta'
 
 import { LoginQueryQuery } from '../../types/graphql-types'
