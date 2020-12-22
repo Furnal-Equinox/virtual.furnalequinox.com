@@ -2,6 +2,7 @@ import React from 'react'
 import './style.scss'
 
 import ClickableExternalCard from '../clickable-external-card/clickable-external-card'
+import Anchor from '../../anchor/anchor'
 
 interface GalleryItem {
   title: string
@@ -22,14 +23,7 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url }: Props) 
             <p className='card-title h2'>
               <i>{title}</i> by {artist} 
             </p>
-            <a 
-              href={url} 
-              target='_blank' 
-              rel='noopener noreferrer' 
-              className='btn btn-primary'
-            >
-              Check them out here!
-            </a>
+            <Anchor label='Check them out here!' url={url} />
           </div>
         </div>
       </div>
