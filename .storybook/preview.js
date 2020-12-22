@@ -1,6 +1,15 @@
 import { action } from "@storybook/addon-actions"
 
+import '../node_modules/modern-normalize/modern-normalize.css'
 import '../src/scss/gatstrap.scss'
+import '../node_modules/animate.css/animate.css'
+import '../node_modules/font-awesome/scss/font-awesome.scss'
+
+export const parameters = {
+  backgrounds: {
+    default: 'dark'
+  }
+}
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.

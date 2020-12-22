@@ -21,7 +21,8 @@
     "plzfixmystyles": "npx stylelint ./src/**/**/*.scss --fix",
     "plzfixmywords": "npx textlint ./content/posts/**/index.md --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -44,6 +45,7 @@
     "babel-plugin-remove-graphql-queries": "^2.13.0",
     "babel-preset-react-app": "^10.0.0",
     "bootstrap": "^5.0.0-beta1",
+    "chromatic": "^5.5.0",
     "css-loader": "^5.0.1",
     "emergence.js": "1.1.2",
     "eslint": "7.16.0",
