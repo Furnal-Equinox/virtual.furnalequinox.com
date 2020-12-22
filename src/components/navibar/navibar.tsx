@@ -33,7 +33,7 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
           <ul className='navbar-nav me-auto mb-2 mb-md-0'>
             {NavbarLinks.map(elem => 
               <li 
-                key={elem.id}
+                key={elem.name}
                 className={
                   location.pathname === elem.to 
                     ? 'nav-item active' 

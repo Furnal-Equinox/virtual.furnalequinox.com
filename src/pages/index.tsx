@@ -31,53 +31,54 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
             <ResponsivePlayer url='https://youtu.be/21X5lGlDOfg' />
           </div>
         </Section>
-        <Section isContainer pos='middle' bg='light'>
-          <div className='table-responsive'>
-            <div className='text-center'>
-              
+        <Section isContainer pos='middle'>
+          <div className='card rounded-card border border-info border-5'>
+            <div className='card-body'>
+              <div className='table-responsive'>
+                <table className='table table-striped table-hover'>
+                  <thead>
+                    <tr>
+                      <th scope='col'>Starting Time</th>
+                      <th scope='col'>Event Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope='row'>12:00 PM</th>
+                      <td>Opening Ceremony</td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>12:00 PM</th>
+                      <td>Opening Ceremony</td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>12:00 PM</th>
+                      <td>Opening Ceremony</td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>12:00 PM</th>
+                      <td>Opening Ceremony</td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>12:00 PM</th>
+                      <td>Opening Ceremony</td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>12:00 PM</th>
+                      <td>Opening Ceremony</td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>12:00 PM</th>
+                      <td>Opening Ceremony</td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>12:00 PM</th>
+                      <td>Opening Ceremony</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <table className='table table-striped table-hover'>
-              <thead>
-                <tr>
-                  <th scope='col'>Starting Time</th>
-                  <th scope='col'>Event Name</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </Section>
         <Section pos='middle' bg='secondary'>
