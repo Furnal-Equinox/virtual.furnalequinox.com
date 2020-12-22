@@ -6,7 +6,7 @@ import ResponsivePlayer, { Props } from './responsive-player'
 
 export default {
   title: 'Responsive Player',
-  component: ResponsivePlayer,
+  component: ResponsivePlayer
 } as Meta
 
 const Template: Story<Props> = args => <ResponsivePlayer {...args} />

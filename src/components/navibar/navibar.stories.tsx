@@ -6,7 +6,7 @@ import Navibar, { Props } from './navibar'
 
 export default {
   title: 'Navibar',
-  component: Navibar,
+  component: Navibar
 } as Meta
 
 const Template: Story<Props> = args => <Navibar {...args} />

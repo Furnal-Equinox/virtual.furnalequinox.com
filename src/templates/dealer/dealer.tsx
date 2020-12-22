@@ -125,13 +125,11 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
             </div>
             <div className='col-lg-6 text-center p-2'>
               { reducedSocialLinks.length > 0
-                ?
-                <>
+                ? <>
                   <h2>Say hello!</h2>
                   <SocialLinks data={reducedSocialLinks}/>
                 </>
-                :
-                <>
+                : <>
                   <h2>I do not have any social media links to share!</h2>
                 </>
               }
@@ -164,15 +162,15 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
         </section>
         <section className='container'>
           <div className='row'>
-          {images?.map(image => (
-            image?.childImageSharp?.fluid &&
+            {images?.map(image => (
+              image?.childImageSharp?.fluid &&
             <div className='col-12'>
               <Img
                 fluid={image?.childImageSharp?.fluid as FluidObject}
                 className='d-block rounded-3 my-3'
               />
             </div>
-          ))}
+            ))}
           </div>
         </section>
       </div>

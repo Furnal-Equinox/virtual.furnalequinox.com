@@ -6,7 +6,7 @@ import Jumbotron, { Props } from './jumbotron'
 
 export default {
   title: 'Jumbotron',
-  component: Jumbotron,
+  component: Jumbotron
 } as Meta
 
 const Template: Story<Props> = args => <Jumbotron {...args} />

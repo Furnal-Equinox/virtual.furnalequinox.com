@@ -6,7 +6,7 @@ import ShopItemCard, { ShopItem } from './shop-item-card'
 
 export default {
   title: 'Components/Cards/Shop Item Card',
-  component: ShopItemCard,
+  component: ShopItemCard
 } as Meta
 
 const Template: Story<ShopItem> = args => <ShopItemCard {...args} />

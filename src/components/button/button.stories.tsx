@@ -6,7 +6,7 @@ import Button, { Props } from './button'
 
 export default {
   title: 'Button',
-  component: Button,
+  component: Button
 } as Meta
 
 const Template: Story<Props> = args => <Button {...args} />

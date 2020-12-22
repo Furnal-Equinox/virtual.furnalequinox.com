@@ -6,7 +6,7 @@ import Footer, { Props } from './footer'
 
 export default {
   title: 'Footer',
-  component: Footer,
+  component: Footer
 } as Meta
 
 const Template: Story<Props> = args => <Footer {...args} />

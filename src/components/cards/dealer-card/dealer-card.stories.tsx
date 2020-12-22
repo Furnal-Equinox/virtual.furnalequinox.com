@@ -6,7 +6,7 @@ import DealerCard, { Dealer } from './dealer-card'
 
 export default {
   title: 'Components/Cards/Dealer Card',
-  component: DealerCard,
+  component: DealerCard
 } as Meta
 
 const Template: Story<Dealer> = args => <DealerCard {...args} />

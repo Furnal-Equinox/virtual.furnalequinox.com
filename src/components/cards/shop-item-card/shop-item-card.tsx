@@ -35,10 +35,8 @@ const ShopItemCard: React.FC<Props> = ({ name, price, description, banner, url }
   return (
     <div className='card rounded-card mb-5 shadow-sm'>
       {banner !== undefined 
-        ? 
-          <img src={banner} className='card-img-top rounded-card-img-top'></img>
-        :
-          <PlaceholderImage />
+        ? <img src={banner} className='card-img-top rounded-card-img-top'></img>
+        : <PlaceholderImage />
       }
       <div className='card-body'>
         <div className='row'>

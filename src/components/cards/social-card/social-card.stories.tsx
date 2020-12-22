@@ -6,7 +6,7 @@ import SocialCard, { SocialItem } from './social-card'
 
 export default {
   title: 'Components/Cards/Social Media Link Card',
-  component: SocialCard,
+  component: SocialCard
 } as Meta
 
 const Template: Story<SocialItem> = args => <SocialCard {...args} />

@@ -32,22 +32,20 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url }: Props) 
     </svg>
 
   return (
-      <div className='card rounded-card mb-5 shadow-sm'>
-        {image !== undefined 
-          ? 
-            <img src={image} className='card-img-top rounded-card-img-top'></img>
-          :
-            <PlaceholderImage />
-        }
-        <div className='card-body'>
-          <div className='d-flex justify-content-between align-items-center'>
-            <p className='card-title text-center h2'>
-              <i>{title ?? 'Title'}</i> by {artist ?? 'Artist'} 
-            </p>
-            <Anchor label='Check them out here!' url={url ?? ''} />
-          </div>
+    <div className='card rounded-card mb-5 shadow-sm'>
+      {image !== undefined 
+        ? <img src={image} className='card-img-top rounded-card-img-top'></img>
+        : <PlaceholderImage />
+      }
+      <div className='card-body'>
+        <div className='d-flex justify-content-between align-items-center'>
+          <p className='card-title text-center h2'>
+            <i>{title ?? 'Title'}</i> by {artist ?? 'Artist'} 
+          </p>
+          <Anchor label='Check them out here!' url={url ?? ''} />
         </div>
       </div>
+    </div>
   )
 }
 

@@ -3,6 +3,7 @@ import React from 'react'
 import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
 import Section from '../layouts/section/section'
+import { LoginCard } from '../components/cards'
 
 interface Props {
   location: Location
@@ -36,7 +37,7 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
               </p>
             </div>
           </div>
-          </Section>
+        </Section>
       </div>
     </Layout>
   )

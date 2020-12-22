@@ -12,14 +12,13 @@ import { SocialCard } from '../components/cards'
 import config from '../../site-config'
 import { HomeQueryQuery } from '../../types/graphql-types'
 
-
 interface Props {
   data: HomeQueryQuery
   location: Location
 }
 
 const Home: React.FC<Props> = ({ data, location }: Props) => {
-  //const dealers = data.remark.dealers
+  // const dealers = data.remark.dealers
 
   return (
     <Layout location={location}>

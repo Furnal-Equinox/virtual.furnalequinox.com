@@ -33,14 +33,12 @@ const SocialCard: React.FC<Props> = ({ title, description, banner, label, url }:
     </svg>
   
   return (
-      <div className='card rounded-card mb-5 shadow-sm'>
-        {banner !== undefined 
-          ? 
-            <img src={banner} className='card-img-top rounded-card-img-top'></img>
-          :
-            <PlaceholderImage />
-        }
-        <div className='card-body'>
+    <div className='card rounded-card mb-5 shadow-sm'>
+      {banner !== undefined 
+        ? <img src={banner} className='card-img-top rounded-card-img-top'></img>
+        : <PlaceholderImage />
+      }
+      <div className='card-body'>
         <div className='row'>
           <div className='col'>
             <p className='m-0'>
@@ -57,7 +55,7 @@ const SocialCard: React.FC<Props> = ({ title, description, banner, label, url }:
           <Anchor label={label ?? 'Label'} url={url ?? ''} isFullwidth />
         </div>
       </div>
-      </div>
+    </div>
   )
 }
 

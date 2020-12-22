@@ -6,7 +6,7 @@ import GalleryItemCard, { GalleryItem } from './gallery-item-card'
 
 export default {
   title: 'Components/Cards/Art Gallery Card',
-  component: GalleryItemCard,
+  component: GalleryItemCard
 } as Meta
 
 const Template: Story<GalleryItem> = args => <GalleryItemCard {...args} />

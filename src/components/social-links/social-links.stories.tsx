@@ -7,7 +7,7 @@ import { Just } from 'purify-ts/Maybe'
 
 export default {
   title: 'Social Links',
-  component: SocialLinks,
+  component: SocialLinks
 } as Meta
 
 const Template: Story<Props> = args => <SocialLinks {...args} />
@@ -49,7 +49,7 @@ SomeLinks.args = {
     Just({ 
       name: 'youtube', 
       url: 'https://www.youtube.com/'
-    }),
+    })
   ]
 }
 
@@ -119,6 +119,6 @@ AllLinks.args = {
     Just({ 
       name: 'youtube', 
       url: 'https://www.youtube.com/'
-    }),
+    })
   ]
 }
