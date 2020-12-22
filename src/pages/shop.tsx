@@ -10,6 +10,7 @@ import { ShopQueryQuery } from '../../types/graphql-types'
 import config from '../../site-config'
 import { ShopItemCard } from '../components/cards'
 import Jumbotron from '../components/jumbotron/jumbotron'
+import Section from '../layouts/section/section'
 
 interface Props {
   data: ShopQueryQuery
@@ -23,7 +24,7 @@ const Shop: React.FC<Props> = ({ data, location }: Props) => {
       <Meta />
       <div>
         <Jumbotron title='Shop' subtitle='Buy some cool stuff!' />
-        <section className='py-3 py-lg-5'>
+        <Section pos='middle'>
           <div className='container'>
             <div className='row'>
               <div className='col-lg-4'>
@@ -64,7 +65,7 @@ const Shop: React.FC<Props> = ({ data, location }: Props) => {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
       </div>
     </Layout>
   )

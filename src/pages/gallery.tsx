@@ -10,6 +10,7 @@ import { GalleryQueryQuery } from '../../types/graphql-types'
 import config from '../../site-config'
 import { GalleryItemCard } from '../components/cards'
 import Jumbotron from '../components/jumbotron/jumbotron'
+import Section from '../layouts/section/section'
 
 interface Props {
   data: GalleryQueryQuery
@@ -25,7 +26,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
       <Meta customDescription='Art Gallery' />
       <div>
         <Jumbotron title='Art Gallery (Live Data)' subtitle='Check out these cool art pieces!' />
-        <section className='container text-center py-3 py-lg-5'>
+        <Section isContainer isTextCenter pos='last'>
           <div className='row'>
             {artworks.map(({ artwork }) => (
               artwork.frontmatter?.image?.childImageSharp?.fluid &&
@@ -39,7 +40,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
               </div>
             ))}
           </div>
-        </section>
+        </Section>
       </div>
     </Layout>
   )

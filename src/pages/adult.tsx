@@ -14,6 +14,7 @@ import { AdultQueryQuery } from '../../types/graphql-types'
 import config from '../../site-config'
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import Jumbotron from '../components/jumbotron/jumbotron'
+import Section from '../layouts/section/section'
 
 interface Props {
   data: AdultQueryQuery
@@ -26,14 +27,14 @@ const Adult: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`Adult | ${config.siteTitle}`} />
       <Meta customDescription='Adults-only section' />
       <div>
-        <section className='py-3 py-lg-5'>
+        <Section pos='first'>
           <div className='container text-center'>
             <div className='row'>
               <ResponsivePlayer url='https://youtu.be/21X5lGlDOfg' />
             </div>
           </div>
-        </section>
-        <section className='py-5 bg-secondary'>
+        </Section>
+        <Section pos='middle' bg='secondary'>
           <div className='container text-center text-white'>
             <div className='row'>
               <h1>Charity Meter</h1>
@@ -50,8 +51,8 @@ const Adult: React.FC<Props> = ({ data, location }: Props) => {
               </div>
             </div>
           </div>
-        </section>
-        <section className='py-3 py-lg-5'>
+        </Section>
+        <Section pos='middle'>
           <div className='container'>
             <div className='row'>
               <div className='col-md-6'>
@@ -72,32 +73,32 @@ const Adult: React.FC<Props> = ({ data, location }: Props) => {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
         <Jumbotron title='Dealers (Mock Data)' subtitle='Check out all these cool dealers!' /> 
-        <section className='py-3 py-lg-5'>
+        <Section pos='last'>
           <div className='container'>
             <div className='row'>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
             </div>
           </div>
-        </section>
+        </Section>
       </div>
     </Layout>
   )

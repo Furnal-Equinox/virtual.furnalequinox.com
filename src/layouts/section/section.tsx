@@ -7,6 +7,7 @@ interface Props {
   isContainer?: boolean
   isFluid?: boolean
   isTextCenter?: boolean
+  bg?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
   pos?: Position
   children: React.ReactNode
 }
@@ -15,6 +16,7 @@ const Section: React.FC<Props> = ({
   isContainer = true,
   isFluid = false,
   isTextCenter = false,
+  bg = undefined,
   pos = 'middle', 
   children 
 }: Props) => {
@@ -45,6 +47,9 @@ const Section: React.FC<Props> = ({
         }`,
         `${
           isTextCenter ? 'text-center' : ''
+        }`,
+        `${
+          bg !== undefined ? `bg-${bg}` : ''
         }`
       ].join(' ')}
     >

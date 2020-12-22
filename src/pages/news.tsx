@@ -7,6 +7,7 @@ import Layout from '../components/layout/layout'
 
 import config from '../../site-config'
 import { NewsQueryQuery } from '../../types/graphql-types'
+import Section from '../layouts/section/section'
 
 interface Props {
   data: NewsQueryQuery
@@ -21,7 +22,7 @@ const News: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`News | ${config.siteTitle}`} />
       <Meta customDescription='News posts' />
       <div>
-        <section className='container'>
+        <Section isContainer>
           {posts.map(post =>
             <div className='p-3 mx-3 my-5 bg-light text-left rounded-3' key={post?.post?.fields?.slug}>
               <div className='col'>
@@ -36,7 +37,7 @@ const News: React.FC<Props> = ({ data, location }: Props) => {
               </div>
             </div>
           )}
-        </section>
+        </Section>
       </div>
     </Layout>
   )

@@ -11,6 +11,7 @@ import { SocialCard } from '../components/cards'
 
 import config from '../../site-config'
 import { HomeQueryQuery } from '../../types/graphql-types'
+import Section from '../layouts/section/section'
 
 interface Props {
   data: HomeQueryQuery
@@ -25,15 +26,13 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
       <div>
-        <section className='py-3 py-lg-5'>
-          <div className='container text-center'>
-            <div className='row'>
-              <ResponsivePlayer url='https://youtu.be/21X5lGlDOfg' />
-            </div>
+        <Section isContainer isTextCenter pos='first'>
+          <div className='row'>
+            <ResponsivePlayer url='https://youtu.be/21X5lGlDOfg' />
           </div>
-        </section>
-        <section className='py-3 py-lg-5 bg-white'>
-          <div className='container table-responsive'>
+        </Section>
+        <Section isContainer pos='middle' bg='light'>
+          <div className='table-responsive'>
             <div className='text-center'>
               
             </div>
@@ -80,8 +79,8 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
               </tbody>
             </table>
           </div>
-        </section>
-        <section className='py-5 bg-secondary'>
+        </Section>
+        <Section pos='middle' bg='secondary'>
           <div className='container text-center text-white'>
             <div className='row'>
               <h1>Charity Meter</h1>
@@ -98,29 +97,27 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
               </div>
             </div>
           </div>
-        </section>
-        <section className='py-3 py-lg-5'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-md-6'>
-                <SocialCard 
-                  title='Join the chat on Discord!'
-                  description=''
-                  banner={PlaceholderImage}
-                  url=''
-                />
-              </div>
-              <div className='col-md-6'>
-                <SocialCard 
-                  title='Join us on VRChat!'
-                  description=''
-                  banner={PlaceholderImage}
-                  url=''
-                />
-              </div>
+        </Section>
+        <Section isContainer pos='last'>
+          <div className='row'>
+            <div className='col-md-6'>
+              <SocialCard 
+                title='Join the chat on Discord!'
+                description=''
+                banner={PlaceholderImage}
+                url=''
+              />
+            </div>
+            <div className='col-md-6'>
+              <SocialCard 
+                title='Join us on VRChat!'
+                description=''
+                banner={PlaceholderImage}
+                url=''
+              />
             </div>
           </div>
-        </section>
+        </Section>
       </div>
     </Layout>
   )

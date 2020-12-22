@@ -10,6 +10,7 @@ import { DealersIndexQueryQuery } from '../../types/graphql-types'
 
 import config from '../../site-config'
 import Jumbotron from '../components/jumbotron/jumbotron'
+import Section from '../layouts/section/section'
 
 interface Props {
   data: DealersIndexQueryQuery
@@ -25,11 +26,11 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
       <Meta customDescription={'Dealers Den'} />
       <div>
         <Jumbotron title='Dealers (Live Data)' subtitle='Check out all these cool dealers!' />
-        <section className='py-5'>
+        <Section pos='middle'>
           <CardGrid data={dealers} />
-        </section>
+        </Section>
         <Jumbotron title='Dealers (Mock Data)' subtitle='Check out all these cool dealers!' />
-        <section className='py-3 py-lg-5'>
+        <Section pos='last'>
           <div className='container'>
             <div className='row'>
               <div className='col-lg-12'>
@@ -41,36 +42,36 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
               <div className='col-lg-12'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
-              <div className='col-lg-4'>
+              <div className='col-lg-6'>
                 <DealerCard />
               </div>
             </div>
           </div>
-        </section>
+        </Section>
       </div>
     </Layout>
   )
