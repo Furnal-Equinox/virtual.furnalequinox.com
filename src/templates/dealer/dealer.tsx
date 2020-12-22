@@ -13,6 +13,7 @@ import { DealerBySlugQuery } from '../../../types/graphql-types'
 
 import SocialLinks, { SocialLink } from '../../components/social-links/social-links'
 import { Maybe, Just, Nothing } from 'purify-ts'
+import Anchor from '../../components/anchor/anchor'
 
 interface Props {
   data: DealerBySlugQuery
@@ -157,11 +158,7 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
               </ul>
             </div>
             <div className='col-lg-6 p-2'>
-              <div className='d-grid'>
-                <a href={post?.url ?? ''} target='_blank' rel='noopener noreferrer' className='btn btn-primary rounded-pill'>
-                  Check out my store!
-                </a>
-              </div>
+              <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
             </div>
           </div>
         </section>
