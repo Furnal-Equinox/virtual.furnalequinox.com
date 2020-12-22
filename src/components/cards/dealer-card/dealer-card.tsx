@@ -3,7 +3,7 @@ import './style.scss'
 
 import Link from '../../link/link'
 
-interface Dealer {
+export interface Dealer {
   title?: string
   dealer?: string
   description?: string

@@ -1,16 +1,17 @@
 import React from 'react'
 import './style.scss'
 
-import ClickableExternalCard from '../clickable-external-card/clickable-external-card'
 import Anchor from '../../anchor/anchor'
 
-interface Props {
+export interface SocialItem {
   title?: string
   description?: string
   banner?: string
   label?: string
   url?: string
 }
+
+type Props = SocialItem
 
 const SocialCard: React.FC<Props> = ({ title, description, banner, label, url }: Props) => {
   const PlaceholderImage = () =>

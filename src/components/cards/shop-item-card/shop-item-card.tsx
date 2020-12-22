@@ -3,7 +3,7 @@ import './style.scss'
 
 import Anchor from '../../anchor/anchor'
 
-interface ShopItem {
+export interface ShopItem {
   name?: string
   price?: string
   description?: string

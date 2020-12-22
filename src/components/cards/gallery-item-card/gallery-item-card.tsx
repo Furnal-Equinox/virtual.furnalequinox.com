@@ -3,7 +3,7 @@ import './style.scss'
 
 import Anchor from '../../anchor/anchor'
 
-interface GalleryItem {
+export interface GalleryItem {
   title?: string
   artist?: string
   image?: string

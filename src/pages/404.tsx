@@ -2,6 +2,7 @@ import React from 'react'
 
 import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
+import Section from '../layouts/section/section'
 
 interface Props {
   location: Location
@@ -12,7 +13,7 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
     <Layout location={ location } >
       <Meta />
       <div>
-        <section className='container py-3 py-lg-5 text-center'>
+        <Section isContainer isTextCenter pos='first'>
           <div className='row'>
             <div className='col mx-auto'>
               <h1>404</h1>
@@ -35,7 +36,7 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
               </p>
             </div>
           </div>
-        </section>
+          </Section>
       </div>
     </Layout>
   )
