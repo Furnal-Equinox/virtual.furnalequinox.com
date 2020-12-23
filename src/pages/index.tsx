@@ -12,6 +12,7 @@ import { SocialCard } from '../components/cards'
 import config from '../../site-config'
 import { HomeQueryQuery } from '../../types/graphql-types'
 import Section from '../layouts/section/section'
+import { TextCard } from '../components/cards'
 
 interface Props {
   data: HomeQueryQuery
@@ -32,54 +33,52 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
           </div>
         </Section>
         <Section isContainer pos='middle'>
-          <div className='card rounded-card border border-info border-5'>
-            <div className='card-body'>
-              <div className='table-responsive'>
-                <table className='table table-striped table-hover'>
-                  <thead>
-                    <tr>
-                      <th scope='col'>Starting Time</th>
-                      <th scope='col'>Event Name</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope='row'>12:00 PM</th>
-                      <td>Opening Ceremony</td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>12:00 PM</th>
-                      <td>Opening Ceremony</td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>12:00 PM</th>
-                      <td>Opening Ceremony</td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>12:00 PM</th>
-                      <td>Opening Ceremony</td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>12:00 PM</th>
-                      <td>Opening Ceremony</td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>12:00 PM</th>
-                      <td>Opening Ceremony</td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>12:00 PM</th>
-                      <td>Opening Ceremony</td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>12:00 PM</th>
-                      <td>Opening Ceremony</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+          <TextCard>
+            <div className='table-responsive'>
+              <table className='table table-striped table-hover'>
+                <thead>
+                  <tr>
+                    <th scope='col'>Starting Time</th>
+                    <th scope='col'>Event Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope='row'>12:00 PM</th>
+                    <td>Opening Ceremony</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>12:00 PM</th>
+                    <td>Opening Ceremony</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>12:00 PM</th>
+                    <td>Opening Ceremony</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>12:00 PM</th>
+                    <td>Opening Ceremony</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>12:00 PM</th>
+                    <td>Opening Ceremony</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>12:00 PM</th>
+                    <td>Opening Ceremony</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>12:00 PM</th>
+                    <td>Opening Ceremony</td>
+                  </tr>
+                  <tr>
+                    <th scope='row'>12:00 PM</th>
+                    <td>Opening Ceremony</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
+          </TextCard>
         </Section>
         <Section pos='middle' bg='secondary'>
           <div className='container text-center text-white'>

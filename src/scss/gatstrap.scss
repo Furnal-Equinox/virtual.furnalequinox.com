@@ -141,6 +141,15 @@ body {
   background-size: cover;
 }
 
+.rounded-card {
+  border-radius: 1rem;
+
+  .rounded-card-img, .rounded-card-img-top {
+    border-top-left-radius: calc(1rem - 1px);
+    border-top-right-radius: calc(1rem - 1px); 
+  }
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

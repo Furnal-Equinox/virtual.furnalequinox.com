@@ -14,6 +14,8 @@ import { DealerBySlugQuery } from '../../../types/graphql-types'
 import SocialLinks, { SocialLink } from '../../components/social-links/social-links'
 import { Maybe, Just, Nothing } from 'purify-ts'
 import Anchor from '../../components/anchor/anchor'
+import Section from '../../layouts/section/section'
+import { TextCard } from '../../components/cards'
 
 interface Props {
   data: DealerBySlugQuery
@@ -106,7 +108,7 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
         postSEO
       />
       <div>
-        <section className='pt-0'>
+        <Section pos='first'>
           <div className='content'>
             {banner?.childImageSharp?.fluid && (
               <Img
@@ -115,51 +117,53 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
               />
             )}
           </div>
-        </section>
-        <section className='container'>
-          <div className='row'>
-            <div className='col-lg-6 text-left p-1'>
-              <h1>{post?.title}</h1>
-              <h2>by {post?.dealer}</h2>
-              <p className='lead'>{post?.description}</p>
+        </Section>
+        <Section isContainer>
+          <TextCard>
+            <div className='row'>
+              <div className='col-lg-6 text-left p-1'>
+                <h1>{post?.title}</h1>
+                <h2>by {post?.dealer}</h2>
+                <p className='lead'>{post?.description}</p>
+              </div>
+              <div className='col-lg-6 text-center p-2'>
+                { reducedSocialLinks.length > 0
+                  ? <>
+                    <h2>Say hello!</h2>
+                    <SocialLinks data={reducedSocialLinks}/>
+                  </>
+                  : <>
+                    <h2>I do not have any social media links to share!</h2>
+                  </>
+                }
+              </div>
             </div>
-            <div className='col-lg-6 text-center p-2'>
-              { reducedSocialLinks.length > 0
-                ? <>
-                  <h2>Say hello!</h2>
-                  <SocialLinks data={reducedSocialLinks}/>
-                </>
-                : <>
-                  <h2>I do not have any social media links to share!</h2>
-                </>
-              }
+            <div className='row'>
+              <div className='col-lg-6 p-2'>
+                <h2>Streaming Times</h2>
+                <h3>Saturday, March 20th</h3>
+                <ul>
+                  {post?.streaming?.saturday?.map((block, i) =>
+                    <li key={`saturday-time-${i}`}>
+                      {`${block?.start} to ${block?.end}`}
+                    </li>
+                  )}
+                </ul>
+                <h3>Sunday, March 21st</h3>
+                <ul>
+                  {post?.streaming?.sunday?.map((block, i) =>
+                    <li key={`sunday-time-${i}`}>
+                      {`${block?.start} to ${block?.end}`}
+                    </li>
+                  )}
+                </ul>
+              </div>
+              <div className='col-lg-6 p-2'>
+                <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
+              </div>
             </div>
-          </div>
-          <div className='row'>
-            <div className='col-lg-6 p-2'>
-              <h2>Streaming Times</h2>
-              <h3>Saturday, March 20th</h3>
-              <ul>
-                {post?.streaming?.saturday?.map((block, i) =>
-                  <li key={`saturday-time-${i}`}>
-                    {`${block?.start} to ${block?.end}`}
-                  </li>
-                )}
-              </ul>
-              <h3>Sunday, March 21st</h3>
-              <ul>
-                {post?.streaming?.sunday?.map((block, i) =>
-                  <li key={`sunday-time-${i}`}>
-                    {`${block?.start} to ${block?.end}`}
-                  </li>
-                )}
-              </ul>
-            </div>
-            <div className='col-lg-6 p-2'>
-              <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
-            </div>
-          </div>
-        </section>
+          </TextCard>
+        </Section>
         <section className='container'>
           <div className='row'>
             {images?.map(image => (

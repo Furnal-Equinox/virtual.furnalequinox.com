@@ -3,6 +3,7 @@ export { default as GalleryItemCard } from './gallery-item-card/gallery-item-car
 export { default as LoginCard } from './login-card/login-card'
 export { default as ShopItemCard } from './shop-item-card/shop-item-card'
 export { default as SocialCard } from './social-card/social-card'
+export { default as TextCard } from './text-card/text-card'
 
 export type { Dealer } from './dealer-card/dealer-card'
 export type { GalleryItem } from './gallery-item-card/gallery-item-card'
