@@ -18,59 +18,22 @@ interface Props {
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
-  const dealers = data.remark.dealers
+  const allDealers = data.remark.group
+  const premiumDealers = allDealers[1].fieldValue === 'true' ? allDealers[1].dealers : null
+  const regularDealers = allDealers[0].fieldValue === 'false' ? allDealers[0].dealers : null
 
   return (
     <Layout location={location}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
       <Meta customDescription={'Dealers Den'} />
       <div>
-        <Jumbotron title='Dealers (Live Data)' subtitle='Check out all these cool dealers!' />
+        <Jumbotron title='Premium Dealers (Live Data)' subtitle='Check out all these cool dealers!' />
         <Section pos='middle'>
-          <CardGrid data={dealers} />
+          <CardGrid data={premiumDealers} />
         </Section>
-        <Jumbotron title='Dealers (Mock Data)' subtitle='Check out all these cool dealers!' />
+        <Jumbotron title='Regular Dealers (Live Data)' subtitle='Check out all these cool dealers!' />
         <Section pos='last'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-lg-12'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-12'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-12'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-            </div>
-          </div>
+          <CardGrid data={regularDealers} />
         </Section>
       </div>
     </Layout>
@@ -81,19 +44,22 @@ export default DealersIndex
 
 export const dealersQuery = graphql`
   query DealersIndexQuery {
-    remark: allMarkdownRemark(
-      filter: { 
-        frontmatter: { 
-          layout: { eq: "dealer" }
-          isAdult: { eq: false } 
-        }
+  remark: allMarkdownRemark(
+    filter: {
+      frontmatter: {
+        layout: {eq: "dealer"}, 
+        isAdult: {eq: false}
       }
-      sort: { fields: [frontmatter___isPremium], order: DESC }
-    ) {
+    }, 
+    sort: {
+      fields: [frontmatter___title], 
+      order: ASC
+    }
+  ) {
+    group(field: frontmatter___isPremium) {
+      fieldValue
       dealers: edges {
         dealer: node {
-          id
-          html
           fields {
             slug
           }
@@ -101,12 +67,10 @@ export const dealersQuery = graphql`
             title
             dealer
             description
-            kind
             isPremium
-            path
             banner {
               childImageSharp {
-                fluid(maxWidth: 500) {
+                fluid(maxHeight: 250) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -116,4 +80,6 @@ export const dealersQuery = graphql`
       }
     }
   }
+}
+
 `

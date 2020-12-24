@@ -35,6 +35,7 @@ module.exports = {
       },
     },
 
+    /// SEO
     'gatsby-plugin-react-helmet',
     
     /// Netlify headers and redirects go here.

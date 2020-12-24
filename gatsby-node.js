@@ -28,16 +28,19 @@ exports.createPages = async ({ graphql, actions }) => {
   const dealerPage = path.resolve('./src/templates/dealer/dealer.tsx')
 
   // Get a full list of all Markdown posts
-  const markdownQueryResult = await graphql(`
+  const markdownPosts = await graphql(`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        filter: { frontmatter: { layout: { eq: "post" } } }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         edges {
           node {
             fields {
               slug
             }
             frontmatter {
-              layout
+              title
             }
           }
         }
@@ -45,17 +48,37 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  if (markdownQueryResult.error) {
-    console.error(markdownQueryResult.errors)
-    throw markdownQueryResult.errors
+  const markdownDealers = await graphql(`
+    query {
+      allMarkdownRemark(
+        filter: { frontmatter: { layout: { eq: "dealer" } } }
+        sort: { fields: frontmatter___title, order: DESC }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (markdownPosts.error || markdownDealers.error) {
+    console.error([markdownPosts.errors, markdownDealers.errors])
+    throw [markdownPosts.errors, markdownDealers.errors]
   }
 
-  const allEdges = markdownQueryResult.data.allMarkdownRemark.edges
+  // const allEdges = markdownQueryResult.data.allMarkdownRemark.edges
 
-  const posts = allEdges.filter(edge => edge.node.frontmatter.layout === 'post')
-  const dealers = allEdges.filter(edge => edge.node.frontmatter.layout === 'dealer')
+  // const posts = allEdges.filter(edge => edge.node.frontmatter.layout === 'post')
+  // const dealers = allEdges.filter(edge => edge.node.frontmatter.layout === 'dealer')
 
-  posts.forEach(edge => {
+  markdownPosts.data.allMarkdownRemark.edges.forEach(edge => {
     createPage({
       path: `/news${edge.node.fields.slug}`,
       component: postPage,
@@ -66,7 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
     
 
-  dealers.forEach(edge => {
+  markdownDealers.data.allMarkdownRemark.edges.forEach(edge => {
     createPage({
       path: `/dealers${edge.node.fields.slug}`,
       component: dealerPage,

@@ -20,14 +20,14 @@ interface Props {
 const CardGrid: React.FC<Props> = ({ data }: Props) => {
   const cards = data.map(dealer =>
     <div 
-      className={`${(dealer?.dealer?.frontmatter?.isPremium ?? false) ? 'col-lg-12' : 'col-lg-4'}`} 
+      className={`${(dealer?.dealer?.frontmatter?.isPremium ?? false) ? 'col-lg-12' : 'col-lg-6'}`} 
       key={dealer?.dealer?.fields?.slug ?? '#'}>
       <DealerCard
-        title={dealer?.dealer?.frontmatter?.title ?? 'Store Name'}
-        dealer={dealer?.dealer?.frontmatter?.dealer ?? 'Dealer Name'}
-        description={dealer?.dealer?.frontmatter?.description ?? 'Dealer Description'}
-        banner={dealer?.dealer?.frontmatter?.banner?.childImageSharp?.fluid?.src ?? ''}
-        slug={dealer?.dealer?.fields?.slug ?? ''}
+        title={dealer?.dealer?.frontmatter?.title ?? undefined}
+        dealer={dealer?.dealer?.frontmatter?.dealer ?? undefined}
+        description={dealer?.dealer?.frontmatter?.description ?? undefined}
+        banner={dealer?.dealer?.frontmatter?.banner?.childImageSharp?.fluid?.src ?? undefined}
+        slug={dealer?.dealer?.fields?.slug ?? undefined}
       />
     </div>
   )
