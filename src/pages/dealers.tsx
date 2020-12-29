@@ -13,22 +13,28 @@ import config from '../../site-config'
 import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
+import { sample } from '../utils/tools'
+
 interface Props {
   data: DealersIndexQueryQuery
   location: Location
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
-  const allDealers = data.remark.group
-  const premiumDealers = allDealers[1].fieldValue === 'true' ? allDealers[1].dealers : null
-  const regularDealers = allDealers[0].fieldValue === 'false' ? allDealers[0].dealers : null
+  const dealerGroups = data.remark.group
+  const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : null
+  const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : null
+  const allDealers = premiumDealers?.concat(regularDealers ?? []) ?? []
 
   return (
     <Layout location={location}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
       <Meta customDescription={'Dealers Den'} />
       <div>
-        <Jumbotron title='Premium Dealers (Live Data)' subtitle='Check out all these cool dealers!' />
+        <Jumbotron 
+          title='Premium Dealers (Live Data)' 
+          subtitle='Check out all these cool dealers!'
+        />
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <div className='row'>
@@ -37,7 +43,30 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
                 <p className='lead'>
                   Click this button to check out a random dealer!
                 </p>
-                <Link label={'Let\'s go!'} to='#' onClick={() => alert('Here we go!')} size='lg' />
+                <Link 
+                  label={'Let\'s go!'} 
+                  to={`.${
+                    sample(allDealers).dealer.fields?.slug
+                  }`}
+                  size='lg'
+                />
+              </div>
+            </div>
+          </TextCard>
+          <TextCard>
+            <div className='row'>
+              <div className='col mx-auto'>
+                <h2>Have something in mind?</h2>
+                <p className='lead'>
+                  Use the search bar!
+                </p>
+                <Link 
+                  label={'Let\'s go!'} 
+                  to={`.${
+                    sample(allDealers).dealer.fields?.slug
+                  }`}
+                  size='lg'
+                />
               </div>
             </div>
           </TextCard>
@@ -45,7 +74,10 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
         <Section pos='middle'>
           <CardGrid data={premiumDealers} />
         </Section>
-        <Jumbotron title='Regular Dealers (Live Data)' subtitle='Check out all these cool dealers!' />
+        <Jumbotron 
+          title='Regular Dealers (Live Data)'
+          subtitle='Check out all these cool dealers!'
+        />
         <Section pos='last'>
           <CardGrid data={regularDealers} />
         </Section>
