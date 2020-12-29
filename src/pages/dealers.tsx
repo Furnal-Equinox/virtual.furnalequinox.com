@@ -1,9 +1,10 @@
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import { DealerCard } from '../components/cards'
+import { DealerCard, TextCard } from '../components/cards'
 import CardGrid from '../components/card-grid/card-grid'
+import Link from '../components/link/link'
 import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
 import { DealersIndexQueryQuery } from '../../types/graphql-types'
@@ -28,6 +29,19 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
       <Meta customDescription={'Dealers Den'} />
       <div>
         <Jumbotron title='Premium Dealers (Live Data)' subtitle='Check out all these cool dealers!' />
+        <Section isContainer isTextCenter pos='middle'>
+          <TextCard>
+            <div className='row'>
+              <div className='col mx-auto'>
+                <h2>Feeling lucky?</h2>
+                <p className='lead'>
+                  Click this button to check out a random dealer!
+                </p>
+                <Link label={'Let\'s go!'} to='#' onClick={() => alert('Here we go!')} size='lg' />
+              </div>
+            </div>
+          </TextCard>
+        </Section>
         <Section pos='middle'>
           <CardGrid data={premiumDealers} />
         </Section>

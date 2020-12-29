@@ -8,6 +8,7 @@ export interface Props {
   hasOutline?: boolean
   isFullwidth?: boolean
   size?: 'sm' | 'lg'
+  onClick?: () => void
 }
 
 const Link: React.FC<Props> = ({ 
@@ -16,7 +17,8 @@ const Link: React.FC<Props> = ({
   size = undefined, 
   isFullwidth = false, 
   label, 
-  to, 
+  to,
+  onClick, 
   ...props 
 }: Props) => {
   return (
@@ -28,6 +30,7 @@ const Link: React.FC<Props> = ({
           `btn${hasOutline ? '-outline' : ''}${state !== undefined ? `-${state}` : '-primary'}`,
           `btn${size !== undefined ? `-${size}` : ''}`
         ].join(' ')}
+        onClick={onClick}
         {...props}
       >
         {label}

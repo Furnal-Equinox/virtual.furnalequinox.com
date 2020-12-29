@@ -14,7 +14,8 @@ const Button: React.FC<Props> = ({
   hasOutline = false, 
   size = undefined, 
   isFullwidth = false, 
-  label, 
+  label,
+  onClick, 
   ...props 
 }: Props) => {
   return (
@@ -26,6 +27,7 @@ const Button: React.FC<Props> = ({
           `btn${hasOutline ? '-outline' : ''}${state !== undefined ? `-${state}` : '-primary'}`,
           `btn${size !== undefined ? `-${size}` : ''}`
         ].join(' ')}
+        onClick={onClick}
         {...props}
       >
         {label}

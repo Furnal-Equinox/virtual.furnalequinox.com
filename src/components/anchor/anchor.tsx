@@ -7,6 +7,7 @@ export interface Props {
   hasOutline?: boolean
   isFullwidth?: boolean
   size?: 'sm' | 'lg'
+  onClick?: () => void
 }
 
 const Anchor: React.FC<Props> = ({ 
@@ -15,7 +16,8 @@ const Anchor: React.FC<Props> = ({
   size = undefined, 
   isFullwidth = false, 
   label, 
-  url, 
+  url,
+  onClick, 
   ...props 
 }: Props) => {
   return (
@@ -29,6 +31,7 @@ const Anchor: React.FC<Props> = ({
         ].join(' ')}
         target='_blank' 
         rel='noopener noreferrer'
+        onClick={onClick}
         {...props}
       >
         {label}
