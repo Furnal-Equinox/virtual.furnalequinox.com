@@ -53,6 +53,8 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
               </div>
             </div>
           </TextCard>
+        </Section>
+        <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <div className='row'>
               <div className='col mx-auto'>
@@ -60,13 +62,19 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
                 <p className='lead'>
                   Use the search bar!
                 </p>
-                <Link 
-                  label={'Let\'s go!'} 
-                  to={`.${
-                    sample(allDealers).dealer.fields?.slug
-                  }`}
-                  size='lg'
-                />
+                <form className='mx-auto'>
+                  <label htmlFor='inputSearchTerm' className='form-label visually-hidden'>
+                    Input Search Term
+                  </label>
+                  <input
+                    aria-label='Search Term'
+                    type='text'
+                    id='inputSearchTerm'
+                    className='form-control-lg'
+                    style={{ width: '20rem' }}
+                    placeholder='Tails'
+                  />
+                </form>
               </div>
             </div>
           </TextCard>
