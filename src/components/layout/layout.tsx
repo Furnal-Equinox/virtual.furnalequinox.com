@@ -5,7 +5,6 @@ import Navibar from '../navibar/navibar'
 import Footer from '../footer/footer'
 import config from '../../../site-config'
 
-import 'modern-normalize/modern-normalize.css'
 import 'scss/gatstrap.scss'
 import 'animate.css/animate.css'
 import 'font-awesome/css/font-awesome.css'

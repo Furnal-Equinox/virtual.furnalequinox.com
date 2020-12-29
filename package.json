@@ -58,7 +58,6 @@
     "font-awesome": "^4.7.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.18",
     "jquery": "^3.5.1",
-    "modern-normalize": "^1.0.0",
     "netlify-plugin-gatsby-cache": "^0.3.2",
     "purify-ts": "^0.16.1",
     "react": "^17.0.1",
