@@ -4060,6 +4060,15 @@ export type PostBySlugQuery = { markdownRemark?: Maybe<(
     )> }
   )> };
 
+export type SocialLinksFragment = { social?: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'steam' | 'behance' | 'deviantart' | 'discord' | 'etsy' | 'facebook' | 'furaffinity' | 'github' | 'instagram' | 'picarto' | 'pinterest' | 'telegram' | 'tumblr' | 'twitch' | 'twitter' | 'youtube'>> };
+
+export type StreamTimesFragment = { streaming?: Maybe<{ saturday?: Maybe<Array<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSaturday, 'end' | 'start'>>>>, sunday?: Maybe<Array<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSunday, 'end' | 'start'>>>> }> };
+
+export type DealerTileFragment = { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
+    Pick<MarkdownRemarkFrontmatter, 'dealer' | 'description' | 'title'>
+    & { banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'src'>> }> }> }
+  )> };
+
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 export type GatsbyImageSharpFixed_TracedSvgFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
