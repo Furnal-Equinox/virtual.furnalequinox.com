@@ -3344,12 +3344,13 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___implementation___info'
+  | 'pluginCreator___pluginOptions___precision'
   | 'pluginCreator___pluginOptions___indentedSyntax'
   | 'pluginCreator___pluginOptions___indentType'
   | 'pluginCreator___pluginOptions___indentWidth'
   | 'pluginCreator___pluginOptions___linefeed'
   | 'pluginCreator___pluginOptions___omitSourceMapUrl'
-  | 'pluginCreator___pluginOptions___precision'
   | 'pluginCreator___pluginOptions___sourceComments'
   | 'pluginCreator___pluginOptions___sourceMapContents'
   | 'pluginCreator___pluginOptions___sourceMapEmbed'
@@ -3610,12 +3611,13 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___jsxPragma'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___fileName'
+  | 'pluginOptions___implementation___info'
+  | 'pluginOptions___precision'
   | 'pluginOptions___indentedSyntax'
   | 'pluginOptions___indentType'
   | 'pluginOptions___indentWidth'
   | 'pluginOptions___linefeed'
   | 'pluginOptions___omitSourceMapUrl'
-  | 'pluginOptions___precision'
   | 'pluginOptions___sourceComments'
   | 'pluginOptions___sourceMapContents'
   | 'pluginOptions___sourceMapEmbed'
@@ -3784,12 +3786,13 @@ export type SitePluginPluginOptions = {
   jsxPragma?: Maybe<Scalars['String']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
+  implementation?: Maybe<SitePluginPluginOptionsImplementation>;
+  precision?: Maybe<Scalars['Int']>;
   indentedSyntax?: Maybe<Scalars['Boolean']>;
   indentType?: Maybe<Scalars['String']>;
   indentWidth?: Maybe<Scalars['Int']>;
   linefeed?: Maybe<Scalars['String']>;
   omitSourceMapUrl?: Maybe<Scalars['Boolean']>;
-  precision?: Maybe<Scalars['Int']>;
   sourceComments?: Maybe<Scalars['Boolean']>;
   sourceMapContents?: Maybe<Scalars['Boolean']>;
   sourceMapEmbed?: Maybe<Scalars['Boolean']>;
@@ -3854,16 +3857,25 @@ export type SitePluginPluginOptionsFilterInput = {
   jsxPragma?: Maybe<StringQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
+  implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
+  precision?: Maybe<IntQueryOperatorInput>;
   indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
   indentType?: Maybe<StringQueryOperatorInput>;
   indentWidth?: Maybe<IntQueryOperatorInput>;
   linefeed?: Maybe<StringQueryOperatorInput>;
   omitSourceMapUrl?: Maybe<BooleanQueryOperatorInput>;
-  precision?: Maybe<IntQueryOperatorInput>;
   sourceComments?: Maybe<BooleanQueryOperatorInput>;
   sourceMapContents?: Maybe<BooleanQueryOperatorInput>;
   sourceMapEmbed?: Maybe<BooleanQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsImplementation = {
+  info?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsImplementationFilterInput = {
+  info?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPlugins = {
