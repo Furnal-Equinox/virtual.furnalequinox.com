@@ -3996,6 +3996,11 @@ export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
 
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_1_Query = { localSearchDealersSfw?: Maybe<Pick<LocalSearchDealersSfw, 'index' | 'store'>> };
+
 export type AdultQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 

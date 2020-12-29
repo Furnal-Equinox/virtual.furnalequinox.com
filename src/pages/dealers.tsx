@@ -14,6 +14,7 @@ import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
 import { sample } from '../utils/tools'
+import Search from '../components/search/search'
 
 interface Props {
   data: DealersIndexQueryQuery
@@ -54,31 +55,7 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
             </div>
           </TextCard>
         </Section>
-        <Section isContainer isTextCenter pos='middle'>
-          <TextCard>
-            <div className='row'>
-              <div className='col mx-auto'>
-                <h2>Have something in mind?</h2>
-                <p className='lead'>
-                  Use the search bar!
-                </p>
-                <form className='mx-auto'>
-                  <label htmlFor='inputSearchTerm' className='form-label visually-hidden'>
-                    Input Search Term
-                  </label>
-                  <input
-                    aria-label='Search Term'
-                    type='text'
-                    id='inputSearchTerm'
-                    className='form-control-lg'
-                    style={{ width: '20rem' }}
-                    placeholder='Tails'
-                  />
-                </form>
-              </div>
-            </div>
-          </TextCard>
-        </Section>
+        <Search />
         <Section pos='middle'>
           <CardGrid data={premiumDealers} />
         </Section>

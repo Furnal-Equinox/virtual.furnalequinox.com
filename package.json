@@ -100,8 +100,10 @@
     "gatsby-source-filesystem": "^2.8.1",
     "gatsby-transformer-remark": "^2.13.1",
     "gatsby-transformer-sharp": "^2.9.0",
+    "query-string": "^6.13.7",
     "react-icons": "^4.1.0",
     "react-netlify-identity-widget": "^0.2.7",
-    "react-player": "^2.7.2"
+    "react-player": "^2.7.2",
+    "react-use-flexsearch": "^0.1.1"
   }
 }
