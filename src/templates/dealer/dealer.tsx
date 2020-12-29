@@ -16,18 +16,28 @@ import { Maybe, Just, Nothing } from 'purify-ts'
 import Anchor from '../../components/anchor/anchor'
 import Section from '../../layouts/section/section'
 import { TextCard } from '../../components/cards'
+import Link from '../../components/link/link'
 
 interface Props {
   data: DealerBySlugQuery
   location: Location
+  pageContext: {
+    slug: string
+    nextTitle: string
+    nextSlug: string
+    prevTitle: string
+    prevSlug: string
+  }
 }
 
-const Dealer: React.FC<Props> = ({ data, location }: Props) => {
+const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
   const banner = post?.banner ?? null
   const images = post?.images ?? null
   const socialLinks = post?.social
+
+  const { prevTitle, prevSlug, nextTitle, nextSlug } = pageContext
 
   // TODO: refactor this mess of a converter!!!
   const reducedSocialLinks: Array<Maybe<SocialLink>> = [
@@ -176,6 +186,14 @@ const Dealer: React.FC<Props> = ({ data, location }: Props) => {
             </div>
             ))}
           </div>
+        </section>
+        <section className='container'>
+          <TextCard>
+            <div className='d-flex justify-content-between align-items-center'>
+              <Link label={`← ${prevTitle}`} to={`..${prevSlug}`} />
+              <Link label={`${nextTitle} →`} to={`..${nextSlug}`} /> 
+            </div>
+          </TextCard>
         </section>
       </div>
     </Layout>

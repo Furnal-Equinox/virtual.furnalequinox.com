@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       allMarkdownRemark(
         filter: { frontmatter: { layout: { eq: "dealer" } } }
-        sort: { fields: frontmatter___title, order: DESC }
+        sort: { fields: frontmatter___title, order: ASC }
       ) {
         edges {
           node {
@@ -73,12 +73,10 @@ exports.createPages = async ({ graphql, actions }) => {
     throw [markdownPosts.errors, markdownDealers.errors]
   }
 
-  // const allEdges = markdownQueryResult.data.allMarkdownRemark.edges
+  const posts = markdownPosts.data.allMarkdownRemark.edges
+  const dealers = markdownDealers.data.allMarkdownRemark.edges
 
-  // const posts = allEdges.filter(edge => edge.node.frontmatter.layout === 'post')
-  // const dealers = allEdges.filter(edge => edge.node.frontmatter.layout === 'dealer')
-
-  markdownPosts.data.allMarkdownRemark.edges.forEach(edge => {
+  posts.forEach(edge => {
     createPage({
       path: `/news${edge.node.fields.slug}`,
       component: postPage,
@@ -89,12 +87,22 @@ exports.createPages = async ({ graphql, actions }) => {
   })
     
 
-  markdownDealers.data.allMarkdownRemark.edges.forEach(edge => {
+  dealers.forEach((edge, index) => {
+    const nextID = index + 1 < dealers.length ? index + 1 : 0 // clamp to end of list
+    const prevID = index - 1 >= 0 ? index - 1 : dealers.length - 1 // clamp to start of list
+
+    const nextEdge = dealers[nextID]
+    const prevEdge = dealers[prevID]
+
     createPage({
       path: `/dealers${edge.node.fields.slug}`,
       component: dealerPage,
       context: {
-        slug: edge.node.fields.slug
+        slug: edge.node.fields.slug,
+        nextTitle: nextEdge.node.frontmatter.title,
+        nextSlug: nextEdge.node.fields.slug,
+        prevTitle: prevEdge.node.frontmatter.title,
+        prevSlug: prevEdge.node.fields.slug
       }
     })
   })
