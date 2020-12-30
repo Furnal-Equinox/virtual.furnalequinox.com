@@ -1,4 +1,5 @@
 import React from 'react'
+import { navigate } from '@reach/router'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
@@ -44,11 +45,16 @@ const Search: React.FC<Props> = ({}: Props) => {
               </label>
               <input
                 aria-label='Search Term'
-                type='text'
+                type='search'
                 id='inputSearchTerm'
                 className='form-control-lg'
                 style={{ width: '20rem' }}
                 placeholder='Tails'
+                value={query}
+                onChange={event => {
+                  navigate(event.target.value !== '' ? `.?search=${event.target.value}` : '')
+                  setQuery(event.target.value)
+                }}
               />
             </form>
           </div>

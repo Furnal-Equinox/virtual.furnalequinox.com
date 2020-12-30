@@ -1,13 +1,28 @@
+# Never track node_modules
 node_modules
+
+# Do not track the build output in public
 public
+
+# Do not track Storybook's build folder
+storybook-static
+
+# Do not track gatsby-context.js
 .gatsby-context.js
+
+# Do not track filesystem metadata
 .DS_Store
+
 .intermediate-representation
+
+# Do not track the cache
 .cache
 
-# Local Netlify folder
+# Do not track Netlify's local build folder
 .netlify
 
+# Never track environment variables
 .env
 
+# Do not track log files because they can pollute the repo
 *.log

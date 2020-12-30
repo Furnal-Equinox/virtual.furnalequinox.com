@@ -15,6 +15,10 @@ import Section from '../layouts/section/section'
 
 import { sample } from '../utils/tools'
 import Search from '../components/search/search'
+import SearchBar from '../components/search-bar/search-bar'
+
+import { useFlexSearch } from 'react-use-flexsearch'
+import { Json } from '@icons-pack/react-simple-icons'
 
 interface Props {
   data: DealersIndexQueryQuery
@@ -26,6 +30,16 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
   const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : null
   const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : null
   const allDealers = premiumDealers?.concat(regularDealers ?? []) ?? []
+
+  const index = data.localSearchDealersSfw?.index
+  const store = data.localSearchDealersSfw?.store
+
+
+  const { search } = location
+  const query = new URLSearchParams(search).get('search')
+  const [searchQuery, setSearchQuery] = React.useState(query || '')
+
+  const results = useFlexSearch(searchQuery, index, store)
 
   return (
     <Layout location={location}>
@@ -55,7 +69,8 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
             </div>
           </TextCard>
         </Section>
-        <Search />
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <p>{JSON.stringify(results)}</p>
         <Section pos='middle'>
           <CardGrid data={premiumDealers} />
         </Section>
@@ -75,34 +90,39 @@ export default DealersIndex
 
 export const dealersQuery = graphql`
   query DealersIndexQuery {
-  remark: allMarkdownRemark(
-    filter: {
-      frontmatter: {
-        layout: {eq: "dealer"}, 
-        isAdult: {eq: false}
-      }
-    }, 
-    sort: {
-      fields: [frontmatter___title], 
-      order: ASC
+    localSearchDealersSfw {
+      index
+      store
     }
-  ) {
-    group(field: frontmatter___isPremium) {
-      fieldValue
-      dealers: edges {
-        dealer: node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            dealer
-            description
-            isPremium
-            banner {
-              childImageSharp {
-                fluid(maxHeight: 250) {
-                  ...GatsbyImageSharpFluid
+    remark: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          layout: {eq: "dealer"}, 
+          isAdult: {eq: false}
+        }
+      }, 
+      sort: {
+        fields: [frontmatter___title], 
+        order: ASC
+      }
+    ) {
+      group(field: frontmatter___isPremium) {
+        fieldValue
+        dealers: edges {
+          dealer: node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              dealer
+              description
+              isPremium
+              banner {
+                childImageSharp {
+                  fluid(maxHeight: 250) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }
@@ -111,6 +131,4 @@ export const dealersQuery = graphql`
       }
     }
   }
-}
-
 `

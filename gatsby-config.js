@@ -177,20 +177,28 @@ module.exports = {
                   title
                   dealer
                   description
+                  banner {
+                    childImageSharp {
+                      fluid(maxHeight: 250) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
                 }
               }
             }
           }
         `,
-        ref: 'id',
-        index: ['title'],
-        store: ['id', 'slug', 'title', 'dealer', 'description'],
+        ref: 'slug',
+        index: ['title', 'description'],
+        store: ['id', 'slug', 'title', 'dealer'],
         normalizer: ({ data }) => data.allMarkdownRemark.nodes.map(node => ({
           id: node.id,
           slug: node.fields.slug,
           title: node.frontmatter.title,
           dealer: node.frontmatter.dealer,
-          description: node.frontmatter.description
+          description: node.frontmatter.description,
+          banner: node.frontmatter.banner
         }))
       }
     },

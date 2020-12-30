@@ -70,6 +70,10 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Using Font Awesome with Gatsby and React](https://brockduncan.com/using-fontawesome-with-gatsby-and-react/)
 
+[Building React Forms with Formik, Yup, React-Bootstrap with a Minimal Amount of Pain and Suffering](https://hackernoon.com/building-react-forms-with-formik-yup-and-react-bootstrap-with-a-minimal-amount-of-pain-and-suffering-1sfk3xv8)
+
+[How to add search to your Gatsby site](https://www.emgoto.com/gatsby-search/)
+
 ### Haskell Script
 
 [Turtle Tutorial](https://hackage.haskell.org/package/turtle-1.5.21/docs/Turtle-Tutorial.html)
