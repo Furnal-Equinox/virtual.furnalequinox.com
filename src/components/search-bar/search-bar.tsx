@@ -10,7 +10,16 @@ interface Props {
 
 const SearchBar: React.FC<Props> = ({ searchQuery, setSearchQuery, navigate }: Props) => {
   return (
-    <form className='mx-auto'>
+    <form 
+      action='/dealers/' 
+      method='get'
+      autoComplete='off'
+      onSubmit={event => {
+        navigate(searchQuery !== '' ? `./?search=${searchQuery}` : '')
+        event.preventDefault()
+      }}
+      className='mx-auto'
+    >
       <label htmlFor='inputSearchTerm' className='form-label visually-hidden'>
         Search for a dealer
       </label>
@@ -24,7 +33,6 @@ const SearchBar: React.FC<Props> = ({ searchQuery, setSearchQuery, navigate }: P
         name='search'
         value={searchQuery ?? ''}
         onInput={event => {
-          navigate(event.target.value !== '' ? `/dealers/?search=${event.target.value}` : '')
           setSearchQuery(event.target.value)
         }}
       />

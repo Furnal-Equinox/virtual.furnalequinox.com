@@ -183,7 +183,7 @@ module.exports = {
           }
         `,
         ref: 'slug',
-        index: ['title', 'description'],
+        index: ['title', 'dealer', 'description'],
         store: ['id', 'slug', 'title', 'dealer'],
         normalizer: ({ data }) => data.allMarkdownRemark.nodes.map(node => ({
           id: node.id,

@@ -67,19 +67,23 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
           </TextCard>
         </Section>
         <Section isContainer isTextCenter pos='middle'>
-      <TextCard>
-        <div className='row'>
-          <div className='col mx-auto'>
-            <h2>Have something in mind?</h2>
-            <p className='lead'>
-              Use the search bar!
-            </p>
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
-          </div>
-        </div>
-      </TextCard>
-    </Section>
-        <p>{JSON.stringify(results)}</p>
+          <TextCard>
+            <div className='row'>
+              <div className='col mx-auto'>
+                <h2>Have something in mind?</h2>
+                <p className='lead'>
+                  Use the search bar!
+                </p>
+                <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
+                <ul>
+                  {results.length > 0 && results.map(result => (
+                    <li key={result.id}>{result.title} at {result.slug}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </TextCard>
+        </Section>
         <Section pos='middle'>
           <CardGrid data={premiumDealers} />
         </Section>
