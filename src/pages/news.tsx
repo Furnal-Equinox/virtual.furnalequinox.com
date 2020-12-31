@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import Meta from '../components/meta/meta'
-import Layout from '../components/layout/layout'
+import Layout from '../layouts/layout/layout'
 
 import config from '../../site-config'
 import { NewsQueryQuery } from '../../types/graphql-types'

@@ -7,7 +7,7 @@ import Button from '../../components/button/button'
 import Badge from '../../components/badge/badge'
 
 import './style.scss'
-import Layout from '../../components/layout/layout'
+import Layout from '../../layouts/layout/layout'
 import Meta from '../../components/meta/meta'
 
 import config from '../../../site-config'

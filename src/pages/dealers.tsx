@@ -7,7 +7,7 @@ import { DealerCard, TextCard } from '../components/cards'
 import CardGrid from '../components/card-grid/card-grid'
 import Link from '../components/link/link'
 import Meta from '../components/meta/meta'
-import Layout from '../components/layout/layout'
+import Layout from '../layouts/layout/layout'
 import { DealersIndexQueryQuery } from '../../types/graphql-types'
 
 import config from '../../site-config'

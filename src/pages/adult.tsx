@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 
 import CharityMeter from '../components/charity-meter/charity-meter'
 
-import Layout from '../components/layout/layout'
+import Layout from '../layouts/layout/layout'
 import Meta from '../components/meta/meta'
 import DealerCard from '../components/cards/dealer-card/dealer-card'
 import ResponsivePlayer from '../components/responsive-player/responsive-player'

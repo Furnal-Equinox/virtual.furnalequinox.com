@@ -2,7 +2,7 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import Meta from '../components/meta/meta'
-import Layout from '../components/layout/layout'
+import Layout from '../layouts/layout/layout'
 import Section from '../layouts/section/section'
 import { TextCard } from '../components/cards'
 

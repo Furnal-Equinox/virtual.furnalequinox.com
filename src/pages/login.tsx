@@ -3,7 +3,7 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Layout from '../components/layout/layout'
+import Layout from '../layouts/layout/layout'
 import { LoginCard } from '../components/cards'
 import Meta from '../components/meta/meta'
 

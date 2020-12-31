@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { RouteComponentProps } from '@reach/router'
 import emergence from 'emergence.js'
 
-import Navibar from '../navibar/navibar'
-import Footer from '../footer/footer'
+import Navibar from '../../components/navibar/navibar'
+import Footer from '../../components/footer/footer'
 import config from '../../../site-config'
 
 import 'scss/gatstrap.scss'

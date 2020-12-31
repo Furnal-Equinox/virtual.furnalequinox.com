@@ -4,7 +4,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import './style.scss'
-import Layout from '../../components/layout/layout'
+import Layout from '../../layouts/layout/layout'
 import Meta from '../../components/meta/meta'
 
 import config from '../../../site-config'

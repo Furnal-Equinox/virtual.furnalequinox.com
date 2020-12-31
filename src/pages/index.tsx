@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 
 import CharityMeter from '../components/charity-meter/charity-meter'
 import Meta from '../components/meta/meta'
-import Layout from '../components/layout/layout'
+import Layout from '../layouts/layout/layout'
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import ResponsivePlayer from '../components/responsive-player/responsive-player'
 import { SocialCard } from '../components/cards'
