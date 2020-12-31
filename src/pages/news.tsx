@@ -1,5 +1,6 @@
-import { graphql } from 'gatsby'
 import React from 'react'
+import { RouteComponentProps } from '@reach/router'
+import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import Meta from '../components/meta/meta'
@@ -9,9 +10,8 @@ import config from '../../site-config'
 import { NewsQueryQuery } from '../../types/graphql-types'
 import Section from '../layouts/section/section'
 
-interface Props {
+interface Props extends RouteComponentProps {
   data: NewsQueryQuery
-  location: Location
 }
 
 const News: React.FC<Props> = ({ data, location }: Props) => {

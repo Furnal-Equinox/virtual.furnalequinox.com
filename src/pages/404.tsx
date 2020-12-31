@@ -1,13 +1,12 @@
 import React from 'react'
+import { RouteComponentProps } from '@reach/router'
 
 import Meta from '../components/meta/meta'
 import Layout from '../components/layout/layout'
 import Section from '../layouts/section/section'
 import { TextCard } from '../components/cards'
 
-interface Props {
-  location: Location
-}
+interface Props extends RouteComponentProps {}
 
 const NotFound: React.FC<Props> = ({ location }: Props) => {
   return (

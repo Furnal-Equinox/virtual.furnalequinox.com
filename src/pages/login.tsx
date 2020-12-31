@@ -1,5 +1,6 @@
-import { graphql } from 'gatsby'
 import React from 'react'
+import { RouteComponentProps } from '@reach/router'
+import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import Layout from '../components/layout/layout'
@@ -13,9 +14,8 @@ import IdentityModal, { useIdentityContext } from 'react-netlify-identity-widget
 import 'react-netlify-identity-widget/styles.css'
 import Button from '../components/button/button'
 
-interface Props {
+interface Props extends RouteComponentProps {
   data: LoginQueryQuery
-  location: Location
 }
 
 const Login: React.FC<Props> = ({ data, location }: Props) => {

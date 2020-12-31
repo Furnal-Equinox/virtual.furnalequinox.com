@@ -1,5 +1,7 @@
-import { graphql } from 'gatsby'
 import React from 'react'
+import { RouteComponentProps } from '@reach/router'
+import { graphql } from 'gatsby'
+
 import { Helmet } from 'react-helmet'
 
 import CharityMeter from '../components/charity-meter/charity-meter'
@@ -14,9 +16,8 @@ import { HomeQueryQuery } from '../../types/graphql-types'
 import Section from '../layouts/section/section'
 import { TextCard } from '../components/cards'
 
-interface Props {
+interface Props extends RouteComponentProps {
   data: HomeQueryQuery
-  location: Location
 }
 
 const Home: React.FC<Props> = ({ data, location }: Props) => {

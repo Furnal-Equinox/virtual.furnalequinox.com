@@ -1,5 +1,8 @@
-import { graphql } from 'gatsby'
 import React from 'react'
+import { RouteComponentProps } from '@reach/router'
+import { graphql } from 'gatsby'
+
+
 import { Helmet } from 'react-helmet'
 
 import CharityMeter from '../components/charity-meter/charity-meter'
@@ -16,9 +19,8 @@ import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
-interface Props {
+interface Props extends RouteComponentProps {
   data: AdultQueryQuery
-  location: Location
 }
 
 const Adult: React.FC<Props> = ({ data, location }: Props) => {

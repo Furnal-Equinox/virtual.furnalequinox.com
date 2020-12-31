@@ -1,5 +1,7 @@
-import { graphql } from 'gatsby'
 import React from 'react'
+import { RouteComponentProps } from '@reach/router'
+import { graphql } from 'gatsby'
+
 import { Helmet } from 'react-helmet'
 
 import Meta from '../components/meta/meta'
@@ -12,9 +14,8 @@ import { GalleryItemCard } from '../components/cards'
 import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
-interface Props {
+interface Props extends RouteComponentProps {
   data: GalleryQueryQuery
-  location: Location
 }
 
 const Gallery: React.FC<Props> = ({ data, location }: Props) => {

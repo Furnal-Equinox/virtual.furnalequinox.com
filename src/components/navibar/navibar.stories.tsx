@@ -11,9 +11,11 @@ export default {
 
 const Template: Story<Props> = args => <Navibar {...args} />
 
-export const Home = Template.bind({})
-Home.args = {
+const homePath = {
   location: {
     pathname: '/'
   }
 }
+
+export const Home = Template.bind({})
+Home.args = homePath

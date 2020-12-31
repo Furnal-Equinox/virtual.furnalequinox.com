@@ -1,4 +1,5 @@
 import React from 'react'
+import { RouteComponentProps } from '@reach/router'
 import { Link } from 'gatsby'
 import Logo from '../../../content/images/logo.png'
 
@@ -6,9 +7,7 @@ import './style.scss'
 
 import { NavbarLinks } from '../../data/navbar-links'
 
-export interface Props {
-  location: Location
-}
+export interface Props extends RouteComponentProps {}
 
 const Navibar: React.FC<Props> = ({ location }: Props) => {
   return (
@@ -35,7 +34,8 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
               <li 
                 key={elem.name}
                 className={
-                  location.pathname === elem.to 
+                  location !== undefined &&
+                  location?.pathname === elem.to 
                     ? 'nav-item active' 
                     : 'nav-item'
                 }

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { RouteComponentProps } from '@reach/router'
 import emergence from 'emergence.js'
 
 import Navibar from '../navibar/navibar'
@@ -9,9 +10,8 @@ import 'scss/gatstrap.scss'
 import 'animate.css/animate.css'
 import 'font-awesome/css/font-awesome.css'
 
-interface Props {
+interface Props extends RouteComponentProps {
   children?: React.ReactNode
-  location: Location
 }
 
 const Layout: React.FC<Props> = ({ children, location }: Props) => {
