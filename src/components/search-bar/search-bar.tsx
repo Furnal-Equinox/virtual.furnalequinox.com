@@ -1,8 +1,10 @@
 import React from 'react'
 
+type SearchParams = string | string[] | null
+
 interface Props {
-  searchQuery: string | string[] | null
-  setSearchQuery: React.Dispatch<React.SetStateAction<string | string[] | null>>
+  searchQuery: SearchParams
+  setSearchQuery: React.Dispatch<React.SetStateAction<SearchParams>>
   navigate: any
 }
 
