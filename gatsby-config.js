@@ -177,13 +177,6 @@ module.exports = {
                   title
                   dealer
                   description
-                  banner {
-                    childImageSharp {
-                      fluid(maxHeight: 250) {
-                        ...GatsbyImageSharpFluid
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -197,8 +190,7 @@ module.exports = {
           slug: node.fields.slug,
           title: node.frontmatter.title,
           dealer: node.frontmatter.dealer,
-          description: node.frontmatter.description,
-          banner: node.frontmatter.banner
+          description: node.frontmatter.description
         }))
       }
     },

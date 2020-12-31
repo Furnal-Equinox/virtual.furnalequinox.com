@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
+import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 
 import { DealerCard, TextCard } from '../components/cards'
@@ -14,18 +15,16 @@ import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
 import { sample } from '../utils/tools'
-import Search from '../components/search/search'
 import SearchBar from '../components/search-bar/search-bar'
 
 import { useFlexSearch } from 'react-use-flexsearch'
-import { Json } from '@icons-pack/react-simple-icons'
+import * as queryString from 'query-string'
 
-interface Props {
+interface Props extends RouteComponentProps {
   data: DealersIndexQueryQuery
-  location: Location
 }
 
-const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
+const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const dealerGroups = data.remark.group
   const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : null
   const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : null
@@ -34,10 +33,8 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
   const index = data.localSearchDealersSfw?.index
   const store = data.localSearchDealersSfw?.store
 
-
-  const { search } = location
-  const query = new URLSearchParams(search).get('search')
-  const [searchQuery, setSearchQuery] = React.useState(query || '')
+  const { query } = queryString.parse(location?.search ?? '')
+  const [searchQuery, setSearchQuery] = React.useState(query)
 
   const results = useFlexSearch(searchQuery, index, store)
 
@@ -69,7 +66,19 @@ const DealersIndex: React.FC<Props> = ({ data, location }: Props) => {
             </div>
           </TextCard>
         </Section>
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <Section isContainer isTextCenter pos='middle'>
+      <TextCard>
+        <div className='row'>
+          <div className='col mx-auto'>
+            <h2>Have something in mind?</h2>
+            <p className='lead'>
+              Use the search bar!
+            </p>
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
+          </div>
+        </div>
+      </TextCard>
+    </Section>
         <p>{JSON.stringify(results)}</p>
         <Section pos='middle'>
           <CardGrid data={premiumDealers} />
