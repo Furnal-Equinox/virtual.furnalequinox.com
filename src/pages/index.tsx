@@ -9,12 +9,11 @@ import Meta from '../components/meta/meta'
 import Layout from '../layouts/layout/layout'
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import ResponsivePlayer from '../components/responsive-player/responsive-player'
-import { SocialCard } from '../components/cards'
+import { SocialCard, TextCard } from '../components/cards'
 
 import config from '../../site-config'
 import { HomeQueryQuery } from '../../types/graphql-types'
 import Section from '../layouts/section/section'
-import { TextCard } from '../components/cards'
 
 interface Props extends RouteComponentProps {
   data: HomeQueryQuery

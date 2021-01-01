@@ -4,10 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import Navibar, { Props } from './navibar'
 
-export default {
+const meta: Meta = {
   title: 'Navibar',
   component: Navibar
-} as Meta
+}
+
+export default meta
 
 const Template: Story<Props> = args => <Navibar {...args} />
 

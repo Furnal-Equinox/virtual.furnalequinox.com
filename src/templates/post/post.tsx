@@ -1,6 +1,7 @@
+import React from 'react'
+import { RouteComponentProps } from '@reach/router'
 import { graphql, Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
-import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import Button from '../../components/button/button'
@@ -19,16 +20,15 @@ const getDescription = (content: string): string => {
     /<blockquote>/g,
     '<blockquote class="blockquote">'
   )
-  if (body.match('<!--more-->')) {
+  if (body.match('<!--more-->') !== null) {
     const [description] = body.split('<!--more-->')
     return description
   }
   return body
 }
 
-interface Props {
+interface Props extends RouteComponentProps {
   data: PostBySlugQuery
-  location: Location
 }
 
 const Post: React.FC<Props> = ({ data, location }: Props) => {
@@ -40,33 +40,34 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <Layout location={location}>
       <Helmet>
-        <title>{`${post?.title} | ${config.siteTitle}`}</title>
+        <title>{`${post?.title ?? ''} | ${config.siteTitle}`}</title>
       </Helmet>
       <Meta
-        postPath={postNode?.fields?.slug}
+        postPath={postNode?.fields?.slug ?? ''}
         postNode={postNode}
         postSEO
       />
-      <div className='article' key={postNode?.fields?.slug}>
+      <div className='article' key={postNode?.fields?.slug ?? ''}>
         <div className='container'>
           <div className='info'>
             <Link style={{ boxShadow: 'none' }} to={'.'}>
-              <h1>{post?.title}</h1>
-              <time dateTime={post?.date}>{post?.date}</time>
+              <h1>{post?.title ?? ''}</h1>
+              <time dateTime={post?.date ?? ''}>{post?.date ?? ''}</time>
             </Link>
-            <Badge label={post?.category || ''} primary={true} />
-            {(post?.tags || []).map((tag, index) => (
-              <Badge label={tag as string} primary={false} key={index} />
+            <Badge label={post?.category ?? ''} primary={true} />
+            {(post?.tags ?? []).map((tag: string, index?: number) => (
+              <Badge label={tag} primary={false} key={index} />
             ))}
           </div>
           <div className='content'>
-            <p>{post?.description}</p>
-            {image?.childImageSharp?.fluid && (
-              <Img
+            <p>{post?.description ?? ''}</p>
+            {image?.childImageSharp?.fluid !== undefined
+              ? <Img
                 fluid={image.childImageSharp.fluid as FluidObject}
                 style={{ display: 'block', margin: '0 auto' }}
               />
-            )}
+              : <></>
+            }
           </div>
           <div
             className='content'

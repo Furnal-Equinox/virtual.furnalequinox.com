@@ -5,10 +5,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import { Page, PageProps } from './Page'
 import * as HeaderStories from './Header.stories'
 
-export default {
+const meta: Meta = {
   title: 'Example/Page',
   component: Page
-} as Meta
+}
+
+export default Meta
 
 const Template: Story<PageProps> = (args) => <Page {...args} />
 

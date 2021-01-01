@@ -4,10 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import { Header, HeaderProps } from './Header'
 
-export default {
+const meta: Meta = {
   title: 'Example/Header',
   component: Header
-} as Meta
+}
+
+export default meta
 
 const Template: Story<HeaderProps> = (args) => <Header {...args} />
 

@@ -4,10 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import SocialCard, { SocialItem } from './social-card'
 
-export default {
+const meta: Meta = {
   title: 'Components/Cards/Social Media Link Card',
   component: SocialCard
-} as Meta
+}
+
+export default meta
 
 const Template: Story<SocialItem> = args => <SocialCard {...args} />
 

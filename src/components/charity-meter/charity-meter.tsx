@@ -1,11 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-interface Props {
-
-}
-
-const CharityMeter: React.FC<Props> = ({}: Props) => {
+const CharityMeter: React.FC = () => {
   return (
     <div className='progress progress-larger'>
       <div 

@@ -18,7 +18,7 @@ const Meta: React.FC<Props> = ({ postNode, postPath, postSEO, customDescription 
   let image: string = config.siteLogo
   let postURL: string = ''
 
-  if (postSEO) {
+  if (postSEO !== undefined) {
     const postMeta = postNode?.markdownRemark?.frontmatter
     title = postMeta?.title
 
@@ -27,15 +27,17 @@ const Meta: React.FC<Props> = ({ postNode, postPath, postSEO, customDescription 
     postURL = urljoin(config.siteUrl, config.pathPrefix, postPath)
   } else {
     title = config.siteTitle
-    description = customDescription || config.siteDescription
+    description = customDescription ?? config.siteDescription
   }
 
   const getImagePath = (imageURI: string) => {
     if (
-      !imageURI.match(
+      imageURI.match(
         '(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]'
-      )
-    ) { return urljoin(config.siteUrl, config.pathPrefix, imageURI) }
+      ) !== null
+    ) { 
+      return urljoin(config.siteUrl, config.pathPrefix, imageURI)
+    }
 
     return imageURI
   }
@@ -61,10 +63,10 @@ const Meta: React.FC<Props> = ({ postNode, postPath, postSEO, customDescription 
       '@type': 'WebSite',
       url: blogURL,
       name: title,
-      alternateName: config.siteTitleAlt ? config.siteTitleAlt : ''
+      alternateName: config.siteTitleAlt !== '' ? config.siteTitleAlt : ''
     }
   ]
-  if (postSEO) {
+  if (postSEO !== undefined) {
     schemaOrgJSONLD.push(
       {
         '@context': 'http://schema.org',
@@ -86,7 +88,7 @@ const Meta: React.FC<Props> = ({ postNode, postPath, postSEO, customDescription 
         '@type': 'BlogPosting',
         url: blogURL,
         name: title,
-        alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
+        alternateName: config.siteTitleAlt !== '' ? config.siteTitleAlt : '',
         headline: title,
         image: { '@type': 'ImageObject', url: image },
         author: authorJSONLD,
@@ -111,8 +113,8 @@ const Meta: React.FC<Props> = ({ postNode, postPath, postSEO, customDescription 
       </script>
 
       {/* OpenGraph tags */}
-      <meta property='og:url' content={postSEO ? postURL : config.siteUrl} />
-      {postSEO ? <meta property='og:type' content='article' /> : null}
+      <meta property='og:url' content={postSEO !== undefined ? postURL : config.siteUrl} />
+      {postSEO !== undefined ? <meta property='og:type' content='article' /> : null}
       <meta property='og:title' content={title ?? ''} />
       <meta property='og:description' content={description ?? ''} />
       <meta property='og:image' content={image} />

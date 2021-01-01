@@ -4,10 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import DealerCard, { Dealer } from './dealer-card'
 
-export default {
+const meta: Meta = {
   title: 'Components/Cards/Dealer Card',
   component: DealerCard
-} as Meta
+}
+
+export default meta
 
 const Template: Story<Dealer> = args => <DealerCard {...args} />
 

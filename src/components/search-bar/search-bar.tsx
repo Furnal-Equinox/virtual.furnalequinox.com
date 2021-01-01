@@ -1,6 +1,6 @@
 import React from 'react'
 
-type SearchParams = string | string[] | null
+type SearchParams = string[] | null
 
 interface Props {
   searchQuery: SearchParams
@@ -15,7 +15,7 @@ const SearchBar: React.FC<Props> = ({ searchQuery, setSearchQuery, navigate }: P
       method='get'
       autoComplete='off'
       onSubmit={event => {
-        navigate(searchQuery !== '' ? `./?search=${searchQuery}` : '')
+        navigate(searchQuery !== null ? `./?search=${searchQuery.join('')}` : '')
         event.preventDefault()
       }}
       className='mx-auto'

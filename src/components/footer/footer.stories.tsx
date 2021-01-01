@@ -4,10 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import Footer, { Props } from './footer'
 
-export default {
+const meta: Meta = {
   title: 'Footer',
   component: Footer
-} as Meta
+}
+
+export default meta
 
 const Template: Story<Props> = args => <Footer {...args} />
 

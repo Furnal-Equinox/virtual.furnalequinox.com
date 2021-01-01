@@ -5,10 +5,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import SocialLinks, { SocialLink, Props } from './social-links'
 import { Just } from 'purify-ts/Maybe'
 
-export default {
+const meta: Meta = {
   title: 'Social Links',
   component: SocialLinks
-} as Meta
+}
+
+export default meta
 
 const Template: Story<Props> = args => <SocialLinks {...args} />
 

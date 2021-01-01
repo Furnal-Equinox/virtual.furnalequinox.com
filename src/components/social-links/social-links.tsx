@@ -66,6 +66,13 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
       case 'twitch': return <Twitch size='2rem' className='icon twitch' />
       case 'twitter': return <Twitter size='2rem' className='icon twitter' />
       case 'youtube': return <Youtube size='2rem' className='icon youtube' />
+      // Reason: this case is meant to be a bottom / impossible case
+      // and is here only to force TS to exhaustively check all cases of the enum
+      // such that this behaves like an exhaustive match expression in an ML language
+      // like OCaml, Haskell, or Rust.
+      // If a case is not covered, this bottom case will trigger a type error indicating that
+      // not all cases have been covered.
+      // eslint-disable-next-line no-case-declarations
       default: const _checkExhaustive: never = name 
     }
   }

@@ -4,10 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import ShopItemCard, { ShopItem } from './shop-item-card'
 
-export default {
+const meta: Meta = {
   title: 'Components/Cards/Shop Item Card',
   component: ShopItemCard
-} as Meta
+}
+
+export default meta
 
 const Template: Story<ShopItem> = args => <ShopItemCard {...args} />
 

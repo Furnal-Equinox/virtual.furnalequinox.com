@@ -4,10 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import ResponsivePlayer, { Props } from './responsive-player'
 
-export default {
+const meta: Meta = {
   title: 'Responsive Player',
   component: ResponsivePlayer
-} as Meta
+}
+
+export default meta
 
 const Template: Story<Props> = args => <ResponsivePlayer {...args} />
 

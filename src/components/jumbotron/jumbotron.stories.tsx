@@ -4,10 +4,12 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import Jumbotron, { Props } from './jumbotron'
 
-export default {
+const meta: Meta = {
   title: 'Jumbotron',
   component: Jumbotron
-} as Meta
+}
+
+export default meta
 
 const Template: Story<Props> = args => <Jumbotron {...args} />
 

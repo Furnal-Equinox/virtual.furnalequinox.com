@@ -1,6 +1,7 @@
+import React from 'react'
+import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
-import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import './style.scss'
@@ -18,9 +19,8 @@ import Section from '../../layouts/section/section'
 import { TextCard } from '../../components/cards'
 import Link from '../../components/link/link'
 
-interface Props {
+interface Props extends RouteComponentProps {
   data: DealerBySlugQuery
-  location: Location
   pageContext: {
     slug: string
     nextTitle: string
@@ -110,7 +110,7 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
   return (
     <Layout location={location}>
       <Helmet>
-        <title>{`${post?.title} | ${config.siteTitle}`}</title>
+        <title>{`${post?.title ?? ''} | ${config.siteTitle}`}</title>
       </Helmet>
       <Meta
         postPath={postNode?.fields?.slug}
@@ -120,9 +120,9 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
       <div>
         <Section pos='first'>
           <div className='content'>
-            {banner?.childImageSharp?.fluid && (
+            {banner?.childImageSharp?.fluid !== null && (
               <Img
-                fluid={banner.childImageSharp.fluid as FluidObject}
+                fluid={banner?.childImageSharp?.fluid as FluidObject}
                 style={{ display: 'block', margin: '0 auto' }}
               />
             )}
@@ -132,9 +132,9 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
           <TextCard>
             <div className='row'>
               <div className='col-lg-6 text-left p-1'>
-                <h1>{post?.title}</h1>
-                <h2>by {post?.dealer}</h2>
-                <p className='lead'>{post?.description}</p>
+                <h1>{post?.title ?? ''}</h1>
+                <h2>by {post?.dealer ?? ''}</h2>
+                <p className='lead'>{post?.description ?? ''}</p>
               </div>
               <div className='col-lg-6 text-center p-2'>
                 { reducedSocialLinks.length > 0
@@ -155,7 +155,7 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
                 <ul>
                   {post?.streaming?.saturday?.map((block, i) =>
                     <li key={`saturday-time-${i}`}>
-                      {`${block?.start} to ${block?.end}`}
+                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
                     </li>
                   )}
                 </ul>
@@ -163,7 +163,7 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
                 <ul>
                   {post?.streaming?.sunday?.map((block, i) =>
                     <li key={`sunday-time-${i}`}>
-                      {`${block?.start} to ${block?.end}`}
+                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
                     </li>
                   )}
                 </ul>
@@ -177,7 +177,7 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
         <section className='container'>
           <div className='row'>
             {images?.map(image => (
-              image?.childImageSharp?.fluid &&
+              image?.childImageSharp?.fluid !== null &&
             <div className='col-12'>
               <Img
                 fluid={image?.childImageSharp?.fluid as FluidObject}

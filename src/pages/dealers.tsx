@@ -58,7 +58,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
                 <Link 
                   label={'Let\'s go!'} 
                   to={`.${
-                    sample(allDealers).dealer.fields?.slug
+                    sample(allDealers).dealer.fields?.slug ?? ''
                   }`}
                   size='lg'
                 />

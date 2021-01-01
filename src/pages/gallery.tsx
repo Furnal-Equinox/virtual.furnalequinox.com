@@ -30,7 +30,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
         <Section isContainer isTextCenter pos='last'>
           <div className='row'>
             {artworks.map(({ artwork }) => (
-              artwork.frontmatter?.image?.childImageSharp?.fluid &&
+              artwork.frontmatter?.image?.childImageSharp?.fluid !== null &&
               <div className='col-lg-12'>
                 <GalleryItemCard 
                   title={artwork.frontmatter?.title ?? ''}

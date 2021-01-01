@@ -4,13 +4,15 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 
 import { Button, ButtonProps } from './Button'
 
-export default {
+const meta: Meta = {
   title: 'Example/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as Meta
+}
+
+export default meta
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />
 

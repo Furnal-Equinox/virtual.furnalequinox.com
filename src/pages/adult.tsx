@@ -2,7 +2,6 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 
-
 import { Helmet } from 'react-helmet'
 
 import CharityMeter from '../components/charity-meter/charity-meter'
