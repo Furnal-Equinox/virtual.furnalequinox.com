@@ -12,12 +12,11 @@ import config from '../../../site-config'
 
 import { DealerBySlugQuery } from '../../../types/graphql-types'
 
-import SocialLinks, { SocialLink } from '../../components/social-links/social-links'
-import { Maybe, Just, Nothing } from 'purify-ts'
 import Anchor from '../../components/anchor/anchor'
 import Section from '../../layouts/section/section'
 import { TextCard } from '../../components/cards'
 import Link from '../../components/link/link'
+import SocialLinks from '../../components/social-links/social-links'
 
 interface Props extends RouteComponentProps {
   data: DealerBySlugQuery
@@ -39,74 +38,6 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
 
   const { prevTitle, prevSlug, nextTitle, nextSlug } = pageContext
 
-  // TODO: refactor this mess of a converter!!!
-  const reducedSocialLinks: Array<Maybe<SocialLink>> = [
-    socialLinks?.behance ? Just({
-      name: 'behance',
-      url: socialLinks?.behance
-    }) : Nothing,    
-    socialLinks?.deviantart ? Just({
-      name: 'deviantart',
-      url: socialLinks?.deviantart
-    }) : Nothing,    
-    socialLinks?.discord ? Just({
-      name: 'discord',
-      url: socialLinks?.discord
-    }) : Nothing,    
-    socialLinks?.etsy ? Just({
-      name: 'etsy',
-      url: socialLinks?.etsy
-    }) : Nothing,    
-    socialLinks?.facebook ? Just({
-      name: 'facebook',
-      url: socialLinks?.facebook
-    }) : Nothing,    
-    socialLinks?.furaffinity ? Just({
-      name: 'furaffinity',
-      url: socialLinks?.furaffinity
-    }) : Nothing,    
-    socialLinks?.github ? Just({
-      name: 'github',
-      url: socialLinks?.github
-    }) : Nothing,    
-    socialLinks?.instagram ? Just({
-      name: 'instagram',
-      url: socialLinks?.instagram
-    }) : Nothing,    
-    socialLinks?.picarto ? Just({
-      name: 'picarto',
-      url: socialLinks?.picarto
-    }) : Nothing,    
-    socialLinks?.pinterest ? Just({
-      name: 'pinterest',
-      url: socialLinks?.pinterest
-    }) : Nothing,    
-    socialLinks?.steam ? Just({
-      name: 'steam',
-      url: socialLinks?.steam
-    }) : Nothing,    
-    socialLinks?.telegram ? Just({
-      name: 'telegram',
-      url: socialLinks?.telegram
-    }) : Nothing,    
-    socialLinks?.tumblr ? Just({
-      name: 'tumblr',
-      url: socialLinks?.tumblr
-    }) : Nothing,    
-    socialLinks?.twitch ? Just({
-      name: 'twitch',
-      url: socialLinks?.twitch
-    }) : Nothing,    
-    socialLinks?.twitter ? Just({
-      name: 'twitter',
-      url: socialLinks?.twitter
-    }) : Nothing,    
-    socialLinks?.youtube ? Just({
-      name: 'youtube',
-      url: socialLinks?.youtube
-    }) : Nothing
-  ]
-
   return (
     <Layout location={location}>
       <Helmet>
@@ -120,12 +51,13 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
       <div>
         <Section pos='first'>
           <div className='content'>
-            {banner?.childImageSharp?.fluid !== null && (
+            {
+              banner?.childImageSharp?.fluid !== null &&
               <Img
                 fluid={banner?.childImageSharp?.fluid as FluidObject}
                 style={{ display: 'block', margin: '0 auto' }}
               />
-            )}
+            }
           </div>
         </Section>
         <Section isContainer>
@@ -137,14 +69,15 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
                 <p className='lead'>{post?.description ?? ''}</p>
               </div>
               <div className='col-lg-6 text-center p-2'>
-                { reducedSocialLinks.length > 0
-                  ? <>
-                    <h2>Say hello!</h2>
-                    <SocialLinks data={reducedSocialLinks}/>
-                  </>
-                  : <>
-                    <h2>I do not have any social media links to share!</h2>
-                  </>
+                { 
+                  socialLinks !== null && socialLinks !== undefined
+                    ? <>
+                      <h2>Say hello!</h2>
+                      <SocialLinks data={socialLinks}/>
+                    </>
+                    : <>
+                      <h2>I do not have any social media links to share!</h2>
+                    </>
                 }
               </div>
             </div>
@@ -153,38 +86,47 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
                 <h2>Streaming Times</h2>
                 <h3>Saturday, March 20th</h3>
                 <ul>
-                  {post?.streaming?.saturday?.map((block, i) =>
-                    <li key={`saturday-time-${i}`}>
-                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                    </li>
-                  )}
+                  {
+                    post?.streaming?.saturday?.map((block, i) =>
+                      <li key={`saturday-time-${i}`}>
+                        {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                      </li>
+                    )
+                  }
                 </ul>
                 <h3>Sunday, March 21st</h3>
                 <ul>
-                  {post?.streaming?.sunday?.map((block, i) =>
-                    <li key={`sunday-time-${i}`}>
-                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                    </li>
-                  )}
+                  { 
+                    post?.streaming?.sunday?.map((block, i) =>
+                      <li key={`sunday-time-${i}`}>
+                        {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                      </li>
+                    )
+                  }
                 </ul>
               </div>
-              <div className='col-lg-6 p-2'>
-                <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
+              <div className='col-lg-6 text-center p-2'>
+                { post?.url !== null && post?.url !== undefined
+                  ? <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
+                  : <h2>I do not have a website to share!</h2>
+                }
               </div>
             </div>
           </TextCard>
         </Section>
         <section className='container'>
           <div className='row'>
-            {images?.map(image => (
-              image?.childImageSharp?.fluid !== null &&
-            <div className='col-12'>
-              <Img
-                fluid={image?.childImageSharp?.fluid as FluidObject}
-                className='d-block rounded-3 my-3'
-              />
-            </div>
-            ))}
+            { 
+              images?.map(image =>
+                image?.childImageSharp?.fluid !== null &&
+                <div className='col-12'>
+                  <Img
+                    fluid={image?.childImageSharp?.fluid as FluidObject}
+                    className='d-block rounded-3 my-3'
+                  />
+                </div>
+              )
+            }
           </div>
         </section>
         <section className='container'>
@@ -214,6 +156,7 @@ export const dealerQuery = graphql`
         social {
           deviantart
           facebook
+          flickr
           furaffinity
           picarto
           twitter
@@ -230,6 +173,10 @@ export const dealerQuery = graphql`
           youtube
         }
         streaming {
+          friday {
+            start
+            end
+          }
           saturday {
             start
             end

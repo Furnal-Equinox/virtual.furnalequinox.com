@@ -59,7 +59,6 @@
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.18",
     "jquery": "^3.5.1",
     "netlify-plugin-gatsby-cache": "^0.3.2",
-    "purify-ts": "^0.16.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
