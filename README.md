@@ -26,13 +26,14 @@ By the way, when you see "I" in this document, that's me, Ardal, the original au
 
 # Features
 * Built using [Gatsby](https://www.gatsbyjs.com/), a static site generator for [React](https://reactjs.org/).
-* Covered by Netlify's [pa11y](https://pa11y.org/) plugin!
+* (WIP) Compliance with WCAG2AA thanks to [pa11y](https://pa11y.org/)!
 * Written mostly in [TypeScript](https://www.typescriptlang.org) to help catch bugs, errors, and other weirdness from JavaScript's dynamic type system at compile time.
-* Adheres to [Standard JS](https://standardjs.com/), with a few adjustments for consistency across JSX.
-* Styled with Sass using Bootstrap.
+* Adheres to [Standard JS](https://standardjs.com/), with a few adjustments for consistency across JSX / TSX.
+* Styled with [Sass](https://sass-lang.com/) using [Bootstrap 5](https://getbootstrap.com/).
 * Deploys to Netlify with nothing more than what is in `netlify.toml`.
-* Uses the Gatsby cache during deployment for fast build times!
-* Uses Storybook for previewing and designing components in isolation!
+* Uses the Gatsby cache during deployment for fast build times thanks to `netlify-plugin-gatsby-cache`!
+* Uses [Storybook](https://storybook.js.org/) for previewing and designing components in isolation!
+* Deploys the Storybook to [Chromatic](https://www.chromatic.com/) for easy discussion about the design of the components.
 
 # 💾 What's in This Repository? 💾
 ### 📄 Loose Files 📄
@@ -53,35 +54,39 @@ By the way, when you see "I" in this document, that's me, Ardal, the original au
 * `yarn.lock`: Yarn automatically generates this file to save the exact version of packages that match the specification in `package.json`. This makes sure any copy of this website will be using the same dependencies.
 
 ### 📂 Folders 📂
-* `/content/`: holds all images and text to be added to the website. This is a hidden submodule as it contains IP-protected content.
+* 📕 `/.storybook/`: settings for Storybook, which I am using for visual testing and design discussion.
+* 🖌 `/content/`: holds all images and text to be added to the website. This is a hidden submodule as it contains IP-protected content.
   * `/dealers/`: holds the images and info for each individual dealer.
   * `/gallery/`: likewise, but for the images in the art gallery.
   * `/images/`: general images used throughout the website, like the logo and the splash image.
   * `/posts/`: holds the images and text for each blog post.
   * `/shop/`: holds the images used for the shop page.
-* `/docs/`: holds all the sketches, UI mockups, and WIP screenshots. The `README.md` has a list of helpful links.
+* 🗄 `/docs/`: holds all the sketches, UI mockups, and WIP screenshots. The `README.md` has a list of helpful links.
   * `/Form Input/`: notes on info and data needed from dealers and artists.
   * `/Routines/`: notes on some common stuff like adding new pages.
   * `/Sketches/`: any UI mock-ups and sketches, categorized by date.
   * `/WIP Screenshots/`: screen shots I have taken of the website.
+  * The `README.md` in this folder contains a collection of useful links.
 * `/example-content/`: In the spirit of the MIT license, this folder is a copy of content redone so that you can use it to bootstrap your content.
-* `/scripts/`: Scripts used to help automate stuff. These don't play any direct role in the website - they're just helpful tools.
-  * `docxToMD.hs`: (WIP) A Haskell script that converts dealer .docx files to Markdown files and corrects the structure to match the structure in `/dealers/`.
-* `/src/`: holds the source code for the website.
+* 📋 `/pa11y-reports/`: Output from running pa11y on URLs from the live website.
+* 📃 `/scripts/`: Scripts used to help automate stuff. These don't play any direct role in the website - they're just helpful tools.
+  * `pa11yRunner.hs`: A Haskell script that automates running pa11y over a set of URLs from the live website and saves the reports to `/pa11y-reports/`.
+* 💾 `/src/`: holds the source code for the website.
   * `/components/`: holds the source code for UI components. 
     * Each component has:
       * `(something).tsx`, which represents the structure of that component.
       * (optional) `(something).scss`, which represents the presentation of that component. The SCSS file is modularized to the component and has no effect outside of the component.
-    * A special `layout` component that specifies the layout for each page. This is where I've included the global CSS files since every page uses this component.
+      * (optional) `(something).stories.tsx`, which is a mock-up version of the component for the Storybook UI library.
   * `/data/`: holds the source code for any static data that is needed only inside `/src/`, such as the links in the navbar component.
+  * `/layouts/`: components that control the layout of the website, including general containers like `<section></section>` elements.
   * `/pages/`: holds the source code for each page. Gatsby generates a web page for each of the files in this folder.
     * `index.tsx`: in particular, this is the home page! 
   * `/scss/`: holds the global SCSS for the website, namely colors, fonts, and any configuration of Bootstrap.
   * `/templates/`: holds the templates for generated pages. Gatsby uses these in `gatsby-node.js` to programmatically generate pages for the data in `/content/`. Each template also has its own SCSS file.
   * `/utils/`: assorted utility functions that don't fit anywhere else or are used in multiple places.
   * `html.tsx`: Gatsby optionally uses this file as the base HTML file for any HTML file it generates.
-* `/static/`: holds the favicon and logo.
-* `/types/`: holds any TypeScript type declaration files. At the moment, the only file is the one Gatsby generates for all the GraphQL queries in the website.
+* 📦 `/static/`: holds the favicon and logo.
+* 📐 `/types/`: holds any TypeScript type declaration files. At the moment, the only file is the one Gatsby generates for all the GraphQL queries in the website. This file changes VERY often.
 
 
 # 🌎 Environment Details 🌎
