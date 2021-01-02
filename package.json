@@ -23,7 +23,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic",
-    "deploy-prod": "netlify build && netlify deploy --prod"
+    "netlify-build": "netlify build",
+    "netlify-deploy-prod": "netlify build && netlify deploy --prod"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
