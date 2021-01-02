@@ -24,7 +24,8 @@
     "build-storybook": "build-storybook",
     "chromatic": "chromatic",
     "netlify-build": "netlify build",
-    "netlify-deploy-prod": "netlify build && netlify deploy --prod"
+    "netlify-deploy-prod": "netlify build && netlify deploy --prod",
+    "pa11y": "stack ./scripts/pa11yRunner.hs"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
