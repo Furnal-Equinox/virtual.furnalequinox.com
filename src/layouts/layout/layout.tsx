@@ -24,7 +24,7 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
       <Navibar location={location} />
       <div className='layout-container d-flex flex-column justify-content-between bg-image'>
         { children }
-        <Footer copyright={config.copyright} />
+        <Footer copyright={config.copyright} socialLinks={{ data: config.userLinks }} />
       </div>
     </>
   )

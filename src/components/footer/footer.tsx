@@ -1,11 +1,13 @@
 import React from 'react'
+import SocialLinks, { Props as SocialLinksProps } from '../social-links/social-links'
 import './style.scss'
 
 export interface Props {
   copyright: string
+  socialLinks: SocialLinksProps
 }
 
-const Footer: React.FC<Props> = ({ copyright }: Props) => (
+const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
   <div className='footer'>
     <div className='container text-center text-white py-2'>
       <div className='row'>
@@ -26,6 +28,7 @@ const Footer: React.FC<Props> = ({ copyright }: Props) => (
           <p>Credits</p>
         </div>
       </div>
+      <SocialLinks data={socialLinks.data} />
     </div>
   </div>
 )
