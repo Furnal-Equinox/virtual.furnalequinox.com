@@ -44,65 +44,68 @@ export interface Props {
 }
 
 const SocialLinks: React.FC<Props> = ({ data }: Props) => {
+  const isLinkEmpty = (socialLink: string | null | undefined): boolean => 
+    socialLink === undefined || socialLink === null || socialLink === ''
+  
   return (
     <div className='row'>
-      {data.behance !== null && data.behance !== undefined
+      {!isLinkEmpty(data.behance)
         ? <div className='col'>
-          <a href={data.behance} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.behance as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Behance size='2rem' className='icon behance' />
           </a>
         </div>
         : <></>
       }
-      {data.deviantart !== null && data.deviantart !== undefined 
+      {!isLinkEmpty(data.deviantart)
         ? <div className='col'>
-          <a href={data.deviantart} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.deviantart as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Deviantart size='2rem' className='icon deviantart' />
           </a>
         </div>
         : <></>
       }
-      {data.discord !== null && data.discord !== undefined
+      {!isLinkEmpty(data.discord)
         ? <div className='col'>
-          <a href={data.discord} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.discord as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Discord size='2rem' className='icon discord' />
           </a>
         </div>
         : <></>
       }
-      {data.etsy !== null && data.etsy !== undefined
+      {!isLinkEmpty(data.etsy)
         ? <div className='col'>
-          <a href={data.etsy} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.etsy as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Etsy size='2rem' className='icon etsy' />
           </a>
         </div>
         : <></>
       }
-      {data.facebook !== null && data.facebook !== undefined
+      {!isLinkEmpty(data.facebook)
         ? <div className='col'>
-          <a href={data.facebook} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.facebook as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Facebook size='2rem' className='icon facebook' />
           </a>
         </div>
         : <></>
       }
-      {data.flickr !== null && data.flickr !== undefined
+      {!isLinkEmpty(data.flickr)
         ? <div className='col'>
-          <a href={data.flickr} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.flickr as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Flickr size='2rem' className='icon flickr' />
           </a>
         </div>
         : <></>
       }
-      {data.furaffinity !== null && data.furaffinity !== undefined
+      {!isLinkEmpty(data.furaffinity)
         ? <div className='col'>
-          <a href={data.furaffinity} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.furaffinity as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Furaffinity size='2rem' className='icon furaffinity' />
           </a>
         </div>
         : <></>
       }
-      {data.github !== null && data.github !== undefined
+      {!isLinkEmpty(data.github)
         ? <div className='col'>
           <a href={data.github} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Github size='2rem' className='icon github' />
@@ -110,15 +113,15 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
         </div>
         : <></>
       }
-      {data.instagram !== null && data.instagram !== undefined
+      {!isLinkEmpty(data.instagram)
         ? <div className='col'>
-          <a href={data.instagram} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.instagram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Instagram size='2rem' className='icon instagram' />
           </a>
         </div>
         : <></>
       }
-      {data.picarto !== null && data.picarto !== undefined
+      {!isLinkEmpty(data.picarto)
         ? <div className='col'>
           <a href={data.picarto} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <PicartoDotTv size='2rem' className='icon picarto' />
@@ -126,39 +129,39 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
         </div>
         : <></>
       }
-      {data.pinterest !== null && data.pinterest !== undefined
+      {!isLinkEmpty(data.pinterest)
         ? <div className='col'>
-          <a href={data.pinterest} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.pinterest as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Pinterest size='2rem' className='icon pinterest' />
           </a>
         </div>
         : <></>
       }
-      {data.steam !== null && data.steam !== undefined
+      {!isLinkEmpty(data.steam)
         ? <div className='col'>
-          <a href={data.steam} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.steam as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Steam size='2rem' className='icon steam' />
           </a>
         </div>
         : <></>
       }
-      {data.telegram !== null && data.telegram !== undefined
+      {!isLinkEmpty(data.telegram)
         ? <div className='col'>
-          <a href={data.telegram} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.telegram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Telegram size='2rem' className='icon telegram' />
           </a>
         </div>
         : <></>
       }
-      {data.tumblr !== null && data.tumblr !== undefined
+      {!isLinkEmpty(data.tumblr)
         ? <div className='col'>
-          <a href={data.tumblr} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.tumblr as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Tumblr size='2rem' className='icon tumblr' />
           </a>
         </div>
         : <></>
       }
-      {data.twitch !== null && data.twitch !== undefined
+      {!isLinkEmpty(data.twitch)
         ? <div className='col'>
           <a href={data.twitch} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Twitch size='2rem' className='icon twitch' />
@@ -166,17 +169,17 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
         </div>
         : <></>
       }
-      {data.twitter !== null && data.twitter !== undefined
+      {!isLinkEmpty(data.twitter)
         ? <div className='col'>
-          <a href={data.twitter} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.twitter as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Twitter size='2rem' className='icon twitter' />
           </a>
         </div>
         : <></>
       }
-      {data.youtube !== null && data.youtube !== undefined
+      {!isLinkEmpty(data.youtube)
         ? <div className='col'>
-          <a href={data.youtube} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.youtube as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Youtube size='2rem' className='icon youtube' />
           </a>
         </div>
