@@ -107,7 +107,7 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
       }
       {!isLinkEmpty(data.github)
         ? <div className='col'>
-          <a href={data.github} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.github as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Github size='2rem' className='icon github' />
           </a>
         </div>
@@ -123,7 +123,7 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
       }
       {!isLinkEmpty(data.picarto)
         ? <div className='col'>
-          <a href={data.picarto} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.picarto as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <PicartoDotTv size='2rem' className='icon picarto' />
           </a>
         </div>
@@ -163,7 +163,7 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
       }
       {!isLinkEmpty(data.twitch)
         ? <div className='col'>
-          <a href={data.twitch} target='_blank' rel='noopener noreferrer' className='icon-link'>
+          <a href={data.twitch as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
             <Twitch size='2rem' className='icon twitch' />
           </a>
         </div>
