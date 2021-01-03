@@ -32,8 +32,6 @@
 
 This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's docs are a nice reference.
 
-[Bootstrap 4.5 Docs](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
-
 [Bootstrap 5 Docs](https://v5.getbootstrap.com/docs/5.0/getting-started/introduction/)
 
 ### Icons
@@ -54,9 +52,13 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Gatsby Starter Bootstrap](https://github.com/jaxx2104/gatsby-starter-bootstrap)
 
+[taniarascia.com](https://github.com/taniarascia/taniarascia.com)
+
 [My Last GraphQL Project - Client](https://github.com/willowell/Delish-Client)
 
 [My Last GraphQL Project - Server](https://github.com/willowell/Delish-Server)
+
+[react-use-flexsearch](https://github.com/angeloashmore/react-use-flexsearch)
 
 ### Testing
 
@@ -71,6 +73,8 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 [Using Font Awesome with Gatsby and React](https://brockduncan.com/using-fontawesome-with-gatsby-and-react/)
 
 [Building React Forms with Formik, Yup, React-Bootstrap with a Minimal Amount of Pain and Suffering](https://hackernoon.com/building-react-forms-with-formik-yup-and-react-bootstrap-with-a-minimal-amount-of-pain-and-suffering-1sfk3xv8)
+
+[How to build a search bar in React](https://www.emgoto.com/react-search-bar/)
 
 [How to add search to your Gatsby site](https://www.emgoto.com/gatsby-search/)
 
