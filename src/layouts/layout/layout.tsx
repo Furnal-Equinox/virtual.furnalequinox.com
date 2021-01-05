@@ -24,7 +24,19 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
       <Navibar location={location} />
       <div className='layout-container d-flex flex-column justify-content-between bg-image'>
         { children }
-        <Footer copyright={config.copyright} socialLinks={{ data: config.userLinks }} />
+        <Footer 
+          copyright={config.copyright} 
+          socialLinks={
+            { 
+              data: {
+                facebook: config.userLinks.facebook,
+                flickr: config.userLinks.flickr,
+                twitter: config.userLinks.twitter,
+                youtube: config.userLinks.youtube
+              }
+            }
+          }
+        />
       </div>
     </>
   )

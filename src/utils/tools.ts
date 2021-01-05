@@ -5,4 +5,8 @@
  */
 const sample = <T>(xs: T[]): T => xs[Math.floor(Math.random() * xs.length)]
 
-export { sample }
+const isEmpty = <T>(x: T | null | undefined): boolean =>
+  x === undefined || x === null || !!x === false
+
+
+export { sample, isEmpty }

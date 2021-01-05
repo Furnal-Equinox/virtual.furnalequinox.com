@@ -15,7 +15,7 @@ import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
 import { sample } from '../utils/tools'
-import SearchBar from '../components/search-bar/search-bar'
+import SearchBar, { SearchParams } from '../components/search-bar/search-bar'
 
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
@@ -34,7 +34,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const store = data.localSearchDealersSfw?.store
 
   const { query } = queryString.parse(location?.search ?? '')
-  const [searchQuery, setSearchQuery] = React.useState(query)
+  const [searchQuery, setSearchQuery] = React.useState(query as SearchParams)
 
   const results = useFlexSearch(searchQuery, index, store)
 
