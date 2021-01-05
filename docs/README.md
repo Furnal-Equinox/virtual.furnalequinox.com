@@ -60,6 +60,9 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [react-use-flexsearch](https://github.com/angeloashmore/react-use-flexsearch)
 
+[netlify-stripe-subscriptions](https://github.com/stripe-samples/netlify-stripe-subscriptions)
+* User authentication with Stripe
+
 ### Testing
 
 [testmysite.io](https://testmysite.io/)
