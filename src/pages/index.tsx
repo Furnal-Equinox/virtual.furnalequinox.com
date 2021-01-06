@@ -29,7 +29,7 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
       <div>
         <Section isContainer isTextCenter pos='first'>
           <div className='row'>
-            <ResponsivePlayer url='https://youtu.be/21X5lGlDOfg' />
+            <ResponsivePlayer url='https://vimeo.com/410693732' />
           </div>
         </Section>
         <Section isContainer pos='middle'>

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactPlayer from 'react-player'
+import * as ReactPlayer from 'react-player/vimeo'
 import './style.scss'
 
 export interface Props {
@@ -14,6 +14,7 @@ const ResponsivePlayer: React.FC<Props> = ({ url }: Props) => {
         url={url}
         width='100%'
         height='100%'
+        controls={true}
       />
     </div>
   )

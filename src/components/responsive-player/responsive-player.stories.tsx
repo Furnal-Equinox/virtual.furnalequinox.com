@@ -13,7 +13,7 @@ export default meta
 
 const Template: Story<Props> = args => <ResponsivePlayer {...args} />
 
-export const YouTubeLivestream = Template.bind({})
-YouTubeLivestream.args = {
-  url: 'https://www.youtube.com/watch?v=21X5lGlDOfg'
+export const VimeoVideo = Template.bind({})
+VimeoVideo.args = {
+  url: 'https://vimeo.com/410693732'
 }
