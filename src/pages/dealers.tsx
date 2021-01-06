@@ -8,13 +8,20 @@ import CardGrid from '../components/dealer-card-grid/dealer-card-grid'
 import Link from '../components/link/link'
 import Meta from '../components/meta/meta'
 import Layout from '../layouts/layout/layout'
-import { DealersIndexQueryQuery, GatsbyImageSharpFluidFragment, MarkdownRemark, MarkdownRemarkFields, MarkdownRemarkFrontmatter, Maybe } from '../../types/graphql-types'
+import { 
+  DealersIndexQueryQuery,
+  GatsbyImageSharpFluidFragment,
+  MarkdownRemark,
+  MarkdownRemarkFields,
+  MarkdownRemarkFrontmatter,
+  Maybe 
+} from '../../types/graphql-types'
 
 import config from '../../site-config'
 import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
-import { isEmpty, sample } from '../utils/tools'
+import { sample } from '../utils/tools'
 import SearchBar, { SearchParams } from '../components/search-bar/search-bar'
 
 import { useFlexSearch } from 'react-use-flexsearch'
@@ -24,13 +31,7 @@ interface Props extends RouteComponentProps {
   data: DealersIndexQueryQuery
 }
 
-interface SearchResult {
-  id: string | number
-  title: string
-  slug: string
-}
-
-type GatsbyDealer = { 
+interface GatsbyDealer { 
   dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
     fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>
     frontmatter?: Maybe<(Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'kind' | 'isPremium' | 'path'> & {
@@ -45,8 +46,8 @@ type GatsbyDealer = {
 
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const dealerGroups = data.remark.group
-  const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : null
-  const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : null
+  const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : []
+  const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : []
   const allDealers = premiumDealers?.concat(regularDealers ?? []) ?? []
 
   const index = data.localSearchDealersSfw?.index
@@ -55,28 +56,30 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const { query } = queryString.parse(location?.search ?? '')
   const [searchQuery, setSearchQuery] = React.useState(query as SearchParams)
 
-  const results = useFlexSearch(searchQuery, index, store)
+  const results: Dealer[] = useFlexSearch(searchQuery, index, store)
 
-  const dealerReducer = (dealer: GatsbyDealer): Dealer =>
-    ({
-      title: dealer.dealer.frontmatter?.title,
-      dealer: dealer.dealer.frontmatter?.dealer,
-      description: dealer.dealer.frontmatter?.description,
-      banner: dealer.dealer.frontmatter?.banner?.childImageSharp?.fluid?.src,
-      slug: dealer.dealer.fields?.slug,
-      isPremium: dealer.dealer.frontmatter?.isPremium
-    })
+  const getResultsTitles = (results: Dealer[]): string[] =>
+    results.map(result => result?.title ?? '')
 
+  const fetchFullResults = (titles: string[], store: GatsbyDealer[]): GatsbyDealer[] =>
+    store.filter(dealer => titles.includes(dealer.dealer.frontmatter?.title ?? '')) 
 
-  const reducedRegularDealers: Dealer[] | undefined =
-    regularDealers?.map((dealer: GatsbyDealer ) =>
-      dealerReducer(dealer)  
-    )
+  const dealerReducer = (dealer: GatsbyDealer): Dealer => ({
+    title: dealer.dealer.frontmatter?.title,
+    dealer: dealer.dealer.frontmatter?.dealer,
+    description: dealer.dealer.frontmatter?.description,
+    banner: dealer.dealer.frontmatter?.banner?.childImageSharp?.fluid?.src,
+    slug: dealer.dealer.fields?.slug,
+    isPremium: dealer.dealer.frontmatter?.isPremium
+  })
 
-  const reducedPremiumDealers: Dealer[] | undefined =
-    premiumDealers?.map((dealer: GatsbyDealer) =>
-      dealerReducer(dealer)
-    ) 
+  const reducedRegularDealers: Dealer[] | undefined = regularDealers?.map(
+    (dealer: GatsbyDealer) => dealerReducer(dealer)
+  )
+
+  const reducedPremiumDealers: Dealer[] | undefined = premiumDealers?.map(
+    (dealer: GatsbyDealer) => dealerReducer(dealer)
+  )
   
   return (
     <Layout location={location}>
@@ -98,7 +101,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
                 <Link 
                   label={'Let\'s go!'} 
                   to={`.${
-                    sample(allDealers).dealer.fields?.slug ?? ''
+                    sample(allDealers as GatsbyDealer[]).dealer.fields?.slug ?? ''
                   }`}
                   size='lg'
                 />
@@ -119,27 +122,33 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
                   setSearchQuery={setSearchQuery}
                   navigate={navigate}
                 />
-                <ul>
-                  {results.length > 0 && results.map(({ id, title, slug }: SearchResult) => (
-                    <li key={id}>{title} at {slug}</li>
-                  ))}
-                </ul>
-                {results.length > 0 && 
-                  <CardGrid data={results} />
-                }
+                {results.length > 0 && ( 
+                  <>
+                    <CardGrid data={
+                      fetchFullResults(getResultsTitles(results), premiumDealers)
+                        .map(result => dealerReducer(result))
+                    }
+                    />
+                    <CardGrid data={
+                      fetchFullResults(getResultsTitles(results), regularDealers)
+                        .map(result => dealerReducer(result))
+                    }
+                    />
+                  </>
+                )}
               </div>
             </div>
           </TextCard>
         </Section>
         <Section pos='middle'>
-          {reducedPremiumDealers && <CardGrid data={reducedPremiumDealers} />}
+          <CardGrid data={reducedPremiumDealers} />
         </Section>
         <Jumbotron 
           title='Regular Dealers (Live Data)'
           subtitle='Check out all these cool dealers!'
         />
         <Section pos='last'>
-          { reducedRegularDealers && <CardGrid data={reducedRegularDealers} /> }
+          <CardGrid data={reducedRegularDealers} />
         </Section>
       </div>
     </Layout>

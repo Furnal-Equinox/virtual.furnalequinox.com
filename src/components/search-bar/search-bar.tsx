@@ -17,16 +17,16 @@ const SearchBar: React.FC<Props> = ({ searchQuery, setSearchQuery, navigate }: P
       onSubmit={event => {
         navigate(
           searchQuery !== undefined && searchQuery !== null 
-          ? `./?search=${
+            ? `./?search=${
             Array.isArray(searchQuery) 
             ? searchQuery.join('') 
             : searchQuery
           }` 
-          : ''
+            : ''
         )
         event.preventDefault()
       }}
-      className='mx-auto'
+      className='mx-auto py-5'
     >
       <label htmlFor='inputSearchTerm' className='form-label visually-hidden'>
         Search for a dealer
