@@ -8,13 +8,13 @@ import CardGrid from '../components/card-grid/card-grid'
 import Link from '../components/link/link'
 import Meta from '../components/meta/meta'
 import Layout from '../layouts/layout/layout'
-import { DealersIndexQueryQuery } from '../../types/graphql-types'
+import { DealersIndexQueryQuery, MarkdownRemark } from '../../types/graphql-types'
 
 import config from '../../site-config'
 import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
-import { sample } from '../utils/tools'
+import { isEmpty, sample } from '../utils/tools'
 import SearchBar, { SearchParams } from '../components/search-bar/search-bar'
 
 import { useFlexSearch } from 'react-use-flexsearch'
@@ -22,6 +22,12 @@ import * as queryString from 'query-string'
 
 interface Props extends RouteComponentProps {
   data: DealersIndexQueryQuery
+}
+
+interface SearchResult {
+  id: string | number
+  title: string
+  slug: string
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
@@ -38,6 +44,18 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
 
   const results = useFlexSearch(searchQuery, index, store)
 
+  const getFilteredResults = (results) =>
+    allDealers.filter(dealer => 
+      results.includes(
+        dealer.dealer.frontmatter?.title ?? ''
+      ) 
+    )
+
+  const renderResults = (results: any) =>
+    results.length > 0 && results.map((dealer) =>
+      <li key={dealer.id}>{dealer.frontmatter?.title} at {dealer.fields?.slug}</li>  
+    )
+  
   return (
     <Layout location={location}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
@@ -74,12 +92,19 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
                 <p className='lead'>
                   Use the search bar!
                 </p>
-                <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
+                <SearchBar
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+                  navigate={navigate}
+                />
                 <ul>
-                  {results.length > 0 && results.map(result => (
-                    <li key={result.id}>{result.title} at {result.slug}</li>
+                  {results.length > 0 && results.map(({ id, title, slug }: SearchResult) => (
+                    <li key={id}>{title} at {slug}</li>
                   ))}
                 </ul>
+                {results.length > 0 && 
+                  <CardGrid data={results} />
+                }
               </div>
             </div>
           </TextCard>
@@ -123,6 +148,7 @@ export const dealersQuery = graphql`
         fieldValue
         dealers: edges {
           dealer: node {
+            id
             fields {
               slug
             }

@@ -4030,10 +4030,13 @@ export type DealersIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type DealersIndexQueryQuery = { localSearchDealersSfw?: Maybe<Pick<LocalSearchDealersSfw, 'index' | 'store'>>, remark: { group: Array<(
       Pick<MarkdownRemarkGroupConnection, 'fieldValue'>
-      & { dealers: Array<{ dealer: { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
+      & { dealers: Array<{ dealer: (
+          Pick<MarkdownRemark, 'id'>
+          & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
             Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'isPremium'>
             & { banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-          )> } }> }
+          )> }
+        ) }> }
     )> } };
 
 export type GalleryQueryQueryVariables = Exact<{ [key: string]: never; }>;
