@@ -3,12 +3,12 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 
-import { DealerCard, TextCard } from '../components/cards'
-import CardGrid from '../components/card-grid/card-grid'
+import { Dealer, DealerCard, TextCard } from '../components/cards'
+import CardGrid from '../components/dealer-card-grid/dealer-card-grid'
 import Link from '../components/link/link'
 import Meta from '../components/meta/meta'
 import Layout from '../layouts/layout/layout'
-import { DealersIndexQueryQuery, MarkdownRemark } from '../../types/graphql-types'
+import { DealersIndexQueryQuery, GatsbyImageSharpFluidFragment, MarkdownRemark, MarkdownRemarkFields, MarkdownRemarkFrontmatter, Maybe } from '../../types/graphql-types'
 
 import config from '../../site-config'
 import Jumbotron from '../components/jumbotron/jumbotron'
@@ -30,6 +30,19 @@ interface SearchResult {
   slug: string
 }
 
+type GatsbyDealer = { 
+  dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
+    fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>
+    frontmatter?: Maybe<(Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'kind' | 'isPremium' | 'path'> & {
+      banner?: Maybe<{
+        childImageSharp?: Maybe<{
+          fluid?: Maybe<GatsbyImageSharpFluidFragment>
+        }>
+      }>
+    })>
+  })
+}
+
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const dealerGroups = data.remark.group
   const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : null
@@ -44,17 +57,26 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
 
   const results = useFlexSearch(searchQuery, index, store)
 
-  const getFilteredResults = (results) =>
-    allDealers.filter(dealer => 
-      results.includes(
-        dealer.dealer.frontmatter?.title ?? ''
-      ) 
+  const dealerReducer = (dealer: GatsbyDealer): Dealer =>
+    ({
+      title: dealer.dealer.frontmatter?.title,
+      dealer: dealer.dealer.frontmatter?.dealer,
+      description: dealer.dealer.frontmatter?.description,
+      banner: dealer.dealer.frontmatter?.banner?.childImageSharp?.fluid?.src,
+      slug: dealer.dealer.fields?.slug,
+      isPremium: dealer.dealer.frontmatter?.isPremium
+    })
+
+
+  const reducedRegularDealers: Dealer[] | undefined =
+    regularDealers?.map((dealer: GatsbyDealer ) =>
+      dealerReducer(dealer)  
     )
 
-  const renderResults = (results: any) =>
-    results.length > 0 && results.map((dealer) =>
-      <li key={dealer.id}>{dealer.frontmatter?.title} at {dealer.fields?.slug}</li>  
-    )
+  const reducedPremiumDealers: Dealer[] | undefined =
+    premiumDealers?.map((dealer: GatsbyDealer) =>
+      dealerReducer(dealer)
+    ) 
   
   return (
     <Layout location={location}>
@@ -110,14 +132,14 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
           </TextCard>
         </Section>
         <Section pos='middle'>
-          <CardGrid data={premiumDealers} />
+          {reducedPremiumDealers && <CardGrid data={reducedPremiumDealers} />}
         </Section>
         <Jumbotron 
           title='Regular Dealers (Live Data)'
           subtitle='Check out all these cool dealers!'
         />
         <Section pos='last'>
-          <CardGrid data={regularDealers} />
+          { reducedRegularDealers && <CardGrid data={reducedRegularDealers} /> }
         </Section>
       </div>
     </Layout>

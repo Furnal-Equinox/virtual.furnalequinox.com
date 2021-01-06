@@ -4,11 +4,12 @@ import './style.scss'
 import Link from '../../link/link'
 
 export interface Dealer {
-  title?: string
-  dealer?: string
-  description?: string
-  banner?: string
-  slug?: string
+  title: string | null | undefined
+  dealer: string | null | undefined
+  description: string | null | undefined
+  banner: string | null | undefined
+  slug: string | null | undefined
+  isPremium: boolean | null | undefined
 }
 
 type Props = Dealer
@@ -35,7 +36,7 @@ const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug 
   return (
     <div className='card rounded-card mb-5 shadow-sm'>
       {banner !== undefined 
-        ? <img src={banner} className='card-img-top rounded-card-img-top' />
+        ? <img src={banner ?? ''} className='card-img-top rounded-card-img-top' />
         : <PlaceholderImage />
       }
       <div className='card-body'>
