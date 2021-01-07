@@ -8,11 +8,6 @@ export const NavbarLinks: NavLink[] = [
     to: '/',
     name: 'Home'
   },
-  // {
-  //   id: 3,
-  //   to: '/news/',
-  //   name: 'News'
-  // },
   {
     to: '/dealers/',
     name: 'Dealers Den'
@@ -22,8 +17,12 @@ export const NavbarLinks: NavLink[] = [
     name: 'Gallery'
   },
   {
-    to: '/shop/',
-    name: 'Shop'
+    to: '/con-store/',
+    name: 'Con-Store'
+  },
+  {
+    to: '/info/',
+    name: 'Info'
   },
   {
     to: '/adult/',
@@ -33,7 +32,7 @@ export const NavbarLinks: NavLink[] = [
 
 export const FooterLinks: NavLink[] = [
   {
-    to: '',
-    name: ''
+    to: '/help/',
+    name: 'Help'
   }
 ]

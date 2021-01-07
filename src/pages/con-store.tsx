@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 import Meta from '../components/meta/meta'
 import Layout from '../layouts/layout/layout'
 
-import { ShopQueryQuery } from '../../types/graphql-types'
+import { ConStoreQueryQuery } from '../../types/graphql-types'
 
 import config from '../../site-config'
 import { ShopItemCard } from '../components/cards'
@@ -14,16 +14,16 @@ import Jumbotron from '../components/jumbotron/jumbotron'
 import Section from '../layouts/section/section'
 
 interface Props extends RouteComponentProps {
-  data: ShopQueryQuery
+  data: ConStoreQueryQuery
 }
 
-const Shop: React.FC<Props> = ({ data, location }: Props) => {
+const ConStore: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <Layout location={location}>
-      <Helmet title={`Shop | ${config.siteTitle}`} />
+      <Helmet title={`Con-Store | ${config.siteTitle}`} />
       <Meta />
       <div>
-        <Jumbotron title='Shop' subtitle='Buy some cool stuff!' />
+        <Jumbotron title='ConStore' subtitle='Buy some cool stuff!' />
         <Section pos='middle'>
           <div className='container'>
             <div className='row'>
@@ -71,10 +71,10 @@ const Shop: React.FC<Props> = ({ data, location }: Props) => {
   )
 }
 
-export default Shop
+export default ConStore
 
-export const shopQuery = graphql`
-  query ShopQuery {
+export const conStoreQuery = graphql`
+  query ConStoreQuery {
     site {
       siteMetadata {
         title

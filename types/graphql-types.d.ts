@@ -4025,6 +4025,11 @@ export type AdultQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AdultQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
+export type ConStoreQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ConStoreQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
 export type DealersIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4070,11 +4075,6 @@ export type NewsQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSite
           & { image?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> }
         )> }
       ) }> } };
-
-export type ShopQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ShopQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 export type DealerBySlugQueryVariables = Exact<{
   slug: Scalars['String'];

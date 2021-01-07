@@ -4,12 +4,12 @@ import './style.scss'
 import Link from '../../link/link'
 
 export interface Dealer {
-  title: string | null | undefined
-  dealer: string | null | undefined
-  description: string | null | undefined
-  banner: string | null | undefined
-  slug: string | null | undefined
-  isPremium: boolean | null | undefined
+  title?: string | null | undefined
+  dealer?: string | null | undefined
+  description?: string | null | undefined
+  banner?: string | null | undefined
+  slug?: string | null | undefined
+  isPremium?: boolean | null | undefined
 }
 
 type Props = Dealer
