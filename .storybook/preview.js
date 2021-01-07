@@ -1,6 +1,5 @@
 import { action } from "@storybook/addon-actions"
 
-import '../node_modules/modern-normalize/modern-normalize.css'
 import '../src/scss/gatstrap.scss'
 import '../node_modules/animate.css/animate.css'
 import '../node_modules/font-awesome/scss/font-awesome.scss'
