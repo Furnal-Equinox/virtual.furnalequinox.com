@@ -4015,7 +4015,16 @@ export type WebPOptions = {
 export type AdultQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AdultQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type AdultQueryQuery = { remark: { group: Array<(
+      Pick<MarkdownRemarkGroupConnection, 'fieldValue'>
+      & { dealers: Array<{ dealer: (
+          Pick<MarkdownRemark, 'id'>
+          & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
+            Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'isPremium'>
+            & { banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+          )> }
+        ) }> }
+    )> } };
 
 export type ConStoreQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

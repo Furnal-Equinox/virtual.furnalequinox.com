@@ -1,28 +1,67 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
-
 import { Helmet } from 'react-helmet'
+import { 
+  AdultQueryQuery,
+  GatsbyImageSharpFluidFragment,
+  MarkdownRemark,
+  MarkdownRemarkFields,
+  MarkdownRemarkFrontmatter,
+  Maybe 
+} from '../../types/graphql-types'
+import config from '../../site-config'
 
+import CardGrid from '../components/dealer-card-grid/dealer-card-grid'
 import CharityMeter from '../components/charity-meter/charity-meter'
-
+import { Dealer } from '../components/cards'
+import Jumbotron from '../components/jumbotron/jumbotron'
 import Layout from '../layouts/layout/layout'
 import Meta from '../components/meta/meta'
-import DealerCard from '../components/cards/dealer-card/dealer-card'
+import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import ResponsivePlayer from '../components/responsive-player/responsive-player'
+import Section from '../layouts/section/section'
 import SocialCard from '../components/cards/social-card/social-card'
 
-import { AdultQueryQuery } from '../../types/graphql-types'
-import config from '../../site-config'
-import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
-import Jumbotron from '../components/jumbotron/jumbotron'
-import Section from '../layouts/section/section'
+interface GatsbyDealer { 
+  dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
+    fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>
+    frontmatter?: Maybe<(Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'kind' | 'isPremium' | 'path'> & {
+      banner?: Maybe<{
+        childImageSharp?: Maybe<{
+          fluid?: Maybe<GatsbyImageSharpFluidFragment>
+        }>
+      }>
+    })>
+  })
+}
 
 interface Props extends RouteComponentProps {
   data: AdultQueryQuery
 }
 
 const Adult: React.FC<Props> = ({ data, location }: Props) => {
+  const dealerGroups = data.remark.group
+  const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : []
+  const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : []
+
+  const dealerReducer = (dealer: GatsbyDealer): Dealer => ({
+    title: dealer.dealer.frontmatter?.title,
+    dealer: dealer.dealer.frontmatter?.dealer,
+    description: dealer.dealer.frontmatter?.description,
+    banner: dealer.dealer.frontmatter?.banner?.childImageSharp?.fluid?.src,
+    slug: dealer.dealer.fields?.slug,
+    isPremium: dealer.dealer.frontmatter?.isPremium
+  })
+
+  const reducedRegularDealers: Dealer[] | undefined = regularDealers?.map(
+    (dealer: GatsbyDealer) => dealerReducer(dealer)
+  )
+
+  const reducedPremiumDealers: Dealer[] | undefined = premiumDealers?.map(
+    (dealer: GatsbyDealer) => dealerReducer(dealer)
+  )
+
   return (
     <Layout location={location}>
       <Helmet title={`Adult | ${config.siteTitle}`} />
@@ -76,29 +115,11 @@ const Adult: React.FC<Props> = ({ data, location }: Props) => {
           </div>
         </Section>
         <Jumbotron title='Dealers (Mock Data)' subtitle='Check out all these cool dealers!' /> 
+        <Section pos='middle'>
+          <CardGrid data={reducedPremiumDealers} />
+        </Section>
         <Section pos='last'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-              <div className='col-lg-6'>
-                <DealerCard />
-              </div>
-            </div>
-          </div>
+          <CardGrid data={reducedRegularDealers} />
         </Section>
       </div>
     </Layout>
@@ -109,9 +130,41 @@ export default Adult
 
 export const adultQuery = graphql`
   query AdultQuery {
-    site {
-      siteMetadata {
-        title
+    remark: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          layout: {eq: "dealer"}, 
+          isAdult: {eq: true}
+        }
+      }, 
+      sort: {
+        fields: [frontmatter___title], 
+        order: ASC
+      }
+    ) {
+      group(field: frontmatter___isPremium) {
+        fieldValue
+        dealers: edges {
+          dealer: node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              dealer
+              description
+              isPremium
+              banner {
+                childImageSharp {
+                  fluid(maxHeight: 250) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

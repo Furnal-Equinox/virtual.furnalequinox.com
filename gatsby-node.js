@@ -48,11 +48,19 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const markdownDealers = await graphql(`
+  const markdownDealersSfw = await graphql(`
     query {
       allMarkdownRemark(
-        filter: { frontmatter: { layout: { eq: "dealer" } } }
-        sort: { fields: frontmatter___title, order: ASC }
+        filter: {
+          frontmatter: {
+            layout: {eq: "dealer"}, 
+            isAdult: {eq: false}
+          }
+        }, 
+        sort: {
+          fields: [frontmatter___title], 
+          order: ASC
+        }
       ) {
         edges {
           node {
@@ -68,13 +76,47 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  if (markdownPosts.error || markdownDealers.error) {
-    console.error([markdownPosts.errors, markdownDealers.errors])
-    throw [markdownPosts.errors, markdownDealers.errors]
+  const markdownDealersNsfw = await graphql(`
+    query {
+      allMarkdownRemark(
+        filter: {
+          frontmatter: {
+            layout: {eq: "dealer"}, 
+            isAdult: {eq: true}
+          }
+        }, 
+        sort: {
+          fields: [frontmatter___title], 
+          order: ASC
+        }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (markdownPosts.error || markdownDealersSfw.error || markdownDealersNsfw.errors) {
+    const errors = [
+      markdownPosts.errors, 
+      markdownDealersSfw.errors, 
+      markdownDealersNsfw.errors
+    ]
+    console.error(errors)
+    throw errors
   }
 
   const posts = markdownPosts.data.allMarkdownRemark.edges
-  const dealers = markdownDealers.data.allMarkdownRemark.edges
+  const dealersSfw = markdownDealersSfw.data.allMarkdownRemark.edges
+  const dealersNsfw = markdownDealersNsfw.data.allMarkdownRemark.edges
 
   posts.forEach(edge => {
     createPage({
@@ -87,15 +129,35 @@ exports.createPages = async ({ graphql, actions }) => {
   })
     
 
-  dealers.forEach((edge, index) => {
-    const nextID = index + 1 < dealers.length ? index + 1 : 0 // clamp to end of list
-    const prevID = index - 1 >= 0 ? index - 1 : dealers.length - 1 // clamp to start of list
+  dealersSfw.forEach((edge, index) => {
+    const nextID = index + 1 < dealersSfw.length ? index + 1 : 0 // clamp to end of list
+    const prevID = index - 1 >= 0 ? index - 1 : dealersSfw.length - 1 // clamp to start of list
 
-    const nextEdge = dealers[nextID]
-    const prevEdge = dealers[prevID]
+    const nextEdge = dealersSfw[nextID]
+    const prevEdge = dealersSfw[prevID]
 
     createPage({
       path: `/dealers${edge.node.fields.slug}`,
+      component: dealerPage,
+      context: {
+        slug: edge.node.fields.slug,
+        nextTitle: nextEdge.node.frontmatter.title,
+        nextSlug: nextEdge.node.fields.slug,
+        prevTitle: prevEdge.node.frontmatter.title,
+        prevSlug: prevEdge.node.fields.slug
+      }
+    })
+  })
+
+  dealersNsfw.forEach((edge, index) => {
+    const nextID = index + 1 < dealersNsfw.length ? index + 1 : 0 // clamp to end of list
+    const prevID = index - 1 >= 0 ? index - 1 : dealersNsfw.length - 1 // clamp to start of list
+
+    const nextEdge = dealersNsfw[nextID]
+    const prevEdge = dealersNsfw[prevID]
+
+    createPage({
+      path: `/adult${edge.node.fields.slug}`,
       component: dealerPage,
       context: {
         slug: edge.node.fields.slug,

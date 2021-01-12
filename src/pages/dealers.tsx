@@ -1,6 +1,6 @@
-import { graphql } from 'gatsby'
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
+import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import { Dealer, DealerCard, TextCard } from '../components/cards'
@@ -27,10 +27,6 @@ import SearchBar, { SearchParams } from '../components/search-bar/search-bar'
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
 
-interface Props extends RouteComponentProps {
-  data: DealersIndexQueryQuery
-}
-
 interface GatsbyDealer { 
   dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
     fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>
@@ -42,6 +38,10 @@ interface GatsbyDealer {
       }>
     })>
   })
+}
+
+interface Props extends RouteComponentProps {
+  data: DealersIndexQueryQuery
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
