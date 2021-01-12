@@ -30,10 +30,15 @@ const Login: React.FC<Props> = ({ data, location }: Props) => {
       <Meta />
       <LoginCard>
         <h1 className='card-title'>Welcome!</h1>
-        <p className='h2'>Please sign up or log in to continue.</p>
+        <p className='h2'>
+          Please sign up or log in to continue.
+        </p>
+        <p className='info'>
+          Note: this button opens a modal for both logging in and signing up.
+        </p>
         <div style={{ width: '10rem' }}>
           <Button 
-            label={isLoggedIn ? 'You are logged in' : 'Log in'}
+            label={isLoggedIn ? 'You are logged in!' : 'Log in or sign up'}
             isFullwidth 
             onClick={() => setDialog(true)} 
           />
