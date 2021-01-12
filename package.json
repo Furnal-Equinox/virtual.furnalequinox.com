@@ -23,6 +23,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic",
+    "netlify-develop": "netlify dev",
     "netlify-build": "netlify build",
     "netlify-deploy-prod": "netlify build && netlify deploy --prod",
     "run-pa11y": "stack ./scripts/pa11yRunner.hs"
