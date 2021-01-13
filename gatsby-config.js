@@ -48,7 +48,7 @@ module.exports = {
 
     /// React Netlify Identity Widget
     {
-      resolve: 'gatsby-plugin-netlify-identity',
+      resolve: 'gatsby-plugin-netlify-identity-gotrue',
       options: {
         url: 'https://virtual.furnalequinox.com/'
       }

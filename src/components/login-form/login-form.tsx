@@ -1,0 +1,180 @@
+import React, { useEffect, useState } from 'react'
+import { useIdentityContext } from 'react-netlify-identity-gotrue'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { navigate } from 'gatsby'
+import * as Yup from 'yup'
+
+type Inputs = {
+  name: string
+  email: string
+  password: string
+}
+
+const blacklistedPasswords: string[] = [
+  'password',
+  'Password',
+  '12345678',
+  'abcd1234',
+  'fur4life',
+  'catsdogs'
+]
+
+// TODO: credit regex found here: https://stackoverflow.com/a/21456918
+
+const schema = Yup.object().shape({
+  name: Yup.string()
+    .required('Please enter a name.')
+    .min(1, 'Please enter at least one character for your name.'),
+  email: Yup.string()
+    .required('Please enter an email address.')
+    .email('This doesn\'t look like an email address.'),
+  password: Yup.string()
+    .required('Please enter a password.')
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,32}$/gm, 
+      'Your password must be at least 8 characters long, be no longer than 32 characters long, \
+      and contain at least one lowercase letter, at least one uppercase letter, and at least one number.'
+    )
+    .notOneOf(blacklistedPasswords, 'Please choose a different password.')
+})
+
+
+interface Props {
+  navigateTarget?: string
+}
+
+const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
+  const identity = useIdentityContext()
+
+  const { register, handleSubmit, errors } = useForm<Inputs>({
+    resolver: yupResolver(schema)
+  })
+
+  const [formError, setFormError] = useState<string | null>(null)
+  const [isLoggingIn, setIsLoggingIn] = useState<boolean>(false)
+
+  useEffect(() => {
+    navigateTarget !== undefined
+    && identity.user !== undefined
+    && navigate(navigateTarget)
+  }, [navigateTarget, identity.user])
+
+  const onSubmit = async data => {
+    setIsLoggingIn(true)
+    setFormError(null)
+
+    await identity
+      .login({ email: data.email, password: data.password })
+      .then(() => {
+        setIsLoggingIn(false)
+        navigateTarget !== undefined && navigate(navigateTarget)
+      })
+      .catch((error) => {
+        setIsLoggingIn(false)
+        setFormError(error.message)
+      })
+  }
+
+  const AlreadyLoggedIn: React.FC = () =>
+    <>
+      <p className='h2'>
+        You are already logged in!
+      </p>
+    </>
+
+  const ProvisionalUser: React.FC = () =>
+    <>
+      <p>
+        Your account has not yet been confirmed. Please check your email
+      </p>
+    </>
+
+  const Form: React.FC = () =>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <p className='h2'>
+      Please sign up or log in to continue.
+      </p>
+      <div className='form-floating mb-3'>
+        <input
+          ref={register}
+          type='text'
+          id='inputName'
+          name='name'
+          className='form-control'
+          placeholder='Your name'
+          autoFocus
+        />
+        <label htmlFor='inputName'>
+        Your name
+        </label>
+        {errors.name !== undefined &&
+          <p className='text-danger'>
+            {errors.name?.message ?? 'Unknown error'}
+          </p>
+        }
+      </div>
+      <div className='form-floating mb-3'>
+        <input
+          ref={register}
+          type='email'
+          id='inputEmail'
+          name='email' 
+          className='form-control'
+          placeholder='Email address'
+          required
+        />
+        <label htmlFor='inputEmail'>
+        Email address
+        </label>
+        {errors.email !== undefined &&
+          <p className='text-danger'>
+            {errors.password?.message ?? 'Unknown error'}
+          </p>
+        }
+      </div>
+      <div className='form-floating mb-3'>
+        <input
+          ref={register}
+          type='password'
+          id='inputPassword'
+          name='password'
+          className='form-control'
+          placeholder='Password'
+        />
+        <label htmlFor='inputPassword'>
+        Password
+        </label>
+        {errors.password !== undefined &&
+          <p className='text-danger'>
+            {errors.password?.message ?? 'Unknown error'}
+          </p>
+        }
+        <p>
+          Having trouble making a password?<br />
+          Try this free password generator website!{' '}
+          <a
+            href='https://passwordsgenerator.net/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            passwordsgenerator.net
+          </a>
+        </p>
+      </div>
+      <div className='mb-3'>
+        {formError !== null && <p>{`Error: ${formError}`}</p>}
+      </div>
+      <button className='w-100 btn btn-lg btn-primary rounded-pill' type='submit'>Submit</button>
+    </form>
+
+  return (
+    identity.user !== undefined
+      ? <AlreadyLoggedIn />
+      : identity.provisionalUser
+        ? <ProvisionalUser />
+        : <Form />
+  )
+}
+
+export default LoginForm
