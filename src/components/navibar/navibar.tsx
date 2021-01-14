@@ -7,9 +7,11 @@ import './style.scss'
 
 import { NavbarLinks, NavbarAccountLinks } from '../../data/navbar-links'
 
-export interface Props extends RouteComponentProps {}
+export interface Props extends RouteComponentProps {
+  identityContext?: any
+}
 
-const Navibar: React.FC<Props> = ({ location }: Props) => {
+const Navibar: React.FC<Props> = ({ location, identityContext }: Props) => {
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-white sticky-top py-0'>
       <div className='container'>
@@ -18,7 +20,10 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
         </Link>
 
         <span className='navbar-text'>
-          Hello, user!
+          {identityContext !== undefined && identityContext.provisionalUser
+            ? 'Check your email!'
+            : `Hello, ${identityContext.user?.user_metadata?.full_name?.split(' ')[0] ?? 'user'}!`
+          }
         </span>
 
         <button 
