@@ -58,7 +58,7 @@ module.exports = {
     /// See https://community.netlify.com/t/support-guide-making-the-most-of-netlifys-cdn-cache/127
     /// for more information - tl;dr, Gatsby's hashes invalidate Netlify's cache even if Gatsby
     /// generates a new hash for a file that has not changed.
-    /// 'gatsby-plugin-remove-fingerprints',
+    'gatsby-plugin-remove-fingerprints',
 
     'gatsby-plugin-sitemap',
 
@@ -216,6 +216,14 @@ module.exports = {
       options: {
         implementation: require('sass'),
         precision: 6
+      }
+    },
+
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        develop: true,
+        purgeOnly: ['bootstrap/']
       }
     }
   ]

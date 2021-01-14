@@ -2,8 +2,7 @@ import React from 'react'
 
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import SocialLinks, { SocialLink, Props } from './social-links'
-import { Just } from 'purify-ts/Maybe'
+import SocialLinks, { Props } from './social-links'
 
 const meta: Meta = {
   title: 'Social Links',
@@ -16,111 +15,46 @@ const Template: Story<Props> = args => <SocialLinks {...args} />
 
 export const NoLinks = Template.bind({})
 NoLinks.args = {
-  data: []
+  data: {}
 }
 
 export const OneLink = Template.bind({})
 OneLink.args = {
-  data: [
-    Just({ 
-      name: 'deviantart', 
-      url: 'https://www.deviantart.com/'
-    })
-  ]
+  data: {
+   deviantart: 'https://www.deviantart.com/'
+  }
 }
 
 export const SomeLinks = Template.bind({})
 SomeLinks.args = {
-  data: [
-    Just({ 
-      name: 'deviantart', 
-      url: 'https://www.deviantart.com/'
-    }),
-    Just({ 
-      name: 'facebook', 
-      url: 'https://www.facebook.com/'
-    }),
-    Just({ 
-      name: 'steam', 
-      url: 'https://store.steampowered.com/'
-    }),
-    Just({ 
-      name: 'twitter', 
-      url: 'https://www.twitter.com/'
-    }),
-    Just({ 
-      name: 'youtube', 
-      url: 'https://www.youtube.com/'
-    })
-  ]
+  data: {
+    deviantart: 'https://www.deviantart.com/',
+    facebook: 'https://www.facebook.com/',
+    steam: 'https://store.steampowered.com/',
+    twitter: 'https://www.twitter.com/',
+    youtube: 'https://www.youtube.com/'
+  }
 }
 
 export const AllLinks = Template.bind({})
 AllLinks.args = {
-  data: [
-    Just({
-      name: 'behance',
-      url: 'https://www.behance.net/'
-    }),
-    Just({ 
-      name: 'deviantart', 
-      url: 'https://www.deviantart.com/'
-    }),
-    Just({
-      name: 'discord',
-      url: 'https://discord.com/'
-    }),
-    Just({
-      name: 'etsy',
-      url: 'https://www.etsy.com/'
-    }),
-    Just({ 
-      name: 'facebook', 
-      url: 'https://www.facebook.com/'
-    }),
-    Just({
-      name: 'furaffinity',
-      url: 'https://www.furaffinity.net/'
-    }),
-    Just({
-      name: 'github',
-      url: 'https://github.com/'
-    }),
-    Just({
-      name: 'instagram',
-      url: 'https://www.instagram.com/'
-    }),
-    Just({
-      name: 'picarto',
-      url: 'https://picarto.tv/'
-    }),
-    Just({
-      name: 'pinterest',
-      url: 'https://www.pinterest.com/'
-    }),
-    Just({ 
-      name: 'steam', 
-      url: 'https://store.steampowered.com/'
-    }),
-    Just({
-      name: 'telegram',
-      url: 'https://telegram.org/'
-    }),
-    Just({
-      name: 'tumblr',
-      url: 'https://www.tumblr.com/'
-    }),
-    Just({
-      name: 'twitch',
-      url: 'https://www.twitch.tv/'
-    }),
-    Just({ 
-      name: 'twitter', 
-      url: 'https://www.twitter.com/'
-    }),
-    Just({ 
-      name: 'youtube', 
-      url: 'https://www.youtube.com/'
-    })
-  ]
+  data: {
+    behance: 'https://www.behance.net/',
+    deviantart: 'https://www.deviantart.com/',
+    discord: 'https://discord.com/',
+    etsy: 'https://www.etsy.com/',
+    facebook: 'https://www.facebook.com/',
+    flickr: 'https://www.flickr.com/',
+    furaffinity: 'https://www.furaffinity.net/',
+    github: 'https://github.com/',
+    instagram: 'https://www.instagram.com/',
+    picarto: 'https://picarto.tv/',
+    pinterest: 'https://www.pinterest.com/',
+    steam: 'https://store.steampowered.com/',
+    telegram: 'https://telegram.org/',
+    tumblr: 'https://www.tumblr.com/',
+    twitch: 'https://www.twitch.tv/',
+    twitter: 'https://www.twitter.com/',
+    youtube: 'https://www.youtube.com/'
+  }
 }

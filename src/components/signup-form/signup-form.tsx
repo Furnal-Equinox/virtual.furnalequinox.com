@@ -6,6 +6,9 @@ import { navigate } from 'gatsby'
 import * as Yup from 'yup'
 
 type Inputs = {
+  user_metadata: {
+    full_name: string
+  }
   email: string
   password: string
 }
@@ -22,9 +25,11 @@ const blacklistedPasswords: string[] = [
 // TODO: credit regex found here: https://stackoverflow.com/a/21456918
 
 const schema = Yup.object().shape({
-  /*name: Yup.string()
-    .required('Please enter a name.')
-    .min(1, 'Please enter at least one character for your name.'),*/
+  user_metadata: Yup.object().shape({
+    full_name: Yup.string()
+      .required('Please enter a name.')
+      .min(1, 'Please enter at least one character for your name.')
+  }),
   email: Yup.string()
     .required('Please enter an email address.')
     .email('This doesn\'t look like an email address.'),
@@ -37,12 +42,7 @@ const schema = Yup.object().shape({
     .notOneOf(blacklistedPasswords, 'Please choose a different password.')
 })
 
-
-interface Props {
-  navigateTarget?: string
-}
-
-const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
+const SignUpForm: React.FC = () => {
   const identity = useIdentityContext()
 
   const { register, handleSubmit, errors } = useForm<Inputs>({
@@ -50,26 +50,20 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   })
 
   const [formError, setFormError] = useState<string | null>(null)
-  const [isLoggingIn, setIsLoggingIn] = useState<boolean>(false)
+  const [isSigningUp, setIsSigningUp] = useState<boolean>(false)
 
-  useEffect(() => {
-    navigateTarget !== undefined
-    && identity.user !== undefined
-    && navigate(navigateTarget)
-  }, [navigateTarget, identity.user])
-
-  const onSubmit = async data => {
-    setIsLoggingIn(true)
+  const onSubmit = async (data) => {
+    setIsSigningUp(true)
     setFormError(null)
 
     await identity
-      .login({ email: data.email, password: data.password })
+      .signup(data)
       .then(() => {
-        setIsLoggingIn(false)
-        navigateTarget !== undefined && navigate(navigateTarget)
+        setIsSigningUp(false)
+        navigate('/')
       })
       .catch((error) => {
-        setIsLoggingIn(false)
+        setIsSigningUp(false)
         setFormError(error.message)
       })
   }
@@ -81,25 +75,37 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
       </p>
     </>
 
-  const ProvisionalUser: React.FC = () =>
-    <>
-      <p>
-        Your account has not yet been confirmed. Please check your email.
-      </p>
-    </>
-
   const Form: React.FC = () =>
     <form onSubmit={handleSubmit(onSubmit)}>
       <p className='h2'>
-      Please log in to continue.
+      Please sign up here.
       </p>
+      <div className='form-floating mb-3'>
+        <input
+          ref={register}
+          name='user_metadata.full_name'
+          className='form-control'
+          placeholder='Your name'
+          autoFocus
+        />
+        <label htmlFor='inputUsername'>
+        Your name
+        </label>
+        {errors.user_metadata?.full_name !== undefined &&
+          <p className='text-danger'>
+            {errors.user_metadata?.full_name.message ?? 'Unknown error'}
+          </p>
+        }
+        <div id='nameHelp' className='form-text'>
+          Your name must be at least one character long.
+        </div>
+      </div>
       <div className='form-floating mb-3'>
         <input
           ref={register}
           name='email' 
           className='form-control'
           placeholder='Email address'
-          autoFocus
         />
         <label htmlFor='inputEmail'>
         Email address
@@ -120,11 +126,42 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
         <label htmlFor='inputPassword'>
         Password
         </label>
+        <div id='passwordHelp' className='form-text'>
+          Your password must:
+          <ul>
+            <li>
+              be at least 8 characters long
+            </li>
+            <li>
+              be no longer than 32 characters long
+            </li>
+            <li>
+              have at least one lowercase letter
+            </li>
+            <li>
+              have at least one uppercase letter
+            </li>
+            <li>
+              have at least one number
+            </li>
+          </ul>
+        </div>
         {errors.password !== undefined &&
           <p className='text-danger'>
             {errors.password?.message ?? 'Unknown error'}
           </p>
         }
+        <p>
+          Having trouble making a password?<br />
+          Try this free password generator website!{' '}
+          <a
+            href='https://passwordsgenerator.net/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            passwordsgenerator.net
+          </a>
+        </p>
       </div>
       <div className='mb-3'>
         {formError !== null && <p>{`Error: ${formError}`}</p>}
@@ -135,10 +172,8 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   return (
     identity.user !== undefined
       ? <AlreadyLoggedIn />
-      : identity.provisionalUser
-        ? <ProvisionalUser />
-        : <Form />
+      : <Form />
   )
 }
 
-export default LoginForm
+export default SignUpForm

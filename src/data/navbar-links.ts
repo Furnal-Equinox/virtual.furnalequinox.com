@@ -5,8 +5,16 @@ interface NavLink {
 
 export const NavbarLinks: NavLink[] = [
   {
+    to: '/sign-up/',
+    name: 'Sign Up'
+  },
+  {
     to: '/login/',
     name: 'Login'
+  },
+  {
+    to: '/account/',
+    name: 'Account'
   },
   {
     to: '/',
