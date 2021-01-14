@@ -29,6 +29,19 @@ const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
         </div>
       </div>
       <SocialLinks data={socialLinks.data} />
+      <div className='row'>
+        <div className='col'>
+          <a
+            href="https://www.netlify.com/"
+            title="Hosted by Netlify"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ height: '2rem' }}
+          >
+            <img src='https://www.netlify.com/img/press/logos/logomark.svg' alt='Deploys by Netlify' />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 )
