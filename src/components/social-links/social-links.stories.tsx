@@ -21,7 +21,7 @@ NoLinks.args = {
 export const OneLink = Template.bind({})
 OneLink.args = {
   data: {
-   deviantart: 'https://www.deviantart.com/'
+    deviantart: 'https://www.deviantart.com/'
   }
 }
 

@@ -14,6 +14,8 @@ import { SocialCard, TextCard } from '../components/cards'
 import config from '../../site-config'
 import { HomeQueryQuery } from '../../types/graphql-types'
 import Section from '../layouts/section/section'
+import AuthModal from '../components/auth-modal/auth-modal'
+import Button from '../components/button/button'
 
 interface Props extends RouteComponentProps {
   data: HomeQueryQuery
@@ -26,11 +28,15 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
     <Layout location={location}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
+      <AuthModal />
       <div>
         <Section isContainer isTextCenter pos='first'>
           <div className='row'>
             <ResponsivePlayer url='https://vimeo.com/410693732' />
           </div>
+        </Section>
+        <Section isContainer pos='middle'>
+          <Button label='Launch demo modal' data-bs-toggle='modal' data-bs-target='#exampleModal' />
         </Section>
         <Section isContainer pos='middle'>
           <TextCard>

@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
 import * as Yup from 'yup'
 
-type Inputs = {
+interface Inputs {
   email: string
   password: string
 }
@@ -22,9 +22,9 @@ const blacklistedPasswords: string[] = [
 // TODO: credit regex found here: https://stackoverflow.com/a/21456918
 
 const schema = Yup.object().shape({
-  /*name: Yup.string()
+  /* name: Yup.string()
     .required('Please enter a name.')
-    .min(1, 'Please enter at least one character for your name.'),*/
+    .min(1, 'Please enter at least one character for your name.'), */
   email: Yup.string()
     .required('Please enter an email address.')
     .email('This doesn\'t look like an email address.'),
@@ -36,7 +36,6 @@ const schema = Yup.object().shape({
     )
     .notOneOf(blacklistedPasswords, 'Please choose a different password.')
 })
-
 
 interface Props {
   navigateTarget?: string
@@ -53,9 +52,9 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   const [isLoggingIn, setIsLoggingIn] = useState<boolean>(false)
 
   useEffect(() => {
-    navigateTarget !== undefined
-    && identity.user !== undefined
-    && navigate(navigateTarget)
+    navigateTarget !== undefined &&
+    identity.user !== undefined &&
+    navigate(navigateTarget)
   }, [navigateTarget, identity.user])
 
   const onSubmit = async data => {

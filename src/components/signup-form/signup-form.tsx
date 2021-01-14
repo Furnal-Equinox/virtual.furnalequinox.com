@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
 import * as Yup from 'yup'
 
-type Inputs = {
+interface Inputs {
   user_metadata: {
     full_name: string
   }

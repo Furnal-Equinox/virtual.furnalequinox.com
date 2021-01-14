@@ -10,7 +10,6 @@ import { LoginCard } from '../components/cards'
 import Meta from '../components/meta/meta'
 import SignUpForm from '../components/signup-form/signup-form'
 
-
 interface Props extends RouteComponentProps {}
 
 const SignUp: React.FC<Props> = ({ location }: Props) => {
