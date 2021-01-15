@@ -50,7 +50,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-identity-gotrue',
       options: {
-        url: 'https://virtual.furnalequinox.com'
+        url: 'https://virtual-furnal-equinox.netlify.app'
       }
     },
 
