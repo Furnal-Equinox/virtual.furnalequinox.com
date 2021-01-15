@@ -16247,11 +16247,6 @@ react-netlify-identity-gotrue@^0.3.2:
   resolved "https://registry.yarnpkg.com/react-netlify-identity-gotrue/-/react-netlify-identity-gotrue-0.3.2.tgz#fb088d2358cc971f8ee7e14092bbfacfbdcd4806"
   integrity sha512-yaOoocUDk/FQAE/QmtAzKtU4w8U2+5uJ8GECR77JhUYTYXFv6Ngnx2rSQckzZiOyklvzc1QTFypt/YnYILoyqw==
 
-react-netlify-identity-widget@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/react-netlify-identity-widget/-/react-netlify-identity-widget-0.2.7.tgz#3cb40b122cd3b4cbf8f18a250b2cad471cd5e5cd"
-  integrity sha512-V3Bm1ftA6F8z4qDGDQ001t6EuVDuUYbkFmNePF27ai/qKIqIQAsu1iQZnx14bkEokXj4t2nBJcJmzRdNxp8CZQ==
-
 react-player@^2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/react-player/-/react-player-2.7.2.tgz#aa40690fdd89a3e9e725e13bc4ace9ae88c30142"

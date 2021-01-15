@@ -60,21 +60,21 @@ const Navibar: React.FC<Props> = ({ location, identityContext }: Props) => {
               </a>
               <ul className='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
                 {NavbarAccountLinks.map(elem => 
-                <li 
-                  key={elem.name}
-                >
-                  <Link 
-                    to={elem.to} 
-                    className={
-                      location !== undefined &&
+                  <li 
+                    key={elem.name}
+                  >
+                    <Link 
+                      to={elem.to} 
+                      className={
+                        location !== undefined &&
                       location?.pathname === elem.to 
-                        ? 'dropdown-item active' 
-                        : 'dropdown-item'
-                  }>
-                    {elem.name}
-                  </Link>
-                </li> 
-              )}
+                          ? 'dropdown-item active' 
+                          : 'dropdown-item'
+                      }>
+                      {elem.name}
+                    </Link>
+                  </li> 
+                )}
               </ul>
             </li>
           </ul>

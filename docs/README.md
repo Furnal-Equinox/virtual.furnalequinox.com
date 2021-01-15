@@ -42,6 +42,8 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Creating Glow Effects with CSS](https://codersblock.com/blog/creating-glow-effects-with-css/)
 
+[SVG Waves](https://getwaves.io/)
+
 ### Icons
 
 [Font Awesome Gallery](https://fontawesome.com/icons?d=gallery)

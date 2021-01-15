@@ -42,7 +42,7 @@ export const NavbarAccountLinks: NavLink[] = [
   {
     to: '/account/',
     name: 'Settings'
-  },
+  }
 ]
 
 export const FooterLinks: NavLink[] = [

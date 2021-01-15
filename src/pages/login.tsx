@@ -9,7 +9,6 @@ import { LoginCard } from '../components/cards'
 import Meta from '../components/meta/meta'
 
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import 'react-netlify-identity-widget/styles.css'
 import LoginForm from '../components/login-form/login-form'
 
 interface Props extends RouteComponentProps {}

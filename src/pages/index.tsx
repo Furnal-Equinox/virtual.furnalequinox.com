@@ -4,31 +4,26 @@ import { graphql } from 'gatsby'
 
 import { Helmet } from 'react-helmet'
 
+import Button from '../components/button/button'
 import CharityMeter from '../components/charity-meter/charity-meter'
 import Meta from '../components/meta/meta'
 import Layout from '../layouts/layout/layout'
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import ResponsivePlayer from '../components/responsive-player/responsive-player'
+import Section from '../layouts/section/section'
 import { SocialCard, TextCard } from '../components/cards'
 
 import config from '../../site-config'
-import { HomeQueryQuery } from '../../types/graphql-types'
-import Section from '../layouts/section/section'
-import AuthModal from '../components/auth-modal/auth-modal'
-import Button from '../components/button/button'
 
-interface Props extends RouteComponentProps {
-  data: HomeQueryQuery
-}
+interface Props extends RouteComponentProps {}
 
-const Home: React.FC<Props> = ({ data, location }: Props) => {
+const Home: React.FC<Props> = ({ location }: Props) => {
   // const dealers = data.remark.dealers
 
   return (
     <Layout location={location}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
-      <AuthModal />
       <div>
         <Section isContainer isTextCenter pos='first'>
           <div className='row'>
@@ -130,13 +125,3 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
 }
 
 export default Home
-
-export const homeQuery = graphql`
-  query HomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

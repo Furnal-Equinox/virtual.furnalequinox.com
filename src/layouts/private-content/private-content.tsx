@@ -1,7 +1,7 @@
 import React, { Component, ComponentType, useEffect } from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { navigate } from 'gatsby'
-import { useIdentityContext } from 'react-netlify-identity-widget'
+import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import UnauthorizedNotice from '../../components/unathorized-notice/unathorized-notice'
 
 interface PrivateContentProps extends RouteComponentProps {

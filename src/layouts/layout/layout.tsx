@@ -3,8 +3,10 @@ import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import emergence from 'emergence.js'
 
+import AuthModal from '../../components/auth-modal/auth-modal'
 import Navibar from '../../components/navibar/navibar'
 import Footer from '../../components/footer/footer'
+
 import config from '../../../site-config'
 
 import 'scss/gatstrap.scss'
@@ -33,6 +35,7 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
 
   return (
     <>
+      <AuthModal />
       <Navibar location={location} identityContext={identity} />
       <div className='layout-container d-flex flex-column justify-content-between bg-image'>
         { children }
