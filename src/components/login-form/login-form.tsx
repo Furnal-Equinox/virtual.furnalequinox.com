@@ -95,7 +95,8 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
       <div className='form-floating mb-3'>
         <input
           ref={register}
-          name='email' 
+          name='email'
+          type='text' 
           className='form-control'
           placeholder='Email address'
           autoFocus
@@ -113,8 +114,9 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
         <input
           ref={register}
           name='password'
+          type='password'
           className='form-control'
-          placeholder='Password'
+          placeholder='************'
         />
         <label htmlFor='inputPassword'>
         Password

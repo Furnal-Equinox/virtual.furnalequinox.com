@@ -26,6 +26,12 @@
 
 [Visual Testing with Storybook](https://www.gatsbyjs.com/docs/how-to/testing/visual-testing-with-storybook)
 
+### Forms
+
+[react-hook-form](https://react-hook-form.com/api)
+
+[yup](https://github.com/jquense/yup)
+
 ### Styling
 
 [Tailwind CSS Docs](https://tailwindcss.com/docs)
@@ -33,6 +39,8 @@
 This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's docs are a nice reference.
 
 [Bootstrap 5 Docs](https://v5.getbootstrap.com/docs/5.0/getting-started/introduction/)
+
+[Creating Glow Effects with CSS](https://codersblock.com/blog/creating-glow-effects-with-css/)
 
 ### Icons
 
@@ -63,11 +71,17 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 [netlify-stripe-subscriptions](https://github.com/stripe-samples/netlify-stripe-subscriptions)
 * User authentication with Stripe
 
+[gatsby-plugin-netlify-identity-gotrue Demo](https://github.com/jon-sully/gatsby-plugin-netlify-identity-gotrue-demo)
+* Using this as the basis for the user authentication system.
+* Deployed [here](https://gallant-bhaskara-90199d.netlify.app/) for testing under Ardal's account.
+
 ### Testing
 
 [testmysite.io](https://testmysite.io/)
 
 ### Related Blog Posts, Forum Posts, and Articles
+
+[Adding Stroke to Web Text](https://css-tricks.com/adding-stroke-to-web-text/)
 
 [Controlling color with Sass color functions](https://thoughtbot.com/blog/controlling-color-with-sass-color-functions)
 
@@ -80,6 +94,8 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 [How to build a search bar in React](https://www.emgoto.com/react-search-bar/)
 
 [How to add search to your Gatsby site](https://www.emgoto.com/gatsby-search/)
+
+[Manage Subscriptions and Protect Content With Stripe](https://www.netlify.com/blog/2020/07/13/manage-subscriptions-and-protect-content-with-stripe/)
 
 ### Haskell Script
 

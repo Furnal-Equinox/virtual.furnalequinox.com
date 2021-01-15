@@ -5,8 +5,8 @@ import { useIdentityContext } from 'react-netlify-identity-widget'
 import UnauthorizedNotice from '../../components/unathorized-notice/unathorized-notice'
 
 interface PrivateContentProps extends RouteComponentProps {
-  as: React.Component
-  allowedRoles: string[]
+  as: React.ComponentType
+  allowedRoles?: string[]
   callbackPath?: string 
 }
 
@@ -14,7 +14,7 @@ const PrivateContent: React.FC<PrivateContentProps> = ({ as, allowedRoles, callb
   const identity = useIdentityContext()
 
   const doesUserHaveAllowedRoles = (): boolean =>
-    (allowedRoles && allowedRoles.some(role => identity.user?.app_metadata?.roles?.indexOf(role) >= 0)) || !allowedRoles
+    (allowedRoles !== undefined && allowedRoles.some(role => identity.user?.app_metadata?.roles?.indexOf(role) >= 0)) || !allowedRoles
 
   return (
     identity.user !== undefined

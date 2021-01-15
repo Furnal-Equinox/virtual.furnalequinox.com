@@ -84,6 +84,7 @@ const SignUpForm: React.FC = () => {
         <input
           ref={register}
           name='user_metadata.full_name'
+          type='text'
           className='form-control'
           placeholder='Your name'
           autoFocus
@@ -103,7 +104,8 @@ const SignUpForm: React.FC = () => {
       <div className='form-floating mb-3'>
         <input
           ref={register}
-          name='email' 
+          name='email'
+          type='text'
           className='form-control'
           placeholder='Email address'
         />
@@ -120,8 +122,9 @@ const SignUpForm: React.FC = () => {
         <input
           ref={register}
           name='password'
+          type='password'
           className='form-control'
-          placeholder='Password'
+          placeholder='************'
         />
         <label htmlFor='inputPassword'>
         Password

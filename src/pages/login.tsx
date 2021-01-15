@@ -16,9 +16,7 @@ interface Props extends RouteComponentProps {}
 
 const Login: React.FC<Props> = ({ location }: Props) => {
   const identity = useIdentityContext()
-  const [dialog, setDialog] = React.useState(false)
-
-  const isLoggedIn = identity.isLoggedIn
+  const navigateTarget: string = location?.state?.navigateTarget ?? '/'
 
   const manageSubscription = () => {
     fetch('/.netlify/functions/create-manage-link', {
@@ -41,7 +39,10 @@ const Login: React.FC<Props> = ({ location }: Props) => {
       <LoginCard>
         <h1 className='card-title'>Welcome!</h1>
         <div>
-          <LoginForm navigateTarget='/login'/>
+          {identity.provisionalUser !== undefined
+            ? <EmailConfirmation />
+            : <LoginForm navigateTarget={navigateTarget} />
+          }
         </div>
       </LoginCard> 
       {/* <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} /> */}
@@ -50,3 +51,16 @@ const Login: React.FC<Props> = ({ location }: Props) => {
 }
 
 export default Login
+
+const EmailConfirmation: React.FC = () => {
+  return (
+    <>
+      <p>
+        You're almost there!
+      </p>
+      <p>
+        Please check your email for an email from us and click the link!
+      </p>
+    </>
+  )
+}
