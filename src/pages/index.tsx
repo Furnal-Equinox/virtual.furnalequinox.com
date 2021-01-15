@@ -31,9 +31,6 @@ const Home: React.FC<Props> = ({ location }: Props) => {
           </div>
         </Section>
         <Section isContainer pos='middle'>
-          <Button label='Launch demo modal' data-bs-toggle='modal' data-bs-target='#exampleModal' />
-        </Section>
-        <Section isContainer pos='middle'>
           <TextCard>
             <div className='table-responsive'>
               <table className='table table-striped table-hover'>
