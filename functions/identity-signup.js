@@ -1,7 +1,26 @@
+const fetch = require('node-fetch')
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-const { faunaFetch } = require('./utils/fauna')
 
-const handler = async (event, context) => {
+const faunaFetch = async ({ query, variables }) => {
+  return await fetch('https://graphql.fauna.com/graphql', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.FAUNA_SERVER_KEY}`,
+    },
+    body: JSON.stringify({
+      query,
+      variables,
+    }),
+  })
+    .then(
+      (res) => res.json()
+    )
+    .catch(
+      (err) => console.error(JSON.stringify(err, null, 2))
+    )
+}
+
+exports.handler = async (event) => {
   const { user } = JSON.parse(event.body)
 
   // create a new customer in Stripe
@@ -10,11 +29,7 @@ const handler = async (event, context) => {
   // subscribe the new customer to the free plan
   await stripe.subscriptions.create({
     customer: customer.id,
-    items: [
-      { 
-        price: process.env.STRIPE_DEFAULT_PRICE_PLAN
-      }
-    ],
+    items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
   })
 
   // store the Netlify and Stripe IDs in Fauna
@@ -41,8 +56,4 @@ const handler = async (event, context) => {
       },
     }),
   }
-}
-
-module.exports = {
-  handler
 }
