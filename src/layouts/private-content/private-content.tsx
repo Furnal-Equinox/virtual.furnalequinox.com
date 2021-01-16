@@ -14,7 +14,7 @@ const PrivateContent: React.FC<PrivateContentProps> = ({ as, allowedRoles, callb
   const identity = useIdentityContext()
 
   const doesUserHaveAllowedRoles = (): boolean =>
-    (allowedRoles !== undefined && allowedRoles.some(role => identity.user?.app_metadata?.roles?.indexOf(role) >= 0)) || !allowedRoles
+    allowedRoles?.some(role => identity.user?.app_metadata?.roles?.indexOf(role) >= 0) ?? false
 
   return (
     identity.user !== undefined
@@ -36,11 +36,7 @@ const Unauthorized: React.FC<UnauthorizedProps> = ({ callbackPath }) => {
     callbackPath !== undefined &&
       navigate(
         '/login', 
-        {
-          state: { 
-            navigateTarget: callbackPath 
-          }
-        }
+        { state: { navigateTarget: callbackPath } }
       )
   }, [callbackPath])
 
