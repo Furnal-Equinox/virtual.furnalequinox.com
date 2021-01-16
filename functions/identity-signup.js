@@ -1,8 +1,8 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const { faunaFetch } = require('./utils/fauna')
 
-const handler = async (_event, context) => {
-  const { user } = context.clientContext;
+const handler = async (event, context) => {
+  const { user } = JSON.parse(event.body)
 
   // create a new customer in Stripe
   const customer = await stripe.customers.create({ email: user.email })
