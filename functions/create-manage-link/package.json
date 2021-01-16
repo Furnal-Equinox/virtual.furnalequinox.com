@@ -1,0 +1,10 @@
+{
+  "name": "create-manage-link",
+  "version": "1.0.0",
+  "main": "create-manage-link.js",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "stripe": "^8.131.1"
+  }
+}

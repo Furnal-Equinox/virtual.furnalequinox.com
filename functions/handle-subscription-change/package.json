@@ -1,0 +1,10 @@
+{
+  "name": "handle-subscription-change",
+  "version": "1.0.0",
+  "main": "handle-subscription-change.js",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "stripe": "^8.131.1"
+  }
+}

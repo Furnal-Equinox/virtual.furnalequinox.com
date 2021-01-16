@@ -1,7 +1,7 @@
 {
   "name": "update-role",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "update-role.js",
   "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.6.1"
