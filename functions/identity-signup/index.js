@@ -5,12 +5,12 @@ const faunaFetch = async ({ query, variables }) => {
   return await fetch('https://graphql.fauna.com/graphql', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.FAUNA_SERVER_KEY}`,
+      Authorization: `Bearer ${process.env.FAUNA_SERVER_KEY}`
     },
     body: JSON.stringify({
       query,
-      variables,
-    }),
+      variables
+    })
   })
     .then(
       (res) => res.json()
@@ -29,7 +29,7 @@ exports.handler = async (event, context, callback) => {
   // subscribe the new customer to the free plan
   await stripe.subscriptions.create({
     customer: customer.id,
-    items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }],
+    items: [{ price: process.env.STRIPE_DEFAULT_PRICE_PLAN }]
   })
 
   // store the Netlify and Stripe IDs in Fauna
@@ -44,16 +44,16 @@ exports.handler = async (event, context, callback) => {
     `,
     variables: {
       netlifyID: user.id,
-      stripeID: customer.id,
-    },
+      stripeID: customer.id
+    }
   })
 
   return {
     statusCode: 200,
     body: JSON.stringify({
       app_metadata: {
-        roles: ['free'],
-      },
-    }),
+        roles: ['free']
+      }
+    })
   }
 }

@@ -5,12 +5,12 @@ const faunaFetch = async ({ query, variables }) => {
   return await fetch('https://graphql.fauna.com/graphql', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.FAUNA_SERVER_KEY}`,
+      Authorization: `Bearer ${process.env.FAUNA_SERVER_KEY}`
     },
     body: JSON.stringify({
       query,
-      variables,
-    }),
+      variables
+    })
   })
     .then(
       (res) => res.json()
@@ -26,7 +26,7 @@ const handler = async ({ body, headers }, context) => {
     const stripeEvent = stripe.webhooks.constructEvent(
       body,
       headers['stripe-signature'],
-      process.env.STRIPE_WEBHOOK_SECRET,
+      process.env.STRIPE_WEBHOOK_SECRET
     )
 
     // bail if this is not a subscription update event
@@ -43,8 +43,8 @@ const handler = async ({ body, headers }, context) => {
           }
         `,
       variables: {
-        stripeID: subscription.customer,
-      },
+        stripeID: subscription.customer
+      }
     })
 
     const { netlifyID } = result.data.getUserByStripeID
@@ -59,23 +59,23 @@ const handler = async ({ body, headers }, context) => {
       method: 'PUT',
       headers: {
         // note that this is a special admin token for the Identity API
-        Authorization: `Bearer ${identity.token}`,
+        Authorization: `Bearer ${identity.token}`
       },
       body: JSON.stringify({
         app_metadata: {
-          roles: [role],
-        },
-      }),
+          roles: [role]
+        }
+      })
     })
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ received: true }),
+      body: JSON.stringify({ received: true })
     }
   } catch (err) {
     return {
       statusCode: 400,
-      body: `Webhook Error: ${err.message}`,
+      body: `Webhook Error: ${err.message}`
     }
   }
 }

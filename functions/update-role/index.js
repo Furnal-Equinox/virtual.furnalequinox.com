@@ -1,7 +1,6 @@
 const fetch = require('node-fetch')
 
 const handler = async (event, context) => {
-
   // When you make a request to a Netlify Function using identity.authorizedFetch()
   // client-side, context.clientContext becomes available in the function (here),
   // and contains the user object, which is the verified, authorized user that is
@@ -35,7 +34,7 @@ const handler = async (event, context) => {
   await fetch(userUrl, {
     method: 'PUT',
     headers: {
-      Authorization: adminAuthorization,
+      Authorization: adminAuthorization
     },
     body: JSON.stringify(payload)
   })
