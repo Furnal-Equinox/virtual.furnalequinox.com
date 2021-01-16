@@ -22,7 +22,6 @@ const faunaFetch = async ({ query, variables }) => {
 
 exports.handler = async (event, context, callback) => {
   const { user } = JSON.parse(event.body)
-  console.log(user)
 
   // create a new customer in Stripe
   const customer = await stripe.customers.create({ email: user.email })
@@ -48,8 +47,6 @@ exports.handler = async (event, context, callback) => {
       stripeID: customer.id,
     },
   })
-
-  console.log("Looks OK!")
 
   return {
     statusCode: 200,
