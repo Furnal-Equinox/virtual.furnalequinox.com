@@ -3,39 +3,7 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
-import * as Yup from 'yup'
-
-interface Inputs {
-  email: string
-  password: string
-}
-
-const blacklistedPasswords: string[] = [
-  'password',
-  'Password',
-  '12345678',
-  'abcd1234',
-  'fur4life',
-  'catsdogs'
-]
-
-// TODO: credit regex found here: https://stackoverflow.com/a/21456918
-
-const schema = Yup.object().shape({
-  /* name: Yup.string()
-    .required('Please enter a name.')
-    .min(1, 'Please enter at least one character for your name.'), */
-  email: Yup.string()
-    .required('Please enter an email address.')
-    .email('This doesn\'t look like an email address.'),
-  password: Yup.string()
-    .required('Please enter a password.')
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,32}$/gm, 
-      'Your password does not meet the requirements.'
-    )
-    .notOneOf(blacklistedPasswords, 'Please choose a different password.')
-})
+import { Inputs, loginSchema } from '../../utils/form-validators'
 
 interface Props {
   navigateTarget?: string
@@ -46,7 +14,7 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
 
   const { register, handleSubmit, errors } = useForm<Inputs>({
     reValidateMode: 'onSubmit',
-    resolver: yupResolver(schema)
+    resolver: yupResolver(loginSchema)
   })
 
   const [formError, setFormError] = useState<string | null>(null)

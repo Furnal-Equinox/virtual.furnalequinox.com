@@ -3,57 +3,20 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
-import * as Yup from 'yup'
-
-interface Inputs {
-  user_metadata: {
-    full_name: string
-  }
-  email: string
-  password: string
-}
-
-const blacklistedPasswords: string[] = [
-  'password',
-  'Password',
-  '12345678',
-  'abcd1234',
-  'fur4life',
-  'catsdogs'
-]
-
-// TODO: credit regex found here: https://stackoverflow.com/a/21456918
-
-const schema = Yup.object().shape({
-  user_metadata: Yup.object().shape({
-    full_name: Yup.string()
-      .required('Please enter a name.')
-      .min(1, 'Please enter at least one character for your name.')
-  }),
-  email: Yup.string()
-    .required('Please enter an email address.')
-    .email('This doesn\'t look like an email address.'),
-  password: Yup.string()
-    .required('Please enter a password.')
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,32}$/gm, 
-      'Your password does not meet the requirements.'
-    )
-    .notOneOf(blacklistedPasswords, 'Please choose a different password.')
-})
+import { Inputs, signUpSchema } from '../../utils/form-validators'
 
 const SignUpForm: React.FC = () => {
   const identity = useIdentityContext()
 
   const { register, handleSubmit, errors } = useForm<Inputs>({
     reValidateMode: 'onSubmit',
-    resolver: yupResolver(schema)
+    resolver: yupResolver(signUpSchema)
   })
 
   const [formError, setFormError] = useState<string | null>(null)
   const [isSigningUp, setIsSigningUp] = useState<boolean>(false)
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     setIsSigningUp(true)
     setFormError(null)
 
@@ -63,7 +26,7 @@ const SignUpForm: React.FC = () => {
         setIsSigningUp(false)
         navigate('/')
       })
-      .catch((error) => {
+      .catch((error: { message: React.SetStateAction<string | null> }) => {
         setIsSigningUp(false)
         setFormError(error.message)
       })
