@@ -45,6 +45,7 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   const identity = useIdentityContext()
 
   const { register, handleSubmit, errors } = useForm<Inputs>({
+    reValidateMode: 'onSubmit',
     resolver: yupResolver(schema)
   })
 

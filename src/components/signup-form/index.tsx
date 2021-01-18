@@ -46,6 +46,7 @@ const SignUpForm: React.FC = () => {
   const identity = useIdentityContext()
 
   const { register, handleSubmit, errors } = useForm<Inputs>({
+    reValidateMode: 'onSubmit',
     resolver: yupResolver(schema)
   })
 
@@ -98,7 +99,7 @@ const SignUpForm: React.FC = () => {
           </p>
         }
         <div id='nameHelp' className='form-text'>
-          Your name must be at least one character long.
+          Name must be at least one character long.
         </div>
       </div>
       <div className='form-floating mb-3'>
@@ -129,8 +130,13 @@ const SignUpForm: React.FC = () => {
         <label htmlFor='inputPassword'>
         Password
         </label>
+        {errors.password !== undefined &&
+          <p className='text-danger'>
+            {errors.password?.message ?? 'Unknown error'}
+          </p>
+        }
         <div id='passwordHelp' className='form-text'>
-          Your password must:
+          Password must:
           <ul>
             <li>
               be at least 8 characters long
@@ -149,11 +155,6 @@ const SignUpForm: React.FC = () => {
             </li>
           </ul>
         </div>
-        {errors.password !== undefined &&
-          <p className='text-danger'>
-            {errors.password?.message ?? 'Unknown error'}
-          </p>
-        }
         <p>
           Having trouble making a password?<br />
           Try this free password generator website!{' '}
@@ -167,7 +168,11 @@ const SignUpForm: React.FC = () => {
         </p>
       </div>
       <div className='mb-3'>
-        {formError !== null && <p>{`Error: ${formError}`}</p>}
+        {formError !== null && 
+          <p className='text-danger'>
+            {`Error: ${formError}`}
+          </p>
+        }
       </div>
       <button className='w-100 btn btn-lg btn-primary rounded-pill' type='submit'>Submit</button>
     </form>

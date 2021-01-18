@@ -44,8 +44,10 @@ const AuthModal: React.FC = () => {
   const identity = useIdentityContext()
 
   const { register, handleSubmit, errors } = useForm<Inputs>({
+    reValidateMode: 'onSubmit',
     resolver: yupResolver(schema)
   })
+  
   const [formError, setFormError] = useState<string | null>(null)
   const [formProcessing, setFormProcessing] = useState<boolean>(false)
   const [forceShowOverlay, setForceShowOverlay] = useState<string | null>(null)
