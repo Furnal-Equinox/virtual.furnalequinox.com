@@ -1,9 +1,9 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 
-import Meta from '../components/meta/meta'
-import Layout from '../layouts/layout/layout'
-import Section from '../layouts/section/section'
+import Meta from '../components/meta'
+import Layout from '../layouts/layout'
+import Section from '../layouts/section'
 import { TextCard } from '../components/cards'
 
 interface Props extends RouteComponentProps {}

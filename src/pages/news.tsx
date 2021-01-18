@@ -3,12 +3,12 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Meta from '../components/meta/meta'
-import Layout from '../layouts/layout/layout'
+import Meta from '../components/meta'
+import Layout from '../layouts/layout'
 
 import config from '../../site-config'
 import { NewsQueryQuery } from '../../types/graphql-types'
-import Section from '../layouts/section/section'
+import Section from '../layouts/section'
 
 interface Props extends RouteComponentProps {
   data: NewsQueryQuery

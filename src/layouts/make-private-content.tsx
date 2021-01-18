@@ -2,30 +2,31 @@ import React, { Component, ComponentType, useEffect } from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { navigate } from 'gatsby'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import UnauthorizedNotice from '../../components/unathorized-notice/unathorized-notice'
+import { doesUserHaveAllowedRoles, Identity } from '../utils/identity'
+import UnauthorizedNotice from '../components/unathorized-notice'
 
 interface PrivateContentProps extends RouteComponentProps {
-  as: React.ComponentType
   allowedRoles?: string[]
   callbackPath?: string 
 }
 
-const PrivateContent: React.FC<PrivateContentProps> = ({ as, allowedRoles, callbackPath, ...props }) => {
+const makePrivateContent = 
+  <Props extends object>(Comp: React.ComponentType<Props>): React.FC<Props & PrivateContentProps> => 
+  ({ allowedRoles, callbackPath, ...props}: PrivateContentProps) =>
+  
+{
   const identity = useIdentityContext()
-
-  const doesUserHaveAllowedRoles = (): boolean =>
-    allowedRoles?.some(role => identity.user?.app_metadata?.roles?.indexOf(role) >= 0) ?? false
 
   return (
     identity.user !== undefined
-      ? doesUserHaveAllowedRoles()
-        ? <Component {...props} />
+      ? doesUserHaveAllowedRoles(identity as Identity, allowedRoles)
+        ? <Comp {...props as Props} />
         : <Unauthorized />
       : <Unauthorized />
   )
 }
 
-export default PrivateContent
+export default makePrivateContent
 
 interface UnauthorizedProps {
   callbackPath?: string

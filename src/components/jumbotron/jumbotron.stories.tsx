@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import Jumbotron, { Props } from './jumbotron'
+import Jumbotron, { Props } from '.'
 
 const meta: Meta = {
   title: 'Jumbotron',

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import DealerCard, { Dealer } from './dealer-card'
+import DealerCard, { Dealer } from '.'
 
 const meta: Meta = {
   title: 'Components/Cards/Dealer Card',

@@ -3,13 +3,13 @@ import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import config from '../../site-config'
 
-import Button from '../components/button/button'
-import Layout from '../layouts/layout/layout'
+import Button from '../components/button'
+import Layout from '../layouts/layout'
 import { LoginCard } from '../components/cards'
-import Meta from '../components/meta/meta'
+import Meta from '../components/meta'
 
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import LoginForm from '../components/login-form/login-form'
+import LoginForm from '../components/login-form'
 
 interface Props extends RouteComponentProps {}
 

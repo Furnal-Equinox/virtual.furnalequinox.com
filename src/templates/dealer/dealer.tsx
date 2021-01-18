@@ -5,18 +5,18 @@ import Img, { FluidObject } from 'gatsby-image'
 import { Helmet } from 'react-helmet'
 
 import './style.scss'
-import Layout from '../../layouts/layout/layout'
-import Meta from '../../components/meta/meta'
+import Layout from '../../layouts/layout'
+import Meta from '../../components/meta'
 
 import config from '../../../site-config'
 
 import { DealerBySlugQuery } from '../../../types/graphql-types'
 
-import Anchor from '../../components/anchor/anchor'
-import Section from '../../layouts/section/section'
+import Anchor from '../../components/anchor'
+import Section from '../../layouts/section'
 import { TextCard } from '../../components/cards'
-import Link from '../../components/link/link'
-import SocialLinks from '../../components/social-links/social-links'
+import Link from '../../components/link'
+import SocialLinks from '../../components/social-links'
 
 interface Props extends RouteComponentProps {
   data: DealerBySlugQuery

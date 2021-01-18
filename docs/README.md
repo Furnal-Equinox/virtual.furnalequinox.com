@@ -99,6 +99,8 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Manage Subscriptions and Protect Content With Stripe](https://www.netlify.com/blog/2020/07/13/manage-subscriptions-and-protect-content-with-stripe/)
 
+[React Higher-Order Components in TypeScript](https://medium.com/@jrwebdev/react-higher-order-component-patterns-in-typescript-42278f7590fb)
+
 ### Haskell Script
 
 [Turtle Tutorial](https://hackage.haskell.org/package/turtle-1.5.21/docs/Turtle-Tutorial.html)

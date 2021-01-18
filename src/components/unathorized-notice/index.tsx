@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Section from '../../layouts/section/section'
+import Section from '../../layouts/section'
 import { TextCard } from '../cards'
 
 const UnauthorizedNotice: React.FC = () =>

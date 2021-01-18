@@ -4,8 +4,8 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
-import Button from '../button/button'
-import LoginForm from '../login-form/login-form'
+import Button from '../button'
+import LoginForm from '../login-form'
 
 interface Inputs {
   user_metadata: {

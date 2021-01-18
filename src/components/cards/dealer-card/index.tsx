@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-import Link from '../../link/link'
+import Link from '../../link'
 
 export interface Dealer {
   title?: string | null | undefined

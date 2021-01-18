@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-import Anchor from '../../anchor/anchor'
+import Anchor from '../../anchor'
 
 export interface ShopItem {
   name?: string

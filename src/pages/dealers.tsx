@@ -4,10 +4,10 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import { Dealer, DealerCard, TextCard } from '../components/cards'
-import CardGrid from '../components/dealer-card-grid/dealer-card-grid'
-import Link from '../components/link/link'
-import Meta from '../components/meta/meta'
-import Layout from '../layouts/layout/layout'
+import CardGrid from '../components/dealer-card-grid'
+import Link from '../components/link'
+import Meta from '../components/meta'
+import Layout from '../layouts/layout'
 import { 
   DealersIndexQueryQuery,
   GatsbyImageSharpFluidFragment,
@@ -18,11 +18,11 @@ import {
 } from '../../types/graphql-types'
 
 import config from '../../site-config'
-import Jumbotron from '../components/jumbotron/jumbotron'
-import Section from '../layouts/section/section'
+import Jumbotron from '../components/jumbotron'
+import Section from '../layouts/section'
 
 import { sample } from '../utils/tools'
-import SearchBar, { SearchParams } from '../components/search-bar/search-bar'
+import SearchBar, { SearchParams } from '../components/search-bar'
 
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'

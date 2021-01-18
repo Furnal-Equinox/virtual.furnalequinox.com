@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import GalleryItemCard, { GalleryItem } from './gallery-item-card'
+import GalleryItemCard, { GalleryItem } from '.'
 
 const meta: Meta = {
   title: 'Components/Cards/Art Gallery Card',

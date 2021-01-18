@@ -4,12 +4,12 @@ import { graphql, Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
 import { Helmet } from 'react-helmet'
 
-import Button from '../../components/button/button'
-import Badge from '../../components/badge/badge'
+import Button from '../../components/button'
+import Badge from '../../components/badge'
 
 import './style.scss'
-import Layout from '../../layouts/layout/layout'
-import Meta from '../../components/meta/meta'
+import Layout from '../../layouts/layout'
+import Meta from '../../components/meta'
 
 import config from '../../../site-config'
 

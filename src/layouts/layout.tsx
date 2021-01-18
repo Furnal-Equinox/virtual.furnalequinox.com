@@ -3,11 +3,11 @@ import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import emergence from 'emergence.js'
 
-import AuthModal from '../../components/auth-modal/auth-modal'
-import Navibar from '../../components/navibar/navibar'
-import Footer from '../../components/footer/footer'
+import AuthModal from '../components/auth-modal'
+import Navibar from '../components/navibar'
+import Footer from '../components/footer'
 
-import config from '../../../site-config'
+import config from '../../site-config'
 
 import 'scss/gatstrap.scss'
 import 'animate.css/animate.css'

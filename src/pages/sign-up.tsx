@@ -4,11 +4,11 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { Helmet } from 'react-helmet'
 import config from '../../site-config'
 
-import Button from '../components/button/button'
-import Layout from '../layouts/layout/layout'
+import Button from '../components/button'
+import Layout from '../layouts/layout'
 import { LoginCard } from '../components/cards'
-import Meta from '../components/meta/meta'
-import SignUpForm from '../components/signup-form/signup-form'
+import Meta from '../components/meta'
+import SignUpForm from '../components/signup-form'
 
 interface Props extends RouteComponentProps {}
 

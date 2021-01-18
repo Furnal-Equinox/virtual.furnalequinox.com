@@ -4,15 +4,15 @@ import { graphql } from 'gatsby'
 
 import { Helmet } from 'react-helmet'
 
-import Meta from '../components/meta/meta'
-import Layout from '../layouts/layout/layout'
+import Meta from '../components/meta'
+import Layout from '../layouts/layout'
 import Img, { FluidObject } from 'gatsby-image'
 import { GalleryQueryQuery } from '../../types/graphql-types'
 
 import config from '../../site-config'
 import { GalleryItemCard } from '../components/cards'
-import Jumbotron from '../components/jumbotron/jumbotron'
-import Section from '../layouts/section/section'
+import Jumbotron from '../components/jumbotron'
+import Section from '../layouts/section'
 
 interface Props extends RouteComponentProps {
   data: GalleryQueryQuery

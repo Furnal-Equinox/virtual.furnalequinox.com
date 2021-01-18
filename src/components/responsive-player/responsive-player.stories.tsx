@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import ResponsivePlayer, { Props } from './responsive-player'
+import ResponsivePlayer, { Props } from '.'
 
 const meta: Meta = {
   title: 'Responsive Player',

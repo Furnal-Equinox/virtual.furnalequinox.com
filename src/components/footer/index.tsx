@@ -1,5 +1,5 @@
 import React from 'react'
-import SocialLinks, { Props as SocialLinksProps } from '../social-links/social-links'
+import SocialLinks, { Props as SocialLinksProps } from '../social-links'
 import './style.scss'
 
 export interface Props {

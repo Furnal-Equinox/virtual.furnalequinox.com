@@ -718,26 +718,6 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___isAdult'
   | 'childMarkdownRemark___frontmatter___isPremium'
   | 'childMarkdownRemark___frontmatter___url'
-  | 'childMarkdownRemark___frontmatter___social___behance'
-  | 'childMarkdownRemark___frontmatter___social___deviantart'
-  | 'childMarkdownRemark___frontmatter___social___discord'
-  | 'childMarkdownRemark___frontmatter___social___etsy'
-  | 'childMarkdownRemark___frontmatter___social___facebook'
-  | 'childMarkdownRemark___frontmatter___social___flickr'
-  | 'childMarkdownRemark___frontmatter___social___furaffinity'
-  | 'childMarkdownRemark___frontmatter___social___github'
-  | 'childMarkdownRemark___frontmatter___social___instagram'
-  | 'childMarkdownRemark___frontmatter___social___picarto'
-  | 'childMarkdownRemark___frontmatter___social___pinterest'
-  | 'childMarkdownRemark___frontmatter___social___steam'
-  | 'childMarkdownRemark___frontmatter___social___telegram'
-  | 'childMarkdownRemark___frontmatter___social___tumblr'
-  | 'childMarkdownRemark___frontmatter___social___twitch'
-  | 'childMarkdownRemark___frontmatter___social___twitter'
-  | 'childMarkdownRemark___frontmatter___social___youtube'
-  | 'childMarkdownRemark___frontmatter___streaming___friday'
-  | 'childMarkdownRemark___frontmatter___streaming___saturday'
-  | 'childMarkdownRemark___frontmatter___streaming___sunday'
   | 'childMarkdownRemark___frontmatter___banner___sourceInstanceName'
   | 'childMarkdownRemark___frontmatter___banner___absolutePath'
   | 'childMarkdownRemark___frontmatter___banner___relativePath'
@@ -848,6 +828,26 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___gifs___publicURL'
   | 'childMarkdownRemark___frontmatter___gifs___id'
   | 'childMarkdownRemark___frontmatter___gifs___children'
+  | 'childMarkdownRemark___frontmatter___social___behance'
+  | 'childMarkdownRemark___frontmatter___social___deviantart'
+  | 'childMarkdownRemark___frontmatter___social___discord'
+  | 'childMarkdownRemark___frontmatter___social___etsy'
+  | 'childMarkdownRemark___frontmatter___social___facebook'
+  | 'childMarkdownRemark___frontmatter___social___flickr'
+  | 'childMarkdownRemark___frontmatter___social___furaffinity'
+  | 'childMarkdownRemark___frontmatter___social___github'
+  | 'childMarkdownRemark___frontmatter___social___instagram'
+  | 'childMarkdownRemark___frontmatter___social___picarto'
+  | 'childMarkdownRemark___frontmatter___social___pinterest'
+  | 'childMarkdownRemark___frontmatter___social___steam'
+  | 'childMarkdownRemark___frontmatter___social___telegram'
+  | 'childMarkdownRemark___frontmatter___social___tumblr'
+  | 'childMarkdownRemark___frontmatter___social___twitch'
+  | 'childMarkdownRemark___frontmatter___social___twitter'
+  | 'childMarkdownRemark___frontmatter___social___youtube'
+  | 'childMarkdownRemark___frontmatter___streaming___friday'
+  | 'childMarkdownRemark___frontmatter___streaming___saturday'
+  | 'childMarkdownRemark___frontmatter___streaming___sunday'
   | 'childMarkdownRemark___frontmatter___artist'
   | 'childMarkdownRemark___frontmatter___image___sourceInstanceName'
   | 'childMarkdownRemark___frontmatter___image___absolutePath'
@@ -1878,32 +1878,6 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___isAdult'
   | 'frontmatter___isPremium'
   | 'frontmatter___url'
-  | 'frontmatter___social___behance'
-  | 'frontmatter___social___deviantart'
-  | 'frontmatter___social___discord'
-  | 'frontmatter___social___etsy'
-  | 'frontmatter___social___facebook'
-  | 'frontmatter___social___flickr'
-  | 'frontmatter___social___furaffinity'
-  | 'frontmatter___social___github'
-  | 'frontmatter___social___instagram'
-  | 'frontmatter___social___picarto'
-  | 'frontmatter___social___pinterest'
-  | 'frontmatter___social___steam'
-  | 'frontmatter___social___telegram'
-  | 'frontmatter___social___tumblr'
-  | 'frontmatter___social___twitch'
-  | 'frontmatter___social___twitter'
-  | 'frontmatter___social___youtube'
-  | 'frontmatter___streaming___friday'
-  | 'frontmatter___streaming___friday___start'
-  | 'frontmatter___streaming___friday___end'
-  | 'frontmatter___streaming___saturday'
-  | 'frontmatter___streaming___saturday___start'
-  | 'frontmatter___streaming___saturday___end'
-  | 'frontmatter___streaming___sunday'
-  | 'frontmatter___streaming___sunday___start'
-  | 'frontmatter___streaming___sunday___end'
   | 'frontmatter___banner___sourceInstanceName'
   | 'frontmatter___banner___absolutePath'
   | 'frontmatter___banner___relativePath'
@@ -2092,6 +2066,32 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___gifs___childMarkdownRemark___timeToRead'
   | 'frontmatter___gifs___childMarkdownRemark___tableOfContents'
   | 'frontmatter___gifs___childMarkdownRemark___children'
+  | 'frontmatter___social___behance'
+  | 'frontmatter___social___deviantart'
+  | 'frontmatter___social___discord'
+  | 'frontmatter___social___etsy'
+  | 'frontmatter___social___facebook'
+  | 'frontmatter___social___flickr'
+  | 'frontmatter___social___furaffinity'
+  | 'frontmatter___social___github'
+  | 'frontmatter___social___instagram'
+  | 'frontmatter___social___picarto'
+  | 'frontmatter___social___pinterest'
+  | 'frontmatter___social___steam'
+  | 'frontmatter___social___telegram'
+  | 'frontmatter___social___tumblr'
+  | 'frontmatter___social___twitch'
+  | 'frontmatter___social___twitter'
+  | 'frontmatter___social___youtube'
+  | 'frontmatter___streaming___friday'
+  | 'frontmatter___streaming___friday___start'
+  | 'frontmatter___streaming___friday___end'
+  | 'frontmatter___streaming___saturday'
+  | 'frontmatter___streaming___saturday___start'
+  | 'frontmatter___streaming___saturday___end'
+  | 'frontmatter___streaming___sunday'
+  | 'frontmatter___streaming___sunday___start'
+  | 'frontmatter___streaming___sunday___end'
   | 'frontmatter___artist'
   | 'frontmatter___image___sourceInstanceName'
   | 'frontmatter___image___absolutePath'
@@ -2293,11 +2293,11 @@ export type MarkdownRemarkFrontmatter = {
   isAdult?: Maybe<Scalars['Boolean']>;
   isPremium?: Maybe<Scalars['Boolean']>;
   url?: Maybe<Scalars['String']>;
-  social?: Maybe<MarkdownRemarkFrontmatterSocial>;
-  streaming?: Maybe<MarkdownRemarkFrontmatterStreaming>;
   banner?: Maybe<File>;
   images?: Maybe<Array<Maybe<File>>>;
   gifs?: Maybe<Array<Maybe<File>>>;
+  social?: Maybe<MarkdownRemarkFrontmatterSocial>;
+  streaming?: Maybe<MarkdownRemarkFrontmatterStreaming>;
   artist?: Maybe<Scalars['String']>;
   image?: Maybe<File>;
 };
@@ -2323,11 +2323,11 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   isAdult?: Maybe<BooleanQueryOperatorInput>;
   isPremium?: Maybe<BooleanQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
-  social?: Maybe<MarkdownRemarkFrontmatterSocialFilterInput>;
-  streaming?: Maybe<MarkdownRemarkFrontmatterStreamingFilterInput>;
   banner?: Maybe<FileFilterInput>;
   images?: Maybe<FileFilterListInput>;
   gifs?: Maybe<FileFilterListInput>;
+  social?: Maybe<MarkdownRemarkFrontmatterSocialFilterInput>;
+  streaming?: Maybe<MarkdownRemarkFrontmatterStreamingFilterInput>;
   artist?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<FileFilterInput>;
 };
@@ -2632,6 +2632,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2792,6 +2794,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2996,6 +3000,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___author___name'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___logo'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3088,6 +3094,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;

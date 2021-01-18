@@ -12,16 +12,16 @@ import {
 } from '../../types/graphql-types'
 import config from '../../site-config'
 
-import CardGrid from '../components/dealer-card-grid/dealer-card-grid'
-import CharityMeter from '../components/charity-meter/charity-meter'
+import CardGrid from '../components/dealer-card-grid'
+import CharityMeter from '../components/charity-meter'
 import { Dealer } from '../components/cards'
-import Jumbotron from '../components/jumbotron/jumbotron'
-import Layout from '../layouts/layout/layout'
-import Meta from '../components/meta/meta'
+import Jumbotron from '../components/jumbotron'
+import Layout from '../layouts/layout'
+import Meta from '../components/meta'
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
-import ResponsivePlayer from '../components/responsive-player/responsive-player'
-import Section from '../layouts/section/section'
-import SocialCard from '../components/cards/social-card/social-card'
+import ResponsivePlayer from '../components/responsive-player'
+import Section from '../layouts/section'
+import SocialCard from '../components/cards/social-card'
 
 interface GatsbyDealer { 
   dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
