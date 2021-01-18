@@ -75,26 +75,18 @@ const Navibar: React.FC<Props> = ({ location, identityContext }: Props) => {
 
         <CollapsibleLinks />
 
-        <div className='row'>
         {(identity.user === undefined && identity.provisionalUser === undefined) &&
-          <div className='col'>
-            <Link label='Sign up' to='/sign-up/' />
-          </div>
+          <Link label='Sign up' to='/sign-up/' />
         }
         {identity.user !== undefined
           ? <>
-              <div className='col'>
-                <Link label='Settings' to='/account/' />
-              </div>
-              <div className='col'>
-                <Button label='Logout' onClick={identity.logout} />
-              </div>
+              <Link label='Settings' to='/account/' />
+              <Button label='Logout' onClick={identity.logout} />
             </>
-          : <div className='col'>
+          : <>
               <Link label='Login' to='/login/' />
-            </div>
+            </>
         }
-        </div>
       </div>
     </nav>
   )
