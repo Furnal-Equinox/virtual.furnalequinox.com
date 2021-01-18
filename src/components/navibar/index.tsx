@@ -53,6 +53,56 @@ const Navibar: React.FC<Props> = ({ location, identityContext }: Props) => {
             </GatsbyLink>
           </li> 
         )}
+        {(identity.user === undefined && identity.provisionalUser === undefined) &&
+          <li 
+            key='Signup'
+            className={
+              location !== undefined &&
+              location?.pathname === '/sign-up/' 
+                ? 'nav-item active' 
+                : 'nav-item'
+            }
+          >
+            <GatsbyLink to='/sign-up/' className='nav-link'>
+              Sign Up
+            </GatsbyLink>
+          </li>
+        }
+        {identity.user !== undefined
+          ? <>
+              <li 
+                key='Account'
+                className={
+                  location !== undefined &&
+                  location?.pathname === '/account/' 
+                    ? 'nav-item active' 
+                    : 'nav-item'
+                }
+              >
+                <GatsbyLink to='/account/' className='nav-link'>
+                  My Account
+                </GatsbyLink>
+              </li>
+              <li
+                key='Logout'
+              >
+                <Button label='Logout' onClick={identity.logout} />
+              </li>
+            </>
+          : <li
+              key='Login'
+              className={
+                location !== undefined &&
+                location?.pathname === '/login/' 
+                  ? 'nav-item active' 
+                  : 'nav-item'
+              }
+            >
+              <GatsbyLink to='/login/' className='nav-link'>
+                Login
+              </GatsbyLink>
+            </li>
+        }
       </ul>
     </div>
 
@@ -69,24 +119,11 @@ const Navibar: React.FC<Props> = ({ location, identityContext }: Props) => {
       <div className='container'>
         <Logo />
 
-        <Notification />
-
         <HamburgerMenu />
 
         <CollapsibleLinks />
 
-        {(identity.user === undefined && identity.provisionalUser === undefined) &&
-          <Link label='Sign up' to='/sign-up/' />
-        }
-        {identity.user !== undefined
-          ? <>
-              <Link label='Settings' to='/account/' />
-              <Button label='Logout' onClick={identity.logout} />
-            </>
-          : <>
-              <Link label='Login' to='/login/' />
-            </>
-        }
+        <Notification />
       </div>
     </nav>
   )
