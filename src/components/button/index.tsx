@@ -31,10 +31,10 @@ const Button: React.FC<Props> = ({
         className={
           !isClose
             ? [
-                'btn rounded-pill',
+              'btn rounded-pill',
                 `btn${hasOutline ? '-outline' : ''}${state !== undefined ? `-${state}` : '-primary'}`,
                 `btn${size !== undefined ? `-${size}` : ''}`
-              ].join(' ')
+            ].join(' ')
             : 'btn-close'
         }
         disabled={disabled}

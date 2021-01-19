@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import fetch from 'node-fetch'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -24,7 +25,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
   const [formError, setFormError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
-  const onSubmit = async (event, data) => {
+  const onSubmit = async (data) => {
     setIsSubmitting(true)
     setFormError(null)
 
@@ -32,18 +33,20 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': event.target.form.getAttribute('name'),
-        data,
-      }),
+        'form-name': 'contact',
+        name: data.name,
+        email: data.email,
+        message: data.message
+      })
     })
-    .then(() => {
-      setIsSubmitting(false)
-      navigateTarget !== undefined && navigate(navigateTarget)
-    })
-    .catch((error) => {
-      setIsSubmitting(false)
-      setFormError(error.message)
-    })
+      .then(() => {
+        setIsSubmitting(false)
+        navigateTarget !== undefined && navigate(navigateTarget)
+      })
+      .catch((error) => {
+        setIsSubmitting(false)
+        setFormError(error.message)
+      })
   }
 
   const Form: React.FC = () =>
@@ -54,6 +57,13 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
       data-netlify-honeypot='bot-field'
       onSubmit={handleSubmit(onSubmit)}
     >
+      <input type='hidden' name='form-name' value='contact' />
+      <div hidden>
+        <label>
+          Don’t fill this out:{' '}
+          <input name='bot-field' />
+        </label>
+      </div>
       <div className='form-floating mb-3'>
         <input
           ref={register}

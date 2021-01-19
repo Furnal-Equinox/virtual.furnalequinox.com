@@ -70,38 +70,38 @@ const Navibar: React.FC<Props> = ({ location, identityContext }: Props) => {
         }
         {identity.user !== undefined
           ? <>
-              <li 
-                key='Account'
-                className={
-                  location !== undefined &&
-                  location?.pathname === '/account/' 
-                    ? 'nav-item active' 
-                    : 'nav-item'
-                }
-              >
-                <GatsbyLink to='/account/' className='nav-link'>
-                  My Account
-                </GatsbyLink>
-              </li>
-              <li
-                key='Logout'
-              >
-                <Button label='Logout' onClick={identity.logout} />
-              </li>
-            </>
-          : <li
-              key='Login'
+            <li 
+              key='Account'
               className={
                 location !== undefined &&
-                location?.pathname === '/login/' 
+                  location?.pathname === '/account/' 
                   ? 'nav-item active' 
                   : 'nav-item'
               }
             >
-              <GatsbyLink to='/login/' className='nav-link'>
-                Login
+              <GatsbyLink to='/account/' className='nav-link'>
+                  My Account
               </GatsbyLink>
             </li>
+            <li
+              key='Logout'
+            >
+              <Button label='Logout' onClick={identity.logout} />
+            </li>
+          </>
+          : <li
+            key='Login'
+            className={
+              location !== undefined &&
+                location?.pathname === '/login/' 
+                ? 'nav-item active' 
+                : 'nav-item'
+            }
+          >
+            <GatsbyLink to='/login/' className='nav-link'>
+                Login
+            </GatsbyLink>
+          </li>
         }
       </ul>
     </div>

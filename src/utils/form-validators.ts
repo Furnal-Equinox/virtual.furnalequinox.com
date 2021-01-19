@@ -1,4 +1,3 @@
-import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 
 // TODO: credit regex found here: https://stackoverflow.com/a/21456918
@@ -31,11 +30,12 @@ const blacklistedPasswords: string[] = [
   'catsdogs'
 ]
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const usernameSchema = Yup.string()
   .required('Please enter a name.')
   .min(1, 'Please enter at least one character for your name.')
 
-const user_metadataSchema = Yup.object().shape({
+const userMetadataSchema = Yup.object().shape({
   full_name: usernameSchema
 })
 
@@ -55,9 +55,8 @@ const messageSchema = Yup.string()
   .required('Please enter a message.')
   .min(1, 'Your message cannot be empty!')  
 
-
 export const signUpSchema = Yup.object().shape({
-  user_metadata: user_metadataSchema,
+  user_metadata: userMetadataSchema,
   email: emailSchema,
   password: passwordSchema
 })

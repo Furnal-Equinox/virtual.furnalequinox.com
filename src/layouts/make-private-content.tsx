@@ -12,19 +12,17 @@ interface PrivateContentProps extends RouteComponentProps {
 
 const makePrivateContent = 
   <Props extends object>(Comp: React.ComponentType<Props>): React.FC<Props & PrivateContentProps> => 
-  ({ allowedRoles, callbackPath, ...props}: PrivateContentProps) =>
-  
-{
-  const identity = useIdentityContext()
+    ({ allowedRoles, callbackPath, ...props }: PrivateContentProps) => {
+      const identity = useIdentityContext()
 
-  return (
-    identity.user !== undefined
-      ? doesUserHaveAllowedRoles(identity as Identity, allowedRoles)
-        ? <Comp {...props as Props} />
-        : <Unauthorized />
-      : <Unauthorized />
-  )
-}
+      return (
+        identity.user !== undefined
+          ? doesUserHaveAllowedRoles(identity as Identity, allowedRoles)
+            ? <Comp {...props as Props} />
+            : <Unauthorized />
+          : <Unauthorized />
+      )
+    }
 
 export default makePrivateContent
 

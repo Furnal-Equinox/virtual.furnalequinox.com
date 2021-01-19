@@ -19,5 +19,4 @@ export interface User {
 }
 
 export const doesUserHaveAllowedRoles = ({ user }: Identity, allowedRoles?: string[]): boolean =>
-  allowedRoles?.some(role => user?.app_metadata?.roles?.indexOf(role) >= 0) ?? true
-
+  allowedRoles?.some(role => user?.app_metadata?.roles?.includes(role)) ?? true
