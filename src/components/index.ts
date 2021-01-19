@@ -17,6 +17,7 @@ export type { GalleryItem } from './cards'
 export type { ShopItem } from './cards'
 export type { SocialItem } from './cards'
 
+export { default as ContactForm } from './contact-form'
 export { default as CharityMeter } from './charity-meter'
 export { default as DealerCardGrid } from './dealer-card-grid'
 export { default as Footer } from './footer'

@@ -3,7 +3,7 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
-import { Inputs, loginSchema } from '../../utils/form-validators'
+import { LoginInputs, loginSchema } from '../../utils/form-validators'
 
 interface Props {
   navigateTarget?: string
@@ -12,7 +12,7 @@ interface Props {
 const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   const identity = useIdentityContext()
 
-  const { register, handleSubmit, errors } = useForm<Inputs>({
+  const { register, handleSubmit, errors } = useForm<LoginInputs>({
     reValidateMode: 'onSubmit',
     resolver: yupResolver(loginSchema)
   })

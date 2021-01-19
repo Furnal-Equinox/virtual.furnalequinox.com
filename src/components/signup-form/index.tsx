@@ -3,12 +3,12 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
-import { Inputs, signUpSchema } from '../../utils/form-validators'
+import { SignUpInputs, signUpSchema } from '../../utils/form-validators'
 
 const SignUpForm: React.FC = () => {
   const identity = useIdentityContext()
 
-  const { register, handleSubmit, errors } = useForm<Inputs>({
+  const { register, handleSubmit, errors } = useForm<SignUpInputs>({
     reValidateMode: 'onSubmit',
     resolver: yupResolver(signUpSchema)
   })
