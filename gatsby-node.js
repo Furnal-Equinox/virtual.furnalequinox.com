@@ -140,6 +140,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/dealers${edge.node.fields.slug}`,
       component: dealerPage,
       context: {
+        isSfw: true,
         slug: edge.node.fields.slug,
         nextTitle: nextEdge.node.frontmatter.title,
         nextSlug: nextEdge.node.fields.slug,
@@ -160,6 +161,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/adult${edge.node.fields.slug}`,
       component: dealerPage,
       context: {
+        isSfw: false,
         slug: edge.node.fields.slug,
         nextTitle: nextEdge.node.frontmatter.title,
         nextSlug: nextEdge.node.fields.slug,

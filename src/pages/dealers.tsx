@@ -3,11 +3,6 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { Dealer, DealerCard, TextCard } from '../components/cards'
-import CardGrid from '../components/dealer-card-grid'
-import Link from '../components/link'
-import Meta from '../components/meta'
-import Layout from '../layouts/layout'
 import { 
   DealersIndexQueryQuery,
   GatsbyImageSharpFluidFragment,
@@ -17,12 +12,26 @@ import {
   Maybe 
 } from '../../types/graphql-types'
 
+import {
+  Dealer,
+  DealerCardGrid,
+  Jumbotron,
+  Link,
+  Meta,
+  SearchBar,
+  SearchParams,
+  TextCard
+} from '../components'
+
+import {
+  Layout,
+  makePrivateContent,
+  Section
+} from '../layouts'
+
 import config from '../../site-config'
-import Jumbotron from '../components/jumbotron'
-import Section from '../layouts/section'
 
 import { sample } from '../utils/tools'
-import SearchBar, { SearchParams } from '../components/search-bar'
 
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
@@ -45,111 +54,21 @@ interface Props extends RouteComponentProps {
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const dealerGroups = data.remark.group
-  const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : []
-  const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : []
-  const allDealers = premiumDealers?.concat(regularDealers ?? []) ?? []
 
-  const index = data.localSearchDealersSfw?.index
-  const store = data.localSearchDealersSfw?.store
+  const Content = makePrivateContent(DealersDashboard)
 
-  const { query } = queryString.parse(location?.search ?? '')
-  const [searchQuery, setSearchQuery] = React.useState(query as SearchParams)
-
-  const results: Dealer[] = useFlexSearch(searchQuery, index, store)
-
-  const getResultsTitles = (results: Dealer[]): string[] =>
-    results.map(result => result?.title ?? '')
-
-  const fetchFullResults = (titles: string[], store: GatsbyDealer[]): GatsbyDealer[] =>
-    store.filter(dealer => titles.includes(dealer.dealer.frontmatter?.title ?? '')) 
-
-  const dealerReducer = (dealer: GatsbyDealer): Dealer => ({
-    title: dealer.dealer.frontmatter?.title,
-    dealer: dealer.dealer.frontmatter?.dealer,
-    description: dealer.dealer.frontmatter?.description,
-    banner: dealer.dealer.frontmatter?.banner?.childImageSharp?.fluid?.src,
-    slug: dealer.dealer.fields?.slug,
-    isPremium: dealer.dealer.frontmatter?.isPremium
-  })
-
-  const reducedRegularDealers: Dealer[] | undefined = regularDealers?.map(
-    (dealer: GatsbyDealer) => dealerReducer(dealer)
-  )
-
-  const reducedPremiumDealers: Dealer[] | undefined = premiumDealers?.map(
-    (dealer: GatsbyDealer) => dealerReducer(dealer)
-  )
-  
   return (
     <Layout location={location}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
       <Meta customDescription={'Dealers Den'} />
       <div>
-        <Jumbotron 
-          title='Premium Dealers (Live Data)' 
-          subtitle='Check out all these cool dealers!'
+        <Content
+          data={data}
+          location={location}
+          navigate={navigate}
+          callbackPath='/dealers/'
+          allowedRoles={['free']}
         />
-        <Section isContainer isTextCenter pos='middle'>
-          <TextCard>
-            <div className='row'>
-              <div className='col mx-auto'>
-                <h2>Feeling lucky?</h2>
-                <p className='lead'>
-                  Click this button to check out a random dealer!
-                </p>
-                <Link 
-                  label={'Let\'s go!'} 
-                  to={`.${
-                    sample(allDealers as GatsbyDealer[]).dealer.fields?.slug ?? ''
-                  }`}
-                  size='lg'
-                />
-              </div>
-            </div>
-          </TextCard>
-        </Section>
-        <Section isContainer isTextCenter pos='middle'>
-          <TextCard>
-            <div className='row'>
-              <div className='col mx-auto'>
-                <h2>Have something in mind?</h2>
-                <p className='lead'>
-                  Use the search bar!
-                </p>
-                <SearchBar
-                  searchQuery={searchQuery}
-                  setSearchQuery={setSearchQuery}
-                  navigate={navigate}
-                />
-                {results.length > 0 && ( 
-                  <>
-                    <CardGrid data={
-                      fetchFullResults(getResultsTitles(results), premiumDealers)
-                        .map(result => dealerReducer(result))
-                    }
-                    />
-                    <CardGrid data={
-                      fetchFullResults(getResultsTitles(results), regularDealers)
-                        .map(result => dealerReducer(result))
-                    }
-                    />
-                  </>
-                )}
-              </div>
-            </div>
-          </TextCard>
-        </Section>
-        <Section pos='middle'>
-          <CardGrid data={reducedPremiumDealers} />
-        </Section>
-        <Jumbotron 
-          title='Regular Dealers (Live Data)'
-          subtitle='Check out all these cool dealers!'
-        />
-        <Section pos='last'>
-          <CardGrid data={reducedRegularDealers} />
-        </Section>
       </div>
     </Layout>
   )
@@ -202,3 +121,110 @@ export const dealersQuery = graphql`
     }
   }
 `
+
+const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) => {
+  const dealerGroups = data.remark.group
+  const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : []
+  const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : []
+  const allDealers = premiumDealers?.concat(regularDealers ?? []) ?? []
+
+  const index = data.localSearchDealersSfw?.index
+  const store = data.localSearchDealersSfw?.store
+
+  const { query } = queryString.parse(location?.search ?? '')
+  const [searchQuery, setSearchQuery] = React.useState(query as SearchParams)
+
+  const results: Dealer[] = useFlexSearch(searchQuery, index, store)
+
+  const getResultsTitles = (results: Dealer[]): string[] =>
+    results.map(result => result?.title ?? '')
+
+  const fetchFullResults = (titles: string[], store: GatsbyDealer[]): GatsbyDealer[] =>
+    store.filter(dealer => titles.includes(dealer.dealer.frontmatter?.title ?? '')) 
+
+  const dealerReducer = (dealer: GatsbyDealer): Dealer => ({
+    title: dealer.dealer.frontmatter?.title,
+    dealer: dealer.dealer.frontmatter?.dealer,
+    description: dealer.dealer.frontmatter?.description,
+    banner: dealer.dealer.frontmatter?.banner?.childImageSharp?.fluid?.src,
+    slug: dealer.dealer.fields?.slug,
+    isPremium: dealer.dealer.frontmatter?.isPremium
+  })
+
+  const reducedRegularDealers: Dealer[] | undefined = regularDealers?.map(
+    (dealer: GatsbyDealer) => dealerReducer(dealer)
+  )
+
+  const reducedPremiumDealers: Dealer[] | undefined = premiumDealers?.map(
+    (dealer: GatsbyDealer) => dealerReducer(dealer)
+  )
+  
+  return (
+    <>
+      <Jumbotron 
+        title='Premium Dealers (Live Data)' 
+        subtitle='Check out all these cool dealers!'
+      />
+      <Section isContainer isTextCenter pos='middle'>
+        <TextCard>
+          <div className='row'>
+            <div className='col mx-auto'>
+              <h2>Feeling lucky?</h2>
+              <p className='lead'>
+                Click this button to check out a random dealer!
+              </p>
+              <Link 
+                label={'Let\'s go!'} 
+                to={`.${
+                  sample(allDealers as GatsbyDealer[]).dealer.fields?.slug ?? ''
+                }`}
+                size='lg'
+              />
+            </div>
+          </div>
+        </TextCard>
+      </Section>
+      <Section isContainer isTextCenter pos='middle'>
+        <TextCard>
+          <div className='row'>
+            <div className='col mx-auto'>
+              <h2>Have something in mind?</h2>
+              <p className='lead'>
+                Use the search bar!
+              </p>
+              <SearchBar
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                navigate={navigate}
+              />
+              {results.length > 0 && ( 
+                <>
+                  <DealerCardGrid data={
+                    fetchFullResults(getResultsTitles(results), premiumDealers)
+                      .map(result => dealerReducer(result))
+                  }
+                  />
+                  <DealerCardGrid data={
+                    fetchFullResults(getResultsTitles(results), regularDealers)
+                      .map(result => dealerReducer(result))
+                  }
+                  />
+                </>
+              )}
+            </div>
+          </div>
+        </TextCard>
+      </Section>
+      <Section pos='middle'>
+        <DealerCardGrid data={reducedPremiumDealers} />
+      </Section>
+      <Jumbotron 
+        title='Regular Dealers (Live Data)'
+        subtitle='Check out all these cool dealers!'
+      />
+      <Section pos='last'>
+        <DealerCardGrid data={reducedRegularDealers} />
+      </Section>
+    </>
+  )
+}

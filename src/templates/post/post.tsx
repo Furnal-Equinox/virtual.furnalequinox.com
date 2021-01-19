@@ -1,19 +1,24 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql, Link } from 'gatsby'
-import Img, { FluidObject } from 'gatsby-image'
 import { Helmet } from 'react-helmet'
-
-import Button from '../../components/button'
-import Badge from '../../components/badge'
-
-import './style.scss'
-import Layout from '../../layouts/layout'
-import Meta from '../../components/meta'
-
-import config from '../../../site-config'
-
+import Img, { FluidObject } from 'gatsby-image'
 import { PostBySlugQuery } from '../../../types/graphql-types'
+import config from '../../../site-config'
+import './style.scss'
+
+import {
+  Badge,
+  Meta
+} from '../../components'
+
+import {
+  Layout,
+  makePrivateContent,
+  Section
+} from '../../layouts'
+
+
 
 const getDescription = (content: string): string => {
   const body = content.replace(
@@ -34,8 +39,8 @@ interface Props extends RouteComponentProps {
 const Post: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
-  const image = post?.image ?? null
-  const html = postNode?.html ?? ''
+
+  const Content = makePrivateContent(PostContent)
 
   return (
     <Layout location={location}>
@@ -47,36 +52,12 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
         postNode={postNode}
         postSEO
       />
-      <div className='article' key={postNode?.fields?.slug ?? ''}>
-        <div className='container'>
-          <div className='info'>
-            <Link style={{ boxShadow: 'none' }} to={'.'}>
-              <h1>{post?.title ?? ''}</h1>
-              <time dateTime={post?.date ?? ''}>{post?.date ?? ''}</time>
-            </Link>
-            <Badge label={post?.category ?? ''} primary={true} />
-            {(post?.tags ?? []).map((tag: string, index?: number) => (
-              <Badge label={tag} primary={false} key={index} />
-            ))}
-          </div>
-          <div className='content'>
-            <p>{post?.description ?? ''}</p>
-            {image?.childImageSharp?.fluid !== undefined
-              ? <Img
-                fluid={image.childImageSharp.fluid as FluidObject}
-                style={{ display: 'block', margin: '0 auto' }}
-              />
-              : <></>
-            }
-          </div>
-          <div
-            className='content'
-            dangerouslySetInnerHTML={{
-              __html: html
-            }}
-          />
-        </div>
-      </div>
+      <Content
+        data={data}
+        location={location}
+        callbackPath={`/news${postNode?.fields?.slug ?? '/'}`}
+        allowedRoles={['free']}
+      />
     </Layout>
   )
 }
@@ -107,3 +88,45 @@ export const postQuery = graphql`
 `
 
 export default Post
+
+const PostContent: React.FC<Props> = ({ data, location }: Props) => {
+  const postNode = data.markdownRemark
+  const post = postNode?.frontmatter
+  const image = post?.image ?? null
+  const html = postNode?.html ?? ''
+
+  return (
+    <>
+      <div className='article' key={postNode?.fields?.slug ?? ''}>
+        <div className='container'>
+          <div className='info'>
+            <Link style={{ boxShadow: 'none' }} to={'.'}>
+              <h1>{post?.title ?? ''}</h1>
+              <time dateTime={post?.date ?? ''}>{post?.date ?? ''}</time>
+            </Link>
+            <Badge label={post?.category ?? ''} primary={true} />
+            {(post?.tags ?? []).map((tag: string, index?: number) => (
+              <Badge label={tag} primary={false} key={index} />
+            ))}
+          </div>
+          <div className='content'>
+            <p>{post?.description ?? ''}</p>
+            {image?.childImageSharp?.fluid !== undefined
+              ? <Img
+                fluid={image.childImageSharp.fluid as FluidObject}
+                style={{ display: 'block', margin: '0 auto' }}
+              />
+              : <></>
+            }
+          </div>
+          <div
+            className='content'
+            dangerouslySetInnerHTML={{
+              __html: html
+            }}
+          />
+        </div>
+      </div>
+    </>
+  )
+}
