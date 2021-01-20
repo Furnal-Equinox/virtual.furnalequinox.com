@@ -17,16 +17,29 @@ interface Props {
 const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
   const identity = useIdentityContext()
 
-  const { register, handleSubmit, errors } = useForm<ContactInputs>({
+  const { 
+    register, 
+    handleSubmit, 
+    errors,
+    formState,
+    reset
+  } = useForm<ContactInputs>({
     reValidateMode: 'onSubmit',
     resolver: yupResolver(contactSchema)
   })
 
+  const { 
+    isSubmitting, 
+    isSubmitted, 
+    isSubmitSuccessful, 
+    isValid, 
+    isValidating, 
+    isDirty
+  } = formState
+
   const [formError, setFormError] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
   const onSubmit = async (data) => {
-    setIsSubmitting(true)
     setFormError(null)
 
     fetch('/', {
@@ -40,14 +53,22 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
       })
     })
       .then(() => {
-        setIsSubmitting(false)
         navigateTarget !== undefined && navigate(navigateTarget)
       })
       .catch((error) => {
-        setIsSubmitting(false)
         setFormError(error.message)
       })
   }
+
+  const Spinner: React.FC = () =>
+    <>
+      <span
+        className="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      />{' '}
+      Submitting...
+    </>
 
   const Form: React.FC = () =>
     <form
@@ -69,7 +90,10 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           ref={register}
           name='name'
           type='text' 
-          className='form-control'
+          className={[
+            'form-control',
+            errors.message !== undefined ? 'is-invalid' : null
+          ].join(' ')}
           placeholder='Your name'
           autoFocus
         />
@@ -87,7 +111,10 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           ref={register}
           name='email'
           type='text' 
-          className='form-control'
+          className={[
+            'form-control',
+            errors.message !== undefined ? 'is-invalid' : null
+          ].join(' ')}
           placeholder='Email address'
         />
         <label htmlFor='inputEmail'>
@@ -103,7 +130,11 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
         <textarea
           ref={register}
           name='message'
-          className='form-control'
+          className={[
+            'form-control',
+            errors.message !== undefined ? 'is-invalid' : null
+          ].join(' ')}
+          style={{ height: '100px' }}
           placeholder='Your message'
         />
         <label htmlFor='inputMessage'>
@@ -118,7 +149,26 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
       <div className='mb-3'>
         {formError !== null && <p>{`Error: ${formError}`}</p>}
       </div>
-      <button className='w-100 btn btn-lg btn-primary rounded-pill' type='submit'>Submit</button>
+      <div className='mb-3'>
+        <button
+          className='w-100 btn btn-lg btn-primary rounded-pill'
+          type='submit'
+          disabled={isSubmitting}
+        >
+          {!isSubmitting 
+            ? 'Submit' 
+            : <Spinner />
+          }
+        </button>
+      </div>
+      {isSubmitSuccessful &&
+        <div className='mb-3'>
+          <p className='lead'>
+            Thank you for your message! Please keep an eye on your email -{' '}
+            we'll reply to you as soon as we can.
+          </p>
+        </div>
+      }
     </form>
 
   return <Form />

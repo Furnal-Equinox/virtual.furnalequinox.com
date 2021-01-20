@@ -42,6 +42,16 @@ const SignUpForm: React.FC = () => {
       </p>
     </>
 
+const Spinner: React.FC = () =>
+  <>
+    <span
+      className="spinner-border spinner-border-sm"
+      role="status"
+      aria-hidden="true"
+    />{' '}
+    Signing up...
+  </>
+
   const Form: React.FC = () =>
     <form onSubmit={handleSubmit(onSubmit)}>
       <p className='h2'>
@@ -140,7 +150,16 @@ const SignUpForm: React.FC = () => {
           </p>
         }
       </div>
-      <button className='w-100 btn btn-lg btn-primary rounded-pill' type='submit'>Submit</button>
+      <button
+        className='w-100 btn btn-lg btn-primary rounded-pill'
+        type='submit'
+        disabled={isSigningUp}
+      >
+        {!isSigningUp
+          ? 'Submit' 
+          : <Spinner />
+        }
+      </button>
     </form>
 
   return (

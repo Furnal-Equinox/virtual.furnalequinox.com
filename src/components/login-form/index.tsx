@@ -56,6 +56,16 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
       </p>
     </>
 
+  const Spinner: React.FC = () =>
+    <>
+      <span
+        className="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      />{' '}
+      Logging in...
+    </>
+
   const Form: React.FC = () =>
     <form onSubmit={handleSubmit(onSubmit)}>
       <p className='h2'>
@@ -99,7 +109,16 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
       <div className='mb-3'>
         {formError !== null && <p>{`Error: ${formError}`}</p>}
       </div>
-      <button className='w-100 btn btn-lg btn-primary rounded-pill' type='submit'>Submit</button>
+      <button
+        className='w-100 btn btn-lg btn-primary rounded-pill'
+        type='submit'
+        disabled={isLoggingIn}
+      >
+        {!isLoggingIn 
+          ? 'Submit' 
+          : <Spinner />
+        }
+      </button>
     </form>
 
   return (
