@@ -23,7 +23,6 @@ interface Props extends RouteComponentProps {
 }
 
 const Gallery: React.FC<Props> = ({ data, location }: Props) => {
-  
   const Content = makePrivateContent(GalleryContent)
   
   return (

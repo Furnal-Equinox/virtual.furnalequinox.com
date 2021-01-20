@@ -3145,6 +3145,7 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   slug?: Maybe<Scalars['String']>;
+  isSfw?: Maybe<Scalars['Boolean']>;
   nextTitle?: Maybe<Scalars['String']>;
   nextSlug?: Maybe<Scalars['String']>;
   prevTitle?: Maybe<Scalars['String']>;
@@ -3153,6 +3154,7 @@ export type SitePageContext = {
 
 export type SitePageContextFilterInput = {
   slug?: Maybe<StringQueryOperatorInput>;
+  isSfw?: Maybe<BooleanQueryOperatorInput>;
   nextTitle?: Maybe<StringQueryOperatorInput>;
   nextSlug?: Maybe<StringQueryOperatorInput>;
   prevTitle?: Maybe<StringQueryOperatorInput>;
@@ -3259,6 +3261,7 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___slug'
+  | 'context___isSfw'
   | 'context___nextTitle'
   | 'context___nextSlug'
   | 'context___prevTitle'

@@ -2,55 +2,29 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as Yup from 'yup'
+import { SignUpInputs, signUpSchema } from '../../utils/form-validators'
 
 import Button from '../button'
 import LoginForm from '../login-form'
 
-interface Inputs {
-  user_metadata: {
-    full_name: string
-  }
-  password: string
-}
-
-const blacklistedPasswords: string[] = [
-  'password',
-  'Password',
-  '12345678',
-  'abcd1234',
-  'fur4life',
-  'catsdogs'
-]
-
-// TODO: credit regex found here: https://stackoverflow.com/a/21456918
-
-const schema = Yup.object().shape({
-  user_metadata: Yup.object().shape({
-    full_name: Yup.string()
-      .required('Please enter a name.')
-      .min(1, 'Please enter at least one character for your name.')
-  }),
-  password: Yup.string()
-    .required('Please enter a password.')
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,32}$/gm, 
-      'Your password does not meet the requirements.'
-    )
-    .notOneOf(blacklistedPasswords, 'Please choose a different password.')
-})
+import Modal from 'react-bootstrap/Modal'
 
 const AuthModal: React.FC = () => {
   const identity = useIdentityContext()
 
-  const { register, handleSubmit, errors } = useForm<Inputs>({
+  const { register, handleSubmit, errors } = useForm<SignUpInputs>({
     reValidateMode: 'onSubmit',
-    resolver: yupResolver(schema)
+    resolver: yupResolver(signUpSchema)
   })
   
   const [formError, setFormError] = useState<string | null>(null)
   const [formProcessing, setFormProcessing] = useState<boolean>(false)
   const [forceShowOverlay, setForceShowOverlay] = useState<string | null>(null)
+
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   useEffect(() => {
     if (identity.provisionalUser !== undefined) {
@@ -73,85 +47,53 @@ const AuthModal: React.FC = () => {
   return (
     <>
       {(identity.urlToken !== undefined || forceShowOverlay !== null) &&
-      <div
-        className='modal fade' 
-        id='exampleModal'
-        tabIndex={-1}
-        aria-labelledby='exampleModalLabel'
-        aria-hidden='true'
-      >
-        <div className='modal-dialog'>
-          {identity.urlToken?.type === 'confirmation' &&
-            <div className='modal-content'>
-              <div className='modal-header'>
-                <h5 className='modal-title' id='exampleModalLabel'>
+      <Modal show={forceShowOverlay !== null} onHide={handleClose}>
+        {identity.urlToken?.type === 'confirmation' &&
+            <>
+              <Modal.Header closeButton>
+                <Modal.Title>
                   Confirming user...
-                </h5>
-                <Button
-                  isClose
-                  data-bs-dismiss='modal'
-                  aria-label='Close'
-                />
-              </div>
-            </div>
-          }
-          {identity.urlToken?.type === 'email_change' && (
-            identity.user !== undefined
-              ? <div className='modal-content'>
-                <div className='modal-header'>
-                  <h5 className='modal-title' id='exampleModalLabel'>
+                </Modal.Title>
+              </Modal.Header>
+            </>
+        }
+        {identity.urlToken?.type === 'email_change' && (
+          identity.user !== undefined
+            ? <>
+              <Modal.Header closeButton>
+                <Modal.Title>
                       Changing email...
-                  </h5>
-                  <Button
-                    isClose
-                    data-bs-dismiss='modal'
-                    aria-label='Close'
-                  />
-                </div>
-              </div>
-              : <div className='modal-content'>
-                <div className='modal-header'>
-                  <h5 className='modal-title' id='exampleModalLabel'>
+                </Modal.Title>
+              </Modal.Header>
+            </>
+            : <>
+              <Modal.Header closeButton>
+                <Modal.Title>
                     In order to confirm your email change, you must log in with your prior credentials.
-                  </h5>
-                  <Button
-                    isClose
-                    data-bs-dismiss='modal'
-                    aria-label='Close'
-                  />
-                </div>
-                <div className='modal-body'>
-                  <LoginForm />
-                </div>
-              </div>
-          )}
-          {forceShowOverlay !== null &&
-            <div className='modal-content'>
-              <div className='modal-header'>
-                <h5 className='modal-title' id='exampleModalLabel'>
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <LoginForm />
+              </Modal.Body>
+            </>
+        )}
+        {forceShowOverlay !== null &&
+            <>
+              <Modal.Header closeButton>
+                <Modal.Title>
                   {forceShowOverlay}
-                </h5>
-                <Button
-                  isClose
-                  data-bs-dismiss='modal'
-                  aria-label='Close'
-                />
-              </div>
-            </div>
-          }
-          {identity.urlToken?.type === 'passwordRecovery' &&
-          <div className='modal-content'>
-            <div className='modal-header'>
-              <h5 className='modal-title' id='exampleModalLabel'>
+                </Modal.Title>
+              </Modal.Header>
+            </>
+        }
+        {identity.urlToken?.type === 'passwordRecovery' &&
+          <>
+            <Modal.Header closeButton>
+              <Modal.Title>
                 Reset password
-              </h5>
-              <Button
-                isClose
-                data-bs-dismiss='modal'
-                aria-label='Close'
-              />
-            </div>
-            <div className='modal-body'>
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
               <form onSubmit={handleSubmit(onSubmit)}>
                 {identity.urlToken?.type === 'invite' &&
                   <div className='form-floating mb-3'>
@@ -234,11 +176,10 @@ const AuthModal: React.FC = () => {
                   disabled={formProcessing}
                 />
               </form>
-            </div>
-          </div>
-          }
-        </div>
-      </div>
+            </Modal.Body>
+          </>
+        }
+      </Modal>
       }
     </>
   )

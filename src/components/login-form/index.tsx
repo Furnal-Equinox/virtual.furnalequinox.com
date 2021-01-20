@@ -105,7 +105,7 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   return (
     identity.user !== undefined
       ? <AlreadyLoggedIn />
-      : identity.provisionalUser
+      : identity.provisionalUser !== undefined
         ? <ProvisionalUser />
         : <Form />
   )

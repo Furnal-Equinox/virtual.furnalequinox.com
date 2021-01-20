@@ -22,7 +22,6 @@ import {
 interface Props extends RouteComponentProps {}
 
 const Home: React.FC<Props> = ({ location }: Props) => {
-
   const Content = makePrivateContent(HomeDashboard)
 
   return (
@@ -41,7 +40,6 @@ const Home: React.FC<Props> = ({ location }: Props) => {
 }
 
 export default Home
-
 
 const HomeDashboard: React.FC<Props> = ({ location }: Props) => {
   return (

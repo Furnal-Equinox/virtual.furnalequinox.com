@@ -19,7 +19,6 @@ interface Props extends RouteComponentProps {
 }
 
 const ConStore: React.FC<Props> = ({ data, location }: Props) => {
-
   const Content = makePrivateContent(ConStoreContent)
 
   return (

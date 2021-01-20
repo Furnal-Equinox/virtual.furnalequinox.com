@@ -24,7 +24,10 @@ const SignUpForm: React.FC = () => {
       .signup(data)
       .then(() => {
         setIsSigningUp(false)
-        navigate('/')
+
+        // I am using the void operator here to consume the Promise<void> navigate() returns.
+        // eslint-disable-next-line no-void
+        void navigate('/')
       })
       .catch((error: { message: React.SetStateAction<string | null> }) => {
         setIsSigningUp(false)

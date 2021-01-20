@@ -13,15 +13,19 @@ import LoginForm from '../components/login-form'
 
 interface Props extends RouteComponentProps {}
 
+interface LocationState {
+  navigateTarget?: string
+}
+
 const Login: React.FC<Props> = ({ location }: Props) => {
   const identity = useIdentityContext()
-  const navigateTarget: string = location?.state?.navigateTarget ?? '/'
+  const navigateTarget: string = (location?.state as LocationState)?.navigateTarget ?? '/'
 
   const manageSubscription = () => {
     fetch('/.netlify/functions/create-manage-link', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${identity.user?.token.access_token}`
+        Authorization: `Bearer ${identity.user?.token.access_token as string}`
       }
     })
       .then(async (res) => await res.json())

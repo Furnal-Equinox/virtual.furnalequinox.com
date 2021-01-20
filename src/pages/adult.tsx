@@ -49,7 +49,6 @@ interface Props extends RouteComponentProps {
 }
 
 const Adult: React.FC<Props> = ({ data, location }: Props) => {
-
   const Content = makePrivateContent(AdultDashboard)
 
   return (
@@ -112,7 +111,7 @@ export const adultQuery = graphql`
   }
 `
 
-const AdultDashboard: React.FC<Props> = ({data, location}: Props) => {
+const AdultDashboard: React.FC<Props> = ({ data, location }: Props) => {
   const dealerGroups = data.remark.group
   const premiumDealers = dealerGroups[1].fieldValue === 'true' ? dealerGroups[1].dealers : []
   const regularDealers = dealerGroups[0].fieldValue === 'false' ? dealerGroups[0].dealers : []

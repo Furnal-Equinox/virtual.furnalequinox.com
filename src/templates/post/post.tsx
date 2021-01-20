@@ -18,8 +18,6 @@ import {
   Section
 } from '../../layouts'
 
-
-
 const getDescription = (content: string): string => {
   const body = content.replace(
     /<blockquote>/g,

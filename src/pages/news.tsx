@@ -20,7 +20,6 @@ interface Props extends RouteComponentProps {
 }
 
 const News: React.FC<Props> = ({ data, location }: Props) => {
-  
   const Content = makePrivateContent(NewsDashboard)
 
   return (

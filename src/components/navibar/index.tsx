@@ -9,6 +9,7 @@ import './style.scss'
 import { Button, Link } from '../index'
 
 import { NavbarLinks, NavbarAccountLinks } from '../../data/navbar-links'
+import { Maybe } from '../../types'
 
 export interface Props extends RouteComponentProps {
   identityContext?: any
@@ -110,7 +111,7 @@ const Navibar: React.FC<Props> = ({ location, identityContext }: Props) => {
     <span className='navbar-text'>
       {identity.provisionalUser !== undefined
         ? 'Check your email!'
-        : `Hello, ${identity.user?.user_metadata?.full_name?.split(' ')[0] ?? 'stranger'}!`
+        : `Hello, ${(identity.user?.user_metadata?.full_name as Maybe<string>)?.split(' ')[0] ?? 'stranger'}!`
       }
     </span>
 

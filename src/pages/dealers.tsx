@@ -54,7 +54,6 @@ interface Props extends RouteComponentProps {
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
-
   const Content = makePrivateContent(DealersDashboard)
 
   return (
