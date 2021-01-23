@@ -3,8 +3,30 @@
  --resolver lts-16.23
  --package "text turtle"
 -}
-{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+
+{-
+`LANGUAGE OverloadedStrings`
+allows strings to be contextually interpreted as types other than Haskell's basic String type.
+In this script, I use Data.Text's string implementation instead because it uses less space.
+-}
+
+{-
+Notes for people unfamiliar with Haskell:
+
+<> is string concatenation.
+It works the same way as the + in "Hello, " + "World!" in C-like languages.
+
+For the arrows below, think of it like this:
+(<|) :: (a -> b) -> a -> b
+
+:: - "has type..."
+(a -> b) - "a function that takes a value of type a and returns a value of type b"
+(-> a) - "a value of type a"
+(-> b) - "and returns a value of type b"
+
+In short, you may think of everything before the last arrow as being like a parameter list.
+-}
 
 module Main where
 
@@ -113,7 +135,7 @@ main = do
   if numErrored > 0
     then do
       print <|
-        "Ran pa11y " <> (show $ length results) <>
+        "Ran pa11y " <> (show <| length results) <>
         " times with the following settings: " <> (T.unpack pa11ySettings)
       
       print <|

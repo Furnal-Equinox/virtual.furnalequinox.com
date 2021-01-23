@@ -58,6 +58,7 @@ module.exports = {
     /// See https://community.netlify.com/t/support-guide-making-the-most-of-netlifys-cdn-cache/127
     /// for more information - tl;dr, Gatsby's hashes invalidate Netlify's cache even if Gatsby
     /// generates a new hash for a file that has not changed.
+    /// Leaving this commented out because it seems to cause problems with the cache.
     ///'gatsby-plugin-remove-fingerprints',
 
     'gatsby-plugin-sitemap',
@@ -217,7 +218,7 @@ module.exports = {
         implementation: require('sass'),
         precision: 6
       }
-    }
+    },
 
     /// {
     ///   resolve: 'gatsby-plugin-purgecss',
@@ -226,5 +227,20 @@ module.exports = {
     ///     purgeOnly: ['bootstrap/']
     ///   }
     /// }
+
+///==============================================================================================///
+///                                           STRIPE                                             ///
+///==============================================================================================///
+
+    /// Queries the Stripe business account for products
+    /// and loads them into the website's GraphQL store.
+    /// This means I can programmatically generate product listings!
+    {
+      resolve: 'gatsby-source-stripe',
+      options: {
+        objects: ['Product'],
+        secretKey: process.env.process.env.STRIPE_SECRET_KEY
+      }
+    }
   ]
 }

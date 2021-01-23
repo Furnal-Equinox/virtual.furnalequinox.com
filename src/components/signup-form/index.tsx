@@ -42,15 +42,15 @@ const SignUpForm: React.FC = () => {
       </p>
     </>
 
-const Spinner: React.FC = () =>
-  <>
-    <span
-      className="spinner-border spinner-border-sm"
-      role="status"
-      aria-hidden="true"
-    />{' '}
+  const Spinner: React.FC = () =>
+    <>
+      <span
+        className='spinner-border spinner-border-sm'
+        role='status'
+        aria-hidden='true'
+      />{' '}
     Signing up...
-  </>
+    </>
 
   const Form: React.FC = () =>
     <form onSubmit={handleSubmit(onSubmit)}>

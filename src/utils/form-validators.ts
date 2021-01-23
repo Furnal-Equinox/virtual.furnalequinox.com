@@ -22,12 +22,12 @@ export interface ContactInputs {
 }
 
 const blacklistedPasswords: string[] = [
-  'password',
-  'Password',
-  '12345678',
-  'abcd1234',
-  'fur4life',
-  'catsdogs'
+  'password', 'Password',
+  '12345678', 'abcd1234',
+  'fur4life', 'Fur4Life',
+  'catsdogs', 'C4tsDogs',
+  'Pass1234', 'pAss1234',
+  'paSs1234', 'pasS1234'
 ]
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
