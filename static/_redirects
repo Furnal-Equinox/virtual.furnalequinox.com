@@ -1,0 +1,3 @@
+# Grant access to users only if they have the adult role,
+# otherwise give them a 404.
+/adult/*	200!	Role=adult
