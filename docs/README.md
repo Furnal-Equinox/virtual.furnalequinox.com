@@ -20,6 +20,10 @@
 
 [Netlify Docs - Identity](https://docs.netlify.com/visitor-access/identity/)
 
+### Stripe
+
+[How to accept donations through Stripe](https://support.stripe.com/questions/how-to-accept-donations-through-stripe)
+
 ### Testing
 
 [Storybook](https://www.learnstorybook.com/)
@@ -31,6 +35,10 @@
 [react-hook-form](https://react-hook-form.com/api)
 
 [yup](https://github.com/jquense/yup)
+
+[Netlify Docs - Form Notifications](https://docs.netlify.com/forms/notifications/)
+* Integrations with Zapier to send Netlify form submissions to Gmail
+
 
 ### Styling
 
@@ -99,7 +107,11 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Manage Subscriptions and Protect Content With Stripe](https://www.netlify.com/blog/2020/07/13/manage-subscriptions-and-protect-content-with-stripe/)
 
+[Bootstrap NavBar with left, center or right aligned items](https://stackoverflow.com/questions/19733447/bootstrap-navbar-with-left-center-or-right-aligned-items)
+
 [React Higher-Order Components in TypeScript](https://medium.com/@jrwebdev/react-higher-order-component-patterns-in-typescript-42278f7590fb)
+
+[Use Bootstrap Modal in React](https://stackoverflow.com/questions/49992799/use-bootstrap-modal-in-react)
 
 ### Haskell Script
 
