@@ -1,5 +1,4 @@
 const urljoin = require('url-join')
-const path = require('path')
 const config = require('./site-config')
 
 ///==============================================================================================///
@@ -184,8 +183,13 @@ module.exports = {
           }
         `,
         ref: 'slug',
+
+        // What to search against
         index: ['title', 'dealer', 'description'],
+
+        // What results will be represented as
         store: ['id', 'slug', 'title', 'dealer'],
+
         normalizer: ({ data }) => data.allMarkdownRemark.nodes.map(node => ({
           id: node.id,
           slug: node.fields.slug,
@@ -216,7 +220,10 @@ module.exports = {
       resolve: 'gatsby-plugin-sass',
       options: {
         implementation: require('sass'),
-        precision: 6
+        /// Bootstrap uses a precision of 6.
+        sassOptions: {
+          precision: 6
+        }
       }
     },
 
@@ -239,7 +246,7 @@ module.exports = {
       resolve: 'gatsby-source-stripe',
       options: {
         objects: ['Product'],
-        secretKey: process.env.process.env.STRIPE_SECRET_KEY
+        secretKey: process.env.STRIPE_SECRET_KEY
       }
     }
   ]

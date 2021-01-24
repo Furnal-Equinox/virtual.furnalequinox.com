@@ -28,6 +28,12 @@ export type Scalars = {
 
 
 
+export type AvifOptions = {
+  quality?: Maybe<Scalars['Int']>;
+  lossless?: Maybe<Scalars['Boolean']>;
+  speed?: Maybe<Scalars['Int']>;
+};
+
 export type BlurredOptions = {
   /** Width of the generated low-res preview. Default is 20px */
   width?: Maybe<Scalars['Int']>;
@@ -401,12 +407,18 @@ export type File = Node & {
   blocks?: Maybe<Scalars['Int']>;
   /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars['String']>;
+  /** Returns all children nodes filtered by type ImageSharp */
+  childrenImageSharp?: Maybe<Array<Maybe<ImageSharp>>>;
+  /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   childImageSharp?: Maybe<ImageSharp>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  childMarkdownRemark?: Maybe<MarkdownRemark>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  childMarkdownRemark?: Maybe<MarkdownRemark>;
 };
 
 
@@ -527,6 +539,99 @@ export type FileFieldsEnum =
   | 'blksize'
   | 'blocks'
   | 'publicURL'
+  | 'childrenImageSharp'
+  | 'childrenImageSharp___fixed___base64'
+  | 'childrenImageSharp___fixed___tracedSVG'
+  | 'childrenImageSharp___fixed___aspectRatio'
+  | 'childrenImageSharp___fixed___width'
+  | 'childrenImageSharp___fixed___height'
+  | 'childrenImageSharp___fixed___src'
+  | 'childrenImageSharp___fixed___srcSet'
+  | 'childrenImageSharp___fixed___srcWebp'
+  | 'childrenImageSharp___fixed___srcSetWebp'
+  | 'childrenImageSharp___fixed___originalName'
+  | 'childrenImageSharp___resolutions___base64'
+  | 'childrenImageSharp___resolutions___tracedSVG'
+  | 'childrenImageSharp___resolutions___aspectRatio'
+  | 'childrenImageSharp___resolutions___width'
+  | 'childrenImageSharp___resolutions___height'
+  | 'childrenImageSharp___resolutions___src'
+  | 'childrenImageSharp___resolutions___srcSet'
+  | 'childrenImageSharp___resolutions___srcWebp'
+  | 'childrenImageSharp___resolutions___srcSetWebp'
+  | 'childrenImageSharp___resolutions___originalName'
+  | 'childrenImageSharp___fluid___base64'
+  | 'childrenImageSharp___fluid___tracedSVG'
+  | 'childrenImageSharp___fluid___aspectRatio'
+  | 'childrenImageSharp___fluid___src'
+  | 'childrenImageSharp___fluid___srcSet'
+  | 'childrenImageSharp___fluid___srcWebp'
+  | 'childrenImageSharp___fluid___srcSetWebp'
+  | 'childrenImageSharp___fluid___sizes'
+  | 'childrenImageSharp___fluid___originalImg'
+  | 'childrenImageSharp___fluid___originalName'
+  | 'childrenImageSharp___fluid___presentationWidth'
+  | 'childrenImageSharp___fluid___presentationHeight'
+  | 'childrenImageSharp___sizes___base64'
+  | 'childrenImageSharp___sizes___tracedSVG'
+  | 'childrenImageSharp___sizes___aspectRatio'
+  | 'childrenImageSharp___sizes___src'
+  | 'childrenImageSharp___sizes___srcSet'
+  | 'childrenImageSharp___sizes___srcWebp'
+  | 'childrenImageSharp___sizes___srcSetWebp'
+  | 'childrenImageSharp___sizes___sizes'
+  | 'childrenImageSharp___sizes___originalImg'
+  | 'childrenImageSharp___sizes___originalName'
+  | 'childrenImageSharp___sizes___presentationWidth'
+  | 'childrenImageSharp___sizes___presentationHeight'
+  | 'childrenImageSharp___gatsbyImageData'
+  | 'childrenImageSharp___original___width'
+  | 'childrenImageSharp___original___height'
+  | 'childrenImageSharp___original___src'
+  | 'childrenImageSharp___resize___src'
+  | 'childrenImageSharp___resize___tracedSVG'
+  | 'childrenImageSharp___resize___width'
+  | 'childrenImageSharp___resize___height'
+  | 'childrenImageSharp___resize___aspectRatio'
+  | 'childrenImageSharp___resize___originalName'
+  | 'childrenImageSharp___id'
+  | 'childrenImageSharp___parent___id'
+  | 'childrenImageSharp___parent___parent___id'
+  | 'childrenImageSharp___parent___parent___children'
+  | 'childrenImageSharp___parent___children'
+  | 'childrenImageSharp___parent___children___id'
+  | 'childrenImageSharp___parent___children___children'
+  | 'childrenImageSharp___parent___internal___content'
+  | 'childrenImageSharp___parent___internal___contentDigest'
+  | 'childrenImageSharp___parent___internal___description'
+  | 'childrenImageSharp___parent___internal___fieldOwners'
+  | 'childrenImageSharp___parent___internal___ignoreType'
+  | 'childrenImageSharp___parent___internal___mediaType'
+  | 'childrenImageSharp___parent___internal___owner'
+  | 'childrenImageSharp___parent___internal___type'
+  | 'childrenImageSharp___children'
+  | 'childrenImageSharp___children___id'
+  | 'childrenImageSharp___children___parent___id'
+  | 'childrenImageSharp___children___parent___children'
+  | 'childrenImageSharp___children___children'
+  | 'childrenImageSharp___children___children___id'
+  | 'childrenImageSharp___children___children___children'
+  | 'childrenImageSharp___children___internal___content'
+  | 'childrenImageSharp___children___internal___contentDigest'
+  | 'childrenImageSharp___children___internal___description'
+  | 'childrenImageSharp___children___internal___fieldOwners'
+  | 'childrenImageSharp___children___internal___ignoreType'
+  | 'childrenImageSharp___children___internal___mediaType'
+  | 'childrenImageSharp___children___internal___owner'
+  | 'childrenImageSharp___children___internal___type'
+  | 'childrenImageSharp___internal___content'
+  | 'childrenImageSharp___internal___contentDigest'
+  | 'childrenImageSharp___internal___description'
+  | 'childrenImageSharp___internal___fieldOwners'
+  | 'childrenImageSharp___internal___ignoreType'
+  | 'childrenImageSharp___internal___mediaType'
+  | 'childrenImageSharp___internal___owner'
+  | 'childrenImageSharp___internal___type'
   | 'childImageSharp___fixed___base64'
   | 'childImageSharp___fixed___tracedSVG'
   | 'childImageSharp___fixed___aspectRatio'
@@ -619,6 +724,489 @@ export type FileFieldsEnum =
   | 'childImageSharp___internal___mediaType'
   | 'childImageSharp___internal___owner'
   | 'childImageSharp___internal___type'
+  | 'childrenMarkdownRemark'
+  | 'childrenMarkdownRemark___id'
+  | 'childrenMarkdownRemark___frontmatter___title'
+  | 'childrenMarkdownRemark___frontmatter___date'
+  | 'childrenMarkdownRemark___frontmatter___layout'
+  | 'childrenMarkdownRemark___frontmatter___path'
+  | 'childrenMarkdownRemark___frontmatter___description'
+  | 'childrenMarkdownRemark___frontmatter___category'
+  | 'childrenMarkdownRemark___frontmatter___tags'
+  | 'childrenMarkdownRemark___frontmatter___dealer'
+  | 'childrenMarkdownRemark___frontmatter___kind'
+  | 'childrenMarkdownRemark___frontmatter___isAdult'
+  | 'childrenMarkdownRemark___frontmatter___isPremium'
+  | 'childrenMarkdownRemark___frontmatter___url'
+  | 'childrenMarkdownRemark___frontmatter___social___behance'
+  | 'childrenMarkdownRemark___frontmatter___social___deviantart'
+  | 'childrenMarkdownRemark___frontmatter___social___discord'
+  | 'childrenMarkdownRemark___frontmatter___social___etsy'
+  | 'childrenMarkdownRemark___frontmatter___social___facebook'
+  | 'childrenMarkdownRemark___frontmatter___social___flickr'
+  | 'childrenMarkdownRemark___frontmatter___social___furaffinity'
+  | 'childrenMarkdownRemark___frontmatter___social___github'
+  | 'childrenMarkdownRemark___frontmatter___social___instagram'
+  | 'childrenMarkdownRemark___frontmatter___social___picarto'
+  | 'childrenMarkdownRemark___frontmatter___social___pinterest'
+  | 'childrenMarkdownRemark___frontmatter___social___steam'
+  | 'childrenMarkdownRemark___frontmatter___social___telegram'
+  | 'childrenMarkdownRemark___frontmatter___social___tumblr'
+  | 'childrenMarkdownRemark___frontmatter___social___twitch'
+  | 'childrenMarkdownRemark___frontmatter___social___twitter'
+  | 'childrenMarkdownRemark___frontmatter___social___youtube'
+  | 'childrenMarkdownRemark___frontmatter___streaming___friday'
+  | 'childrenMarkdownRemark___frontmatter___streaming___saturday'
+  | 'childrenMarkdownRemark___frontmatter___streaming___sunday'
+  | 'childrenMarkdownRemark___frontmatter___banner___sourceInstanceName'
+  | 'childrenMarkdownRemark___frontmatter___banner___absolutePath'
+  | 'childrenMarkdownRemark___frontmatter___banner___relativePath'
+  | 'childrenMarkdownRemark___frontmatter___banner___extension'
+  | 'childrenMarkdownRemark___frontmatter___banner___size'
+  | 'childrenMarkdownRemark___frontmatter___banner___prettySize'
+  | 'childrenMarkdownRemark___frontmatter___banner___modifiedTime'
+  | 'childrenMarkdownRemark___frontmatter___banner___accessTime'
+  | 'childrenMarkdownRemark___frontmatter___banner___changeTime'
+  | 'childrenMarkdownRemark___frontmatter___banner___birthTime'
+  | 'childrenMarkdownRemark___frontmatter___banner___root'
+  | 'childrenMarkdownRemark___frontmatter___banner___dir'
+  | 'childrenMarkdownRemark___frontmatter___banner___base'
+  | 'childrenMarkdownRemark___frontmatter___banner___ext'
+  | 'childrenMarkdownRemark___frontmatter___banner___name'
+  | 'childrenMarkdownRemark___frontmatter___banner___relativeDirectory'
+  | 'childrenMarkdownRemark___frontmatter___banner___dev'
+  | 'childrenMarkdownRemark___frontmatter___banner___mode'
+  | 'childrenMarkdownRemark___frontmatter___banner___nlink'
+  | 'childrenMarkdownRemark___frontmatter___banner___uid'
+  | 'childrenMarkdownRemark___frontmatter___banner___gid'
+  | 'childrenMarkdownRemark___frontmatter___banner___rdev'
+  | 'childrenMarkdownRemark___frontmatter___banner___ino'
+  | 'childrenMarkdownRemark___frontmatter___banner___atimeMs'
+  | 'childrenMarkdownRemark___frontmatter___banner___mtimeMs'
+  | 'childrenMarkdownRemark___frontmatter___banner___ctimeMs'
+  | 'childrenMarkdownRemark___frontmatter___banner___atime'
+  | 'childrenMarkdownRemark___frontmatter___banner___mtime'
+  | 'childrenMarkdownRemark___frontmatter___banner___ctime'
+  | 'childrenMarkdownRemark___frontmatter___banner___birthtime'
+  | 'childrenMarkdownRemark___frontmatter___banner___birthtimeMs'
+  | 'childrenMarkdownRemark___frontmatter___banner___blksize'
+  | 'childrenMarkdownRemark___frontmatter___banner___blocks'
+  | 'childrenMarkdownRemark___frontmatter___banner___publicURL'
+  | 'childrenMarkdownRemark___frontmatter___banner___childrenImageSharp'
+  | 'childrenMarkdownRemark___frontmatter___banner___childrenMarkdownRemark'
+  | 'childrenMarkdownRemark___frontmatter___banner___id'
+  | 'childrenMarkdownRemark___frontmatter___banner___children'
+  | 'childrenMarkdownRemark___frontmatter___images'
+  | 'childrenMarkdownRemark___frontmatter___images___sourceInstanceName'
+  | 'childrenMarkdownRemark___frontmatter___images___absolutePath'
+  | 'childrenMarkdownRemark___frontmatter___images___relativePath'
+  | 'childrenMarkdownRemark___frontmatter___images___extension'
+  | 'childrenMarkdownRemark___frontmatter___images___size'
+  | 'childrenMarkdownRemark___frontmatter___images___prettySize'
+  | 'childrenMarkdownRemark___frontmatter___images___modifiedTime'
+  | 'childrenMarkdownRemark___frontmatter___images___accessTime'
+  | 'childrenMarkdownRemark___frontmatter___images___changeTime'
+  | 'childrenMarkdownRemark___frontmatter___images___birthTime'
+  | 'childrenMarkdownRemark___frontmatter___images___root'
+  | 'childrenMarkdownRemark___frontmatter___images___dir'
+  | 'childrenMarkdownRemark___frontmatter___images___base'
+  | 'childrenMarkdownRemark___frontmatter___images___ext'
+  | 'childrenMarkdownRemark___frontmatter___images___name'
+  | 'childrenMarkdownRemark___frontmatter___images___relativeDirectory'
+  | 'childrenMarkdownRemark___frontmatter___images___dev'
+  | 'childrenMarkdownRemark___frontmatter___images___mode'
+  | 'childrenMarkdownRemark___frontmatter___images___nlink'
+  | 'childrenMarkdownRemark___frontmatter___images___uid'
+  | 'childrenMarkdownRemark___frontmatter___images___gid'
+  | 'childrenMarkdownRemark___frontmatter___images___rdev'
+  | 'childrenMarkdownRemark___frontmatter___images___ino'
+  | 'childrenMarkdownRemark___frontmatter___images___atimeMs'
+  | 'childrenMarkdownRemark___frontmatter___images___mtimeMs'
+  | 'childrenMarkdownRemark___frontmatter___images___ctimeMs'
+  | 'childrenMarkdownRemark___frontmatter___images___atime'
+  | 'childrenMarkdownRemark___frontmatter___images___mtime'
+  | 'childrenMarkdownRemark___frontmatter___images___ctime'
+  | 'childrenMarkdownRemark___frontmatter___images___birthtime'
+  | 'childrenMarkdownRemark___frontmatter___images___birthtimeMs'
+  | 'childrenMarkdownRemark___frontmatter___images___blksize'
+  | 'childrenMarkdownRemark___frontmatter___images___blocks'
+  | 'childrenMarkdownRemark___frontmatter___images___publicURL'
+  | 'childrenMarkdownRemark___frontmatter___images___childrenImageSharp'
+  | 'childrenMarkdownRemark___frontmatter___images___childrenMarkdownRemark'
+  | 'childrenMarkdownRemark___frontmatter___images___id'
+  | 'childrenMarkdownRemark___frontmatter___images___children'
+  | 'childrenMarkdownRemark___frontmatter___gifs'
+  | 'childrenMarkdownRemark___frontmatter___gifs___sourceInstanceName'
+  | 'childrenMarkdownRemark___frontmatter___gifs___absolutePath'
+  | 'childrenMarkdownRemark___frontmatter___gifs___relativePath'
+  | 'childrenMarkdownRemark___frontmatter___gifs___extension'
+  | 'childrenMarkdownRemark___frontmatter___gifs___size'
+  | 'childrenMarkdownRemark___frontmatter___gifs___prettySize'
+  | 'childrenMarkdownRemark___frontmatter___gifs___modifiedTime'
+  | 'childrenMarkdownRemark___frontmatter___gifs___accessTime'
+  | 'childrenMarkdownRemark___frontmatter___gifs___changeTime'
+  | 'childrenMarkdownRemark___frontmatter___gifs___birthTime'
+  | 'childrenMarkdownRemark___frontmatter___gifs___root'
+  | 'childrenMarkdownRemark___frontmatter___gifs___dir'
+  | 'childrenMarkdownRemark___frontmatter___gifs___base'
+  | 'childrenMarkdownRemark___frontmatter___gifs___ext'
+  | 'childrenMarkdownRemark___frontmatter___gifs___name'
+  | 'childrenMarkdownRemark___frontmatter___gifs___relativeDirectory'
+  | 'childrenMarkdownRemark___frontmatter___gifs___dev'
+  | 'childrenMarkdownRemark___frontmatter___gifs___mode'
+  | 'childrenMarkdownRemark___frontmatter___gifs___nlink'
+  | 'childrenMarkdownRemark___frontmatter___gifs___uid'
+  | 'childrenMarkdownRemark___frontmatter___gifs___gid'
+  | 'childrenMarkdownRemark___frontmatter___gifs___rdev'
+  | 'childrenMarkdownRemark___frontmatter___gifs___ino'
+  | 'childrenMarkdownRemark___frontmatter___gifs___atimeMs'
+  | 'childrenMarkdownRemark___frontmatter___gifs___mtimeMs'
+  | 'childrenMarkdownRemark___frontmatter___gifs___ctimeMs'
+  | 'childrenMarkdownRemark___frontmatter___gifs___atime'
+  | 'childrenMarkdownRemark___frontmatter___gifs___mtime'
+  | 'childrenMarkdownRemark___frontmatter___gifs___ctime'
+  | 'childrenMarkdownRemark___frontmatter___gifs___birthtime'
+  | 'childrenMarkdownRemark___frontmatter___gifs___birthtimeMs'
+  | 'childrenMarkdownRemark___frontmatter___gifs___blksize'
+  | 'childrenMarkdownRemark___frontmatter___gifs___blocks'
+  | 'childrenMarkdownRemark___frontmatter___gifs___publicURL'
+  | 'childrenMarkdownRemark___frontmatter___gifs___childrenImageSharp'
+  | 'childrenMarkdownRemark___frontmatter___gifs___childrenMarkdownRemark'
+  | 'childrenMarkdownRemark___frontmatter___gifs___id'
+  | 'childrenMarkdownRemark___frontmatter___gifs___children'
+  | 'childrenMarkdownRemark___frontmatter___artist'
+  | 'childrenMarkdownRemark___frontmatter___image___sourceInstanceName'
+  | 'childrenMarkdownRemark___frontmatter___image___absolutePath'
+  | 'childrenMarkdownRemark___frontmatter___image___relativePath'
+  | 'childrenMarkdownRemark___frontmatter___image___extension'
+  | 'childrenMarkdownRemark___frontmatter___image___size'
+  | 'childrenMarkdownRemark___frontmatter___image___prettySize'
+  | 'childrenMarkdownRemark___frontmatter___image___modifiedTime'
+  | 'childrenMarkdownRemark___frontmatter___image___accessTime'
+  | 'childrenMarkdownRemark___frontmatter___image___changeTime'
+  | 'childrenMarkdownRemark___frontmatter___image___birthTime'
+  | 'childrenMarkdownRemark___frontmatter___image___root'
+  | 'childrenMarkdownRemark___frontmatter___image___dir'
+  | 'childrenMarkdownRemark___frontmatter___image___base'
+  | 'childrenMarkdownRemark___frontmatter___image___ext'
+  | 'childrenMarkdownRemark___frontmatter___image___name'
+  | 'childrenMarkdownRemark___frontmatter___image___relativeDirectory'
+  | 'childrenMarkdownRemark___frontmatter___image___dev'
+  | 'childrenMarkdownRemark___frontmatter___image___mode'
+  | 'childrenMarkdownRemark___frontmatter___image___nlink'
+  | 'childrenMarkdownRemark___frontmatter___image___uid'
+  | 'childrenMarkdownRemark___frontmatter___image___gid'
+  | 'childrenMarkdownRemark___frontmatter___image___rdev'
+  | 'childrenMarkdownRemark___frontmatter___image___ino'
+  | 'childrenMarkdownRemark___frontmatter___image___atimeMs'
+  | 'childrenMarkdownRemark___frontmatter___image___mtimeMs'
+  | 'childrenMarkdownRemark___frontmatter___image___ctimeMs'
+  | 'childrenMarkdownRemark___frontmatter___image___atime'
+  | 'childrenMarkdownRemark___frontmatter___image___mtime'
+  | 'childrenMarkdownRemark___frontmatter___image___ctime'
+  | 'childrenMarkdownRemark___frontmatter___image___birthtime'
+  | 'childrenMarkdownRemark___frontmatter___image___birthtimeMs'
+  | 'childrenMarkdownRemark___frontmatter___image___blksize'
+  | 'childrenMarkdownRemark___frontmatter___image___blocks'
+  | 'childrenMarkdownRemark___frontmatter___image___publicURL'
+  | 'childrenMarkdownRemark___frontmatter___image___childrenImageSharp'
+  | 'childrenMarkdownRemark___frontmatter___image___childrenMarkdownRemark'
+  | 'childrenMarkdownRemark___frontmatter___image___id'
+  | 'childrenMarkdownRemark___frontmatter___image___children'
+  | 'childrenMarkdownRemark___excerpt'
+  | 'childrenMarkdownRemark___rawMarkdownBody'
+  | 'childrenMarkdownRemark___fileAbsolutePath'
+  | 'childrenMarkdownRemark___fields___slug'
+  | 'childrenMarkdownRemark___html'
+  | 'childrenMarkdownRemark___htmlAst'
+  | 'childrenMarkdownRemark___excerptAst'
+  | 'childrenMarkdownRemark___headings'
+  | 'childrenMarkdownRemark___headings___id'
+  | 'childrenMarkdownRemark___headings___value'
+  | 'childrenMarkdownRemark___headings___depth'
+  | 'childrenMarkdownRemark___timeToRead'
+  | 'childrenMarkdownRemark___tableOfContents'
+  | 'childrenMarkdownRemark___wordCount___paragraphs'
+  | 'childrenMarkdownRemark___wordCount___sentences'
+  | 'childrenMarkdownRemark___wordCount___words'
+  | 'childrenMarkdownRemark___parent___id'
+  | 'childrenMarkdownRemark___parent___parent___id'
+  | 'childrenMarkdownRemark___parent___parent___children'
+  | 'childrenMarkdownRemark___parent___children'
+  | 'childrenMarkdownRemark___parent___children___id'
+  | 'childrenMarkdownRemark___parent___children___children'
+  | 'childrenMarkdownRemark___parent___internal___content'
+  | 'childrenMarkdownRemark___parent___internal___contentDigest'
+  | 'childrenMarkdownRemark___parent___internal___description'
+  | 'childrenMarkdownRemark___parent___internal___fieldOwners'
+  | 'childrenMarkdownRemark___parent___internal___ignoreType'
+  | 'childrenMarkdownRemark___parent___internal___mediaType'
+  | 'childrenMarkdownRemark___parent___internal___owner'
+  | 'childrenMarkdownRemark___parent___internal___type'
+  | 'childrenMarkdownRemark___children'
+  | 'childrenMarkdownRemark___children___id'
+  | 'childrenMarkdownRemark___children___parent___id'
+  | 'childrenMarkdownRemark___children___parent___children'
+  | 'childrenMarkdownRemark___children___children'
+  | 'childrenMarkdownRemark___children___children___id'
+  | 'childrenMarkdownRemark___children___children___children'
+  | 'childrenMarkdownRemark___children___internal___content'
+  | 'childrenMarkdownRemark___children___internal___contentDigest'
+  | 'childrenMarkdownRemark___children___internal___description'
+  | 'childrenMarkdownRemark___children___internal___fieldOwners'
+  | 'childrenMarkdownRemark___children___internal___ignoreType'
+  | 'childrenMarkdownRemark___children___internal___mediaType'
+  | 'childrenMarkdownRemark___children___internal___owner'
+  | 'childrenMarkdownRemark___children___internal___type'
+  | 'childrenMarkdownRemark___internal___content'
+  | 'childrenMarkdownRemark___internal___contentDigest'
+  | 'childrenMarkdownRemark___internal___description'
+  | 'childrenMarkdownRemark___internal___fieldOwners'
+  | 'childrenMarkdownRemark___internal___ignoreType'
+  | 'childrenMarkdownRemark___internal___mediaType'
+  | 'childrenMarkdownRemark___internal___owner'
+  | 'childrenMarkdownRemark___internal___type'
+  | 'childMarkdownRemark___id'
+  | 'childMarkdownRemark___frontmatter___title'
+  | 'childMarkdownRemark___frontmatter___date'
+  | 'childMarkdownRemark___frontmatter___layout'
+  | 'childMarkdownRemark___frontmatter___path'
+  | 'childMarkdownRemark___frontmatter___description'
+  | 'childMarkdownRemark___frontmatter___category'
+  | 'childMarkdownRemark___frontmatter___tags'
+  | 'childMarkdownRemark___frontmatter___dealer'
+  | 'childMarkdownRemark___frontmatter___kind'
+  | 'childMarkdownRemark___frontmatter___isAdult'
+  | 'childMarkdownRemark___frontmatter___isPremium'
+  | 'childMarkdownRemark___frontmatter___url'
+  | 'childMarkdownRemark___frontmatter___social___behance'
+  | 'childMarkdownRemark___frontmatter___social___deviantart'
+  | 'childMarkdownRemark___frontmatter___social___discord'
+  | 'childMarkdownRemark___frontmatter___social___etsy'
+  | 'childMarkdownRemark___frontmatter___social___facebook'
+  | 'childMarkdownRemark___frontmatter___social___flickr'
+  | 'childMarkdownRemark___frontmatter___social___furaffinity'
+  | 'childMarkdownRemark___frontmatter___social___github'
+  | 'childMarkdownRemark___frontmatter___social___instagram'
+  | 'childMarkdownRemark___frontmatter___social___picarto'
+  | 'childMarkdownRemark___frontmatter___social___pinterest'
+  | 'childMarkdownRemark___frontmatter___social___steam'
+  | 'childMarkdownRemark___frontmatter___social___telegram'
+  | 'childMarkdownRemark___frontmatter___social___tumblr'
+  | 'childMarkdownRemark___frontmatter___social___twitch'
+  | 'childMarkdownRemark___frontmatter___social___twitter'
+  | 'childMarkdownRemark___frontmatter___social___youtube'
+  | 'childMarkdownRemark___frontmatter___streaming___friday'
+  | 'childMarkdownRemark___frontmatter___streaming___saturday'
+  | 'childMarkdownRemark___frontmatter___streaming___sunday'
+  | 'childMarkdownRemark___frontmatter___banner___sourceInstanceName'
+  | 'childMarkdownRemark___frontmatter___banner___absolutePath'
+  | 'childMarkdownRemark___frontmatter___banner___relativePath'
+  | 'childMarkdownRemark___frontmatter___banner___extension'
+  | 'childMarkdownRemark___frontmatter___banner___size'
+  | 'childMarkdownRemark___frontmatter___banner___prettySize'
+  | 'childMarkdownRemark___frontmatter___banner___modifiedTime'
+  | 'childMarkdownRemark___frontmatter___banner___accessTime'
+  | 'childMarkdownRemark___frontmatter___banner___changeTime'
+  | 'childMarkdownRemark___frontmatter___banner___birthTime'
+  | 'childMarkdownRemark___frontmatter___banner___root'
+  | 'childMarkdownRemark___frontmatter___banner___dir'
+  | 'childMarkdownRemark___frontmatter___banner___base'
+  | 'childMarkdownRemark___frontmatter___banner___ext'
+  | 'childMarkdownRemark___frontmatter___banner___name'
+  | 'childMarkdownRemark___frontmatter___banner___relativeDirectory'
+  | 'childMarkdownRemark___frontmatter___banner___dev'
+  | 'childMarkdownRemark___frontmatter___banner___mode'
+  | 'childMarkdownRemark___frontmatter___banner___nlink'
+  | 'childMarkdownRemark___frontmatter___banner___uid'
+  | 'childMarkdownRemark___frontmatter___banner___gid'
+  | 'childMarkdownRemark___frontmatter___banner___rdev'
+  | 'childMarkdownRemark___frontmatter___banner___ino'
+  | 'childMarkdownRemark___frontmatter___banner___atimeMs'
+  | 'childMarkdownRemark___frontmatter___banner___mtimeMs'
+  | 'childMarkdownRemark___frontmatter___banner___ctimeMs'
+  | 'childMarkdownRemark___frontmatter___banner___atime'
+  | 'childMarkdownRemark___frontmatter___banner___mtime'
+  | 'childMarkdownRemark___frontmatter___banner___ctime'
+  | 'childMarkdownRemark___frontmatter___banner___birthtime'
+  | 'childMarkdownRemark___frontmatter___banner___birthtimeMs'
+  | 'childMarkdownRemark___frontmatter___banner___blksize'
+  | 'childMarkdownRemark___frontmatter___banner___blocks'
+  | 'childMarkdownRemark___frontmatter___banner___publicURL'
+  | 'childMarkdownRemark___frontmatter___banner___childrenImageSharp'
+  | 'childMarkdownRemark___frontmatter___banner___childrenMarkdownRemark'
+  | 'childMarkdownRemark___frontmatter___banner___id'
+  | 'childMarkdownRemark___frontmatter___banner___children'
+  | 'childMarkdownRemark___frontmatter___images'
+  | 'childMarkdownRemark___frontmatter___images___sourceInstanceName'
+  | 'childMarkdownRemark___frontmatter___images___absolutePath'
+  | 'childMarkdownRemark___frontmatter___images___relativePath'
+  | 'childMarkdownRemark___frontmatter___images___extension'
+  | 'childMarkdownRemark___frontmatter___images___size'
+  | 'childMarkdownRemark___frontmatter___images___prettySize'
+  | 'childMarkdownRemark___frontmatter___images___modifiedTime'
+  | 'childMarkdownRemark___frontmatter___images___accessTime'
+  | 'childMarkdownRemark___frontmatter___images___changeTime'
+  | 'childMarkdownRemark___frontmatter___images___birthTime'
+  | 'childMarkdownRemark___frontmatter___images___root'
+  | 'childMarkdownRemark___frontmatter___images___dir'
+  | 'childMarkdownRemark___frontmatter___images___base'
+  | 'childMarkdownRemark___frontmatter___images___ext'
+  | 'childMarkdownRemark___frontmatter___images___name'
+  | 'childMarkdownRemark___frontmatter___images___relativeDirectory'
+  | 'childMarkdownRemark___frontmatter___images___dev'
+  | 'childMarkdownRemark___frontmatter___images___mode'
+  | 'childMarkdownRemark___frontmatter___images___nlink'
+  | 'childMarkdownRemark___frontmatter___images___uid'
+  | 'childMarkdownRemark___frontmatter___images___gid'
+  | 'childMarkdownRemark___frontmatter___images___rdev'
+  | 'childMarkdownRemark___frontmatter___images___ino'
+  | 'childMarkdownRemark___frontmatter___images___atimeMs'
+  | 'childMarkdownRemark___frontmatter___images___mtimeMs'
+  | 'childMarkdownRemark___frontmatter___images___ctimeMs'
+  | 'childMarkdownRemark___frontmatter___images___atime'
+  | 'childMarkdownRemark___frontmatter___images___mtime'
+  | 'childMarkdownRemark___frontmatter___images___ctime'
+  | 'childMarkdownRemark___frontmatter___images___birthtime'
+  | 'childMarkdownRemark___frontmatter___images___birthtimeMs'
+  | 'childMarkdownRemark___frontmatter___images___blksize'
+  | 'childMarkdownRemark___frontmatter___images___blocks'
+  | 'childMarkdownRemark___frontmatter___images___publicURL'
+  | 'childMarkdownRemark___frontmatter___images___childrenImageSharp'
+  | 'childMarkdownRemark___frontmatter___images___childrenMarkdownRemark'
+  | 'childMarkdownRemark___frontmatter___images___id'
+  | 'childMarkdownRemark___frontmatter___images___children'
+  | 'childMarkdownRemark___frontmatter___gifs'
+  | 'childMarkdownRemark___frontmatter___gifs___sourceInstanceName'
+  | 'childMarkdownRemark___frontmatter___gifs___absolutePath'
+  | 'childMarkdownRemark___frontmatter___gifs___relativePath'
+  | 'childMarkdownRemark___frontmatter___gifs___extension'
+  | 'childMarkdownRemark___frontmatter___gifs___size'
+  | 'childMarkdownRemark___frontmatter___gifs___prettySize'
+  | 'childMarkdownRemark___frontmatter___gifs___modifiedTime'
+  | 'childMarkdownRemark___frontmatter___gifs___accessTime'
+  | 'childMarkdownRemark___frontmatter___gifs___changeTime'
+  | 'childMarkdownRemark___frontmatter___gifs___birthTime'
+  | 'childMarkdownRemark___frontmatter___gifs___root'
+  | 'childMarkdownRemark___frontmatter___gifs___dir'
+  | 'childMarkdownRemark___frontmatter___gifs___base'
+  | 'childMarkdownRemark___frontmatter___gifs___ext'
+  | 'childMarkdownRemark___frontmatter___gifs___name'
+  | 'childMarkdownRemark___frontmatter___gifs___relativeDirectory'
+  | 'childMarkdownRemark___frontmatter___gifs___dev'
+  | 'childMarkdownRemark___frontmatter___gifs___mode'
+  | 'childMarkdownRemark___frontmatter___gifs___nlink'
+  | 'childMarkdownRemark___frontmatter___gifs___uid'
+  | 'childMarkdownRemark___frontmatter___gifs___gid'
+  | 'childMarkdownRemark___frontmatter___gifs___rdev'
+  | 'childMarkdownRemark___frontmatter___gifs___ino'
+  | 'childMarkdownRemark___frontmatter___gifs___atimeMs'
+  | 'childMarkdownRemark___frontmatter___gifs___mtimeMs'
+  | 'childMarkdownRemark___frontmatter___gifs___ctimeMs'
+  | 'childMarkdownRemark___frontmatter___gifs___atime'
+  | 'childMarkdownRemark___frontmatter___gifs___mtime'
+  | 'childMarkdownRemark___frontmatter___gifs___ctime'
+  | 'childMarkdownRemark___frontmatter___gifs___birthtime'
+  | 'childMarkdownRemark___frontmatter___gifs___birthtimeMs'
+  | 'childMarkdownRemark___frontmatter___gifs___blksize'
+  | 'childMarkdownRemark___frontmatter___gifs___blocks'
+  | 'childMarkdownRemark___frontmatter___gifs___publicURL'
+  | 'childMarkdownRemark___frontmatter___gifs___childrenImageSharp'
+  | 'childMarkdownRemark___frontmatter___gifs___childrenMarkdownRemark'
+  | 'childMarkdownRemark___frontmatter___gifs___id'
+  | 'childMarkdownRemark___frontmatter___gifs___children'
+  | 'childMarkdownRemark___frontmatter___artist'
+  | 'childMarkdownRemark___frontmatter___image___sourceInstanceName'
+  | 'childMarkdownRemark___frontmatter___image___absolutePath'
+  | 'childMarkdownRemark___frontmatter___image___relativePath'
+  | 'childMarkdownRemark___frontmatter___image___extension'
+  | 'childMarkdownRemark___frontmatter___image___size'
+  | 'childMarkdownRemark___frontmatter___image___prettySize'
+  | 'childMarkdownRemark___frontmatter___image___modifiedTime'
+  | 'childMarkdownRemark___frontmatter___image___accessTime'
+  | 'childMarkdownRemark___frontmatter___image___changeTime'
+  | 'childMarkdownRemark___frontmatter___image___birthTime'
+  | 'childMarkdownRemark___frontmatter___image___root'
+  | 'childMarkdownRemark___frontmatter___image___dir'
+  | 'childMarkdownRemark___frontmatter___image___base'
+  | 'childMarkdownRemark___frontmatter___image___ext'
+  | 'childMarkdownRemark___frontmatter___image___name'
+  | 'childMarkdownRemark___frontmatter___image___relativeDirectory'
+  | 'childMarkdownRemark___frontmatter___image___dev'
+  | 'childMarkdownRemark___frontmatter___image___mode'
+  | 'childMarkdownRemark___frontmatter___image___nlink'
+  | 'childMarkdownRemark___frontmatter___image___uid'
+  | 'childMarkdownRemark___frontmatter___image___gid'
+  | 'childMarkdownRemark___frontmatter___image___rdev'
+  | 'childMarkdownRemark___frontmatter___image___ino'
+  | 'childMarkdownRemark___frontmatter___image___atimeMs'
+  | 'childMarkdownRemark___frontmatter___image___mtimeMs'
+  | 'childMarkdownRemark___frontmatter___image___ctimeMs'
+  | 'childMarkdownRemark___frontmatter___image___atime'
+  | 'childMarkdownRemark___frontmatter___image___mtime'
+  | 'childMarkdownRemark___frontmatter___image___ctime'
+  | 'childMarkdownRemark___frontmatter___image___birthtime'
+  | 'childMarkdownRemark___frontmatter___image___birthtimeMs'
+  | 'childMarkdownRemark___frontmatter___image___blksize'
+  | 'childMarkdownRemark___frontmatter___image___blocks'
+  | 'childMarkdownRemark___frontmatter___image___publicURL'
+  | 'childMarkdownRemark___frontmatter___image___childrenImageSharp'
+  | 'childMarkdownRemark___frontmatter___image___childrenMarkdownRemark'
+  | 'childMarkdownRemark___frontmatter___image___id'
+  | 'childMarkdownRemark___frontmatter___image___children'
+  | 'childMarkdownRemark___excerpt'
+  | 'childMarkdownRemark___rawMarkdownBody'
+  | 'childMarkdownRemark___fileAbsolutePath'
+  | 'childMarkdownRemark___fields___slug'
+  | 'childMarkdownRemark___html'
+  | 'childMarkdownRemark___htmlAst'
+  | 'childMarkdownRemark___excerptAst'
+  | 'childMarkdownRemark___headings'
+  | 'childMarkdownRemark___headings___id'
+  | 'childMarkdownRemark___headings___value'
+  | 'childMarkdownRemark___headings___depth'
+  | 'childMarkdownRemark___timeToRead'
+  | 'childMarkdownRemark___tableOfContents'
+  | 'childMarkdownRemark___wordCount___paragraphs'
+  | 'childMarkdownRemark___wordCount___sentences'
+  | 'childMarkdownRemark___wordCount___words'
+  | 'childMarkdownRemark___parent___id'
+  | 'childMarkdownRemark___parent___parent___id'
+  | 'childMarkdownRemark___parent___parent___children'
+  | 'childMarkdownRemark___parent___children'
+  | 'childMarkdownRemark___parent___children___id'
+  | 'childMarkdownRemark___parent___children___children'
+  | 'childMarkdownRemark___parent___internal___content'
+  | 'childMarkdownRemark___parent___internal___contentDigest'
+  | 'childMarkdownRemark___parent___internal___description'
+  | 'childMarkdownRemark___parent___internal___fieldOwners'
+  | 'childMarkdownRemark___parent___internal___ignoreType'
+  | 'childMarkdownRemark___parent___internal___mediaType'
+  | 'childMarkdownRemark___parent___internal___owner'
+  | 'childMarkdownRemark___parent___internal___type'
+  | 'childMarkdownRemark___children'
+  | 'childMarkdownRemark___children___id'
+  | 'childMarkdownRemark___children___parent___id'
+  | 'childMarkdownRemark___children___parent___children'
+  | 'childMarkdownRemark___children___children'
+  | 'childMarkdownRemark___children___children___id'
+  | 'childMarkdownRemark___children___children___children'
+  | 'childMarkdownRemark___children___internal___content'
+  | 'childMarkdownRemark___children___internal___contentDigest'
+  | 'childMarkdownRemark___children___internal___description'
+  | 'childMarkdownRemark___children___internal___fieldOwners'
+  | 'childMarkdownRemark___children___internal___ignoreType'
+  | 'childMarkdownRemark___children___internal___mediaType'
+  | 'childMarkdownRemark___children___internal___owner'
+  | 'childMarkdownRemark___children___internal___type'
+  | 'childMarkdownRemark___internal___content'
+  | 'childMarkdownRemark___internal___contentDigest'
+  | 'childMarkdownRemark___internal___description'
+  | 'childMarkdownRemark___internal___fieldOwners'
+  | 'childMarkdownRemark___internal___ignoreType'
+  | 'childMarkdownRemark___internal___mediaType'
+  | 'childMarkdownRemark___internal___owner'
+  | 'childMarkdownRemark___internal___type'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -704,240 +1292,7 @@ export type FileFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type'
-  | 'childMarkdownRemark___id'
-  | 'childMarkdownRemark___frontmatter___title'
-  | 'childMarkdownRemark___frontmatter___date'
-  | 'childMarkdownRemark___frontmatter___layout'
-  | 'childMarkdownRemark___frontmatter___path'
-  | 'childMarkdownRemark___frontmatter___description'
-  | 'childMarkdownRemark___frontmatter___category'
-  | 'childMarkdownRemark___frontmatter___tags'
-  | 'childMarkdownRemark___frontmatter___dealer'
-  | 'childMarkdownRemark___frontmatter___kind'
-  | 'childMarkdownRemark___frontmatter___isAdult'
-  | 'childMarkdownRemark___frontmatter___isPremium'
-  | 'childMarkdownRemark___frontmatter___url'
-  | 'childMarkdownRemark___frontmatter___social___behance'
-  | 'childMarkdownRemark___frontmatter___social___deviantart'
-  | 'childMarkdownRemark___frontmatter___social___discord'
-  | 'childMarkdownRemark___frontmatter___social___etsy'
-  | 'childMarkdownRemark___frontmatter___social___facebook'
-  | 'childMarkdownRemark___frontmatter___social___flickr'
-  | 'childMarkdownRemark___frontmatter___social___furaffinity'
-  | 'childMarkdownRemark___frontmatter___social___github'
-  | 'childMarkdownRemark___frontmatter___social___instagram'
-  | 'childMarkdownRemark___frontmatter___social___picarto'
-  | 'childMarkdownRemark___frontmatter___social___pinterest'
-  | 'childMarkdownRemark___frontmatter___social___steam'
-  | 'childMarkdownRemark___frontmatter___social___telegram'
-  | 'childMarkdownRemark___frontmatter___social___tumblr'
-  | 'childMarkdownRemark___frontmatter___social___twitch'
-  | 'childMarkdownRemark___frontmatter___social___twitter'
-  | 'childMarkdownRemark___frontmatter___social___youtube'
-  | 'childMarkdownRemark___frontmatter___streaming___friday'
-  | 'childMarkdownRemark___frontmatter___streaming___saturday'
-  | 'childMarkdownRemark___frontmatter___streaming___sunday'
-  | 'childMarkdownRemark___frontmatter___banner___sourceInstanceName'
-  | 'childMarkdownRemark___frontmatter___banner___absolutePath'
-  | 'childMarkdownRemark___frontmatter___banner___relativePath'
-  | 'childMarkdownRemark___frontmatter___banner___extension'
-  | 'childMarkdownRemark___frontmatter___banner___size'
-  | 'childMarkdownRemark___frontmatter___banner___prettySize'
-  | 'childMarkdownRemark___frontmatter___banner___modifiedTime'
-  | 'childMarkdownRemark___frontmatter___banner___accessTime'
-  | 'childMarkdownRemark___frontmatter___banner___changeTime'
-  | 'childMarkdownRemark___frontmatter___banner___birthTime'
-  | 'childMarkdownRemark___frontmatter___banner___root'
-  | 'childMarkdownRemark___frontmatter___banner___dir'
-  | 'childMarkdownRemark___frontmatter___banner___base'
-  | 'childMarkdownRemark___frontmatter___banner___ext'
-  | 'childMarkdownRemark___frontmatter___banner___name'
-  | 'childMarkdownRemark___frontmatter___banner___relativeDirectory'
-  | 'childMarkdownRemark___frontmatter___banner___dev'
-  | 'childMarkdownRemark___frontmatter___banner___mode'
-  | 'childMarkdownRemark___frontmatter___banner___nlink'
-  | 'childMarkdownRemark___frontmatter___banner___uid'
-  | 'childMarkdownRemark___frontmatter___banner___gid'
-  | 'childMarkdownRemark___frontmatter___banner___rdev'
-  | 'childMarkdownRemark___frontmatter___banner___ino'
-  | 'childMarkdownRemark___frontmatter___banner___atimeMs'
-  | 'childMarkdownRemark___frontmatter___banner___mtimeMs'
-  | 'childMarkdownRemark___frontmatter___banner___ctimeMs'
-  | 'childMarkdownRemark___frontmatter___banner___atime'
-  | 'childMarkdownRemark___frontmatter___banner___mtime'
-  | 'childMarkdownRemark___frontmatter___banner___ctime'
-  | 'childMarkdownRemark___frontmatter___banner___birthtime'
-  | 'childMarkdownRemark___frontmatter___banner___birthtimeMs'
-  | 'childMarkdownRemark___frontmatter___banner___blksize'
-  | 'childMarkdownRemark___frontmatter___banner___blocks'
-  | 'childMarkdownRemark___frontmatter___banner___publicURL'
-  | 'childMarkdownRemark___frontmatter___banner___id'
-  | 'childMarkdownRemark___frontmatter___banner___children'
-  | 'childMarkdownRemark___frontmatter___images'
-  | 'childMarkdownRemark___frontmatter___images___sourceInstanceName'
-  | 'childMarkdownRemark___frontmatter___images___absolutePath'
-  | 'childMarkdownRemark___frontmatter___images___relativePath'
-  | 'childMarkdownRemark___frontmatter___images___extension'
-  | 'childMarkdownRemark___frontmatter___images___size'
-  | 'childMarkdownRemark___frontmatter___images___prettySize'
-  | 'childMarkdownRemark___frontmatter___images___modifiedTime'
-  | 'childMarkdownRemark___frontmatter___images___accessTime'
-  | 'childMarkdownRemark___frontmatter___images___changeTime'
-  | 'childMarkdownRemark___frontmatter___images___birthTime'
-  | 'childMarkdownRemark___frontmatter___images___root'
-  | 'childMarkdownRemark___frontmatter___images___dir'
-  | 'childMarkdownRemark___frontmatter___images___base'
-  | 'childMarkdownRemark___frontmatter___images___ext'
-  | 'childMarkdownRemark___frontmatter___images___name'
-  | 'childMarkdownRemark___frontmatter___images___relativeDirectory'
-  | 'childMarkdownRemark___frontmatter___images___dev'
-  | 'childMarkdownRemark___frontmatter___images___mode'
-  | 'childMarkdownRemark___frontmatter___images___nlink'
-  | 'childMarkdownRemark___frontmatter___images___uid'
-  | 'childMarkdownRemark___frontmatter___images___gid'
-  | 'childMarkdownRemark___frontmatter___images___rdev'
-  | 'childMarkdownRemark___frontmatter___images___ino'
-  | 'childMarkdownRemark___frontmatter___images___atimeMs'
-  | 'childMarkdownRemark___frontmatter___images___mtimeMs'
-  | 'childMarkdownRemark___frontmatter___images___ctimeMs'
-  | 'childMarkdownRemark___frontmatter___images___atime'
-  | 'childMarkdownRemark___frontmatter___images___mtime'
-  | 'childMarkdownRemark___frontmatter___images___ctime'
-  | 'childMarkdownRemark___frontmatter___images___birthtime'
-  | 'childMarkdownRemark___frontmatter___images___birthtimeMs'
-  | 'childMarkdownRemark___frontmatter___images___blksize'
-  | 'childMarkdownRemark___frontmatter___images___blocks'
-  | 'childMarkdownRemark___frontmatter___images___publicURL'
-  | 'childMarkdownRemark___frontmatter___images___id'
-  | 'childMarkdownRemark___frontmatter___images___children'
-  | 'childMarkdownRemark___frontmatter___gifs'
-  | 'childMarkdownRemark___frontmatter___gifs___sourceInstanceName'
-  | 'childMarkdownRemark___frontmatter___gifs___absolutePath'
-  | 'childMarkdownRemark___frontmatter___gifs___relativePath'
-  | 'childMarkdownRemark___frontmatter___gifs___extension'
-  | 'childMarkdownRemark___frontmatter___gifs___size'
-  | 'childMarkdownRemark___frontmatter___gifs___prettySize'
-  | 'childMarkdownRemark___frontmatter___gifs___modifiedTime'
-  | 'childMarkdownRemark___frontmatter___gifs___accessTime'
-  | 'childMarkdownRemark___frontmatter___gifs___changeTime'
-  | 'childMarkdownRemark___frontmatter___gifs___birthTime'
-  | 'childMarkdownRemark___frontmatter___gifs___root'
-  | 'childMarkdownRemark___frontmatter___gifs___dir'
-  | 'childMarkdownRemark___frontmatter___gifs___base'
-  | 'childMarkdownRemark___frontmatter___gifs___ext'
-  | 'childMarkdownRemark___frontmatter___gifs___name'
-  | 'childMarkdownRemark___frontmatter___gifs___relativeDirectory'
-  | 'childMarkdownRemark___frontmatter___gifs___dev'
-  | 'childMarkdownRemark___frontmatter___gifs___mode'
-  | 'childMarkdownRemark___frontmatter___gifs___nlink'
-  | 'childMarkdownRemark___frontmatter___gifs___uid'
-  | 'childMarkdownRemark___frontmatter___gifs___gid'
-  | 'childMarkdownRemark___frontmatter___gifs___rdev'
-  | 'childMarkdownRemark___frontmatter___gifs___ino'
-  | 'childMarkdownRemark___frontmatter___gifs___atimeMs'
-  | 'childMarkdownRemark___frontmatter___gifs___mtimeMs'
-  | 'childMarkdownRemark___frontmatter___gifs___ctimeMs'
-  | 'childMarkdownRemark___frontmatter___gifs___atime'
-  | 'childMarkdownRemark___frontmatter___gifs___mtime'
-  | 'childMarkdownRemark___frontmatter___gifs___ctime'
-  | 'childMarkdownRemark___frontmatter___gifs___birthtime'
-  | 'childMarkdownRemark___frontmatter___gifs___birthtimeMs'
-  | 'childMarkdownRemark___frontmatter___gifs___blksize'
-  | 'childMarkdownRemark___frontmatter___gifs___blocks'
-  | 'childMarkdownRemark___frontmatter___gifs___publicURL'
-  | 'childMarkdownRemark___frontmatter___gifs___id'
-  | 'childMarkdownRemark___frontmatter___gifs___children'
-  | 'childMarkdownRemark___frontmatter___artist'
-  | 'childMarkdownRemark___frontmatter___image___sourceInstanceName'
-  | 'childMarkdownRemark___frontmatter___image___absolutePath'
-  | 'childMarkdownRemark___frontmatter___image___relativePath'
-  | 'childMarkdownRemark___frontmatter___image___extension'
-  | 'childMarkdownRemark___frontmatter___image___size'
-  | 'childMarkdownRemark___frontmatter___image___prettySize'
-  | 'childMarkdownRemark___frontmatter___image___modifiedTime'
-  | 'childMarkdownRemark___frontmatter___image___accessTime'
-  | 'childMarkdownRemark___frontmatter___image___changeTime'
-  | 'childMarkdownRemark___frontmatter___image___birthTime'
-  | 'childMarkdownRemark___frontmatter___image___root'
-  | 'childMarkdownRemark___frontmatter___image___dir'
-  | 'childMarkdownRemark___frontmatter___image___base'
-  | 'childMarkdownRemark___frontmatter___image___ext'
-  | 'childMarkdownRemark___frontmatter___image___name'
-  | 'childMarkdownRemark___frontmatter___image___relativeDirectory'
-  | 'childMarkdownRemark___frontmatter___image___dev'
-  | 'childMarkdownRemark___frontmatter___image___mode'
-  | 'childMarkdownRemark___frontmatter___image___nlink'
-  | 'childMarkdownRemark___frontmatter___image___uid'
-  | 'childMarkdownRemark___frontmatter___image___gid'
-  | 'childMarkdownRemark___frontmatter___image___rdev'
-  | 'childMarkdownRemark___frontmatter___image___ino'
-  | 'childMarkdownRemark___frontmatter___image___atimeMs'
-  | 'childMarkdownRemark___frontmatter___image___mtimeMs'
-  | 'childMarkdownRemark___frontmatter___image___ctimeMs'
-  | 'childMarkdownRemark___frontmatter___image___atime'
-  | 'childMarkdownRemark___frontmatter___image___mtime'
-  | 'childMarkdownRemark___frontmatter___image___ctime'
-  | 'childMarkdownRemark___frontmatter___image___birthtime'
-  | 'childMarkdownRemark___frontmatter___image___birthtimeMs'
-  | 'childMarkdownRemark___frontmatter___image___blksize'
-  | 'childMarkdownRemark___frontmatter___image___blocks'
-  | 'childMarkdownRemark___frontmatter___image___publicURL'
-  | 'childMarkdownRemark___frontmatter___image___id'
-  | 'childMarkdownRemark___frontmatter___image___children'
-  | 'childMarkdownRemark___excerpt'
-  | 'childMarkdownRemark___rawMarkdownBody'
-  | 'childMarkdownRemark___fileAbsolutePath'
-  | 'childMarkdownRemark___fields___slug'
-  | 'childMarkdownRemark___html'
-  | 'childMarkdownRemark___htmlAst'
-  | 'childMarkdownRemark___excerptAst'
-  | 'childMarkdownRemark___headings'
-  | 'childMarkdownRemark___headings___id'
-  | 'childMarkdownRemark___headings___value'
-  | 'childMarkdownRemark___headings___depth'
-  | 'childMarkdownRemark___timeToRead'
-  | 'childMarkdownRemark___tableOfContents'
-  | 'childMarkdownRemark___wordCount___paragraphs'
-  | 'childMarkdownRemark___wordCount___sentences'
-  | 'childMarkdownRemark___wordCount___words'
-  | 'childMarkdownRemark___parent___id'
-  | 'childMarkdownRemark___parent___parent___id'
-  | 'childMarkdownRemark___parent___parent___children'
-  | 'childMarkdownRemark___parent___children'
-  | 'childMarkdownRemark___parent___children___id'
-  | 'childMarkdownRemark___parent___children___children'
-  | 'childMarkdownRemark___parent___internal___content'
-  | 'childMarkdownRemark___parent___internal___contentDigest'
-  | 'childMarkdownRemark___parent___internal___description'
-  | 'childMarkdownRemark___parent___internal___fieldOwners'
-  | 'childMarkdownRemark___parent___internal___ignoreType'
-  | 'childMarkdownRemark___parent___internal___mediaType'
-  | 'childMarkdownRemark___parent___internal___owner'
-  | 'childMarkdownRemark___parent___internal___type'
-  | 'childMarkdownRemark___children'
-  | 'childMarkdownRemark___children___id'
-  | 'childMarkdownRemark___children___parent___id'
-  | 'childMarkdownRemark___children___parent___children'
-  | 'childMarkdownRemark___children___children'
-  | 'childMarkdownRemark___children___children___id'
-  | 'childMarkdownRemark___children___children___children'
-  | 'childMarkdownRemark___children___internal___content'
-  | 'childMarkdownRemark___children___internal___contentDigest'
-  | 'childMarkdownRemark___children___internal___description'
-  | 'childMarkdownRemark___children___internal___fieldOwners'
-  | 'childMarkdownRemark___children___internal___ignoreType'
-  | 'childMarkdownRemark___children___internal___mediaType'
-  | 'childMarkdownRemark___children___internal___owner'
-  | 'childMarkdownRemark___children___internal___type'
-  | 'childMarkdownRemark___internal___content'
-  | 'childMarkdownRemark___internal___contentDigest'
-  | 'childMarkdownRemark___internal___description'
-  | 'childMarkdownRemark___internal___fieldOwners'
-  | 'childMarkdownRemark___internal___ignoreType'
-  | 'childMarkdownRemark___internal___mediaType'
-  | 'childMarkdownRemark___internal___owner'
-  | 'childMarkdownRemark___internal___type';
+  | 'internal___type';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -974,12 +1329,14 @@ export type FileFilterInput = {
   blksize?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   publicURL?: Maybe<StringQueryOperatorInput>;
+  childrenImageSharp?: Maybe<ImageSharpFilterListInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
+  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
 };
 
 export type FileFilterListInput = {
@@ -1036,11 +1393,12 @@ export type ImageFormat =
   | 'AUTO'
   | 'JPG'
   | 'PNG'
-  | 'WEBP';
+  | 'WEBP'
+  | 'AVIF';
 
 export type ImageLayout = 
   | 'FIXED'
-  | 'FLUID'
+  | 'FULL_WIDTH'
   | 'CONSTRAINED';
 
 export type ImagePlaceholder = 
@@ -1164,20 +1522,21 @@ export type ImageSharpSizesArgs = {
 
 export type ImageSharpGatsbyImageDataArgs = {
   layout?: Maybe<ImageLayout>;
-  maxWidth?: Maybe<Scalars['Int']>;
-  maxHeight?: Maybe<Scalars['Int']>;
   width?: Maybe<Scalars['Int']>;
   height?: Maybe<Scalars['Int']>;
+  aspectRatio?: Maybe<Scalars['Float']>;
   placeholder?: Maybe<ImagePlaceholder>;
   blurredOptions?: Maybe<BlurredOptions>;
   tracedSVGOptions?: Maybe<Potrace>;
   formats?: Maybe<Array<Maybe<ImageFormat>>>;
   outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  breakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
   sizes?: Maybe<Scalars['String']>;
   quality?: Maybe<Scalars['Int']>;
   jpgOptions?: Maybe<JpgOptions>;
   pngOptions?: Maybe<PngOptions>;
   webpOptions?: Maybe<WebPOptions>;
+  avifOptions?: Maybe<AvifOptions>;
   transformOptions?: Maybe<TransformOptions>;
   background?: Maybe<Scalars['String']>;
 };
@@ -1386,6 +1745,10 @@ export type ImageSharpFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+};
+
+export type ImageSharpFilterListInput = {
+  elemMatch?: Maybe<ImageSharpFilterInput>;
 };
 
 export type ImageSharpFixed = {
@@ -1938,9 +2301,36 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___banner___blksize'
   | 'frontmatter___banner___blocks'
   | 'frontmatter___banner___publicURL'
+  | 'frontmatter___banner___childrenImageSharp'
+  | 'frontmatter___banner___childrenImageSharp___gatsbyImageData'
+  | 'frontmatter___banner___childrenImageSharp___id'
+  | 'frontmatter___banner___childrenImageSharp___children'
   | 'frontmatter___banner___childImageSharp___gatsbyImageData'
   | 'frontmatter___banner___childImageSharp___id'
   | 'frontmatter___banner___childImageSharp___children'
+  | 'frontmatter___banner___childrenMarkdownRemark'
+  | 'frontmatter___banner___childrenMarkdownRemark___id'
+  | 'frontmatter___banner___childrenMarkdownRemark___excerpt'
+  | 'frontmatter___banner___childrenMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___banner___childrenMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___banner___childrenMarkdownRemark___html'
+  | 'frontmatter___banner___childrenMarkdownRemark___htmlAst'
+  | 'frontmatter___banner___childrenMarkdownRemark___excerptAst'
+  | 'frontmatter___banner___childrenMarkdownRemark___headings'
+  | 'frontmatter___banner___childrenMarkdownRemark___timeToRead'
+  | 'frontmatter___banner___childrenMarkdownRemark___tableOfContents'
+  | 'frontmatter___banner___childrenMarkdownRemark___children'
+  | 'frontmatter___banner___childMarkdownRemark___id'
+  | 'frontmatter___banner___childMarkdownRemark___excerpt'
+  | 'frontmatter___banner___childMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___banner___childMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___banner___childMarkdownRemark___html'
+  | 'frontmatter___banner___childMarkdownRemark___htmlAst'
+  | 'frontmatter___banner___childMarkdownRemark___excerptAst'
+  | 'frontmatter___banner___childMarkdownRemark___headings'
+  | 'frontmatter___banner___childMarkdownRemark___timeToRead'
+  | 'frontmatter___banner___childMarkdownRemark___tableOfContents'
+  | 'frontmatter___banner___childMarkdownRemark___children'
   | 'frontmatter___banner___id'
   | 'frontmatter___banner___parent___id'
   | 'frontmatter___banner___parent___children'
@@ -1955,17 +2345,6 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___banner___internal___mediaType'
   | 'frontmatter___banner___internal___owner'
   | 'frontmatter___banner___internal___type'
-  | 'frontmatter___banner___childMarkdownRemark___id'
-  | 'frontmatter___banner___childMarkdownRemark___excerpt'
-  | 'frontmatter___banner___childMarkdownRemark___rawMarkdownBody'
-  | 'frontmatter___banner___childMarkdownRemark___fileAbsolutePath'
-  | 'frontmatter___banner___childMarkdownRemark___html'
-  | 'frontmatter___banner___childMarkdownRemark___htmlAst'
-  | 'frontmatter___banner___childMarkdownRemark___excerptAst'
-  | 'frontmatter___banner___childMarkdownRemark___headings'
-  | 'frontmatter___banner___childMarkdownRemark___timeToRead'
-  | 'frontmatter___banner___childMarkdownRemark___tableOfContents'
-  | 'frontmatter___banner___childMarkdownRemark___children'
   | 'frontmatter___images'
   | 'frontmatter___images___sourceInstanceName'
   | 'frontmatter___images___absolutePath'
@@ -2001,9 +2380,36 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___images___blksize'
   | 'frontmatter___images___blocks'
   | 'frontmatter___images___publicURL'
+  | 'frontmatter___images___childrenImageSharp'
+  | 'frontmatter___images___childrenImageSharp___gatsbyImageData'
+  | 'frontmatter___images___childrenImageSharp___id'
+  | 'frontmatter___images___childrenImageSharp___children'
   | 'frontmatter___images___childImageSharp___gatsbyImageData'
   | 'frontmatter___images___childImageSharp___id'
   | 'frontmatter___images___childImageSharp___children'
+  | 'frontmatter___images___childrenMarkdownRemark'
+  | 'frontmatter___images___childrenMarkdownRemark___id'
+  | 'frontmatter___images___childrenMarkdownRemark___excerpt'
+  | 'frontmatter___images___childrenMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___images___childrenMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___images___childrenMarkdownRemark___html'
+  | 'frontmatter___images___childrenMarkdownRemark___htmlAst'
+  | 'frontmatter___images___childrenMarkdownRemark___excerptAst'
+  | 'frontmatter___images___childrenMarkdownRemark___headings'
+  | 'frontmatter___images___childrenMarkdownRemark___timeToRead'
+  | 'frontmatter___images___childrenMarkdownRemark___tableOfContents'
+  | 'frontmatter___images___childrenMarkdownRemark___children'
+  | 'frontmatter___images___childMarkdownRemark___id'
+  | 'frontmatter___images___childMarkdownRemark___excerpt'
+  | 'frontmatter___images___childMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___images___childMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___images___childMarkdownRemark___html'
+  | 'frontmatter___images___childMarkdownRemark___htmlAst'
+  | 'frontmatter___images___childMarkdownRemark___excerptAst'
+  | 'frontmatter___images___childMarkdownRemark___headings'
+  | 'frontmatter___images___childMarkdownRemark___timeToRead'
+  | 'frontmatter___images___childMarkdownRemark___tableOfContents'
+  | 'frontmatter___images___childMarkdownRemark___children'
   | 'frontmatter___images___id'
   | 'frontmatter___images___parent___id'
   | 'frontmatter___images___parent___children'
@@ -2018,17 +2424,6 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___images___internal___mediaType'
   | 'frontmatter___images___internal___owner'
   | 'frontmatter___images___internal___type'
-  | 'frontmatter___images___childMarkdownRemark___id'
-  | 'frontmatter___images___childMarkdownRemark___excerpt'
-  | 'frontmatter___images___childMarkdownRemark___rawMarkdownBody'
-  | 'frontmatter___images___childMarkdownRemark___fileAbsolutePath'
-  | 'frontmatter___images___childMarkdownRemark___html'
-  | 'frontmatter___images___childMarkdownRemark___htmlAst'
-  | 'frontmatter___images___childMarkdownRemark___excerptAst'
-  | 'frontmatter___images___childMarkdownRemark___headings'
-  | 'frontmatter___images___childMarkdownRemark___timeToRead'
-  | 'frontmatter___images___childMarkdownRemark___tableOfContents'
-  | 'frontmatter___images___childMarkdownRemark___children'
   | 'frontmatter___gifs'
   | 'frontmatter___gifs___sourceInstanceName'
   | 'frontmatter___gifs___absolutePath'
@@ -2064,9 +2459,36 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___gifs___blksize'
   | 'frontmatter___gifs___blocks'
   | 'frontmatter___gifs___publicURL'
+  | 'frontmatter___gifs___childrenImageSharp'
+  | 'frontmatter___gifs___childrenImageSharp___gatsbyImageData'
+  | 'frontmatter___gifs___childrenImageSharp___id'
+  | 'frontmatter___gifs___childrenImageSharp___children'
   | 'frontmatter___gifs___childImageSharp___gatsbyImageData'
   | 'frontmatter___gifs___childImageSharp___id'
   | 'frontmatter___gifs___childImageSharp___children'
+  | 'frontmatter___gifs___childrenMarkdownRemark'
+  | 'frontmatter___gifs___childrenMarkdownRemark___id'
+  | 'frontmatter___gifs___childrenMarkdownRemark___excerpt'
+  | 'frontmatter___gifs___childrenMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___gifs___childrenMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___gifs___childrenMarkdownRemark___html'
+  | 'frontmatter___gifs___childrenMarkdownRemark___htmlAst'
+  | 'frontmatter___gifs___childrenMarkdownRemark___excerptAst'
+  | 'frontmatter___gifs___childrenMarkdownRemark___headings'
+  | 'frontmatter___gifs___childrenMarkdownRemark___timeToRead'
+  | 'frontmatter___gifs___childrenMarkdownRemark___tableOfContents'
+  | 'frontmatter___gifs___childrenMarkdownRemark___children'
+  | 'frontmatter___gifs___childMarkdownRemark___id'
+  | 'frontmatter___gifs___childMarkdownRemark___excerpt'
+  | 'frontmatter___gifs___childMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___gifs___childMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___gifs___childMarkdownRemark___html'
+  | 'frontmatter___gifs___childMarkdownRemark___htmlAst'
+  | 'frontmatter___gifs___childMarkdownRemark___excerptAst'
+  | 'frontmatter___gifs___childMarkdownRemark___headings'
+  | 'frontmatter___gifs___childMarkdownRemark___timeToRead'
+  | 'frontmatter___gifs___childMarkdownRemark___tableOfContents'
+  | 'frontmatter___gifs___childMarkdownRemark___children'
   | 'frontmatter___gifs___id'
   | 'frontmatter___gifs___parent___id'
   | 'frontmatter___gifs___parent___children'
@@ -2081,17 +2503,6 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___gifs___internal___mediaType'
   | 'frontmatter___gifs___internal___owner'
   | 'frontmatter___gifs___internal___type'
-  | 'frontmatter___gifs___childMarkdownRemark___id'
-  | 'frontmatter___gifs___childMarkdownRemark___excerpt'
-  | 'frontmatter___gifs___childMarkdownRemark___rawMarkdownBody'
-  | 'frontmatter___gifs___childMarkdownRemark___fileAbsolutePath'
-  | 'frontmatter___gifs___childMarkdownRemark___html'
-  | 'frontmatter___gifs___childMarkdownRemark___htmlAst'
-  | 'frontmatter___gifs___childMarkdownRemark___excerptAst'
-  | 'frontmatter___gifs___childMarkdownRemark___headings'
-  | 'frontmatter___gifs___childMarkdownRemark___timeToRead'
-  | 'frontmatter___gifs___childMarkdownRemark___tableOfContents'
-  | 'frontmatter___gifs___childMarkdownRemark___children'
   | 'frontmatter___artist'
   | 'frontmatter___image___sourceInstanceName'
   | 'frontmatter___image___absolutePath'
@@ -2127,9 +2538,36 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___image___blksize'
   | 'frontmatter___image___blocks'
   | 'frontmatter___image___publicURL'
+  | 'frontmatter___image___childrenImageSharp'
+  | 'frontmatter___image___childrenImageSharp___gatsbyImageData'
+  | 'frontmatter___image___childrenImageSharp___id'
+  | 'frontmatter___image___childrenImageSharp___children'
   | 'frontmatter___image___childImageSharp___gatsbyImageData'
   | 'frontmatter___image___childImageSharp___id'
   | 'frontmatter___image___childImageSharp___children'
+  | 'frontmatter___image___childrenMarkdownRemark'
+  | 'frontmatter___image___childrenMarkdownRemark___id'
+  | 'frontmatter___image___childrenMarkdownRemark___excerpt'
+  | 'frontmatter___image___childrenMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___image___childrenMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___image___childrenMarkdownRemark___html'
+  | 'frontmatter___image___childrenMarkdownRemark___htmlAst'
+  | 'frontmatter___image___childrenMarkdownRemark___excerptAst'
+  | 'frontmatter___image___childrenMarkdownRemark___headings'
+  | 'frontmatter___image___childrenMarkdownRemark___timeToRead'
+  | 'frontmatter___image___childrenMarkdownRemark___tableOfContents'
+  | 'frontmatter___image___childrenMarkdownRemark___children'
+  | 'frontmatter___image___childMarkdownRemark___id'
+  | 'frontmatter___image___childMarkdownRemark___excerpt'
+  | 'frontmatter___image___childMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___image___childMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___image___childMarkdownRemark___html'
+  | 'frontmatter___image___childMarkdownRemark___htmlAst'
+  | 'frontmatter___image___childMarkdownRemark___excerptAst'
+  | 'frontmatter___image___childMarkdownRemark___headings'
+  | 'frontmatter___image___childMarkdownRemark___timeToRead'
+  | 'frontmatter___image___childMarkdownRemark___tableOfContents'
+  | 'frontmatter___image___childMarkdownRemark___children'
   | 'frontmatter___image___id'
   | 'frontmatter___image___parent___id'
   | 'frontmatter___image___parent___children'
@@ -2144,17 +2582,6 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___image___internal___mediaType'
   | 'frontmatter___image___internal___owner'
   | 'frontmatter___image___internal___type'
-  | 'frontmatter___image___childMarkdownRemark___id'
-  | 'frontmatter___image___childMarkdownRemark___excerpt'
-  | 'frontmatter___image___childMarkdownRemark___rawMarkdownBody'
-  | 'frontmatter___image___childMarkdownRemark___fileAbsolutePath'
-  | 'frontmatter___image___childMarkdownRemark___html'
-  | 'frontmatter___image___childMarkdownRemark___htmlAst'
-  | 'frontmatter___image___childMarkdownRemark___excerptAst'
-  | 'frontmatter___image___childMarkdownRemark___headings'
-  | 'frontmatter___image___childMarkdownRemark___timeToRead'
-  | 'frontmatter___image___childMarkdownRemark___tableOfContents'
-  | 'frontmatter___image___childMarkdownRemark___children'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -2278,6 +2705,10 @@ export type MarkdownRemarkFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+};
+
+export type MarkdownRemarkFilterListInput = {
+  elemMatch?: Maybe<MarkdownRemarkFilterInput>;
 };
 
 export type MarkdownRemarkFrontmatter = {
@@ -2521,6 +2952,8 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   localSearchDealersSfw?: Maybe<LocalSearchDealersSfw>;
   allLocalSearchDealersSfw: LocalSearchDealersSfwConnection;
+  stripeProduct?: Maybe<StripeProduct>;
+  allStripeProduct: StripeProductConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2563,12 +2996,14 @@ export type QueryFileArgs = {
   blksize?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   publicURL?: Maybe<StringQueryOperatorInput>;
+  childrenImageSharp?: Maybe<ImageSharpFilterListInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
+  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
 };
 
 
@@ -2743,6 +3178,29 @@ export type QueryLocalSearchDealersSfwArgs = {
 export type QueryAllLocalSearchDealersSfwArgs = {
   filter?: Maybe<LocalSearchDealersSfwFilterInput>;
   sort?: Maybe<LocalSearchDealersSfwSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryStripeProductArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  object?: Maybe<StringQueryOperatorInput>;
+  active?: Maybe<BooleanQueryOperatorInput>;
+  created?: Maybe<IntQueryOperatorInput>;
+  livemode?: Maybe<BooleanQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  updated?: Maybe<IntQueryOperatorInput>;
+};
+
+
+export type QueryAllStripeProductArgs = {
+  filter?: Maybe<StripeProductFilterInput>;
+  sort?: Maybe<StripeProductSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3364,15 +3822,17 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___implementation___info'
-  | 'pluginCreator___pluginOptions___precision'
-  | 'pluginCreator___pluginOptions___indentedSyntax'
-  | 'pluginCreator___pluginOptions___indentType'
-  | 'pluginCreator___pluginOptions___indentWidth'
-  | 'pluginCreator___pluginOptions___linefeed'
-  | 'pluginCreator___pluginOptions___omitSourceMapUrl'
-  | 'pluginCreator___pluginOptions___sourceComments'
-  | 'pluginCreator___pluginOptions___sourceMapContents'
-  | 'pluginCreator___pluginOptions___sourceMapEmbed'
+  | 'pluginCreator___pluginOptions___sassOptions___precision'
+  | 'pluginCreator___pluginOptions___sassOptions___indentedSyntax'
+  | 'pluginCreator___pluginOptions___sassOptions___indentType'
+  | 'pluginCreator___pluginOptions___sassOptions___indentWidth'
+  | 'pluginCreator___pluginOptions___sassOptions___linefeed'
+  | 'pluginCreator___pluginOptions___sassOptions___omitSourceMapUrl'
+  | 'pluginCreator___pluginOptions___sassOptions___sourceComments'
+  | 'pluginCreator___pluginOptions___sassOptions___sourceMapContents'
+  | 'pluginCreator___pluginOptions___sassOptions___sourceMapEmbed'
+  | 'pluginCreator___pluginOptions___objects'
+  | 'pluginCreator___pluginOptions___secretKey'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -3631,15 +4091,17 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___fileName'
   | 'pluginOptions___implementation___info'
-  | 'pluginOptions___precision'
-  | 'pluginOptions___indentedSyntax'
-  | 'pluginOptions___indentType'
-  | 'pluginOptions___indentWidth'
-  | 'pluginOptions___linefeed'
-  | 'pluginOptions___omitSourceMapUrl'
-  | 'pluginOptions___sourceComments'
-  | 'pluginOptions___sourceMapContents'
-  | 'pluginOptions___sourceMapEmbed'
+  | 'pluginOptions___sassOptions___precision'
+  | 'pluginOptions___sassOptions___indentedSyntax'
+  | 'pluginOptions___sassOptions___indentType'
+  | 'pluginOptions___sassOptions___indentWidth'
+  | 'pluginOptions___sassOptions___linefeed'
+  | 'pluginOptions___sassOptions___omitSourceMapUrl'
+  | 'pluginOptions___sassOptions___sourceComments'
+  | 'pluginOptions___sassOptions___sourceMapContents'
+  | 'pluginOptions___sassOptions___sourceMapEmbed'
+  | 'pluginOptions___objects'
+  | 'pluginOptions___secretKey'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -3806,15 +4268,9 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   implementation?: Maybe<SitePluginPluginOptionsImplementation>;
-  precision?: Maybe<Scalars['Int']>;
-  indentedSyntax?: Maybe<Scalars['Boolean']>;
-  indentType?: Maybe<Scalars['String']>;
-  indentWidth?: Maybe<Scalars['Int']>;
-  linefeed?: Maybe<Scalars['String']>;
-  omitSourceMapUrl?: Maybe<Scalars['Boolean']>;
-  sourceComments?: Maybe<Scalars['Boolean']>;
-  sourceMapContents?: Maybe<Scalars['Boolean']>;
-  sourceMapEmbed?: Maybe<Scalars['Boolean']>;
+  sassOptions?: Maybe<SitePluginPluginOptionsSassOptions>;
+  objects?: Maybe<Array<Maybe<Scalars['String']>>>;
+  secretKey?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -3877,15 +4333,9 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
-  precision?: Maybe<IntQueryOperatorInput>;
-  indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
-  indentType?: Maybe<StringQueryOperatorInput>;
-  indentWidth?: Maybe<IntQueryOperatorInput>;
-  linefeed?: Maybe<StringQueryOperatorInput>;
-  omitSourceMapUrl?: Maybe<BooleanQueryOperatorInput>;
-  sourceComments?: Maybe<BooleanQueryOperatorInput>;
-  sourceMapContents?: Maybe<BooleanQueryOperatorInput>;
-  sourceMapEmbed?: Maybe<BooleanQueryOperatorInput>;
+  sassOptions?: Maybe<SitePluginPluginOptionsSassOptionsFilterInput>;
+  objects?: Maybe<StringQueryOperatorInput>;
+  secretKey?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -3955,6 +4405,30 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   disableBgImage?: Maybe<BooleanQueryOperatorInput>;
 };
 
+export type SitePluginPluginOptionsSassOptions = {
+  precision?: Maybe<Scalars['Int']>;
+  indentedSyntax?: Maybe<Scalars['Boolean']>;
+  indentType?: Maybe<Scalars['String']>;
+  indentWidth?: Maybe<Scalars['Int']>;
+  linefeed?: Maybe<Scalars['String']>;
+  omitSourceMapUrl?: Maybe<Scalars['Boolean']>;
+  sourceComments?: Maybe<Scalars['Boolean']>;
+  sourceMapContents?: Maybe<Scalars['Boolean']>;
+  sourceMapEmbed?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsSassOptionsFilterInput = {
+  precision?: Maybe<IntQueryOperatorInput>;
+  indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
+  indentType?: Maybe<StringQueryOperatorInput>;
+  indentWidth?: Maybe<IntQueryOperatorInput>;
+  linefeed?: Maybe<StringQueryOperatorInput>;
+  omitSourceMapUrl?: Maybe<BooleanQueryOperatorInput>;
+  sourceComments?: Maybe<BooleanQueryOperatorInput>;
+  sourceMapContents?: Maybe<BooleanQueryOperatorInput>;
+  sourceMapEmbed?: Maybe<BooleanQueryOperatorInput>;
+};
+
 export type SitePluginSortInput = {
   fields?: Maybe<Array<Maybe<SitePluginFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
@@ -4000,6 +4474,170 @@ export type StringQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['String']>>>;
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
+};
+
+export type StripeProduct = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  object?: Maybe<Scalars['String']>;
+  active?: Maybe<Scalars['Boolean']>;
+  created?: Maybe<Scalars['Int']>;
+  livemode?: Maybe<Scalars['Boolean']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  updated?: Maybe<Scalars['Int']>;
+};
+
+export type StripeProductConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<StripeProductEdge>;
+  nodes: Array<StripeProduct>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<StripeProductGroupConnection>;
+};
+
+
+export type StripeProductConnectionDistinctArgs = {
+  field: StripeProductFieldsEnum;
+};
+
+
+export type StripeProductConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: StripeProductFieldsEnum;
+};
+
+export type StripeProductEdge = {
+  next?: Maybe<StripeProduct>;
+  node: StripeProduct;
+  previous?: Maybe<StripeProduct>;
+};
+
+export type StripeProductFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'object'
+  | 'active'
+  | 'created'
+  | 'livemode'
+  | 'name'
+  | 'type'
+  | 'updated';
+
+export type StripeProductFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  object?: Maybe<StringQueryOperatorInput>;
+  active?: Maybe<BooleanQueryOperatorInput>;
+  created?: Maybe<IntQueryOperatorInput>;
+  livemode?: Maybe<BooleanQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  updated?: Maybe<IntQueryOperatorInput>;
+};
+
+export type StripeProductGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<StripeProductEdge>;
+  nodes: Array<StripeProduct>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type StripeProductSortInput = {
+  fields?: Maybe<Array<Maybe<StripeProductFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
 export type TransformOptions = {

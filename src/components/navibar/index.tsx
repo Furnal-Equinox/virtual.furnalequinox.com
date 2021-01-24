@@ -15,7 +15,7 @@ export interface Props extends RouteComponentProps {
   identityContext?: any
 }
 
-const Navibar: React.FC<Props> = ({ location, identityContext }: Props) => {
+const Navibar: React.FC<Props> = ({ location }: Props) => {
   const identity = useIdentityContext()
 
   const Logo = () =>
