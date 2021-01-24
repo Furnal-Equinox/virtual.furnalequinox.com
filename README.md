@@ -136,4 +136,6 @@ Deploying the website via the Netlify CLI has the benefit of saving build minute
 
 # That's it!
 
-If you have any questions about this README or about the repository, please open an issue with your question! 
+If you have any questions about this README or about the repository, please open an issue with your question!
+
+[![FOSSA Status](https://app.fossa.io/api/projects/custom%2B22676%2Fgithub.com%2FFurnal-Equinox%2Fvirtual.furnalequinox.com.svg?type=large)](https://app.fossa.io/projects/custom%2B22676%2Fgithub.com%2FFurnal-Equinox%2Fvirtual.furnalequinox.com?ref=badge_large)
