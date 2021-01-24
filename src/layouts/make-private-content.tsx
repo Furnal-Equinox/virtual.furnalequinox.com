@@ -1,4 +1,4 @@
-import React, { Component, ComponentType, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { navigate } from 'gatsby'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
@@ -7,11 +7,11 @@ import UnauthorizedNotice from '../components/unathorized-notice'
 
 interface PrivateContentProps extends RouteComponentProps {
   allowedRoles?: string[]
-  callbackPath?: string 
+  callbackPath?: string
 }
 
-const makePrivateContent = 
-  <Props extends object>(Comp: React.ComponentType<Props>): React.FC<Props & PrivateContentProps> => 
+const makePrivateContent =
+  <Props extends object>(Comp: React.ComponentType<Props>): React.FC<Props & PrivateContentProps> =>
     ({ allowedRoles, callbackPath, ...props }: PrivateContentProps) => {
       const identity = useIdentityContext()
 
@@ -34,7 +34,7 @@ const Unauthorized: React.FC<UnauthorizedProps> = ({ callbackPath }) => {
   useEffect(() => {
     callbackPath !== undefined &&
       navigate(
-        '/login', 
+        '/login',
         { state: { navigateTarget: callbackPath } }
       )
   }, [callbackPath])

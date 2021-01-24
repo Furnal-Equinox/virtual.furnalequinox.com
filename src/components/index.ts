@@ -1,5 +1,4 @@
 export { default as Anchor } from './anchor'
-export { default as AuthModal } from './auth-modal'
 export { default as Badge } from './badge'
 export { default as Button } from './button'
 

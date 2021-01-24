@@ -6,9 +6,9 @@ import logo from '../../../content/images/logo.png'
 
 import './style.scss'
 
-import { Button, Link } from '../index'
+import { Button } from '../index'
 
-import { NavbarLinks, NavbarAccountLinks } from '../../data/navbar-links'
+import { NavbarLinks } from '../../data/navbar-links'
 import { Maybe } from '../../types'
 
 export interface Props extends RouteComponentProps {
@@ -24,13 +24,13 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
     </GatsbyLink>
 
   const HamburgerMenu = () =>
-    <button 
-      className='navbar-toggler' 
-      type='button' 
-      data-bs-toggle='collapse' 
-      data-bs-target='#navbarCollapse' 
-      aria-controls='navbarCollapse' 
-      aria-expanded='false' 
+    <button
+      className='navbar-toggler'
+      type='button'
+      data-bs-toggle='collapse'
+      data-bs-target='#navbarCollapse'
+      aria-controls='navbarCollapse'
+      aria-expanded='false'
       aria-label='Toggle navigation'
     >
       <span className='navbar-toggler-icon' />
@@ -39,49 +39,52 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
   const CollapsibleLinks = () =>
     <div className='collapse navbar-collapse' id='navbarCollapse'>
       <ul className='navbar-nav me-auto mb-2 mb-md-0'>
-        {NavbarLinks.map(elem => 
-          <li 
-            key={elem.name}
-            className={
-              location !== undefined &&
-              location?.pathname === elem.to 
-                ? 'nav-item active' 
-                : 'nav-item'
-            }
-          >
-            <GatsbyLink to={elem.to} className='nav-link'>
-              {elem.name}
-            </GatsbyLink>
-          </li> 
-        )}
-        {(identity.user === undefined && identity.provisionalUser === undefined) &&
-          <li 
-            key='Signup'
-            className={
-              location !== undefined &&
-              location?.pathname === '/sign-up/' 
-                ? 'nav-item active' 
-                : 'nav-item'
-            }
-          >
-            <GatsbyLink to='/sign-up/' className='nav-link'>
-              Sign Up
-            </GatsbyLink>
-          </li>
+        {
+          NavbarLinks.map(elem =>
+            <li
+              key={elem.name}
+              className={
+                location !== undefined &&
+                location?.pathname === elem.to
+                  ? 'nav-item active'
+                  : 'nav-item'
+              }
+            >
+              <GatsbyLink to={elem.to} className='nav-link'>
+                {elem.name}
+              </GatsbyLink>
+            </li>
+          )
+        }
+        {
+          (identity.user === undefined && identity.provisionalUser === undefined) &&
+            <li
+              key='Signup'
+              className={
+                location !== undefined &&
+                location?.pathname === '/sign-up/'
+                  ? 'nav-item active'
+                  : 'nav-item'
+              }
+            >
+              <GatsbyLink to='/sign-up/' className='nav-link'>
+                Sign Up
+              </GatsbyLink>
+            </li>
         }
         {identity.user !== undefined
           ? <>
-            <li 
+            <li
               key='Account'
               className={
                 location !== undefined &&
-                  location?.pathname === '/account/' 
-                  ? 'nav-item active' 
+                  location?.pathname === '/account/'
+                  ? 'nav-item active'
                   : 'nav-item'
               }
             >
               <GatsbyLink to='/account/' className='nav-link'>
-                  My Account
+                My Account
               </GatsbyLink>
             </li>
             <li
@@ -94,24 +97,24 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
             key='Login'
             className={
               location !== undefined &&
-                location?.pathname === '/login/' 
-                ? 'nav-item active' 
+                location?.pathname === '/login/'
+                ? 'nav-item active'
                 : 'nav-item'
             }
           >
             <GatsbyLink to='/login/' className='nav-link'>
-                Login
+              Login
             </GatsbyLink>
-          </li>
-        }
+          </li>}
       </ul>
     </div>
 
-  const Notification = () => 
+  const Notification: React.FC = () =>
     <span className='navbar-text'>
-      {identity.provisionalUser !== undefined
-        ? 'Check your email!'
-        : `Hello, ${(identity.user?.user_metadata?.full_name as Maybe<string>)?.split(' ')[0] ?? 'stranger'}!`
+      {
+        identity.provisionalUser !== undefined
+          ? 'Check your email!'
+          : `Hello, ${(identity.user?.user_metadata?.full_name as Maybe<string>)?.split(' ')[0] ?? 'stranger'}!`
       }
     </span>
 

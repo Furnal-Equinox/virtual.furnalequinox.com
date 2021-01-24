@@ -30,12 +30,12 @@ const Meta: React.FC<Props> = ({ postNode, postPath, postSEO, customDescription 
     description = customDescription ?? config.siteDescription
   }
 
-  const getImagePath = (imageURI: string) => {
+  const getImagePath = (imageURI: string): string => {
     if (
       imageURI.match(
         '(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]'
       ) !== null
-    ) { 
+    ) {
       return urljoin(config.siteUrl, config.pathPrefix, imageURI)
     }
 

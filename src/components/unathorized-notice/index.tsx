@@ -9,10 +9,10 @@ const UnauthorizedNotice: React.FC = () =>
       <div className='row'>
         <div className='col mx-auto'>
           <h1>Unauthorized</h1>
-          <img 
-            src='https://http.cat/401' 
-            className='rounded-3' 
-            alt='Image of a cat outside a glass door with a sign that says "no cats allowed"' 
+          <img
+            src='https://http.cat/401'
+            className='rounded-3'
+            alt='Image of a cat outside a glass door with a sign that says "no cats allowed"'
           />
           <p className='lead'>
             Oops! You don't have permission to view this page.<br />

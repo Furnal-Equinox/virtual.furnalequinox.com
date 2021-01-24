@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -16,7 +16,7 @@ const SignUpForm: React.FC = () => {
   const [formError, setFormError] = useState<string | null>(null)
   const [isSigningUp, setIsSigningUp] = useState<boolean>(false)
 
-  const onSubmit = async (data: any) => {
+  const onSubmit: React.FormEventHandler = async (data: any) => {
     setIsSigningUp(true)
     setFormError(null)
 
@@ -49,13 +49,13 @@ const SignUpForm: React.FC = () => {
         role='status'
         aria-hidden='true'
       />{' '}
-    Signing up...
+      Signing up...
     </>
 
   const Form: React.FC = () =>
     <form onSubmit={handleSubmit(onSubmit)}>
       <p className='h2'>
-      Please sign up here.
+        Please sign up here.
       </p>
       <div className='form-floating mb-3'>
         <input
@@ -67,13 +67,12 @@ const SignUpForm: React.FC = () => {
           autoFocus
         />
         <label htmlFor='inputUsername'>
-        Your name
+          Your name
         </label>
         {errors.user_metadata?.full_name !== undefined &&
           <p className='text-danger'>
             {errors.user_metadata?.full_name.message ?? 'Unknown error'}
-          </p>
-        }
+          </p>}
         <div id='nameHelp' className='form-text'>
           Name must be at least one character long.
         </div>
@@ -87,13 +86,12 @@ const SignUpForm: React.FC = () => {
           placeholder='Email address'
         />
         <label htmlFor='inputEmail'>
-        Email address
+          Email address
         </label>
         {errors.email !== undefined &&
           <p className='text-danger'>
             {errors.email?.message ?? 'Unknown error'}
-          </p>
-        }
+          </p>}
       </div>
       <div className='form-floating mb-3'>
         <input
@@ -104,13 +102,12 @@ const SignUpForm: React.FC = () => {
           placeholder='************'
         />
         <label htmlFor='inputPassword'>
-        Password
+          Password
         </label>
         {errors.password !== undefined &&
           <p className='text-danger'>
             {errors.password?.message ?? 'Unknown error'}
-          </p>
-        }
+          </p>}
         <div id='passwordHelp' className='form-text'>
           Password must:
           <ul>
@@ -144,11 +141,10 @@ const SignUpForm: React.FC = () => {
         </p>
       </div>
       <div className='mb-3'>
-        {formError !== null && 
+        {formError !== null &&
           <p className='text-danger'>
             {`Error: ${formError}`}
-          </p>
-        }
+          </p>}
       </div>
       <button
         className='w-100 btn btn-lg btn-primary rounded-pill'
@@ -156,9 +152,8 @@ const SignUpForm: React.FC = () => {
         disabled={isSigningUp}
       >
         {!isSigningUp
-          ? 'Submit' 
-          : <Spinner />
-        }
+          ? 'Submit'
+          : <Spinner />}
       </button>
     </form>
 

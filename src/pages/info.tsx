@@ -19,17 +19,16 @@ const Info: React.FC<Props> = ({ location }: Props) => {
       <Meta customDescription='Information' />
       <div>
         <Jumbotron title='Info' subtitle='' />
-        <Section isContainer isTextCenter pos='middle'>
-        </Section>
+        <Section isContainer isTextCenter pos='middle' />
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <div className='row'>
               <div className='col mx-auto'>
                 <h1>Our Charity</h1>
-                <img 
-                  src='https://http.cat/100' 
-                  className='rounded-3' 
-                  alt='Image of a jumping cat that appears to be floating in mid-air like a ball of fluff' 
+                <img
+                  src='https://http.cat/100'
+                  className='rounded-3'
+                  alt='Image of a jumping cat that appears to be floating in mid-air like a ball of fluff'
                 />
                 <p className='lead'>
                   Please donate to our charity!

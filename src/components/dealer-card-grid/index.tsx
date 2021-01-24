@@ -7,9 +7,10 @@ interface Props {
 
 const DealerCardGrid: React.FC<Props> = ({ data }: Props) => {
   const cards = data.map(dealer =>
-    <div 
-      className={`${(dealer?.isPremium ?? false) ? 'col-lg-12' : 'col-lg-6'}`} 
-      key={dealer?.slug ?? '#'}>
+    <div
+      className={`${(dealer?.isPremium ?? false) ? 'col-lg-12' : 'col-lg-6'}`}
+      key={dealer?.slug ?? '#'}
+    >
       <DealerCard
         title={dealer?.title ?? undefined}
         dealer={dealer?.dealer ?? undefined}
@@ -19,11 +20,11 @@ const DealerCardGrid: React.FC<Props> = ({ data }: Props) => {
       />
     </div>
   )
-  
+
   return (
     <div className='container'>
       <div className='row'>
-        { cards }
+        {cards}
       </div>
     </div>
   )

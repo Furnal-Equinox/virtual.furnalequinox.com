@@ -10,7 +10,7 @@ interface Props extends RouteComponentProps {}
 
 const NotFound: React.FC<Props> = ({ location }: Props) => {
   return (
-    <Layout location={ location } >
+    <Layout location={location}>
       <Meta />
       <div>
         <Section isContainer isTextCenter pos='middle'>
@@ -18,10 +18,10 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
             <div className='row'>
               <div className='col mx-auto'>
                 <h1>404</h1>
-                <img 
-                  src='https://http.cat/404' 
-                  className='rounded-3' 
-                  alt='Image of a cat hiding under some papers' 
+                <img
+                  src='https://http.cat/404'
+                  className='rounded-3'
+                  alt='Image of a cat hiding under some papers'
                 />
                 <p className='lead'>
                   Oops! We couldn't find the page you were looking for.<br />

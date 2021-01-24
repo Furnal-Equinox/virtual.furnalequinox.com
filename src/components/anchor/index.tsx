@@ -10,15 +10,15 @@ export interface Props {
   onClick?: () => void
 }
 
-const Anchor: React.FC<Props> = ({ 
-  state = undefined, 
-  hasOutline = false, 
-  size = undefined, 
-  isFullwidth = false, 
-  label, 
+const Anchor: React.FC<Props> = ({
+  state = undefined,
+  hasOutline = false,
+  size = undefined,
+  isFullwidth = false,
+  label,
   url,
-  onClick, 
-  ...props 
+  onClick,
+  ...props
 }: Props) => {
   return (
     <div className={isFullwidth ? 'd-grid' : undefined}>
@@ -29,7 +29,7 @@ const Anchor: React.FC<Props> = ({
           `btn${hasOutline ? '-outline' : ''}${state !== undefined ? `-${state}` : '-primary'}`,
           `btn${size !== undefined ? `-${size}` : ''}`
         ].join(' ')}
-        target='_blank' 
+        target='_blank'
         rel='noopener noreferrer'
         onClick={onClick}
         {...props}

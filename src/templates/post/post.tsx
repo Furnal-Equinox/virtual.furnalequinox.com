@@ -14,21 +14,8 @@ import {
 
 import {
   Layout,
-  makePrivateContent,
-  Section
+  makePrivateContent
 } from '../../layouts'
-
-const getDescription = (content: string): string => {
-  const body = content.replace(
-    /<blockquote>/g,
-    '<blockquote class="blockquote">'
-  )
-  if (body.match('<!--more-->') !== null) {
-    const [description] = body.split('<!--more-->')
-    return description
-  }
-  return body
-}
 
 interface Props extends RouteComponentProps {
   data: PostBySlugQuery
@@ -98,24 +85,22 @@ const PostContent: React.FC<Props> = ({ data, location }: Props) => {
       <div className='article' key={postNode?.fields?.slug ?? ''}>
         <div className='container'>
           <div className='info'>
-            <Link style={{ boxShadow: 'none' }} to={'.'}>
+            <Link style={{ boxShadow: 'none' }} to='.'>
               <h1>{post?.title ?? ''}</h1>
               <time dateTime={post?.date ?? ''}>{post?.date ?? ''}</time>
             </Link>
-            <Badge label={post?.category ?? ''} primary={true} />
-            {(post?.tags ?? []).map((tag: string, index?: number) => (
+            <Badge label={post?.category ?? ''} primary />
+            {(post?.tags ?? []).map((tag: string, index?: number) =>
               <Badge label={tag} primary={false} key={index} />
-            ))}
+            )}
           </div>
           <div className='content'>
             <p>{post?.description ?? ''}</p>
-            {image?.childImageSharp?.fluid !== undefined
-              ? <Img
+            {image?.childImageSharp?.fluid !== undefined &&
+              <Img
                 fluid={image.childImageSharp.fluid as FluidObject}
                 style={{ display: 'block', margin: '0 auto' }}
-              />
-              : <></>
-            }
+              />}
           </div>
           <div
             className='content'

@@ -144,10 +144,10 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
         <div className='content'>
           {
             banner?.childImageSharp?.fluid !== null &&
-            <Img
-              fluid={banner?.childImageSharp?.fluid as FluidObject}
-              style={{ display: 'block', margin: '0 auto' }}
-            />
+              <Img
+                fluid={banner?.childImageSharp?.fluid as FluidObject}
+                style={{ display: 'block', margin: '0 auto' }}
+              />
           }
         </div>
       </Section>
@@ -160,15 +160,15 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               <p className='lead'>{post?.description ?? ''}</p>
             </div>
             <div className='col-lg-6 text-center p-2'>
-              { 
+              {
                 socialLinks !== null && socialLinks !== undefined
                   ? <>
                     <h2>Say hello!</h2>
-                    <SocialLinks data={socialLinks}/>
-                  </>
+                    <SocialLinks data={socialLinks} />
+                    </>
                   : <>
                     <h2>I do not have any social media links to share!</h2>
-                  </>
+                    </>
               }
             </div>
           </div>
@@ -187,7 +187,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               </ul>
               <h3>Sunday, March 21st</h3>
               <ul>
-                { 
+                {
                   post?.streaming?.sunday?.map((block, i) =>
                     <li key={`sunday-time-${i}`}>
                       {`${block?.start ?? ''} to ${block?.end ?? ''}`}
@@ -197,9 +197,10 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               </ul>
             </div>
             <div className='col-lg-6 text-center p-2'>
-              { post?.url !== null && post?.url !== undefined
-                ? <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
-                : <h2>I do not have a website to share!</h2>
+              {
+                post?.url !== null && post?.url !== undefined
+                  ? <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
+                  : <h2>I do not have a website to share!</h2>
               }
             </div>
           </div>
@@ -207,15 +208,15 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
       </Section>
       <Section isContainer>
         <div className='row'>
-          { 
+          {
             images?.map(image =>
               image?.childImageSharp?.fluid !== null &&
-              <div className='col-12'>
-                <Img
-                  fluid={image?.childImageSharp?.fluid as FluidObject}
-                  className='d-block rounded-3 my-3'
-                />
-              </div>
+                <div className='col-12'>
+                  <Img
+                    fluid={image?.childImageSharp?.fluid as FluidObject}
+                    className='d-block rounded-3 my-3'
+                  />
+                </div>
             )
           }
         </div>
@@ -224,7 +225,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
         <TextCard>
           <div className='d-flex justify-content-between align-items-center'>
             <Link label={`← ${prevTitle}`} to={`..${prevSlug}`} />
-            <Link label={`${nextTitle} →`} to={`..${nextSlug}`} /> 
+            <Link label={`${nextTitle} →`} to={`..${nextSlug}`} />
           </div>
         </TextCard>
       </Section>

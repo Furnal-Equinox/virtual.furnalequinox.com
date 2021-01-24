@@ -1,7 +1,7 @@
 interface NavLink {
   to: string
   name: string
-} 
+}
 
 export const NavbarLinks: NavLink[] = [
   {

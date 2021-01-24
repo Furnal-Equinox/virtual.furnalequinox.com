@@ -18,7 +18,7 @@ const Template: Story<Props> = args => <Footer {...args} />
 export const MainFooter = Template.bind({})
 MainFooter.args = {
   copyright: config.copyright,
-  socialLinks: { 
+  socialLinks: {
     data: {
       facebook: config.userLinks.facebook,
       flickr: config.userLinks.flickr,

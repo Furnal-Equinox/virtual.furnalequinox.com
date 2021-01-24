@@ -3,7 +3,6 @@ import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import config from '../../site-config'
 
-import Button from '../components/button'
 import Layout from '../layouts/layout'
 import { LoginCard } from '../components/cards'
 import Meta from '../components/meta'
@@ -21,20 +20,6 @@ const Login: React.FC<Props> = ({ location }: Props) => {
   const identity = useIdentityContext()
   const navigateTarget: string = (location?.state as LocationState)?.navigateTarget ?? '/'
 
-  const manageSubscription = () => {
-    fetch('/.netlify/functions/create-manage-link', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${identity.user?.token.access_token as string}`
-      }
-    })
-      .then(async (res) => await res.json())
-      .then((link) => {
-        window.location.href = link
-      })
-      .catch((err) => console.error(err))
-  }
-
   return (
     <Layout location={location}>
       <Helmet title={`Login | ${config.siteTitle}`} />
@@ -44,10 +29,9 @@ const Login: React.FC<Props> = ({ location }: Props) => {
         <div>
           {identity.provisionalUser !== undefined
             ? <EmailConfirmation />
-            : <LoginForm navigateTarget={navigateTarget} />
-          }
+            : <LoginForm navigateTarget={navigateTarget} />}
         </div>
-      </LoginCard> 
+      </LoginCard>
       {/* <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} /> */}
     </Layout>
   )

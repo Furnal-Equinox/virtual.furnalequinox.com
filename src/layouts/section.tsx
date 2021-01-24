@@ -16,8 +16,8 @@ const Section: React.FC<Props> = ({
   isFluid = false,
   isTextCenter = false,
   bg = undefined,
-  pos = 'middle', 
-  children 
+  pos = 'middle',
+  children
 }: Props) => {
   const matchPosition = (pos: Position): string => {
     switch (pos) {

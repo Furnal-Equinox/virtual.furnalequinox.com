@@ -1,12 +1,10 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
-
 
   if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({
@@ -106,8 +104,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   if (markdownPosts.error || markdownDealersSfw.error || markdownDealersNsfw.errors) {
     const errors = [
-      markdownPosts.errors, 
-      markdownDealersSfw.errors, 
+      markdownPosts.errors,
+      markdownDealersSfw.errors,
       markdownDealersNsfw.errors
     ]
     console.error(errors)
@@ -127,7 +125,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
-    
 
   dealersSfw.forEach((edge, index) => {
     const nextID = index + 1 < dealersSfw.length ? index + 1 : 0 // clamp to end of list
@@ -178,8 +175,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       alias: {
         components: path.resolve(__dirname, 'src/components'),
         templates: path.resolve(__dirname, 'src/templates'),
-        scss: path.resolve(__dirname, 'src/scss'),
-      },
-    },
+        scss: path.resolve(__dirname, 'src/scss')
+      }
+    }
   })
 }

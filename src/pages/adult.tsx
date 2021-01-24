@@ -2,13 +2,13 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { 
+import {
   AdultQueryQuery,
   GatsbyImageSharpFluidFragment,
   MarkdownRemark,
   MarkdownRemarkFields,
   MarkdownRemarkFrontmatter,
-  Maybe 
+  Maybe
 } from '../../types/graphql-types'
 
 import config from '../../site-config'
@@ -31,7 +31,7 @@ import {
 import PlaceholderImage from '../../content/images/moritz-mentges-unsplash.jpg'
 import ResponsivePlayer from '../components/responsive-player'
 
-interface GatsbyDealer { 
+interface GatsbyDealer {
   dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
     fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>
     frontmatter?: Maybe<(Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'kind' | 'isPremium' | 'path'> & {
@@ -164,7 +164,7 @@ const AdultDashboard: React.FC<Props> = ({ data, location }: Props) => {
         <div className='container'>
           <div className='row'>
             <div className='col-md-6'>
-              <SocialCard 
+              <SocialCard
                 title='Join the chat on Discord!'
                 description=''
                 banner={PlaceholderImage}
@@ -172,7 +172,7 @@ const AdultDashboard: React.FC<Props> = ({ data, location }: Props) => {
               />
             </div>
             <div className='col-md-6'>
-              <SocialCard 
+              <SocialCard
                 title='Join us on VRChat!'
                 description=''
                 banner={PlaceholderImage}
@@ -182,7 +182,7 @@ const AdultDashboard: React.FC<Props> = ({ data, location }: Props) => {
           </div>
         </div>
       </Section>
-      <Jumbotron title='Dealers (Mock Data)' subtitle='Check out all these cool dealers!' /> 
+      <Jumbotron title='Dealers (Mock Data)' subtitle='Check out all these cool dealers!' />
       <Section pos='middle'>
         <DealerCardGrid data={reducedPremiumDealers} />
       </Section>

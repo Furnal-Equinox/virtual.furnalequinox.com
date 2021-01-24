@@ -41,10 +41,10 @@ const MyAccount: React.FC = () => {
         <div className='row'>
           <div className='col mx-auto'>
             <h1>Welcome to your account!</h1>
-            <img 
-              src='https://http.cat/200' 
-              className='rounded-3' 
-              alt='Image of a cat hiding under some papers' 
+            <img
+              src='https://http.cat/200'
+              className='rounded-3'
+              alt='Image of a cat hiding under some papers'
             />
             <p className='lead'>
               This page is for your eyes only! 😎

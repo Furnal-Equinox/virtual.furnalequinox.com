@@ -43,18 +43,10 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   }
 
   const AlreadyLoggedIn: React.FC = () =>
-    <>
-      <p className='h2'>
-        You are already logged in!
-      </p>
-    </>
+    <p className='h2'>You are already logged in!</p>
 
   const ProvisionalUser: React.FC = () =>
-    <>
-      <p>
-        Your account has not yet been confirmed. Please check your email.
-      </p>
-    </>
+    <p>Your account has not yet been confirmed. Please check your email.</p>
 
   const Spinner: React.FC = () =>
     <>
@@ -63,31 +55,30 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
         role='status'
         aria-hidden='true'
       />{' '}
-      Logging in...
+      <p className='h2'>Logging in...</p>
     </>
 
   const Form: React.FC = () =>
     <form onSubmit={handleSubmit(onSubmit)}>
       <p className='h2'>
-      Please log in to continue.
+        Please log in to continue.
       </p>
       <div className='form-floating mb-3'>
         <input
           ref={register}
           name='email'
-          type='text' 
+          type='text'
           className='form-control'
           placeholder='Email address'
           autoFocus
         />
         <label htmlFor='inputEmail'>
-        Email address
+          Email address
         </label>
         {errors.email !== undefined &&
           <p className='text-danger'>
             {errors.email?.message ?? 'Unknown error'}
-          </p>
-        }
+          </p>}
       </div>
       <div className='form-floating mb-3'>
         <input
@@ -98,13 +89,12 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
           placeholder='************'
         />
         <label htmlFor='inputPassword'>
-        Password
+          Password
         </label>
         {errors.password !== undefined &&
           <p className='text-danger'>
             {errors.password?.message ?? 'Unknown error'}
-          </p>
-        }
+          </p>}
       </div>
       <div className='mb-3'>
         {formError !== null && <p>{`Error: ${formError}`}</p>}
@@ -114,10 +104,9 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
         type='submit'
         disabled={isLoggingIn}
       >
-        {!isLoggingIn 
-          ? 'Submit' 
-          : <Spinner />
-        }
+        {!isLoggingIn
+          ? 'Submit'
+          : <Spinner />}
       </button>
     </form>
 

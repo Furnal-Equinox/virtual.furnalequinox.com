@@ -11,15 +11,15 @@ export interface Props {
   onClick?: () => void
 }
 
-const Link: React.FC<Props> = ({ 
-  state = undefined, 
-  hasOutline = false, 
-  size = undefined, 
-  isFullwidth = false, 
-  label, 
+const Link: React.FC<Props> = ({
+  state = undefined,
+  hasOutline = false,
+  size = undefined,
+  isFullwidth = false,
+  label,
   to,
-  onClick, 
-  ...props 
+  onClick,
+  ...props
 }: Props) => {
   return (
     <div className={isFullwidth ? 'd-grid' : undefined}>
@@ -39,4 +39,4 @@ const Link: React.FC<Props> = ({
   )
 }
 
-export default Link 
+export default Link

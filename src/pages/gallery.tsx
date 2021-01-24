@@ -6,7 +6,6 @@ import { GalleryQueryQuery } from '../../types/graphql-types'
 import config from '../../site-config'
 
 import {
-  GalleryItem,
   GalleryItemCard,
   Jumbotron,
   Meta
@@ -24,7 +23,7 @@ interface Props extends RouteComponentProps {
 
 const Gallery: React.FC<Props> = ({ data, location }: Props) => {
   const Content = makePrivateContent(GalleryContent)
-  
+
   return (
     <Layout location={location}>
       <Helmet title={`Gallery | ${config.siteTitle}`} />
@@ -71,7 +70,7 @@ export const galleryQuery = graphql`
 `
 const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
   const artworks = data.remark.artworks
-  
+
   return (
     <>
       <Jumbotron title='Art Gallery (Live Data)' subtitle='Check out these cool art pieces!' />
@@ -79,14 +78,14 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
         <div className='row'>
           {artworks.map(({ artwork }) => (
             artwork.frontmatter?.image?.childImageSharp?.fluid !== null &&
-            <div className='col-lg-12'>
-              <GalleryItemCard 
-                title={artwork.frontmatter?.title ?? ''}
-                artist={artwork.frontmatter?.artist ?? ''}
-                image={artwork.frontmatter?.image?.childImageSharp?.fluid?.src ?? ''}
-                url={artwork.frontmatter?.url ?? ''}
-              />
-            </div>
+              <div className='col-lg-12'>
+                <GalleryItemCard
+                  title={artwork.frontmatter?.title ?? ''}
+                  artist={artwork.frontmatter?.artist ?? ''}
+                  image={artwork.frontmatter?.image?.childImageSharp?.fluid?.src ?? ''}
+                  url={artwork.frontmatter?.url ?? ''}
+                />
+              </div>
           ))}
         </div>
       </Section>

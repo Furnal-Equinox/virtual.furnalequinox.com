@@ -134,6 +134,11 @@ To deploy the website through the CLI:
 
 Deploying the website via the Netlify CLI has the benefit of saving build minutes on Netlify, but if your computer does not have a lot of processing power, it is better to just let Netlify build it for you.
 
+# Design Notes
+
+## ESLint Configuration
+For ESLint, I chose Standard JS because I feel it gives a distinct look and feel to JavaScript code. I like the functional programming side of JavaScript, and I am used to languages that don't use semicolons to end statements, like Swift, Python, and Haskell, to name a few.
+
 # That's it!
 
 If you have any questions about this README or about the repository, please open an issue with your question!

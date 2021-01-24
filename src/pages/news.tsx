@@ -90,8 +90,8 @@ const NewsDashboard: React.FC<Props> = ({ data, location }: Props) => {
             <div className='col'>
               <h1>{post?.post?.frontmatter?.title ?? ''}</h1>
               <p className='lead'>{post?.post?.frontmatter?.description}</p>
-              <a 
-                className='btn btn-primary' 
+              <a
+                className='btn btn-primary'
                 href={`.${post?.post?.fields?.slug ?? ''}`}
               >
                 Read

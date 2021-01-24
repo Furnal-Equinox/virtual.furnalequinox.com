@@ -14,7 +14,7 @@ import {
 } from '../components'
 
 import {
-  Layout, 
+  Layout,
   makePrivateContent,
   Section
 } from '../layouts'
@@ -118,7 +118,7 @@ const HomeDashboard: React.FC<Props> = ({ location }: Props) => {
       <Section isContainer pos='last'>
         <div className='row'>
           <div className='col-md-6'>
-            <SocialCard 
+            <SocialCard
               title='Join the chat on Discord!'
               description=''
               banner={PlaceholderImage}
@@ -126,7 +126,7 @@ const HomeDashboard: React.FC<Props> = ({ location }: Props) => {
             />
           </div>
           <div className='col-md-6'>
-            <SocialCard 
+            <SocialCard
               title='Join us on VRChat!'
               description=''
               banner={PlaceholderImage}

@@ -3,7 +3,6 @@ import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import emergence from 'emergence.js'
 
-import AuthModal from '../components/auth-modal'
 import Navibar from '../components/navibar'
 import Footer from '../components/footer'
 
@@ -24,7 +23,7 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
     emergence.init()
   })
 
-  const socialLinks = { 
+  const socialLinks = {
     data: {
       facebook: config.userLinks.facebook,
       flickr: config.userLinks.flickr,
@@ -35,12 +34,11 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
 
   return (
     <>
-      <AuthModal />
       <Navibar location={location} identityContext={identity} />
       <div className='layout-container d-flex flex-column justify-content-between bg-image'>
-        { children }
-        <Footer 
-          copyright={config.copyright} 
+        {children}
+        <Footer
+          copyright={config.copyright}
           socialLinks={socialLinks}
         />
       </div>

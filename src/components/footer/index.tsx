@@ -13,7 +13,7 @@ const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
       <div className='row'>
         <div className='col'>
           <p>
-            <strong>{ copyright }</strong>
+            <strong>{copyright}</strong>
           </p>
         </div>
       </div>

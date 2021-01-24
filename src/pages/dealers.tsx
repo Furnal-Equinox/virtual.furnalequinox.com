@@ -3,13 +3,13 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { 
+import {
   DealersIndexQueryQuery,
   GatsbyImageSharpFluidFragment,
   MarkdownRemark,
   MarkdownRemarkFields,
   MarkdownRemarkFrontmatter,
-  Maybe 
+  Maybe
 } from '../../types/graphql-types'
 
 import {
@@ -36,7 +36,7 @@ import { sample } from '../utils/tools'
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
 
-interface GatsbyDealer { 
+interface GatsbyDealer {
   dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
     fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>
     frontmatter?: Maybe<(Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'kind' | 'isPremium' | 'path'> & {
@@ -59,7 +59,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
   return (
     <Layout location={location}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
-      <Meta customDescription={'Dealers Den'} />
+      <Meta customDescription='Dealers Den' />
       <div>
         <Content
           data={data}
@@ -139,7 +139,7 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
     results.map(result => result?.title ?? '')
 
   const fetchFullResults = (titles: string[], store: GatsbyDealer[]): GatsbyDealer[] =>
-    store.filter(dealer => titles.includes(dealer.dealer.frontmatter?.title ?? '')) 
+    store.filter(dealer => titles.includes(dealer.dealer.frontmatter?.title ?? ''))
 
   const dealerReducer = (dealer: GatsbyDealer): Dealer => ({
     title: dealer.dealer.frontmatter?.title,
@@ -157,11 +157,11 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
   const reducedPremiumDealers: Dealer[] | undefined = premiumDealers?.map(
     (dealer: GatsbyDealer) => dealerReducer(dealer)
   )
-  
+
   return (
     <>
-      <Jumbotron 
-        title='Premium Dealers (Live Data)' 
+      <Jumbotron
+        title='Premium Dealers (Live Data)'
         subtitle='Check out all these cool dealers!'
       />
       <Section isContainer isTextCenter pos='middle'>
@@ -172,8 +172,8 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
               <p className='lead'>
                 Click this button to check out a random dealer!
               </p>
-              <Link 
-                label={'Let\'s go!'} 
+              <Link
+                label={'Let\'s go!'}
                 to={`.${
                   sample(allDealers as GatsbyDealer[]).dealer.fields?.slug ?? ''
                 }`}
@@ -196,7 +196,7 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
                 setSearchQuery={setSearchQuery}
                 navigate={navigate}
               />
-              {results.length > 0 && ( 
+              {results.length > 0 && (
                 <>
                   <DealerCardGrid data={
                     fetchFullResults(getResultsTitles(results), premiumDealers)
@@ -217,7 +217,7 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
       <Section pos='middle'>
         <DealerCardGrid data={reducedPremiumDealers} />
       </Section>
-      <Jumbotron 
+      <Jumbotron
         title='Regular Dealers (Live Data)'
         subtitle='Check out all these cool dealers!'
       />

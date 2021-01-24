@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import fetch from 'node-fetch'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
@@ -15,26 +15,19 @@ interface Props {
 }
 
 const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
-  const identity = useIdentityContext()
-
-  const { 
-    register, 
-    handleSubmit, 
+  const {
+    register,
+    handleSubmit,
     errors,
-    formState,
-    reset
+    formState
   } = useForm<ContactInputs>({
     reValidateMode: 'onSubmit',
     resolver: yupResolver(contactSchema)
   })
 
-  const { 
-    isSubmitting, 
-    isSubmitted, 
-    isSubmitSuccessful, 
-    isValid, 
-    isValidating, 
-    isDirty
+  const {
+    isSubmitting,
+    isSubmitSuccessful
   } = formState
 
   const [formError, setFormError] = useState<string | null>(null)
@@ -89,7 +82,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
         <input
           ref={register}
           name='name'
-          type='text' 
+          type='text'
           className={[
             'form-control',
             errors.message !== undefined ? 'is-invalid' : null
@@ -98,19 +91,18 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           autoFocus
         />
         <label htmlFor='inputName'>
-        Your name
+          Your name
         </label>
         {errors.name !== undefined &&
           <p className='text-danger'>
             {errors.name?.message ?? 'Unknown error'}
-          </p>
-        }
+          </p>}
       </div>
       <div className='form-floating mb-3'>
         <input
           ref={register}
           name='email'
-          type='text' 
+          type='text'
           className={[
             'form-control',
             errors.message !== undefined ? 'is-invalid' : null
@@ -118,13 +110,12 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           placeholder='Email address'
         />
         <label htmlFor='inputEmail'>
-        Email address
+          Email address
         </label>
         {errors.email !== undefined &&
           <p className='text-danger'>
             {errors.email?.message ?? 'Unknown error'}
-          </p>
-        }
+          </p>}
       </div>
       <div className='form-floating mb-3'>
         <textarea
@@ -138,13 +129,12 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           placeholder='Your message'
         />
         <label htmlFor='inputMessage'>
-        Your message
+          Your message
         </label>
         {errors.message !== undefined &&
           <p className='text-danger'>
             {errors.message?.message ?? 'Unknown error'}
-          </p>
-        }
+          </p>}
       </div>
       <div className='mb-3'>
         {formError !== null && <p>{`Error: ${formError}`}</p>}
@@ -155,10 +145,9 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           type='submit'
           disabled={isSubmitting}
         >
-          {!isSubmitting 
-            ? 'Submit' 
-            : <Spinner />
-          }
+          {!isSubmitting
+            ? 'Submit'
+            : <Spinner />}
         </button>
       </div>
       {isSubmitSuccessful &&
@@ -167,8 +156,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
             Thank you for your message! Please keep an eye on your email -{' '}
             we'll reply to you as soon as we can.
           </p>
-        </div>
-      }
+        </div>}
     </form>
 
   return <Form />

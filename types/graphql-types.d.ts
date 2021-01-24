@@ -3067,6 +3067,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3250,6 +3252,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -3454,6 +3458,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___author___name'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___logo'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3546,6 +3552,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3831,6 +3839,8 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___sassOptions___sourceComments'
   | 'pluginCreator___pluginOptions___sassOptions___sourceMapContents'
   | 'pluginCreator___pluginOptions___sassOptions___sourceMapEmbed'
+  | 'pluginCreator___pluginOptions___color'
+  | 'pluginCreator___pluginOptions___showSpinner'
   | 'pluginCreator___pluginOptions___objects'
   | 'pluginCreator___pluginOptions___secretKey'
   | 'pluginCreator___pluginOptions___pathCheck'
@@ -4100,6 +4110,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___sassOptions___sourceComments'
   | 'pluginOptions___sassOptions___sourceMapContents'
   | 'pluginOptions___sassOptions___sourceMapEmbed'
+  | 'pluginOptions___color'
+  | 'pluginOptions___showSpinner'
   | 'pluginOptions___objects'
   | 'pluginOptions___secretKey'
   | 'pluginOptions___pathCheck'
@@ -4269,6 +4281,8 @@ export type SitePluginPluginOptions = {
   fileName?: Maybe<Scalars['String']>;
   implementation?: Maybe<SitePluginPluginOptionsImplementation>;
   sassOptions?: Maybe<SitePluginPluginOptionsSassOptions>;
+  color?: Maybe<Scalars['String']>;
+  showSpinner?: Maybe<Scalars['Boolean']>;
   objects?: Maybe<Array<Maybe<Scalars['String']>>>;
   secretKey?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -4334,6 +4348,8 @@ export type SitePluginPluginOptionsFilterInput = {
   fileName?: Maybe<StringQueryOperatorInput>;
   implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
   sassOptions?: Maybe<SitePluginPluginOptionsSassOptionsFilterInput>;
+  color?: Maybe<StringQueryOperatorInput>;
+  showSpinner?: Maybe<BooleanQueryOperatorInput>;
   objects?: Maybe<StringQueryOperatorInput>;
   secretKey?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;

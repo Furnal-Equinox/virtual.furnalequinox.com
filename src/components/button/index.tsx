@@ -12,17 +12,17 @@ export interface Props {
   onClick?: () => void
 }
 
-const Button: React.FC<Props> = ({ 
+const Button: React.FC<Props> = ({
   state = undefined,
-  type = undefined, 
-  hasOutline = false, 
-  size = undefined, 
+  type = undefined,
+  hasOutline = false,
+  size = undefined,
   isFullwidth = false,
-  isClose = false, 
+  isClose = false,
   label = undefined,
   disabled = undefined,
-  onClick, 
-  ...props 
+  onClick,
+  ...props
 }: Props) => {
   return (
     <div className={isFullwidth ? 'd-grid' : undefined}>

@@ -41,19 +41,19 @@ const userMetadataSchema = Yup.object().shape({
 
 const emailSchema = Yup.string()
   .required('Please enter an email address.')
-  .email('This doesn\'t look like an email address.') 
+  .email('This doesn\'t look like an email address.')
 
 const passwordSchema = Yup.string()
   .required('Please enter a password.')
   .matches(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,32}$/gm, 
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,32}$/gm,
     'Your password does not meet the requirements.'
   )
   .notOneOf(blacklistedPasswords, 'Please choose a different password.')
 
 const messageSchema = Yup.string()
   .required('Please enter a message.')
-  .min(1, 'Your message cannot be empty!')  
+  .min(1, 'Your message cannot be empty!')
 
 export const signUpSchema = Yup.object().shape({
   user_metadata: userMetadataSchema,
