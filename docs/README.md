@@ -113,6 +113,9 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Use Bootstrap Modal in React](https://stackoverflow.com/questions/49992799/use-bootstrap-modal-in-react)
 
+[Programmatically create PrivateRoutes on Gatsby](https://stackoverflow.com/questions/56799436/programmatically-create-privateroutes-on-gatsby)
+> You probably don't want to use this approach if it's most of your pages. Instead you can use a server-based approach to restrict access to content. One example is Netlify's Visitor Access Control. – [coreyward](https://stackoverflow.com/users/203130/coreyward)
+
 ### Haskell Script
 
 [Turtle Tutorial](https://hackage.haskell.org/package/turtle-1.5.21/docs/Turtle-Tutorial.html)
