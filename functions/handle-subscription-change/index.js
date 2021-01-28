@@ -1,51 +1,41 @@
-const fetch = require('node-fetch')
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+const crpyto = require('crypto')
+const GoTrue = require('gotrue-js')
 
-const faunaFetch = async ({ query, variables }) => {
-  return await fetch('https://graphql.fauna.com/graphql', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${process.env.FAUNA_SERVER_KEY}`
-    },
-    body: JSON.stringify({
-      query,
-      variables
-    })
-  })
-    .then(
-      (res) => res.json()
-    )
-    .catch(
-      (err) => console.error(JSON.stringify(err, null, 2))
-    )
+
+const auth = new GoTrue({
+  APIUrl: 'https://virtual-furnal-equinox.netlify.app/.netlify/identity',
+  audience: '',
+  setCookie: false,
+})
+
+const sigHeaderName = 'X-Webconnex-Signature'
+
+const verifyData = (req, res, next) => {
+  const payload = JSON.stringify(req.body)
+
+  if (!payload) {
+    return next('Request body is empty!')
+  }
+
+  const sig = req.get(sigHeaderName) || ''
+
+  const hmac = crypto.createHmac('sha256', process.env.REGFOX_WEBHOOK_SECRET)
+
+  const digest = Buffer.from('sha256=' + hmac.update(payload).digest('hex'), 'utf8')
+  
+  const checksum = Buffer.from(sig, 'utf8')
+
+  if (checksum.length !== digest.length || !crypto.timingSafeEqual(digest, checksum)) {
+    return next(`Request body digest (${digest}) did not match ${sigHeaderName} (${checksum})`)
+  }
+  return next()
 }
 
-const handler = async ({ body, headers }, context) => {
+const handler = async (event, context) => {
+  const { headers, body } = event
+
   try {
-    // make sure this event was sent legitimately.
-    const stripeEvent = stripe.webhooks.constructEvent(
-      body,
-      headers['stripe-signature'],
-      process.env.STRIPE_WEBHOOK_SECRET
-    )
 
-    // bail if this is not a subscription update event
-    if (stripeEvent.type !== 'customer.subscription.updated') return
-
-    const subscription = stripeEvent.data.object
-
-    const result = await faunaFetch({
-      query: `
-          query ($stripeID: ID!) {
-            getUserByStripeID(stripeID: $stripeID) {
-              netlifyID
-            }
-          }
-        `,
-      variables: {
-        stripeID: subscription.customer
-      }
-    })
 
     const { netlifyID } = result.data.getUserByStripeID
 
@@ -67,6 +57,9 @@ const handler = async ({ body, headers }, context) => {
         }
       })
     })
+
+    await auth
+      .signup(email, password)
 
     return {
       statusCode: 200,
