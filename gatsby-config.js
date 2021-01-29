@@ -75,6 +75,22 @@ module.exports = {
       }
     },
 
+    /// Google Analytics 4
+    // {
+    //   resolve: 'gatsby-plugin-google-gtag',
+    //   options: {
+    //     trackingIds: [
+    //       process.env.GA_TRACKING_ID
+    //     ],
+    //     gtagConfig: {
+    //       anonymize_ip: true
+    //     },
+    //     pluginConfig: {
+    //       respectDNT: true
+    //     }
+    //   }
+    // },
+
     /// ==============================================================================================///
     ///                              IMAGES AND STATIC DATA                                           ///
     /// ==============================================================================================///
@@ -252,7 +268,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-csp',
       options: {
-        
+       directives: {
+        "script-src": "'self' www.google-analytics.com",
+        "img-src": "'self' data: www.google-analytics.com"
+       } 
       }
     }
   ]
