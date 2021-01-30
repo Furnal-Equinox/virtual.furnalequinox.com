@@ -188,7 +188,7 @@ export type DirectoryEdge = {
   previous?: Maybe<Directory>;
 };
 
-export type DirectoryFieldsEnum = 
+export type DirectoryFieldsEnum =
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -504,7 +504,7 @@ export type FileEdge = {
   previous?: Maybe<File>;
 };
 
-export type FileFieldsEnum = 
+export type FileFieldsEnum =
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -1368,7 +1368,7 @@ export type FloatQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Float']>>>;
 };
 
-export type ImageCropFocus = 
+export type ImageCropFocus =
   | 'CENTER'
   | 'NORTH'
   | 'NORTHEAST'
@@ -1381,14 +1381,14 @@ export type ImageCropFocus =
   | 'ENTROPY'
   | 'ATTENTION';
 
-export type ImageFit = 
+export type ImageFit =
   | 'COVER'
   | 'CONTAIN'
   | 'FILL'
   | 'INSIDE'
   | 'OUTSIDE';
 
-export type ImageFormat = 
+export type ImageFormat =
   | 'NO_CHANGE'
   | 'AUTO'
   | 'JPG'
@@ -1396,12 +1396,12 @@ export type ImageFormat =
   | 'WEBP'
   | 'AVIF';
 
-export type ImageLayout = 
+export type ImageLayout =
   | 'FIXED'
   | 'FULL_WIDTH'
   | 'CONSTRAINED';
 
-export type ImagePlaceholder = 
+export type ImagePlaceholder =
   | 'DOMINANT_COLOR'
   | 'TRACED_SVG'
   | 'BLURRED'
@@ -1591,7 +1591,7 @@ export type ImageSharpEdge = {
   previous?: Maybe<ImageSharp>;
 };
 
-export type ImageSharpFieldsEnum = 
+export type ImageSharpFieldsEnum =
   | 'fixed___base64'
   | 'fixed___tracedSVG'
   | 'fixed___aspectRatio'
@@ -2001,7 +2001,7 @@ export type LocalSearchDealersSfwEdge = {
   previous?: Maybe<LocalSearchDealersSfw>;
 };
 
-export type LocalSearchDealersSfwFieldsEnum = 
+export type LocalSearchDealersSfwFieldsEnum =
   | 'name'
   | 'engine'
   | 'index'
@@ -2122,7 +2122,7 @@ export type LocalSearchDealersSfwSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type MarkdownExcerptFormats = 
+export type MarkdownExcerptFormats =
   | 'PLAIN'
   | 'HTML'
   | 'MARKDOWN';
@@ -2143,7 +2143,7 @@ export type MarkdownHeadingFilterListInput = {
   elemMatch?: Maybe<MarkdownHeadingFilterInput>;
 };
 
-export type MarkdownHeadingLevels = 
+export type MarkdownHeadingLevels =
   | 'h1'
   | 'h2'
   | 'h3'
@@ -2227,7 +2227,7 @@ export type MarkdownRemarkFields = {
   slug?: Maybe<Scalars['String']>;
 };
 
-export type MarkdownRemarkFieldsEnum = 
+export type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter___title'
   | 'frontmatter___date'
@@ -2929,7 +2929,7 @@ export type Potrace = {
   background?: Maybe<Scalars['String']>;
 };
 
-export type PotraceTurnPolicy = 
+export type PotraceTurnPolicy =
   | 'TURNPOLICY_BLACK'
   | 'TURNPOLICY_WHITE'
   | 'TURNPOLICY_LEFT'
@@ -3284,7 +3284,7 @@ export type SiteBuildMetadataEdge = {
   previous?: Maybe<SiteBuildMetadata>;
 };
 
-export type SiteBuildMetadataFieldsEnum = 
+export type SiteBuildMetadataFieldsEnum =
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -3422,7 +3422,7 @@ export type SiteEdge = {
   previous?: Maybe<Site>;
 };
 
-export type SiteFieldsEnum = 
+export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
@@ -3600,7 +3600,7 @@ export type SitePageEdge = {
   previous?: Maybe<SitePage>;
 };
 
-export type SitePageFieldsEnum = 
+export type SitePageFieldsEnum =
   | 'path'
   | 'component'
   | 'internalComponentName'
@@ -3908,7 +3908,7 @@ export type SitePluginEdge = {
   previous?: Maybe<SitePlugin>;
 };
 
-export type SitePluginFieldsEnum = 
+export type SitePluginFieldsEnum =
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -4454,7 +4454,7 @@ export type SiteSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type SortOrderEnum = 
+export type SortOrderEnum =
   | 'ASC'
   | 'DESC';
 

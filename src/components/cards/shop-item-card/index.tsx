@@ -14,7 +14,7 @@ export interface ShopItem {
 type Props = ShopItem
 
 const ShopItemCard: React.FC<Props> = ({ name, price, description, banner, url }: Props) => {
-  const PlaceholderImage = () =>
+  const PlaceholderImage: React.FC = () =>
     <svg
       className='bd-placeholder-img card-img rounded-card-img-top'
       width='100%'

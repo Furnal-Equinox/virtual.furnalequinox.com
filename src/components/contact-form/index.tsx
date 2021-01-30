@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import fetch from 'node-fetch'
-import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
 import { ContactInputs, contactSchema } from '../../utils/form-validators'
 
-const encode = (data) => Object.keys(data)
+const encode = (data: Record<string, string>): string => Object.keys(data)
   .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
   .join('&')
 
@@ -32,7 +31,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
 
   const [formError, setFormError] = useState<string | null>(null)
 
-  const onSubmit = async (data) => {
+  const onSubmit = async ({ name, email, message }: ContactInputs): Promise<void> => {
     setFormError(null)
 
     fetch('/', {
@@ -40,15 +39,15 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': 'contact',
-        name: data.name,
-        email: data.email,
-        message: data.message
+        name: name,
+        email: email,
+        message: message
       })
     })
       .then(() => {
         navigateTarget !== undefined && navigate(navigateTarget)
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         setFormError(error.message)
       })
   }

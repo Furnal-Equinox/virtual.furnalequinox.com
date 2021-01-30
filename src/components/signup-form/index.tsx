@@ -16,12 +16,12 @@ const SignUpForm: React.FC = () => {
   const [formError, setFormError] = useState<string | null>(null)
   const [isSigningUp, setIsSigningUp] = useState<boolean>(false)
 
-  const onSubmit: React.FormEventHandler = async (data: any) => {
+  const onSubmit = async ({ email, password, user_metadata }: SignUpInputs): Promise<void> => {
     setIsSigningUp(true)
     setFormError(null)
 
     await identity
-      .signup(data)
+      .signup(email, password, user_metadata)
       .then(() => {
         setIsSigningUp(false)
 
@@ -29,7 +29,7 @@ const SignUpForm: React.FC = () => {
         // eslint-disable-next-line no-void
         void navigate('/')
       })
-      .catch((error: { message: React.SetStateAction<string | null> }) => {
+      .catch((error: Error) => {
         setIsSigningUp(false)
         setFormError(error.message)
       })

@@ -26,17 +26,17 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
     navigate(navigateTarget)
   }, [navigateTarget, identity.user])
 
-  const onSubmit = async data => {
+  const onSubmit = async ({ email, password }: LoginInputs): Promise<void> => {
     setIsLoggingIn(true)
     setFormError(null)
 
     await identity
-      .login({ email: data.email, password: data.password })
+      .login({ email: email, password: password })
       .then(() => {
         setIsLoggingIn(false)
         navigateTarget !== undefined && navigate(navigateTarget)
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         setIsLoggingIn(false)
         setFormError(error.message)
       })

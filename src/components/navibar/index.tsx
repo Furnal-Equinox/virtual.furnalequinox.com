@@ -18,12 +18,14 @@ export interface Props extends RouteComponentProps {
 const Navibar: React.FC<Props> = ({ location }: Props) => {
   const identity = useIdentityContext()
 
-  const Logo = () =>
+  const handleLogout = async (): Promise<void> => identity.logout
+
+  const Logo: React.FC = () =>
     <GatsbyLink className='navbar-brand mr-2' to='/'>
       <img src={logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
     </GatsbyLink>
 
-  const HamburgerMenu = () =>
+  const HamburgerMenu: React.FC = () =>
     <button
       className='navbar-toggler'
       type='button'
@@ -36,7 +38,7 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
       <span className='navbar-toggler-icon' />
     </button>
 
-  const CollapsibleLinks = () =>
+  const CollapsibleLinks: React.FC = () =>
     <div className='collapse navbar-collapse' id='navbarCollapse'>
       <ul className='navbar-nav me-auto mb-2 mb-md-0'>
         {
@@ -90,7 +92,7 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
             <li
               key='Logout'
             >
-              <Button label='Logout' onClick={identity.logout} />
+              <Button label='Logout' onClick={handleLogout} />
             </li>
           </>
           : <li
