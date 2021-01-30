@@ -2,6 +2,7 @@ import { APIGatewayProxyHandlerV2, APIGatewayProxyEventV2, APIGatewayProxyResult
 import Crypto from 'crypto'
 import { differenceInYears } from 'date-fns'
 import GoTrue from 'gotrue-js'
+import { Headers } from 'node-fetch'
 import Password from 'secure-random-password'
 import { Payload, Registrant, Role, User } from './types'
 
@@ -20,7 +21,13 @@ const isVerified = (
     throw new Error('Request body is empty!')
   }
 
-  const sig: string = headers[sigHeaderName] ?? ''
+  if (headers === undefined) {
+    throw new Error('Headers are empty!')
+  }
+
+  const headersRec = new Headers(headers as Record<string, string>)
+
+  const sig: string = headersRec.get(sigHeaderName) ?? ''
 
   const hmac: Crypto.Hmac = Crypto.createHmac(
     'sha256', process.env.REGFOX_WEBHOOK_SECRET as string
