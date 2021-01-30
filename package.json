@@ -23,7 +23,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic --auto-accept-changes",
-    "netlify-functions-build": "tsc --project \"./functions/tsconfig.json\"",
+    "netlify-functions-build": "tsc --project ./functions/tsconfig.json",
     "netlify-functions-clean": "rimraf ./functions/build",
     "run-pa11y": "stack ./scripts/pa11yRunner.hs",
     "clean-all": "yarn clean && yarn netlify-functions-clean",

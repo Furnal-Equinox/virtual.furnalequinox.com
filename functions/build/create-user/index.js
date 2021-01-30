@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.handler = void 0;
 const tslib_1 = require("tslib");
 const crypto_1 = tslib_1.__importDefault(require("crypto"));
 const date_fns_1 = require("date-fns");
@@ -81,4 +82,4 @@ const handler = (event) => tslib_1.__awaiter(void 0, void 0, void 0, function* (
         return notOk;
     }
 });
-exports.default = handler;
+exports.handler = handler;

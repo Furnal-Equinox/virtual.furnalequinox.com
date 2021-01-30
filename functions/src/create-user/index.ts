@@ -79,7 +79,7 @@ const signupUser = async ({ email, password, roles }: User): Promise<void> => {
   await auth.signup(email, password, { app_metadata: { roles: roles } })
 }
 
-const handler: APIGatewayProxyHandlerV2 = async (event) => {
+export const handler: APIGatewayProxyHandlerV2 = async (event) => {
   try {
     if (!isVerified(event)) {
       throw new Error('Request body was not signed or verification failed!')
@@ -111,5 +111,3 @@ const handler: APIGatewayProxyHandlerV2 = async (event) => {
     return notOk
   }
 }
-
-export default handler
