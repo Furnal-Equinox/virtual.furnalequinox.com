@@ -1,5 +1,5 @@
 export interface Payload {
-  eventType: 'registration'
+  eventType: 'registration' | 'ping'
   accountId: number
   formId: number
   customerId: number

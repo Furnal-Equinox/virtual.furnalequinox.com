@@ -1,4 +1,4 @@
-import { APIGatewayProxyHandlerV2, APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda'
+import { APIGatewayProxyHandlerV2, APIGatewayProxyEventV2, APIGatewayProxyResultV2, Context, APIGatewayProxyStructuredResultV2 } from 'aws-lambda'
 import Crypto from 'crypto'
 import { differenceInYears } from 'date-fns'
 import GoTrue from 'gotrue-js'
@@ -86,23 +86,53 @@ const signupUser = async ({ email, password, roles }: User): Promise<void> => {
   await auth.signup(email, password, { app_metadata: { roles: roles } })
 }
 
-export const handler: APIGatewayProxyHandlerV2 = async (event) => {
+const handlePing = async ({ data }: Payload, context: Context): Promise<APIGatewayProxyResultV2> => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ received: true })
+  }
+}
+
+const handleRegistration = async (data: Payload, context: Context): Promise<APIGatewayProxyResultV2> => {
+  const { identity }: any = context.clientContext
+
+  // Convert the payload into a list of users.
+  const users: User[] = createUsersFromPayload(data)
+
+  // Attempt to sign up every user in the list.
+  await Promise.all(users.map(async user => await signupUser(user)))
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ received: true })
+  }
+}
+
+export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
   try {
     if (!isVerified(event)) {
       throw new Error('Request body was not signed or verification failed!')
     }
 
+    
+
     // If verification passes, then body is not null or the empty string.
     const data: Payload = JSON.parse(event.body as string)
 
-    // Convert the payload into a list of users.
-    const users: User[] = createUsersFromPayload(data)
+    switch (data.eventType) {
+      case 'ping':
 
-    // Attempt to sign up every user in the list.
-    await Promise.all(users.map(async user => await signupUser(user)))
+        break;
+      case 'registration':
+        handleRegistration(data, context)
+        break;
+      default:
+        throw new Error('Unrecognized event type!')
+    }
+
+    
 
     // If everything worked, return 200.
-
     const ok: APIGatewayProxyResultV2 = {
       statusCode: 200,
       body: JSON.stringify({ received: true })
