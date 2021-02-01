@@ -46,10 +46,8 @@ const signupUser = async (
   const postBody = { 
     email: email,
     password: password,
-    user_metadata: { 
-      isAdult: isAdult
-    }, 
-    confirm: true 
+    confirm: true,
+    isAdult: isAdult
   }
   
   await fetch(usersUrl, {
