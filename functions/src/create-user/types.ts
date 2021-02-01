@@ -4,52 +4,58 @@ export interface Payload {
   formId: number
   customerId: number
   eventId: number
-  data: {
-    billing: {
-      address?: {
-        city: string
-        country: string
-        postalCode: string
-        state: string
-        street1: string
-      }
-      card?: {
-        cardNumber: string
-        expMonth: number
-        expYear: number
-      }
-      check?: {
-        accountType: string
-        accountNumber: string
-        routingNumber: string
-      }
-      email: string
-      name: {
-        first: string
-        last: string
-      }
-      paymentMethod?: string
-      phone?: string
-    }
-    id: string
-    lookupId: number
-    customerId: number
-    currency: string
-    deductibleTotal: number
-    orderNumber: string
-    orderStatus: string
-    registrants: Registrant[]
-    registrationTimestamp: string
-    total: number
-    transactionId: number
-    transactionReference: string
-    note: string
-  }
+  data: PingPayload | RegistrationPayload
   meta: {
     appKey: string
     name: string
   }
   formMeta?: any
+}
+
+export interface PingPayload {
+  note: string
+}
+
+export interface RegistrationPayload {
+  billing: {
+    address?: {
+      city: string
+      country: string
+      postalCode: string
+      state: string
+      street1: string
+    }
+    card?: {
+      cardNumber: string
+      expMonth: number
+      expYear: number
+    }
+    check?: {
+      accountType: string
+      accountNumber: string
+      routingNumber: string
+    }
+    email: string
+    name: {
+      first: string
+      last: string
+    }
+    paymentMethod?: string
+    phone?: string
+  }
+  id: string
+  lookupId: number
+  customerId: number
+  currency: string
+  deductibleTotal: number
+  orderNumber: string
+  orderStatus: string
+  registrants: Registrant[]
+  registrationTimestamp: string
+  total: number
+  transactionId: number
+  transactionReference: string
+  note: string
 }
 
 export interface Registrant {

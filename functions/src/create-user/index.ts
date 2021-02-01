@@ -1,10 +1,15 @@
-import { APIGatewayProxyHandlerV2, APIGatewayProxyEventV2, APIGatewayProxyResultV2, Context, APIGatewayProxyStructuredResultV2 } from 'aws-lambda'
-import Crypto from 'crypto'
-import { differenceInYears } from 'date-fns'
+import { APIGatewayProxyHandlerV2 } from 'aws-lambda'
 import GoTrue from 'gotrue-js'
-import { Headers } from 'node-fetch'
-import Password from 'secure-random-password'
-import { Payload, Registrant, Role, User } from './types'
+import handlePing from './handle-ping'
+import handleRegistration from './handle-reg'
+import isVerified from './is-verified'
+import { 
+  Payload, 
+  PingPayload, 
+  RegistrationPayload, 
+} from './types'
+
+const sigHeaderName = 'X-Webconnex-Signature'
 
 const auth = new GoTrue({
   APIUrl: 'https://virtual-furnal-equinox.netlify.app/.netlify/identity',
@@ -12,139 +17,31 @@ const auth = new GoTrue({
   setCookie: false
 })
 
-const sigHeaderName = 'X-Webconnex-Signature'
-
-const isVerified = (
-  { headers, body }: APIGatewayProxyEventV2
-): boolean => {
-  if (body === undefined || body === null || body === '') {
-    throw new Error('Request body is empty!')
-  }
-
-  if (headers === undefined) {
-    throw new Error('Headers are empty!')
-  }
-
-  const headersRec = new Headers(headers as Record<string, string>)
-
-  const sig: string = headersRec.get(sigHeaderName) ?? ''
-
-  const hmac: Crypto.Hmac = Crypto.createHmac(
-    'sha256', process.env.REGFOX_WEBHOOK_SECRET as string
-  )
-
-  const digest: Buffer = Buffer.from(
-    hmac.update(body).digest('hex'), 'utf-8'
-  )
-
-  const checksum: Buffer = Buffer.from(sig, 'utf-8')
-
-  if (checksum.length !== digest.length || !Crypto.timingSafeEqual(digest, checksum)) {
-    throw new Error(
-      `Request body digest [${digest.toString('utf-8')}] did not match ${sigHeaderName} [${checksum.toString('utf-8')}]`
-    )
-  }
-
-  // If no errors are thrown, then the payload is fine.
-  return true
-}
-
-const createUsersFromPayload = ({ data }: Payload): User[] => (
-  data.registrants.map(({ data }: Registrant) => {
-    const email: string | undefined = data.find(o => o.key === 'email')?.value
-    const ticketType: string | undefined = data.find(o => o.key === 'registrationOptions')?.value
-    const dob: string | undefined = data.find(o => o.key === 'dateOfBirth')?.value
-
-    const password: string = Password.randomPassword({
-      characters: [Password.lower, Password.upper, Password.digits],
-      length: 16
-    })
-
-    const roles: Role[] = []
-
-    if (ticketType === undefined || email === undefined || dob === undefined) {
-      throw new Error('User has invalid ticket type and/or DOB!')
-    } else {
-      const DOB = new Date(dob)
-
-      if (differenceInYears(new Date('2021-03-19'), DOB) >= 18) {
-        roles.push('adult')
-      }
-
-      roles.push(ticketType as Role)
-    }
-
-    return {
-      email: email,
-      password: password,
-      roles: roles
-    }
-  })
-)
-
-const signupUser = async ({ email, password, roles }: User): Promise<void> => {
-  await auth.signup(email, password, { app_metadata: { roles: roles } })
-}
-
-const handlePing = async ({ data }: Payload, context: Context): Promise<APIGatewayProxyResultV2> => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ received: true })
-  }
-}
-
-const handleRegistration = async (data: Payload, context: Context): Promise<APIGatewayProxyResultV2> => {
-  const { identity }: any = context.clientContext
-
-  // Convert the payload into a list of users.
-  const users: User[] = createUsersFromPayload(data)
-
-  // Attempt to sign up every user in the list.
-  await Promise.all(users.map(async user => await signupUser(user)))
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ received: true })
-  }
-}
-
 export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
   try {
-    if (!isVerified(event)) {
+    // Attempt to verify the data.
+    // If verification fails, bail immediately.
+    if (!isVerified(event, sigHeaderName)) {
       throw new Error('Request body was not signed or verification failed!')
     }
 
-    
-
     // If verification passes, then body is not null or the empty string.
-    const data: Payload = JSON.parse(event.body as string)
+    const payload: Payload = JSON.parse(event.body as string)
 
-    switch (data.eventType) {
-      case 'ping':
+    // Extract the event type and the event data.
+    const { eventType, data } = payload
 
-        break;
-      case 'registration':
-        handleRegistration(data, context)
-        break;
-      default:
-        throw new Error('Unrecognized event type!')
+    if (eventType === 'ping') {
+      return handlePing(data as PingPayload, context)
+    } else if (eventType === 'registration') {
+      return handleRegistration(data as RegistrationPayload, context, auth)
+    } else {
+      throw new Error('Unrecognized event type!')
     }
-
-    
-
-    // If everything worked, return 200.
-    const ok: APIGatewayProxyResultV2 = {
-      statusCode: 200,
-      body: JSON.stringify({ received: true })
-    }
-
-    return ok
   } catch (err) {
-    const notOk: APIGatewayProxyResultV2 = {
+    return {
       statusCode: 400,
       body: `Webhook Error: ${err.message as string}`
     }
-
-    return notOk
   }
 }
