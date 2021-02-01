@@ -89,7 +89,5 @@ export interface DOB {
 export interface User {
   email: string
   password: string
-  roles: Role[]
+  isAdult: boolean
 }
-
-export type Role = 'free' | 'pro' | 'super' | 'adult'

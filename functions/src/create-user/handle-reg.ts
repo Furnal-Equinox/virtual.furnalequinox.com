@@ -8,7 +8,6 @@ import Password from 'secure-random-password'
 import {
   Registrant,
   RegistrationPayload,
-  Role,
   User
 } from './types'
 
@@ -18,27 +17,23 @@ const createUsersFromPayload = (registrants: Registrant[]): User[] => (
     const ticketType: string | undefined = data.find(o => o.key === 'registrationOptions')?.value
     const dob: string | undefined = data.find(o => o.key === 'dateOfBirth')?.value
 
+    if (ticketType === undefined || email === undefined || dob === undefined) {
+      throw new Error('User has invalid ticket type, email, and/or DOB!')
+    }
+
     const password: string = Password.randomPassword({
       characters: [Password.lower, Password.upper, Password.digits],
       length: 16
     })
 
-    let roles: Role[] = ['free']
+    const DOB = new Date(dob)
 
-    if (ticketType === undefined || email === undefined || dob === undefined) {
-      throw new Error('User has invalid ticket type and/or DOB!')
-    } else {
-      const DOB = new Date(dob)
-
-      if (differenceInYears(new Date('2021-03-19'), DOB) >= 18) {
-        roles.push('adult')
-      }
-    }
+    const isAdult: boolean = differenceInYears(new Date('2021-03-19'), DOB) >= 18
 
     return {
       email: email,
       password: password,
-      roles: roles
+      isAdult: isAdult
     }
   })
 )
@@ -46,13 +41,13 @@ const createUsersFromPayload = (registrants: Registrant[]): User[] => (
 const signupUser = async (
   usersUrl: string, 
   adminAuthHeader: string,
-  { email, password, roles }: User
+  { email, password, isAdult }: User
 ): Promise<void> => {
   const postBody = { 
     email: email,
     password: password,
-    app_metadata: { 
-      roles: roles
+    user_metadata: { 
+      isAdult: isAdult
     }, 
     confirm: true 
   }
