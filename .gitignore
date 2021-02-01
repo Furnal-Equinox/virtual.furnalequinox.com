@@ -3,6 +3,7 @@ node_modules
 
 # Do not track the build output in public
 public
+functions/build
 
 # Do not track Storybook's build folder
 storybook-static

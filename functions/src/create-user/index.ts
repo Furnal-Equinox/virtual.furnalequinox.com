@@ -1,5 +1,4 @@
 import { APIGatewayProxyHandlerV2 } from 'aws-lambda'
-import GoTrue from 'gotrue-js'
 import handlePing from './handle-ping'
 import handleRegistration from './handle-reg'
 import isVerified from './is-verified'
@@ -10,12 +9,6 @@ import {
 } from './types'
 
 const sigHeaderName = 'X-Webconnex-Signature'
-
-const auth = new GoTrue({
-  APIUrl: 'https://virtual-furnal-equinox.netlify.app/.netlify/identity',
-  audience: '',
-  setCookie: false
-})
 
 export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
   try {
@@ -34,7 +27,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
     if (eventType === 'ping') {
       return await handlePing(data as PingPayload, context)
     } else if (eventType === 'registration') {
-      return await handleRegistration(data as RegistrationPayload, context, auth)
+      return await handleRegistration(data as RegistrationPayload, context)
     } else {
       throw new Error('Unrecognized event type!')
     }

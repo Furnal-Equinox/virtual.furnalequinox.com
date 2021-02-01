@@ -4,7 +4,6 @@ import {
 } from 'aws-lambda'
 import { differenceInYears } from 'date-fns'
 import fetch from 'node-fetch'
-import GoTrue from 'gotrue-js'
 import Password from 'secure-random-password'
 import {
   Registrant,
@@ -24,7 +23,7 @@ const createUsersFromPayload = (registrants: Registrant[]): User[] => (
       length: 16
     })
 
-    const roles: Role[] = []
+    let roles: Role[] = ['free']
 
     if (ticketType === undefined || email === undefined || dob === undefined) {
       throw new Error('User has invalid ticket type and/or DOB!')
@@ -34,8 +33,6 @@ const createUsersFromPayload = (registrants: Registrant[]): User[] => (
       if (differenceInYears(new Date('2021-03-19'), DOB) >= 18) {
         roles.push('adult')
       }
-
-      roles.push(ticketType as Role)
     }
 
     return {
@@ -46,18 +43,30 @@ const createUsersFromPayload = (registrants: Registrant[]): User[] => (
   })
 )
 
-const signupUser = async (usersUrl: string, adminAuthHeader: string, auth: GoTrue, { email, password, roles }: User): Promise<void> => {
+const signupUser = async (
+  usersUrl: string, 
+  adminAuthHeader: string,
+  { email, password, roles }: User
+): Promise<void> => {
+  const postBody = { 
+    email: email,
+    password: password,
+    app_metadata: { 
+      roles: roles
+    }, 
+    confirm: true 
+  }
+  
   await fetch(usersUrl, {
     method: 'POST',
     headers: { Authorization: adminAuthHeader },
-    body: JSON.stringify({ email: email, password: password, app_metadata: { roles: roles }, confirm: true })
+    body: JSON.stringify(postBody)
   })
 }
 
 const handleRegistration = async (
   { registrants }: RegistrationPayload,
   context: Context,
-  goTrueInstance: GoTrue
 ): Promise<APIGatewayProxyResultV2> => {
   const { identity }: any = context.clientContext
   const usersUrl = `${identity.url as string}/admin/users`
@@ -69,7 +78,7 @@ const handleRegistration = async (
   // Attempt to sign up every user in the list.
   await Promise.all(
     users.map(
-      async user => await signupUser(usersUrl, adminAuthHeader, goTrueInstance, user)
+      async user => await signupUser(usersUrl, adminAuthHeader, user)
     )
   )
 
