@@ -3,6 +3,7 @@ import {
   Context
 } from 'aws-lambda'
 import { differenceInYears } from 'date-fns'
+import fetch from 'node-fetch'
 import GoTrue from 'gotrue-js'
 import Password from 'secure-random-password'
 import {
@@ -45,24 +46,32 @@ const createUsersFromPayload = (registrants: Registrant[]): User[] => (
   })
 )
 
-const signupUser = async (auth: GoTrue, { email, password, roles }: User): Promise<void> => {
-  await auth.signup(email, password, { app_metadata: { roles: roles } })
+const signupUser = async (usersUrl: string, adminAuthHeader: string, auth: GoTrue, { email, password, roles }: User): Promise<void> => {
+  await fetch(usersUrl, {
+    method: 'POST',
+    headers: { Authorization: adminAuthHeader },
+    body: JSON.stringify({ email: email, password: password, app_metadata: { roles: roles }, confirm: true })
+  })
 }
-
-
 
 const handleRegistration = async (
   { registrants }: RegistrationPayload,
   context: Context,
-  auth: GoTrue
+  goTrueInstance: GoTrue
 ): Promise<APIGatewayProxyResultV2> => {
   const { identity }: any = context.clientContext
+  const usersUrl = `${identity.url as string}/admin/users`
+  const adminAuthHeader = `Bearer ${identity.token as string}`
 
   // Convert the payload into a list of users.
   const users: User[] = createUsersFromPayload(registrants)
 
   // Attempt to sign up every user in the list.
-  await Promise.all(users.map(async user => await signupUser(auth, user)))
+  await Promise.all(
+    users.map(
+      async user => await signupUser(usersUrl, adminAuthHeader, goTrueInstance, user)
+    )
+  )
 
   return {
     statusCode: 200,

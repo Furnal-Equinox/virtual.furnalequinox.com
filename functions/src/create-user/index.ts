@@ -3,10 +3,10 @@ import GoTrue from 'gotrue-js'
 import handlePing from './handle-ping'
 import handleRegistration from './handle-reg'
 import isVerified from './is-verified'
-import { 
-  Payload, 
-  PingPayload, 
-  RegistrationPayload, 
+import {
+  Payload,
+  PingPayload,
+  RegistrationPayload
 } from './types'
 
 const sigHeaderName = 'X-Webconnex-Signature'
@@ -32,9 +32,9 @@ export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
     const { eventType, data } = payload
 
     if (eventType === 'ping') {
-      return handlePing(data as PingPayload, context)
+      return await handlePing(data as PingPayload, context)
     } else if (eventType === 'registration') {
-      return handleRegistration(data as RegistrationPayload, context, auth)
+      return await handleRegistration(data as RegistrationPayload, context, auth)
     } else {
       throw new Error('Unrecognized event type!')
     }
