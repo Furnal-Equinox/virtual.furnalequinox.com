@@ -88,6 +88,11 @@ export interface DOB {
 
 export interface User {
   email: string
-  password: string
-  isAdult: boolean
+}
+
+export interface NetlifyContext {
+  identity: {
+    url: string
+    token: string
+  }
 }
