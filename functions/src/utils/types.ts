@@ -4,7 +4,7 @@ export interface Payload {
   formId: number
   customerId: number
   eventId: number
-  data: PingPayload | RegistrationPayload
+  data: PingPayload | RegistrationPayload | DonationPayload
   meta: {
     appKey: string
     name: string
