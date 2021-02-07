@@ -1,6 +1,6 @@
 import { APIGatewayProxyHandlerV2 } from 'aws-lambda'
 import handlePing from '../utils/handle-ping'
-import handleDonation from './handle-donation'
+import handleDonation from './handle-don'
 import isVerified from '../utils/is-verified'
 import {
   DonationPayload,
