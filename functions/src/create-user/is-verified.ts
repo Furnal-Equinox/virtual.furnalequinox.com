@@ -4,7 +4,7 @@ import { Headers } from 'node-fetch'
 
 /**
  * Verify the incoming data.
- * @param {APIGatewayProxyEventV2} event - the HTTP event, destructured into its headers and body. 
+ * @param {APIGatewayProxyEventV2} event - the HTTP event, destructured into its headers and body.
  * @param {string} signatureHeaderName - the X-header that holds the payload's signature.
  * @returns {boolean} true if the data is verified, false otherwise.
  */

@@ -1,0 +1,32 @@
+type Donation {
+  # The donor's fur name.
+  furName: String! @unique
+
+  # The donor's email address.
+  email: String! @unique
+
+  # The donor's Discord handle.
+  discordHandle: String @unique
+
+  # Normalized donation amount in terms of lowest denominator, e.g.,
+  # $1.00 => 100 cents => stored as 100 here.
+  amount: Int!
+}
+
+type Query {
+  # Get all donations
+  allDonations: [Donation!]
+
+  # Get a donation record by a donor's fur name
+  getDonationByFurName(furName: String!): Donation!
+
+  # Get a donation record by a donor's Discord handle
+  # Since the Discord handle is optional, this query may not return a result.
+  getDonationByDiscordHandle(discordHandle: String!): Donation
+
+  # Get a donation record by a donor's email address
+  getDonationByEmail(email: String!): Donation!
+
+  # get all donations sorted by the donation amount
+  allDonationsSortedByAmount: [Donation!]! @resolver(name: "allDonationsSortedByAmount", paginated: true)
+}

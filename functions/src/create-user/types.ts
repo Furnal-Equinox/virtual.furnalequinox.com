@@ -17,32 +17,7 @@ export interface PingPayload {
 }
 
 export interface RegistrationPayload {
-  billing: {
-    address?: {
-      city: string
-      country: string
-      postalCode: string
-      state: string
-      street1: string
-    }
-    card?: {
-      cardNumber: string
-      expMonth: number
-      expYear: number
-    }
-    check?: {
-      accountType: string
-      accountNumber: string
-      routingNumber: string
-    }
-    email: string
-    name: {
-      first: string
-      last: string
-    }
-    paymentMethod?: string
-    phone?: string
-  }
+  billing: Billing
   id: string
   lookupId: number
   customerId: number
@@ -53,23 +28,76 @@ export interface RegistrationPayload {
   registrants: Registrant[]
   registrationTimestamp: string
   total: number
+  formName: string
   transactionId: number
   transactionReference: string
   note: string
+}
+
+export interface Billing {
+  address?: {
+    city: string
+    country: string
+    postalCode: string
+    state: string
+    street1: string
+  }
+  card?: {
+    cardNumber: string
+    expMonth: number
+    expYear: number
+  }
+  check?: {
+    accountType: string
+    accountNumber: string
+    routingNumber: string
+  }
+  email: string
+  name: {
+    first: string
+    last: string
+  }
+  paymentMethod?: string
+  phone?: string
 }
 
 export interface Registrant {
   amount: number
   id: string
   lookupId: string
-  data: Array<RegistrationOptions | Email | DOB>
+  data: RegistrantData
 }
+
+export type RegistrantData = Array<
+    RegistrationOptions
+  | Email
+  | RealName
+  | FurName
+  | DonationAmount
+  | DiscordHandle
+>
 
 export interface RegistrationOptions {
   key: 'registrationOptions'
   label: 'Ticket Type'
   type: 'regOptions'
-  value: 'free' | 'pro' | 'super'
+  value: Exclude<Role, 'adult'>
+}
+
+export interface RealName {
+  key: 'name'
+  label: 'Name'
+  type: 'name'
+  first: {
+    label: 'First Name'
+    type: 'nameField'
+    value: string
+  }
+  last: {
+    label: 'Last Name'
+    type: 'nameField'
+    value: string
+  }
 }
 
 export interface Email {
@@ -79,16 +107,45 @@ export interface Email {
   value: string
 }
 
-export interface DOB {
-  key: 'dateOfBirth'
-  label: 'Date of Birth'
-  type: 'birthDate'
+export interface FurName {
+  key: 'furName'
+  label: 'Fur Name'
+  type: 'textField'
   value: string
 }
 
-export interface User {
-  email: string
+export interface DiscordHandle {
+  key: 'discordHandle'
+  label: 'Discord Handle'
+  type: 'textField'
+  value: string
 }
+
+export interface DonationFields {
+  key: '$donationFields'
+  type: 'donationFields'
+  amount: {
+    label: 'Amount'
+    type: 'amountField'
+    value: string
+  }
+}
+
+export interface DonationAmount {
+  key: 'donationAmount'
+  label: 'Donation Amount'
+  type: 'donationBox'
+  repeater: DonationFields[]
+}
+
+export interface User {
+  discordHandle: string | null
+  donationAmount: number
+  email: string
+  furName: string
+}
+
+export type Role = 'free' | 'basic' | 'pro' | 'super' | 'adult'
 
 export interface NetlifyContext {
   identity: {

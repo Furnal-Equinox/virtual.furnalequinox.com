@@ -1,0 +1,35 @@
+# Example queries
+
+query FindDonation {
+  findDonationByID(id: "289400437540389382") {
+    furName
+  }
+}
+
+query AllDonations {
+  allDonations {
+    data {
+      furName
+    }
+  }
+}
+
+query AllDonationsSortedByAmount {
+  allDonationsSortedByAmount {
+    data {
+      furName
+      email
+      amount
+    }
+  }
+}
+
+query TopTenDonations {
+  allDonationsSortedByAmount(_size: 10) {
+    data {
+      furName
+      email
+      amount
+    }
+  }
+}

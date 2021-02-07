@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2015",
     "module": "CommonJS",
-    "lib": ["ES2015"],
+    "lib": ["ES2015", "DOM"],
     "allowJs": true,
     "noEmit": false,
     "strict": true,
