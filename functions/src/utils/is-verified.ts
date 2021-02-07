@@ -10,7 +10,8 @@ import { Headers } from 'node-fetch'
  */
 const isVerified = (
   { headers, body }: APIGatewayProxyEventV2,
-  signatureHeaderName: string
+  signatureHeaderName: string,
+  secretKey: string
 ): boolean => {
   // If there are no headers, bail out.
   if (headers === undefined || headers === null) {
@@ -30,7 +31,7 @@ const isVerified = (
 
   // Build an HMAC from our webhook secret.
   const hmac: Crypto.Hmac = Crypto.createHmac(
-    'sha256', process.env.REGFOX_WEBHOOK_SECRET as string
+    'sha256', secretKey
   )
 
   // Build a digest from our HMAC.

@@ -34,6 +34,23 @@ export interface RegistrationPayload {
   note: string
 }
 
+export interface DonationPayload {
+  id: string
+  lookupId: number
+  customerId: number
+  billing: Billing
+  transactionId: number
+  transactionReference: string
+  orderStatus: string
+  orderNumber: string
+  registrationTimestamp: string
+  total: number
+  formName: string
+  currency: string
+  deductibleTotal: number
+  registrants: Donation[]
+}
+
 export interface Billing {
   address?: {
     city: string
@@ -69,12 +86,26 @@ export interface Registrant {
 }
 
 export type RegistrantData = Array<
-    RegistrationOptions
-  | Email
-  | RealName
-  | FurName
-  | DonationAmount
-  | DiscordHandle
+RegistrationOptions
+| Email
+| RealName
+| FurName
+| DonationAmount
+| DiscordHandle
+>
+
+export interface Donation {
+  id: string
+  lookupId: number
+  amount: number
+  data: DonationData
+}
+
+export type DonationData = Array<
+ConvenienceFeeLineItem 
+| DonationAmount
+| FurName
+| DiscordHandle
 >
 
 export interface RegistrationOptions {
@@ -129,6 +160,13 @@ export interface DonationFields {
     type: 'amountField'
     value: string
   }
+  coverFee: {
+    label: string
+    type: 'checkbox'
+    amount: string
+    discount: string
+    value: boolean
+  }
 }
 
 export interface DonationAmount {
@@ -136,6 +174,22 @@ export interface DonationAmount {
   label: 'Donation Amount'
   type: 'donationBox'
   repeater: DonationFields[]
+}
+
+export interface ConvenienceFeeLineItem {
+  key: 'lineItem'
+  label: 'Convenience Fee'
+  type: 'lineItem'
+  amount: string
+  fees: {
+    key: 'lineItemFee'
+    type: 'lineItemFee'
+    amount: string
+    fee: {
+      type: string
+      value: string
+    }
+  }[]
 }
 
 export interface User {

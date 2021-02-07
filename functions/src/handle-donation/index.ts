@@ -1,12 +1,12 @@
 import { APIGatewayProxyHandlerV2 } from 'aws-lambda'
-import handlePing from './handle-ping'
-import handleRegistration from './handle-reg'
-import isVerified from './is-verified'
+import handlePing from '../utils/handle-ping'
+import handleDonation from './handle-donation'
+import isVerified from '../utils/is-verified'
 import {
+  DonationPayload,
   Payload,
   PingPayload,
-  RegistrationPayload
-} from './types'
+} from '../utils/types'
 
 const sigHeaderName = 'X-Webconnex-Signature'
 
@@ -14,7 +14,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
   try {
     // Attempt to verify the data.
     // If verification fails, bail immediately.
-    if (!isVerified(event, sigHeaderName)) {
+    if (!isVerified(event, sigHeaderName, process.env.REGFOX_DONATION_WEBHOOK_SECRET as string)) {
       throw new Error('Request body was not signed or verification failed!')
     }
 
@@ -27,7 +27,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
     if (eventType === 'ping') {
       return await handlePing(data as PingPayload, context)
     } else if (eventType === 'registration') {
-      return await handleRegistration(data as RegistrationPayload, context)
+      return await handleDonation(data as DonationPayload, context)
     } else {
       throw new Error('Unrecognized event type!')
     }
