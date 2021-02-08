@@ -115,14 +115,20 @@ const AuthOverlay: React.FC = () => {
   return (
     <>
       {identity.urlToken?.type === 'passwordRecovery' || identity.urlToken?.type === 'invite' &&
-        <Modal show={show} onHide={handleHide}>
-          <Modal.Header closeButton>
-            <Modal.Title>
+        <Modal
+          show={show}
+          onHide={handleHide}
+          centered
+          backdrop='static'
+          aria-labelledby='modal-title'
+        >
+          <Modal.Header>
+            <Modal.Title id='modal-title'>
               {identity.urlToken?.type === 'passwordRecovery' && "Let's reset your password."}
               {identity.urlToken?.type === 'invite' && "Let's finish setting up your account."}
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className='text-center px-3'>
             <PasswordForm />
           </Modal.Body>
         </Modal>}
