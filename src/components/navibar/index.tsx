@@ -2,6 +2,7 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
+import * as faunadb from 'faunadb'
 import logo from '../../../content/images/logo.png'
 
 import './style.scss'
