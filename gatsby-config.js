@@ -268,12 +268,17 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-csp',
       options: {
+        disableOnDev: true,
+        reportOnly: false,
+        mergeScriptHashes: true,
+        mergeStyleHashes: false,
+        mergeDefaultDirectives: true,
         directives: {
           'connect-src': "'self' virtual-furnal-equinox.netlify.app/.netlify",
-          'font-src': "'self' fonts.googleapis.com",
+          'font-src': "'self'",
           'img-src': "'self' data: www.google-analytics.com data: http.cat data: www.netlify.com",
           'script-src': "'self' www.google-analytics.com",
-          'style-src': "'self' 'unsafe-inline'"
+          'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
         }
       }
     }
