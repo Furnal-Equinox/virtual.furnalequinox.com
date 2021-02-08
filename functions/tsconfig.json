@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2015",
-    "module": "ES2015",
+    "module": "CommonJS",
     "lib": ["ES2015", "DOM"],
     "allowJs": true,
-    "noEmit": true,
+    "noEmit": false,
     "strict": true,
     "skipLibCheck": true,
     "noImplicitAny": true,
@@ -14,15 +14,15 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react",
     "forceConsistentCasingInFileNames": true,
-    "rootDir": "./",
+    "rootDir": "./src",
+    "outDir": "./build",
     "typeRoots": [
-        "node_modules/@types",
-        "@types"
+        "../node_modules/@types",
+        "../@types"
     ],
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src/**/*", "types/**/*"],
-  "exclude": ["functions", "node_modules", "public", ".cache", "**/*.spec.ts"]
+  "exclude": ["build/**/*"]
 }

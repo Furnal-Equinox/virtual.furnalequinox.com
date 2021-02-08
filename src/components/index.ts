@@ -1,4 +1,5 @@
 export { default as Anchor } from './anchor'
+export { default as AuthOverlay } from './auth-overlay'
 export { default as Badge } from './badge'
 export { default as Button } from './button'
 

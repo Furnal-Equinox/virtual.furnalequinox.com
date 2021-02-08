@@ -3,8 +3,11 @@ import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import emergence from 'emergence.js'
 
-import Navibar from '../components/navibar'
-import Footer from '../components/footer'
+import {
+  AuthOverlay,
+  Footer,
+  Navbar
+} from '../components'
 
 import config from '../../site-config'
 
@@ -34,7 +37,8 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
 
   return (
     <>
-      <Navibar location={location} identityContext={identity} />
+      <AuthOverlay />
+      <Navbar location={location} identityContext={identity} />
       <div className='layout-container d-flex flex-column justify-content-between bg-image'>
         {children}
         <Footer

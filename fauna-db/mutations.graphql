@@ -1,0 +1,29 @@
+# Example mutations
+
+mutation AddDonation {
+  createDonation(data: {
+    furName: "Bobfox"
+    email: "bobfox@somewhere.com"
+    amount: 5000
+  }) {
+    furName
+    email
+    amount
+    _id
+  }
+}
+
+mutation AddDonationWithDiscord {
+  createDonation(data: {
+    furName: "Sandy Cheeks"
+    discordHandle: "Sandy#3145"
+    email: "SquirrelGenius@bikinibottom.com"
+    amount: 7000
+  }) {
+    furName
+    discordHandle
+    email
+    amount
+    _id
+  }
+}

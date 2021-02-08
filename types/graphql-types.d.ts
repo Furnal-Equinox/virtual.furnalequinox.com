@@ -188,7 +188,7 @@ export type DirectoryEdge = {
   previous?: Maybe<Directory>;
 };
 
-export type DirectoryFieldsEnum = 
+export type DirectoryFieldsEnum =
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -504,7 +504,7 @@ export type FileEdge = {
   previous?: Maybe<File>;
 };
 
-export type FileFieldsEnum = 
+export type FileFieldsEnum =
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -1368,7 +1368,7 @@ export type FloatQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Float']>>>;
 };
 
-export type ImageCropFocus = 
+export type ImageCropFocus =
   | 'CENTER'
   | 'NORTH'
   | 'NORTHEAST'
@@ -1381,14 +1381,14 @@ export type ImageCropFocus =
   | 'ENTROPY'
   | 'ATTENTION';
 
-export type ImageFit = 
+export type ImageFit =
   | 'COVER'
   | 'CONTAIN'
   | 'FILL'
   | 'INSIDE'
   | 'OUTSIDE';
 
-export type ImageFormat = 
+export type ImageFormat =
   | 'NO_CHANGE'
   | 'AUTO'
   | 'JPG'
@@ -1396,12 +1396,12 @@ export type ImageFormat =
   | 'WEBP'
   | 'AVIF';
 
-export type ImageLayout = 
+export type ImageLayout =
   | 'FIXED'
   | 'FULL_WIDTH'
   | 'CONSTRAINED';
 
-export type ImagePlaceholder = 
+export type ImagePlaceholder =
   | 'DOMINANT_COLOR'
   | 'TRACED_SVG'
   | 'BLURRED'
@@ -1591,7 +1591,7 @@ export type ImageSharpEdge = {
   previous?: Maybe<ImageSharp>;
 };
 
-export type ImageSharpFieldsEnum = 
+export type ImageSharpFieldsEnum =
   | 'fixed___base64'
   | 'fixed___tracedSVG'
   | 'fixed___aspectRatio'
@@ -2001,7 +2001,7 @@ export type LocalSearchDealersSfwEdge = {
   previous?: Maybe<LocalSearchDealersSfw>;
 };
 
-export type LocalSearchDealersSfwFieldsEnum = 
+export type LocalSearchDealersSfwFieldsEnum =
   | 'name'
   | 'engine'
   | 'index'
@@ -2122,7 +2122,7 @@ export type LocalSearchDealersSfwSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type MarkdownExcerptFormats = 
+export type MarkdownExcerptFormats =
   | 'PLAIN'
   | 'HTML'
   | 'MARKDOWN';
@@ -2143,7 +2143,7 @@ export type MarkdownHeadingFilterListInput = {
   elemMatch?: Maybe<MarkdownHeadingFilterInput>;
 };
 
-export type MarkdownHeadingLevels = 
+export type MarkdownHeadingLevels =
   | 'h1'
   | 'h2'
   | 'h3'
@@ -2227,7 +2227,7 @@ export type MarkdownRemarkFields = {
   slug?: Maybe<Scalars['String']>;
 };
 
-export type MarkdownRemarkFieldsEnum = 
+export type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter___title'
   | 'frontmatter___date'
@@ -2929,7 +2929,7 @@ export type Potrace = {
   background?: Maybe<Scalars['String']>;
 };
 
-export type PotraceTurnPolicy = 
+export type PotraceTurnPolicy =
   | 'TURNPOLICY_BLACK'
   | 'TURNPOLICY_WHITE'
   | 'TURNPOLICY_LEFT'
@@ -2952,8 +2952,6 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   localSearchDealersSfw?: Maybe<LocalSearchDealersSfw>;
   allLocalSearchDealersSfw: LocalSearchDealersSfwConnection;
-  stripeProduct?: Maybe<StripeProduct>;
-  allStripeProduct: StripeProductConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -3067,6 +3065,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3183,29 +3183,6 @@ export type QueryAllLocalSearchDealersSfwArgs = {
 };
 
 
-export type QueryStripeProductArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  object?: Maybe<StringQueryOperatorInput>;
-  active?: Maybe<BooleanQueryOperatorInput>;
-  created?: Maybe<IntQueryOperatorInput>;
-  livemode?: Maybe<BooleanQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-  updated?: Maybe<IntQueryOperatorInput>;
-};
-
-
-export type QueryAllStripeProductArgs = {
-  filter?: Maybe<StripeProductFilterInput>;
-  sort?: Maybe<StripeProductSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QuerySiteBuildMetadataArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -3250,6 +3227,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -3309,7 +3288,7 @@ export type SiteBuildMetadataEdge = {
   previous?: Maybe<SiteBuildMetadata>;
 };
 
-export type SiteBuildMetadataFieldsEnum = 
+export type SiteBuildMetadataFieldsEnum =
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -3447,13 +3426,15 @@ export type SiteEdge = {
   previous?: Maybe<Site>;
 };
 
-export type SiteFieldsEnum = 
+export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___author___name'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___logo'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3546,6 +3527,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3625,7 +3608,7 @@ export type SitePageEdge = {
   previous?: Maybe<SitePage>;
 };
 
-export type SitePageFieldsEnum = 
+export type SitePageFieldsEnum =
   | 'path'
   | 'component'
   | 'internalComponentName'
@@ -3833,8 +3816,8 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___sassOptions___sourceMapEmbed'
   | 'pluginCreator___pluginOptions___color'
   | 'pluginCreator___pluginOptions___showSpinner'
-  | 'pluginCreator___pluginOptions___objects'
-  | 'pluginCreator___pluginOptions___secretKey'
+  | 'pluginCreator___pluginOptions___directives___script_src'
+  | 'pluginCreator___pluginOptions___directives___img_src'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -3933,7 +3916,7 @@ export type SitePluginEdge = {
   previous?: Maybe<SitePlugin>;
 };
 
-export type SitePluginFieldsEnum = 
+export type SitePluginFieldsEnum =
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -4104,8 +4087,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___sassOptions___sourceMapEmbed'
   | 'pluginOptions___color'
   | 'pluginOptions___showSpinner'
-  | 'pluginOptions___objects'
-  | 'pluginOptions___secretKey'
+  | 'pluginOptions___directives___script_src'
+  | 'pluginOptions___directives___img_src'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -4275,8 +4258,7 @@ export type SitePluginPluginOptions = {
   sassOptions?: Maybe<SitePluginPluginOptionsSassOptions>;
   color?: Maybe<Scalars['String']>;
   showSpinner?: Maybe<Scalars['Boolean']>;
-  objects?: Maybe<Array<Maybe<Scalars['String']>>>;
-  secretKey?: Maybe<Scalars['String']>;
+  directives?: Maybe<SitePluginPluginOptionsDirectives>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -4286,6 +4268,16 @@ export type SitePluginPluginOptionsAnalyzerPortArgs = {
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsDirectives = {
+  script_src?: Maybe<Scalars['String']>;
+  img_src?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsDirectivesFilterInput = {
+  script_src?: Maybe<StringQueryOperatorInput>;
+  img_src?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -4342,8 +4334,7 @@ export type SitePluginPluginOptionsFilterInput = {
   sassOptions?: Maybe<SitePluginPluginOptionsSassOptionsFilterInput>;
   color?: Maybe<StringQueryOperatorInput>;
   showSpinner?: Maybe<BooleanQueryOperatorInput>;
-  objects?: Maybe<StringQueryOperatorInput>;
-  secretKey?: Maybe<StringQueryOperatorInput>;
+  directives?: Maybe<SitePluginPluginOptionsDirectivesFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -4471,7 +4462,7 @@ export type SiteSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type SortOrderEnum = 
+export type SortOrderEnum =
   | 'ASC'
   | 'DESC';
 
@@ -4482,170 +4473,6 @@ export type StringQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['String']>>>;
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
-};
-
-export type StripeProduct = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  object?: Maybe<Scalars['String']>;
-  active?: Maybe<Scalars['Boolean']>;
-  created?: Maybe<Scalars['Int']>;
-  livemode?: Maybe<Scalars['Boolean']>;
-  name?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  updated?: Maybe<Scalars['Int']>;
-};
-
-export type StripeProductConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<StripeProductEdge>;
-  nodes: Array<StripeProduct>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<StripeProductGroupConnection>;
-};
-
-
-export type StripeProductConnectionDistinctArgs = {
-  field: StripeProductFieldsEnum;
-};
-
-
-export type StripeProductConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: StripeProductFieldsEnum;
-};
-
-export type StripeProductEdge = {
-  next?: Maybe<StripeProduct>;
-  node: StripeProduct;
-  previous?: Maybe<StripeProduct>;
-};
-
-export type StripeProductFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'object'
-  | 'active'
-  | 'created'
-  | 'livemode'
-  | 'name'
-  | 'type'
-  | 'updated';
-
-export type StripeProductFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  object?: Maybe<StringQueryOperatorInput>;
-  active?: Maybe<BooleanQueryOperatorInput>;
-  created?: Maybe<IntQueryOperatorInput>;
-  livemode?: Maybe<BooleanQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-  updated?: Maybe<IntQueryOperatorInput>;
-};
-
-export type StripeProductGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<StripeProductEdge>;
-  nodes: Array<StripeProduct>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type StripeProductSortInput = {
-  fields?: Maybe<Array<Maybe<StripeProductFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
 export type TransformOptions = {

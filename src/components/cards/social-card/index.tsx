@@ -14,7 +14,7 @@ export interface SocialItem {
 type Props = SocialItem
 
 const SocialCard: React.FC<Props> = ({ title, description, banner, label, url }: Props) => {
-  const PlaceholderImage = () =>
+  const PlaceholderImage: React.FC = () =>
     <svg
       className='bd-placeholder-img card-img rounded-card-img-top'
       width='100%'

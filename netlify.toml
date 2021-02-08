@@ -1,7 +1,7 @@
 [build]
   publish = "public"
-  command = "npm run build"
-  functions = "functions"
+  command = "yarn build-all"
+  functions = "functions/build"
 
 [[redirects]]
   from = "/api/*"

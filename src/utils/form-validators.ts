@@ -15,6 +15,10 @@ export interface LoginInputs {
   password: string
 }
 
+export interface PasswordRecoveryAndInvitationInputs {
+  password: string
+}
+
 export interface ContactInputs {
   name: string
   email: string
@@ -63,6 +67,10 @@ export const signUpSchema = Yup.object().shape({
 
 export const loginSchema = Yup.object().shape({
   email: emailSchema,
+  password: passwordSchema
+})
+
+export const passwordRecoveryAndInvitationSchema = Yup.object().shape({
   password: passwordSchema
 })
 

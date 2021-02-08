@@ -13,7 +13,7 @@ export interface GalleryItem {
 type Props = GalleryItem
 
 const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url }: Props) => {
-  const PlaceholderImage = () =>
+  const PlaceholderImage: React.FC = () =>
     <svg
       className='bd-placeholder-img card-img rounded-card-img-top'
       width='100%'
