@@ -74,39 +74,10 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const markdownDealersNsfw = await graphql(`
-    query {
-      allMarkdownRemark(
-        filter: {
-          frontmatter: {
-            layout: {eq: "dealer"}, 
-            isAdult: {eq: true}
-          }
-        }, 
-        sort: {
-          fields: [frontmatter___title], 
-          order: ASC
-        }
-      ) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  if (markdownPosts.error || markdownDealersSfw.error || markdownDealersNsfw.errors) {
+  if (markdownPosts.error || markdownDealersSfw.error) {
     const errors = [
       markdownPosts.errors,
-      markdownDealersSfw.errors,
-      markdownDealersNsfw.errors
+      markdownDealersSfw.errors
     ]
     console.error(errors)
     throw errors
@@ -114,7 +85,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const posts = markdownPosts.data.allMarkdownRemark.edges
   const dealersSfw = markdownDealersSfw.data.allMarkdownRemark.edges
-  const dealersNsfw = markdownDealersNsfw.data.allMarkdownRemark.edges
 
   posts.forEach(edge => {
     createPage({
@@ -138,27 +108,6 @@ exports.createPages = async ({ graphql, actions }) => {
       component: dealerPage,
       context: {
         isSfw: true,
-        slug: edge.node.fields.slug,
-        nextTitle: nextEdge.node.frontmatter.title,
-        nextSlug: nextEdge.node.fields.slug,
-        prevTitle: prevEdge.node.frontmatter.title,
-        prevSlug: prevEdge.node.fields.slug
-      }
-    })
-  })
-
-  dealersNsfw.forEach((edge, index) => {
-    const nextID = index + 1 < dealersNsfw.length ? index + 1 : 0 // clamp to end of list
-    const prevID = index - 1 >= 0 ? index - 1 : dealersNsfw.length - 1 // clamp to start of list
-
-    const nextEdge = dealersNsfw[nextID]
-    const prevEdge = dealersNsfw[prevID]
-
-    createPage({
-      path: `/adult${edge.node.fields.slug}`,
-      component: dealerPage,
-      context: {
-        isSfw: false,
         slug: edge.node.fields.slug,
         nextTitle: nextEdge.node.frontmatter.title,
         nextSlug: nextEdge.node.fields.slug,

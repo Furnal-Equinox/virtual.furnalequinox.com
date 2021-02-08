@@ -23,10 +23,6 @@ export const NavbarLinks: NavLink[] = [
   {
     to: '/info/',
     name: 'Info'
-  },
-  {
-    to: '/adult/',
-    name: 'Adult'
   }
 ]
 
@@ -38,10 +34,6 @@ export const NavbarAccountLinks: NavLink[] = [
   {
     to: '/login/',
     name: 'Login'
-  },
-  {
-    to: '/account/',
-    name: 'Settings'
   }
 ]
 
