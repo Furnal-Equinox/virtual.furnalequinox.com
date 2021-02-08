@@ -275,7 +275,7 @@ module.exports = {
         mergeDefaultDirectives: true,
         directives: {
           'connect-src': "'self' virtual-furnal-equinox.netlify.app/.netlify",
-          'font-src': "'self'",
+          'font-src': "'self' fonts.gstatic.com",
           'img-src': "'self' data: www.google-analytics.com data: http.cat data: www.netlify.com",
           'script-src': "'self' www.google-analytics.com",
           'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"

@@ -36,7 +36,7 @@ const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
             title='Hosted by Netlify'
             target='_blank'
             rel='noopener noreferrer'
-            style={{ height: '2rem' }}
+            style={{ height: '32px' }}
           >
             <img src='https://www.netlify.com/img/press/logos/logomark.svg' alt='Deploys by Netlify' />
           </a>
