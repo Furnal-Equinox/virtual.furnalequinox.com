@@ -111,14 +111,16 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
       </ul>
     </div>
 
-  const Notification: React.FC = () =>
-    <span className='navbar-text'>
-      {
-        identity.provisionalUser !== undefined
-          ? 'Check your email!'
-          : `Hello, ${(identity.user?.user_metadata?.full_name as Maybe<string>)?.split(' ')[0] ?? 'stranger'}!`
-      }
-    </span>
+  const Notification: React.FC = () => {
+    const name = 
+      (identity.user?.user_metadata?.fur_name as Maybe<string>)?.split(' ')[0] ?? 'stranger'
+
+    return (
+      <span className='navbar-text'>
+        {`Hello, ${name}!`}
+      </span>
+    )
+  }
 
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-white sticky-top py-0'>
