@@ -5,7 +5,7 @@ import isVerified from '../utils/is-verified'
 import {
   DonationPayload,
   Payload,
-  PingPayload,
+  PingPayload
 } from '../utils/types'
 
 const sigHeaderName = 'X-Webconnex-Signature'

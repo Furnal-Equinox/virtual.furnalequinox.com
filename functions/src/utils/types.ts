@@ -102,7 +102,7 @@ export interface Donation {
 }
 
 export type DonationData = Array<
-ConvenienceFeeLineItem 
+ConvenienceFeeLineItem
 | DonationAmount
 | FurName
 | DiscordHandle
@@ -181,7 +181,7 @@ export interface ConvenienceFeeLineItem {
   label: 'Convenience Fee'
   type: 'lineItem'
   amount: string
-  fees: {
+  fees: Array<{
     key: 'lineItemFee'
     type: 'lineItemFee'
     amount: string
@@ -189,7 +189,7 @@ export interface ConvenienceFeeLineItem {
       type: string
       value: string
     }
-  }[]
+  }>
 }
 
 export interface User {

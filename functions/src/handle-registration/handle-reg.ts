@@ -72,7 +72,7 @@ const getDonationAmountFromRegistrant = (data: RegistrantData): number => {
   const coveredCCFee: boolean = donationAmount.repeater.every(o => o.coverFee.value)
 
   const trueAmount: number = coveredCCFee ? sumAmount : (sumAmount - (sumAmount * 0.03))
-  
+
   return trueAmount
 }
 

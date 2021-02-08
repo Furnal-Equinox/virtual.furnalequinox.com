@@ -18,9 +18,9 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
     }
   }
 
-  const payload: Payload = JSON.parse(event.body) 
+  const payload: Payload = JSON.parse(event.body)
 
-  let roles: string[] = ['free']
+  const roles: string[] = ['free']
 
   const q = faunadb.query
 
@@ -36,7 +36,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
     const document = await faunaClient.query<faunadb.values.Document<User>>(
       q.Get(q.Match(q.Index('getDonationByEmail'), payload?.user.email ?? ''))
     )
-  
+
     if (document.data.donationAmount > 0) {
       roles.push('donor')
     }
