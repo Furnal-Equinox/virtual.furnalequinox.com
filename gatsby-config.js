@@ -269,8 +269,11 @@ module.exports = {
       resolve: 'gatsby-plugin-csp',
       options: {
         directives: {
+          'connect-src': "'self' https://virtual-furnal-equinox.netlify.app/.netlify",
+          'font-src': "'self' https://fonts.googleapis.com ",
+          'img-src': "'self' www.google-analytics.com https://http.cat https://www.netlify.com/img/press/logos",
           'script-src': "'self' www.google-analytics.com",
-          'img-src': "'self' data: www.google-analytics.com"
+          'style-src': "'self'"
         }
       }
     }
