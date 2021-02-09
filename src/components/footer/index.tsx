@@ -1,5 +1,6 @@
 import React from 'react'
 import SocialLinks, { Props as SocialLinksProps } from '../social-links'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import './style.scss'
 
 export interface Props {
@@ -31,7 +32,7 @@ const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
       <SocialLinks data={socialLinks.data} />
       <div className='row'>
         <div className='col'>
-          <a
+          <OutboundLink
             href='https://www.netlify.com/'
             title='Hosted by Netlify'
             target='_blank'
@@ -39,7 +40,7 @@ const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
             style={{ height: '32px' }}
           >
             <img src='https://www.netlify.com/img/press/logos/logomark.svg' alt='Deploys by Netlify' />
-          </a>
+          </OutboundLink>
         </div>
       </div>
     </div>

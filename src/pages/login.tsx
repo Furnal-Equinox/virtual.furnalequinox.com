@@ -32,7 +32,6 @@ const Login: React.FC<Props> = ({ location }: Props) => {
             : <LoginForm navigateTarget={navigateTarget} />}
         </div>
       </LoginCard>
-      {/* <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} /> */}
     </Layout>
   )
 }

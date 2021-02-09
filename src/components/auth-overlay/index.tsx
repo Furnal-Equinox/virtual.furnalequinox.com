@@ -8,6 +8,7 @@ import {
 } from '../../utils/form-validators'
 
 import Modal from 'react-bootstrap/Modal'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const AuthOverlay: React.FC = () => {
   const identity = useIdentityContext()
@@ -89,13 +90,14 @@ const AuthOverlay: React.FC = () => {
         <p>
           Having trouble making a password?<br />
           Try this free password generator website!{' '}
-          <a
+          <OutboundLink
+            title='passwordsgenerator.net'
             href='https://passwordsgenerator.net/'
             target='_blank'
             rel='noopener noreferrer'
           >
             passwordsgenerator.net
-          </a>
+          </OutboundLink>
         </p>
       </div>
       <div className='mb-3'>

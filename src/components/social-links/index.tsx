@@ -22,6 +22,8 @@ import {
 } from '@icons-pack/react-simple-icons'
 import { MarkdownRemarkFrontmatterSocial } from '../../../types/graphql-types'
 
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+
 import { isStrEmpty } from '../../utils/tools'
 
 export interface Props {
@@ -51,137 +53,137 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
       {
         !isStrEmpty(data.behance) &&
           <div className='col'>
-            <a href={data.behance as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Behance' href={data.behance as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Behance size='32px' className='icon behance' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.deviantart) &&
           <div className='col'>
-            <a href={data.deviantart as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='DeviantArt' href={data.deviantart as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Deviantart size='32px' className='icon deviantart' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.discord) &&
           <div className='col'>
-            <a href={data.discord as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Discord' href={data.discord as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Discord size='32px' className='icon discord' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.etsy) &&
           <div className='col'>
-            <a href={data.etsy as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Etsy' href={data.etsy as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Etsy size='32px' className='icon etsy' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.facebook) &&
           <div className='col'>
-            <a href={data.facebook as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Facebook' href={data.facebook as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Facebook size='32px' className='icon facebook' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.flickr) &&
           <div className='col'>
-            <a href={data.flickr as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Flickr' href={data.flickr as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Flickr size='32px' className='icon flickr' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.furaffinity) &&
           <div className='col'>
-            <a href={data.furaffinity as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='FurAffinity' href={data.furaffinity as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Furaffinity size='32px' className='icon furaffinity' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.github) &&
           <div className='col'>
-            <a href={data.github as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='GitHub' href={data.github as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Github size='32px' className='icon github' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.instagram) &&
           <div className='col'>
-            <a href={data.instagram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Instagram' href={data.instagram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Instagram size='32px' className='icon instagram' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.picarto) &&
           <div className='col'>
-            <a href={data.picarto as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Picarto.tv' href={data.picarto as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <PicartoDotTv size='32px' className='icon picarto' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.pinterest) &&
           <div className='col'>
-            <a href={data.pinterest as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Pinterest' href={data.pinterest as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Pinterest size='32px' className='icon pinterest' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.steam) &&
           <div className='col'>
-            <a href={data.steam as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Steam' href={data.steam as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Steam size='32px' className='icon steam' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.telegram) &&
           <div className='col'>
-            <a href={data.telegram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Telegram' href={data.telegram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Telegram size='32px' className='icon telegram' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.tumblr) &&
           <div className='col'>
-            <a href={data.tumblr as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Tumblr' href={data.tumblr as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Tumblr size='32px' className='icon tumblr' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.twitch) &&
           <div className='col'>
-            <a href={data.twitch as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='Twitch' href={data.twitch as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Twitch size='32px' className='icon twitch' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.twitter) &&
           <div className='col'>
-            <a href={data.twitter as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='YouTube' href={data.twitter as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Twitter size='32px' className='icon twitter' />
-            </a>
+            </OutboundLink>
           </div>
       }
       {
         !isStrEmpty(data.youtube) &&
           <div className='col'>
-            <a href={data.youtube as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+            <OutboundLink title='YouTube' href={data.youtube as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Youtube size='32px' className='icon youtube' />
-            </a>
+            </OutboundLink>
           </div>
       }
     </div>

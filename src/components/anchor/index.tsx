@@ -1,4 +1,5 @@
 import React from 'react'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 export interface Props {
   label: string
@@ -22,7 +23,8 @@ const Anchor: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className={isFullwidth ? 'd-grid' : undefined}>
-      <a
+      <OutboundLink
+        title={label}
         href={url}
         className={[
           'btn rounded-pill',
@@ -35,7 +37,7 @@ const Anchor: React.FC<Props> = ({
         {...props}
       >
         {label}
-      </a>
+      </OutboundLink>
     </div>
   )
 }
