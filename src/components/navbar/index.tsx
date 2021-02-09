@@ -113,7 +113,7 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
     </div>
 
   const Notification: React.FC = () => {
-    const name = 
+    const name =
       (identity.user?.user_metadata?.furName as Maybe<string>)?.split(' ')[0] ?? 'stranger'
 
     return (

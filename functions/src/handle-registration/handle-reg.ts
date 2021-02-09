@@ -192,7 +192,7 @@ const handleRegistration = async (
           const document = await faunaClient.query<faunadb.values.Document<TotalDonations>>(
             q.Get(q.Match(q.Index('getTotalDonation')))
           )
-      
+
           await faunaClient.query(
             q.Update(document.ref, {
               data: {
