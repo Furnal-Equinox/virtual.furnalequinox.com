@@ -4,6 +4,15 @@ require('dotenv').config({
   path: '.env'
 })
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://virtual.furnalequinox.com',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === 'production'
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+
 /// ==============================================================================================///
 ///                                    SITE METADATA                                              ///
 /// ==============================================================================================///
@@ -76,20 +85,52 @@ module.exports = {
     },
 
     /// Google Analytics 4
-    // {
-    //   resolve: 'gatsby-plugin-google-gtag',
-    //   options: {
-    //     trackingIds: [
-    //       process.env.GA_TRACKING_ID
-    //     ],
-    //     gtagConfig: {
-    //       anonymize_ip: true
-    //     },
-    //     pluginConfig: {
-    //       respectDNT: true
-    //     }
-    //   }
-    // },
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: [
+          process.env.GA_TRACKING_ID
+        ],
+        gtagConfig: {
+          anonymize_ip: true
+        },
+        pluginConfig: {
+          respectDNT: true
+        }
+      }
+    },
+
+    /// robots.txt generation
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [
+              {
+                userAgent: '*',
+                allow: '/',
+                disallow: '/login',
+                crawlDelay: 10
+              }
+            ]
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
+    },
+
+
 
     /// ==============================================================================================///
     ///                              IMAGES AND STATIC DATA                                           ///

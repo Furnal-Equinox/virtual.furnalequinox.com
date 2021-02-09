@@ -199,6 +199,11 @@ export interface User {
   furName: string
 }
 
+export interface TotalDonations {
+  numberOfDonors: number
+  totalAmount: number
+}
+
 export type Role = 'free' | 'basic' | 'pro' | 'super' | 'adult'
 
 export interface NetlifyContext {

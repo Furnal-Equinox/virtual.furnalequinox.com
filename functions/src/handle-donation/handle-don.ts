@@ -12,6 +12,7 @@ import {
   DonationPayload,
   Email,
   FurName,
+  TotalDonations,
   User
 } from '../utils/types'
 
@@ -134,10 +135,49 @@ const handleDonation = async (
     )
   }
 
+  const createOrMutateTotalDonation = async (user: User): Promise<void> => {
+    const { donationAmount } = user
+    const q = faunadb.query
+
+    const faunaClient = new faunadb.Client({
+      secret: process.env.FAUNA_SERVER_KEY as string
+    })
+
+    const doesRecordExist: boolean = await faunaClient.query(
+      q.Exists(q.Match(q.Index('getTotalDonation')))
+    )
+
+    if (!doesRecordExist) {
+      await faunaClient.query(
+        q.Create(q.Collection('TotalDonations'), {
+          data: {
+            numberOfDonors: 0,
+            totalAmount: 0
+          }
+        })
+      )
+    }
+
+    const document = await faunaClient.query<faunadb.values.Document<TotalDonations>>(
+      q.Get(q.Match(q.Index('getTotalDonation')))
+    )
+
+    await faunaClient.query(
+      q.Update(document.ref, {
+        data: {
+          numberOfDonors: document.data.numberOfDonors + 1,
+          totalAmount: document.data.totalAmount + donationAmount
+        }
+      })
+    )
+  }
+
   // Convert the payload into a list of users.
   const user: User = parseUserFromPayload(data)
 
   await createOrMutateUserInDB(user)
+
+  await createOrMutateTotalDonation(user)
 
   return {
     statusCode: 200,

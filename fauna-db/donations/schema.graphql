@@ -13,9 +13,19 @@ type Donation {
   amount: Int!
 }
 
+type TotalDonations {
+  # Number of donors
+  numberOfDonors: Int!  
+
+  # Total amount donated
+  totalAmount: Int!
+}
+
 type Query {
   # Get all donations
   allDonations: [Donation!]
+
+  getTotalDonations: TotalDonations!
 
   # Get a donation record by a donor's fur name
   getDonationByFurName(furName: String!): Donation!

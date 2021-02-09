@@ -13,6 +13,7 @@ import {
   Registrant,
   RegistrantData,
   RegistrationPayload,
+  TotalDonations,
   User
 } from '../utils/types'
 
@@ -155,6 +156,48 @@ const handleRegistration = async (
             q.Update(document.ref, {
               data: {
                 donationAmount: document.data.donationAmount + donationAmount
+              }
+            })
+          )
+        }
+      )
+    )
+  }
+
+  const createOrMutateTotalDonation = async (users: User[]): Promise<void> => {
+    const q = faunadb.query
+
+    const faunaClient = new faunadb.Client({
+      secret: process.env.FAUNA_SERVER_KEY as string
+    })
+
+    const doesRecordExist: boolean = await faunaClient.query(
+      q.Exists(q.Match(q.Index('getTotalDonation')))
+    )
+
+    if (!doesRecordExist) {
+      await faunaClient.query(
+        q.Create(q.Collection('TotalDonations'), {
+          data: {
+            numberOfDonors: 0,
+            totalAmount: 0
+          }
+        })
+      )
+    }
+
+    await Promise.all(
+      users.map(
+        async ({ donationAmount }: User): Promise<void> => {
+          const document = await faunaClient.query<faunadb.values.Document<TotalDonations>>(
+            q.Get(q.Match(q.Index('getTotalDonation')))
+          )
+      
+          await faunaClient.query(
+            q.Update(document.ref, {
+              data: {
+                numberOfDonors: document.data.numberOfDonors + 1,
+                totalAmount: document.data.totalAmount + donationAmount
               }
             })
           )
