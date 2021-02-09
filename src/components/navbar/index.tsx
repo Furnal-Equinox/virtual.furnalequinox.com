@@ -16,7 +16,7 @@ export interface Props extends RouteComponentProps {
   identityContext?: any
 }
 
-const Navibar: React.FC<Props> = ({ location }: Props) => {
+const Navbar: React.FC<Props> = ({ location }: Props) => {
   const identity = useIdentityContext()
 
   const handleLogout = async (): Promise<void> => identity.logout
@@ -114,7 +114,7 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
 
   const Notification: React.FC = () => {
     const name = 
-      (identity.user?.user_metadata?.fur_name as Maybe<string>)?.split(' ')[0] ?? 'stranger'
+      (identity.user?.user_metadata?.furName as Maybe<string>)?.split(' ')[0] ?? 'stranger'
 
     return (
       <span className='navbar-text'>
@@ -138,4 +138,4 @@ const Navibar: React.FC<Props> = ({ location }: Props) => {
   )
 }
 
-export default Navibar
+export default Navbar

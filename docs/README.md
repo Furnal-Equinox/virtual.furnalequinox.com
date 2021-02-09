@@ -116,6 +116,11 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 [Programmatically create PrivateRoutes on Gatsby](https://stackoverflow.com/questions/56799436/programmatically-create-privateroutes-on-gatsby)
 > You probably don't want to use this approach if it's most of your pages. Instead you can use a server-based approach to restrict access to content. One example is Netlify's Visitor Access Control. – [coreyward](https://stackoverflow.com/users/203130/coreyward)
 
+[Build a Like Counter With Fauna, Netlify and Nuxt](https://davidparks.dev/blog/building-a-like-counter-with-faunadb-and-nuxt/#intro)
+* Logic that I'm using in the Netlify Functions and in the Charity Meter to fetch data from the Fauna database.
+
+[Using React’s useEffect Hook to Fetch Data and Periodically Refresh The Data](https://medium.com/javascript-in-plain-english/using-reacts-useeffect-hook-to-fetch-data-and-periodically-refresh-that-data-2a69b6d44081)
+
 ### Haskell Script
 
 [Turtle Tutorial](https://hackage.haskell.org/package/turtle-1.5.21/docs/Turtle-Tutorial.html)

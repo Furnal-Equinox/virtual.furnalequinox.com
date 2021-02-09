@@ -4,13 +4,10 @@ import {
 } from 'aws-lambda'
 import * as faunadb from 'faunadb'
 import {
-  ConvenienceFeeLineItem,
   DiscordHandle,
-  Donation,
   DonationAmount,
   DonationData,
   DonationPayload,
-  Email,
   FurName,
   TotalDonations,
   User
@@ -36,7 +33,7 @@ const doesPayloadHaveExpectedFields = (data: DonationPayload): boolean => {
  * Note: Our RegFox form requires registrants to give a valid email address.
  * Therefore, I can assume here that an `email` field does exist on the registrant data.
  * @param {Donation[]} donations - an array of donation objects from the payload.
- * @returns {User[]} users - an array of user objects ready to be created.
+ * @returns {User} user - a user object ready to be created.
  */
 const parseUserFromPayload = (data: DonationPayload): User =>
   ({

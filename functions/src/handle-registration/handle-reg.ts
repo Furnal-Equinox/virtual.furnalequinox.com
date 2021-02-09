@@ -211,6 +211,8 @@ const handleRegistration = async (
 
   await createOrMutateUsersInDB(users)
 
+  await createOrMutateTotalDonation(users)
+
   await inviteUsers(users)
 
   return {

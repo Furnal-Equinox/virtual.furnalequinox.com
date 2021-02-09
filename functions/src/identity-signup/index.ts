@@ -20,8 +20,6 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
 
   const payload: Payload = JSON.parse(event.body)
 
-  const roles: string[] = ['free']
-
   const q = faunadb.query
 
   const faunaClient = new faunadb.Client({
@@ -37,17 +35,30 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
       q.Get(q.Match(q.Index('getDonationByEmail'), payload?.user.email ?? ''))
     )
 
-    if (document.data.donationAmount > 0) {
-      roles.push('donor')
-    }
-  }
+    const roles: string[] = document.data.donationAmount > 0 ? ['free', 'donor'] : ['free']
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      app_metadata: {
-        roles: roles
-      }
-    })
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        user_metadata: {
+          furName: document.data.furName
+        },
+        app_metadata: {
+          roles: roles
+        }
+      })
+    }
+  } else {
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        user_metadata: {
+          furName: 'nameless user'
+        },
+        app_metadata: {
+          roles: 'free'
+        }
+      })
+    }
   }
 }
