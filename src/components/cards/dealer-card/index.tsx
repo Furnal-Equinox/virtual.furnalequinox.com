@@ -3,6 +3,8 @@ import './style.scss'
 
 import Link from '../../link'
 
+import placeholderImage from '../../../../content/images/VFE_dealer_banner.png'
+
 export interface Dealer {
   title?: string | null | undefined
   dealer?: string | null | undefined
@@ -15,7 +17,7 @@ export interface Dealer {
 type Props = Dealer
 
 const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug }: Props) => {
-  const PlaceholderImage: React.FC = () =>
+  const PlaceholderSVG: React.FC = () =>
     <svg
       className='bd-placeholder-img card-img rounded-card-img-top'
       width='100%'
@@ -33,11 +35,14 @@ const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug 
       </text>
     </svg>
 
+  const PlaceholderImage: React.FC = () => 
+    <img src={placeholderImage} className='card-img-top rounded-card-img-top' />
+
   return (
     <div className='card rounded-card mb-5 shadow-sm'>
       {banner !== undefined
         ? <img src={banner ?? ''} className='card-img-top rounded-card-img-top' />
-        : <PlaceholderImage />}
+        : <PlaceholderImage/>}
       <div className='card-body'>
         <div className='container'>
           <div className='row'>

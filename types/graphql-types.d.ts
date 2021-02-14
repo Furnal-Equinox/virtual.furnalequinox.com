@@ -3776,6 +3776,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___devMode'
   | 'pluginCreator___pluginOptions___analyzerMode'
   | 'pluginCreator___pluginOptions___analyzerPort'
+  | 'pluginCreator___pluginOptions___trackingIds'
+  | 'pluginCreator___pluginOptions___gtagConfig___anonymize_ip'
+  | 'pluginCreator___pluginOptions___pluginConfig___respectDNT'
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
@@ -3816,8 +3819,17 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___sassOptions___sourceMapEmbed'
   | 'pluginCreator___pluginOptions___color'
   | 'pluginCreator___pluginOptions___showSpinner'
-  | 'pluginCreator___pluginOptions___directives___script_src'
+  | 'pluginCreator___pluginOptions___disableOnDev'
+  | 'pluginCreator___pluginOptions___reportOnly'
+  | 'pluginCreator___pluginOptions___mergeScriptHashes'
+  | 'pluginCreator___pluginOptions___mergeStyleHashes'
+  | 'pluginCreator___pluginOptions___mergeDefaultDirectives'
+  | 'pluginCreator___pluginOptions___directives___connect_src'
+  | 'pluginCreator___pluginOptions___directives___default_src'
+  | 'pluginCreator___pluginOptions___directives___font_src'
   | 'pluginCreator___pluginOptions___directives___img_src'
+  | 'pluginCreator___pluginOptions___directives___script_src'
+  | 'pluginCreator___pluginOptions___directives___style_src'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -4047,6 +4059,12 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___devMode'
   | 'pluginOptions___analyzerMode'
   | 'pluginOptions___analyzerPort'
+  | 'pluginOptions___trackingIds'
+  | 'pluginOptions___gtagConfig___anonymize_ip'
+  | 'pluginOptions___pluginConfig___respectDNT'
+  | 'pluginOptions___env___production___policy'
+  | 'pluginOptions___env___branch_deploy___policy'
+  | 'pluginOptions___env___deploy_preview___policy'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
@@ -4087,8 +4105,17 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___sassOptions___sourceMapEmbed'
   | 'pluginOptions___color'
   | 'pluginOptions___showSpinner'
-  | 'pluginOptions___directives___script_src'
+  | 'pluginOptions___disableOnDev'
+  | 'pluginOptions___reportOnly'
+  | 'pluginOptions___mergeScriptHashes'
+  | 'pluginOptions___mergeStyleHashes'
+  | 'pluginOptions___mergeDefaultDirectives'
+  | 'pluginOptions___directives___connect_src'
+  | 'pluginOptions___directives___default_src'
+  | 'pluginOptions___directives___font_src'
   | 'pluginOptions___directives___img_src'
+  | 'pluginOptions___directives___script_src'
+  | 'pluginOptions___directives___style_src'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -4226,6 +4253,10 @@ export type SitePluginPluginOptions = {
   devMode?: Maybe<Scalars['Boolean']>;
   analyzerMode?: Maybe<Scalars['String']>;
   analyzerPort?: Maybe<Scalars['Date']>;
+  trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>;
+  gtagConfig?: Maybe<SitePluginPluginOptionsGtagConfig>;
+  pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfig>;
+  env?: Maybe<SitePluginPluginOptionsEnv>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
@@ -4258,6 +4289,11 @@ export type SitePluginPluginOptions = {
   sassOptions?: Maybe<SitePluginPluginOptionsSassOptions>;
   color?: Maybe<Scalars['String']>;
   showSpinner?: Maybe<Scalars['Boolean']>;
+  disableOnDev?: Maybe<Scalars['Boolean']>;
+  reportOnly?: Maybe<Scalars['Boolean']>;
+  mergeScriptHashes?: Maybe<Scalars['Boolean']>;
+  mergeStyleHashes?: Maybe<Scalars['Boolean']>;
+  mergeDefaultDirectives?: Maybe<Scalars['Boolean']>;
   directives?: Maybe<SitePluginPluginOptionsDirectives>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
@@ -4271,13 +4307,103 @@ export type SitePluginPluginOptionsAnalyzerPortArgs = {
 };
 
 export type SitePluginPluginOptionsDirectives = {
-  script_src?: Maybe<Scalars['String']>;
+  connect_src?: Maybe<Scalars['String']>;
+  default_src?: Maybe<Scalars['String']>;
+  font_src?: Maybe<Scalars['String']>;
   img_src?: Maybe<Scalars['String']>;
+  script_src?: Maybe<Scalars['String']>;
+  style_src?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsDirectivesFilterInput = {
-  script_src?: Maybe<StringQueryOperatorInput>;
+  connect_src?: Maybe<StringQueryOperatorInput>;
+  default_src?: Maybe<StringQueryOperatorInput>;
+  font_src?: Maybe<StringQueryOperatorInput>;
   img_src?: Maybe<StringQueryOperatorInput>;
+  script_src?: Maybe<StringQueryOperatorInput>;
+  style_src?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsEnv = {
+  production?: Maybe<SitePluginPluginOptionsEnvProduction>;
+  branch_deploy?: Maybe<SitePluginPluginOptionsEnvBranch_Deploy>;
+  deploy_preview?: Maybe<SitePluginPluginOptionsEnvDeploy_Preview>;
+};
+
+export type SitePluginPluginOptionsEnvBranch_Deploy = {
+  policy?: Maybe<Array<Maybe<SitePluginPluginOptionsEnvBranch_DeployPolicy>>>;
+};
+
+export type SitePluginPluginOptionsEnvBranch_DeployFilterInput = {
+  policy?: Maybe<SitePluginPluginOptionsEnvBranch_DeployPolicyFilterListInput>;
+};
+
+export type SitePluginPluginOptionsEnvBranch_DeployPolicy = {
+  userAgent?: Maybe<Scalars['String']>;
+  disallow?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsEnvBranch_DeployPolicyFilterInput = {
+  userAgent?: Maybe<StringQueryOperatorInput>;
+  disallow?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsEnvBranch_DeployPolicyFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsEnvBranch_DeployPolicyFilterInput>;
+};
+
+export type SitePluginPluginOptionsEnvDeploy_Preview = {
+  policy?: Maybe<Array<Maybe<SitePluginPluginOptionsEnvDeploy_PreviewPolicy>>>;
+};
+
+export type SitePluginPluginOptionsEnvDeploy_PreviewFilterInput = {
+  policy?: Maybe<SitePluginPluginOptionsEnvDeploy_PreviewPolicyFilterListInput>;
+};
+
+export type SitePluginPluginOptionsEnvDeploy_PreviewPolicy = {
+  userAgent?: Maybe<Scalars['String']>;
+  disallow?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsEnvDeploy_PreviewPolicyFilterInput = {
+  userAgent?: Maybe<StringQueryOperatorInput>;
+  disallow?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsEnvDeploy_PreviewPolicyFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsEnvDeploy_PreviewPolicyFilterInput>;
+};
+
+export type SitePluginPluginOptionsEnvFilterInput = {
+  production?: Maybe<SitePluginPluginOptionsEnvProductionFilterInput>;
+  branch_deploy?: Maybe<SitePluginPluginOptionsEnvBranch_DeployFilterInput>;
+  deploy_preview?: Maybe<SitePluginPluginOptionsEnvDeploy_PreviewFilterInput>;
+};
+
+export type SitePluginPluginOptionsEnvProduction = {
+  policy?: Maybe<Array<Maybe<SitePluginPluginOptionsEnvProductionPolicy>>>;
+};
+
+export type SitePluginPluginOptionsEnvProductionFilterInput = {
+  policy?: Maybe<SitePluginPluginOptionsEnvProductionPolicyFilterListInput>;
+};
+
+export type SitePluginPluginOptionsEnvProductionPolicy = {
+  userAgent?: Maybe<Scalars['String']>;
+  allow?: Maybe<Scalars['String']>;
+  disallow?: Maybe<Scalars['String']>;
+  crawlDelay?: Maybe<Scalars['Int']>;
+};
+
+export type SitePluginPluginOptionsEnvProductionPolicyFilterInput = {
+  userAgent?: Maybe<StringQueryOperatorInput>;
+  allow?: Maybe<StringQueryOperatorInput>;
+  disallow?: Maybe<StringQueryOperatorInput>;
+  crawlDelay?: Maybe<IntQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsEnvProductionPolicyFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsEnvProductionPolicyFilterInput>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -4302,6 +4428,10 @@ export type SitePluginPluginOptionsFilterInput = {
   devMode?: Maybe<BooleanQueryOperatorInput>;
   analyzerMode?: Maybe<StringQueryOperatorInput>;
   analyzerPort?: Maybe<DateQueryOperatorInput>;
+  trackingIds?: Maybe<StringQueryOperatorInput>;
+  gtagConfig?: Maybe<SitePluginPluginOptionsGtagConfigFilterInput>;
+  pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfigFilterInput>;
+  env?: Maybe<SitePluginPluginOptionsEnvFilterInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
@@ -4334,8 +4464,21 @@ export type SitePluginPluginOptionsFilterInput = {
   sassOptions?: Maybe<SitePluginPluginOptionsSassOptionsFilterInput>;
   color?: Maybe<StringQueryOperatorInput>;
   showSpinner?: Maybe<BooleanQueryOperatorInput>;
+  disableOnDev?: Maybe<BooleanQueryOperatorInput>;
+  reportOnly?: Maybe<BooleanQueryOperatorInput>;
+  mergeScriptHashes?: Maybe<BooleanQueryOperatorInput>;
+  mergeStyleHashes?: Maybe<BooleanQueryOperatorInput>;
+  mergeDefaultDirectives?: Maybe<BooleanQueryOperatorInput>;
   directives?: Maybe<SitePluginPluginOptionsDirectivesFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsGtagConfig = {
+  anonymize_ip?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsGtagConfigFilterInput = {
+  anonymize_ip?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsImplementation = {
@@ -4344,6 +4487,14 @@ export type SitePluginPluginOptionsImplementation = {
 
 export type SitePluginPluginOptionsImplementationFilterInput = {
   info?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPluginConfig = {
+  respectDNT?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsPluginConfigFilterInput = {
+  respectDNT?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPlugins = {
@@ -4487,20 +4638,6 @@ export type TransformOptions = {
 export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
-
-export type AdultQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type AdultQueryQuery = { remark: { group: Array<(
-      Pick<MarkdownRemarkGroupConnection, 'fieldValue'>
-      & { dealers: Array<{ dealer: (
-          Pick<MarkdownRemark, 'id'>
-          & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
-            Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'isPremium'>
-            & { banner?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-          )> }
-        ) }> }
-    )> } };
 
 export type ConStoreQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
