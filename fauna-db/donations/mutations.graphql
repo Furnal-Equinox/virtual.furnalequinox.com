@@ -32,9 +32,11 @@ mutation AddDonor {
   createDonor(data: {
     furName: "Bobfox"
     emailAddress: "bobfox@somewhere.com"
+    hasDonated: true
   }) {
     furName
     emailAddress
+    hasDonated
     _id
   }
 }
@@ -44,10 +46,12 @@ mutation AddDonorWithDiscord {
     furName: "Sandy Cheeks"
     discordHandle: "Sandy#3145"
     emailAddress: "SquirrelGenius@bikinibottom.com"
+    hasDonated: false
   }) {
     furName
     discordHandle
     emailAddress
+    hasDonated
     _id
   }
 }

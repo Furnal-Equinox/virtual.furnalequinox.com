@@ -8,8 +8,9 @@ import {
   DonationAmount,
   DonationData,
   DonationPayload,
+  Donor,
   FurName,
-  TotalDonations,
+  Totals,
   User
 } from '../utils/types'
 
@@ -39,7 +40,7 @@ const parseUserFromPayload = (data: DonationPayload): User =>
   ({
     furName: getFurNameFromDonation(data.registrants[0].data),
     emailAddress: getEmailAddressFromDonation(data),
-    donationAmount: getDonationAmountFromRegistrant(data.registrants[0].data),
+    amount: getDonationAmountFromRegistrant(data.registrants[0].data),
     discordHandle: getDiscordHandleFromDonation(data.registrants[0].data)
   })
 
@@ -85,7 +86,7 @@ const getDonationAmountFromRegistrant = (data: DonationData): number => {
  */
 const handleDonation = async (
   data: DonationPayload,
-  context: Context
+  _context: Context
 ): Promise<APIGatewayProxyResultV2> => {
   // Check that the payload has the expected fields.
   if (!doesPayloadHaveExpectedFields(data)) {
@@ -95,35 +96,48 @@ const handleDonation = async (
   }
 
   const createOrMutateUserInDB = async (user: User): Promise<void> => {
-    const { furName, emailAddress, discordHandle, donationAmount } = user
+    const { furName, emailAddress, discordHandle, amount } = user
     const q = faunadb.query
 
     const faunaClient = new faunadb.Client({
       secret: process.env.FAUNA_SERVER_KEY as string
     })
 
-    const doesDonorExist: boolean = await faunaClient.query(
+    const doesDonorExist: boolean = await faunaClient.query<boolean>(
       q.Exists(q.Match(q.Index('getDonorByFurName'), furName))
     )
 
-    if (!doesDonorExist && donationAmount > 0) {
+    if (!doesDonorExist) {
       await faunaClient.query(
         q.Create(q.Collection('Donor'), {
           data: {
             furName: furName,
             emailAddress: emailAddress,
-            discordHandle: discordHandle
+            discordHandle: discordHandle,
+            hasDonated: amount > 0
           }
         })
       )
     }
 
-    const doesDonationExist: boolean = await faunaClient.query(
+    const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
+      q.Get(q.Match(q.Index('getDonorByFurName'), furName))
+    )
+
+    await faunaClient.query<void>(
+      q.Update(donorDocument.ref, {
+        data: {
+          hasDonated: amount > 0
+        }
+      })
+    )
+
+    const doesDonationExist: boolean = await faunaClient.query<boolean>(
       q.Exists(q.Match(q.Index('getDonationByFurName'), furName))
     )
 
     if (!doesDonationExist) {
-      await faunaClient.query(
+      await faunaClient.query<void>(
         q.Create(q.Collection('Donation'), {
           data: {
             furName: furName,
@@ -139,17 +153,17 @@ const handleDonation = async (
       q.Get(q.Match(q.Index('getDonationByFurName'), furName))
     )
 
-    await faunaClient.query(
+    await faunaClient.query<void>(
       q.Update(document.ref, {
         data: {
-          donationAmount: document.data.donationAmount + donationAmount
+          amount: document.data.amount + amount
         }
       })
     )
   }
 
   const createOrMutateTotalDonation = async (user: User): Promise<void> => {
-    const { donationAmount } = user
+    const { amount } = user
     const q = faunadb.query
 
     const faunaClient = new faunadb.Client({
@@ -157,29 +171,29 @@ const handleDonation = async (
     })
 
     const doesRecordExist: boolean = await faunaClient.query(
-      q.Exists(q.Match(q.Index('getTotalDonation')))
+      q.Exists(q.Match(q.Index('getTotals')))
     )
 
     if (!doesRecordExist) {
-      await faunaClient.query(
-        q.Create(q.Collection('TotalDonations'), {
+      await faunaClient.query<void>(
+        q.Create(q.Collection('Totals'), {
           data: {
             numberOfDonors: 0,
-            totalAmount: 0
+            amountDonated: 0
           }
         })
       )
     }
 
-    const document = await faunaClient.query<faunadb.values.Document<TotalDonations>>(
-      q.Get(q.Match(q.Index('getTotalDonation')))
+    const document = await faunaClient.query<faunadb.values.Document<Totals>>(
+      q.Get(q.Match(q.Index('getTotals')))
     )
 
-    await faunaClient.query(
+    await faunaClient.query<void>(
       q.Update(document.ref, {
         data: {
           numberOfDonors: document.data.numberOfDonors + 1,
-          totalAmount: document.data.totalAmount + donationAmount
+          amountDonated: document.data.amountDonated + amount
         }
       })
     )

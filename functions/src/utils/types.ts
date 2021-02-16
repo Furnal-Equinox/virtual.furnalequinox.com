@@ -194,14 +194,21 @@ export interface ConvenienceFeeLineItem {
 
 export interface User {
   discordHandle: string | null
-  donationAmount: number
+  amount: number
   emailAddress: string
   furName: string
 }
 
-export interface TotalDonations {
+export interface Donor {
+  discordHandle: string | null
+  emailAddress: string
+  furName: string
+  hasDonated: boolean
+}
+
+export interface Totals {
   numberOfDonors: number
-  totalAmount: number
+  amountDonated: number
 }
 
 export type Role = 'free' | 'basic' | 'pro' | 'super' | 'adult'

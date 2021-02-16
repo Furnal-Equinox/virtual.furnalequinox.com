@@ -7,13 +7,14 @@ import fetch from 'node-fetch'
 import {
   DiscordHandle,
   DonationAmount,
+  Donor,
   Email,
   FurName,
   NetlifyContext,
   Registrant,
   RegistrantData,
   RegistrationPayload,
-  TotalDonations,
+  Totals,
   User
 } from '../utils/types'
 
@@ -42,7 +43,7 @@ const parseUsersFromPayload = (registrants: Registrant[]): User[] =>
   registrants.map(({ data }: Registrant) => ({
     furName: getFurNameFromRegistrant(data),
     emailAddress: getEmailAddressFromRegistrant(data),
-    donationAmount: getDonationAmountFromRegistrant(data),
+    amount: getDonationAmountFromRegistrant(data),
     discordHandle: getDiscordHandleFromRegistrant(data)
   }))
 
@@ -130,22 +131,35 @@ const handleRegistration = async (
     // Add each user to the Fauna database.
     await Promise.all(
       users.map(
-        async ({ furName, discordHandle, emailAddress, donationAmount }: User): Promise<void> => {
-          const doesDonorExist: boolean = await faunaClient.query(
+        async ({ furName, discordHandle, emailAddress, amount }: User): Promise<void> => {
+          const doesDonorExist: boolean = await faunaClient.query<boolean>(
             q.Exists(q.Match(q.Index('getDonorByFurName'), furName))
           )
       
-          if (!doesDonorExist && donationAmount > 0) {
+          if (!doesDonorExist) {
             await faunaClient.query(
               q.Create(q.Collection('Donor'), {
                 data: {
                   furName: furName,
                   emailAddress: emailAddress,
-                  discordHandle: discordHandle
+                  discordHandle: discordHandle,
+                  hasDonated: amount > 0
                 }
               })
             )
           }
+      
+          const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
+            q.Get(q.Match(q.Index('getDonorByFurName'), furName))
+          )
+      
+          await faunaClient.query(
+            q.Update(donorDocument.ref, {
+              data: {
+                hasDonated: amount > 0
+              }
+            })
+          )
           
           const doesDonationExist: boolean = await faunaClient.query(
             q.Exists(q.Match(q.Index('getDonationByFurName'), furName))
@@ -171,7 +185,7 @@ const handleRegistration = async (
           await faunaClient.query(
             q.Update(document.ref, {
               data: {
-                donationAmount: document.data.donationAmount + donationAmount
+                amount: document.data.amount + amount
               }
             })
           )
@@ -187,16 +201,16 @@ const handleRegistration = async (
       secret: process.env.FAUNA_SERVER_KEY as string
     })
 
-    const doesRecordExist: boolean = await faunaClient.query(
-      q.Exists(q.Match(q.Index('getTotalDonation')))
+    const doesRecordExist: boolean = await faunaClient.query<boolean>(
+      q.Exists(q.Match(q.Index('getTotals')))
     )
 
     if (!doesRecordExist) {
-      await faunaClient.query(
-        q.Create(q.Collection('TotalDonations'), {
+      await faunaClient.query<void>(
+        q.Create(q.Collection('Totals'), {
           data: {
             numberOfDonors: 0,
-            totalAmount: 0
+            amountDonated: 0
           }
         })
       )
@@ -204,16 +218,16 @@ const handleRegistration = async (
 
     await Promise.all(
       users.map(
-        async ({ donationAmount }: User): Promise<void> => {
-          const document = await faunaClient.query<faunadb.values.Document<TotalDonations>>(
-            q.Get(q.Match(q.Index('getTotalDonation')))
+        async ({ amount }: User): Promise<void> => {
+          const document = await faunaClient.query<faunadb.values.Document<Totals>>(
+            q.Get(q.Match(q.Index('getTotals')))
           )
 
-          await faunaClient.query(
+          await faunaClient.query<void>(
             q.Update(document.ref, {
               data: {
                 numberOfDonors: document.data.numberOfDonors + 1,
-                totalAmount: document.data.totalAmount + donationAmount
+                amountDonated: document.data.amountDonated + amount
               }
             })
           )

@@ -22,6 +22,9 @@ type Donor {
 
   # The donor's Discord handle.
   discordHandle: String @unique
+
+  # Whether or not this person has donated.
+  hasDonated: Boolean!
 }
 
 type Totals {
