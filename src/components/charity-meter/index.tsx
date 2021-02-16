@@ -45,7 +45,7 @@ const CharityMeter: React.FC = () => {
       <div
         className='progress-bar progress-bar-striped progress-bar-animated'
         role='progressbar'
-        aria-valuenow={(data?.totalAmount ?? 0) / donationGoal}
+        aria-valuenow={(data?.totalAmount ?? 1) / donationGoal}
         aria-valuemin={0}
         aria-valuemax={100}
         style={{ width: '50%' }}

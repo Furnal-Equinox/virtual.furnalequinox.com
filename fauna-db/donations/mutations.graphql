@@ -3,11 +3,11 @@
 mutation AddDonation {
   createDonation(data: {
     furName: "Bobfox"
-    email: "bobfox@somewhere.com"
+    emailAddress: "bobfox@somewhere.com"
     amount: 5000
   }) {
     furName
-    email
+    emailAddress
     amount
     _id
   }
@@ -17,13 +17,37 @@ mutation AddDonationWithDiscord {
   createDonation(data: {
     furName: "Sandy Cheeks"
     discordHandle: "Sandy#3145"
-    email: "SquirrelGenius@bikinibottom.com"
+    emailAddress: "SquirrelGenius@bikinibottom.com"
     amount: 7000
   }) {
     furName
     discordHandle
-    email
+    emailAddress
     amount
+    _id
+  }
+}
+
+mutation AddDonor {
+  createDonor(data: {
+    furName: "Bobfox"
+    emailAddress: "bobfox@somewhere.com"
+  }) {
+    furName
+    emailAddress
+    _id
+  }
+}
+
+mutation AddDonorWithDiscord {
+  createDonor(data: {
+    furName: "Sandy Cheeks"
+    discordHandle: "Sandy#3145"
+    emailAddress: "SquirrelGenius@bikinibottom.com"
+  }) {
+    furName
+    discordHandle
+    emailAddress
     _id
   }
 }

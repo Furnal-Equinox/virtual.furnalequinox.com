@@ -3,7 +3,7 @@ type Donation {
   furName: String! @unique
 
   # The donor's email address.
-  email: String! @unique
+  emailAddress: String! @unique
 
   # The donor's Discord handle.
   discordHandle: String @unique
@@ -13,19 +13,30 @@ type Donation {
   amount: Int!
 }
 
-type TotalDonations {
+type Donor {
+  # The donor's fur name.
+  furName: String! @unique
+
+  # The donor's email address.
+  emailAddress: String! @unique
+
+  # The donor's Discord handle.
+  discordHandle: String @unique
+}
+
+type Totals {
   # Number of donors
   numberOfDonors: Int!  
 
   # Total amount donated
-  totalAmount: Int!
+  amountDonated: Int!
 }
 
 type Query {
   # Get all donations
   allDonations: [Donation!]
 
-  getTotalDonations: TotalDonations!
+  getTotals: Totals!
 
   # Get a donation record by a donor's fur name
   getDonationByFurName(furName: String!): Donation!
@@ -35,8 +46,21 @@ type Query {
   getDonationByDiscordHandle(discordHandle: String!): Donation
 
   # Get a donation record by a donor's email address
-  getDonationByEmail(email: String!): Donation!
+  getDonationByEmailAddress(emailAddress: String!): Donation!
 
   # get all donations sorted by the donation amount
   allDonationsSortedByAmount: [Donation!]! @resolver(name: "allDonationsSortedByAmount", paginated: true)
+
+  # Get all donors
+  allDonors: [Donor!]
+
+  # Get a donor by searching for their fur name.
+  getDonorByFurName(furName: String!): Donor!
+
+  # Get a donor by searching for their Discord handle.
+  # Since the Discord handle is optional, this query may not return a result.
+  getDonorByDiscordHandle(discordHandle: String!): Donor
+
+  # Get a donor by searching for their email address.
+  getDonorByEmailAddress(emailAddress: String!): Donor!
 }

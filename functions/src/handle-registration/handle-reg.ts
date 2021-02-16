@@ -41,7 +41,7 @@ const doesPayloadHaveExpectedFields = (registrants: Registrant[]): boolean => {
 const parseUsersFromPayload = (registrants: Registrant[]): User[] =>
   registrants.map(({ data }: Registrant) => ({
     furName: getFurNameFromRegistrant(data),
-    email: getEmailFromRegistrant(data),
+    emailAddress: getEmailAddressFromRegistrant(data),
     donationAmount: getDonationAmountFromRegistrant(data),
     discordHandle: getDiscordHandleFromRegistrant(data)
   }))
@@ -51,9 +51,9 @@ const getFurNameFromRegistrant = (data: RegistrantData): string => {
   return furName.value
 }
 
-const getEmailFromRegistrant = (data: RegistrantData): string => {
-  const email: Email = data.find(o => o.key === 'email') as Email
-  return email.value
+const getEmailAddressFromRegistrant = (data: RegistrantData): string => {
+  const emailAddress: Email = data.find(o => o.key === 'email') as Email
+  return emailAddress.value
 }
 
 const getDiscordHandleFromRegistrant = (data: RegistrantData): string | null => {
@@ -108,11 +108,11 @@ const handleRegistration = async (
 
     await Promise.all(
       users.map(
-        async ({ email }: User) => {
+        async ({ emailAddress }: User) => {
           await fetch(inviteUrl, {
             method: 'POST',
             headers: { Authorization: adminAuthHeader },
-            body: JSON.stringify({ email: email })
+            body: JSON.stringify({ email: emailAddress })
           })
             .catch((err) => console.error(JSON.stringify(err, null, 2)))
         }
@@ -130,17 +130,33 @@ const handleRegistration = async (
     // Add each user to the Fauna database.
     await Promise.all(
       users.map(
-        async ({ furName, discordHandle, email, donationAmount }: User): Promise<void> => {
-          const doesUserExist: boolean = await faunaClient.query(
+        async ({ furName, discordHandle, emailAddress, donationAmount }: User): Promise<void> => {
+          const doesDonorExist: boolean = await faunaClient.query(
+            q.Exists(q.Match(q.Index('getDonorByFurName'), furName))
+          )
+      
+          if (!doesDonorExist && donationAmount > 0) {
+            await faunaClient.query(
+              q.Create(q.Collection('Donor'), {
+                data: {
+                  furName: furName,
+                  emailAddress: emailAddress,
+                  discordHandle: discordHandle
+                }
+              })
+            )
+          }
+          
+          const doesDonationExist: boolean = await faunaClient.query(
             q.Exists(q.Match(q.Index('getDonationByFurName'), furName))
           )
 
-          if (!doesUserExist) {
+          if (!doesDonationExist) {
             await faunaClient.query(
               q.Create(q.Collection('Donation'), {
                 data: {
                   furName: furName,
-                  email: email,
+                  emailAddress: emailAddress,
                   discordHandle: discordHandle,
                   donationAmount: 0
                 }

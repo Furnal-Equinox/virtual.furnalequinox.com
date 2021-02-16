@@ -195,7 +195,7 @@ export interface ConvenienceFeeLineItem {
 export interface User {
   discordHandle: string | null
   donationAmount: number
-  email: string
+  emailAddress: string
   furName: string
 }
 

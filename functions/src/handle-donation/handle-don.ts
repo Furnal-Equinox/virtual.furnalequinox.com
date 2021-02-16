@@ -38,7 +38,7 @@ const doesPayloadHaveExpectedFields = (data: DonationPayload): boolean => {
 const parseUserFromPayload = (data: DonationPayload): User =>
   ({
     furName: getFurNameFromDonation(data.registrants[0].data),
-    email: getEmailFromDonation(data),
+    emailAddress: getEmailAddressFromDonation(data),
     donationAmount: getDonationAmountFromRegistrant(data.registrants[0].data),
     discordHandle: getDiscordHandleFromDonation(data.registrants[0].data)
   })
@@ -48,7 +48,7 @@ const getFurNameFromDonation = (data: DonationData): string => {
   return furName.value
 }
 
-const getEmailFromDonation = (data: DonationPayload): string => {
+const getEmailAddressFromDonation = (data: DonationPayload): string => {
   return data.billing.email
 }
 
@@ -95,23 +95,39 @@ const handleDonation = async (
   }
 
   const createOrMutateUserInDB = async (user: User): Promise<void> => {
-    const { furName, email, discordHandle, donationAmount } = user
+    const { furName, emailAddress, discordHandle, donationAmount } = user
     const q = faunadb.query
 
     const faunaClient = new faunadb.Client({
       secret: process.env.FAUNA_SERVER_KEY as string
     })
 
-    const doesUserExist: boolean = await faunaClient.query(
+    const doesDonorExist: boolean = await faunaClient.query(
+      q.Exists(q.Match(q.Index('getDonorByFurName'), furName))
+    )
+
+    if (!doesDonorExist && donationAmount > 0) {
+      await faunaClient.query(
+        q.Create(q.Collection('Donor'), {
+          data: {
+            furName: furName,
+            emailAddress: emailAddress,
+            discordHandle: discordHandle
+          }
+        })
+      )
+    }
+
+    const doesDonationExist: boolean = await faunaClient.query(
       q.Exists(q.Match(q.Index('getDonationByFurName'), furName))
     )
 
-    if (!doesUserExist) {
+    if (!doesDonationExist) {
       await faunaClient.query(
         q.Create(q.Collection('Donation'), {
           data: {
             furName: furName,
-            email: email,
+            emailAddress: emailAddress,
             discordHandle: discordHandle,
             donationAmount: 0
           }
