@@ -315,7 +315,7 @@ module.exports = {
         mergeStyleHashes: false,
         mergeDefaultDirectives: true,
         directives: {
-          'connect-src': "'self' https://virtual-furnal-equinox.netlify.app https://vimeo.com",
+          'connect-src': "'self' https://virtual-furnal-equinox.netlify.app https://db.fauna.com https://vimeo.com",
           'default-src': "'self' https://player.vimeo.com",
           'font-src': "'self' fonts.gstatic.com",
           'img-src': "'self' data: www.google-analytics.com data: http.cat data: www.netlify.com",
