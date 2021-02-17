@@ -318,8 +318,8 @@ module.exports = {
           'connect-src': "'self' https://virtual-furnal-equinox.netlify.app https://db.fauna.com https://vimeo.com",
           'default-src': "'self' https://player.vimeo.com",
           'font-src': "'self' fonts.gstatic.com",
-          'img-src': "'self' data: www.google-analytics.com data: http.cat data: www.netlify.com",
-          'script-src': "'self' 'unsafe-eval' www.google-analytics.com player.vimeo.com",
+          'img-src': "'self' data: www.googletagmanager.com data: http.cat data: www.netlify.com",
+          'script-src': "'self' 'unsafe-eval' www.googletagmanager.com player.vimeo.com",
           'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
         }
       }
