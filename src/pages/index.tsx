@@ -107,8 +107,7 @@ const HomeDashboard: React.FC<Props> = ({ location }: Props) => {
               <p className='h1 m-0'>$0</p>
             </div>
             <div className='col-6 d-block my-auto'>
-              {/*<CharityMeter />*/}
-              <p className='h4 m-0'>(temporarily disabled)</p>
+              <CharityMeter />
             </div>
             <div className='col'>
               <p className='h1 m-0'>$10,000</p>
