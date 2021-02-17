@@ -2,7 +2,6 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import * as faunadb from 'faunadb'
 import logo from '../../../content/images/logo.png'
 
 import './style.scss'
@@ -19,7 +18,7 @@ export interface Props extends RouteComponentProps {
 const Navbar: React.FC<Props> = ({ location }: Props) => {
   const identity = useIdentityContext()
 
-  const handleLogout = async (): Promise<void> => identity.logout
+  const handleLogout: any = identity.logout
 
   const Logo: React.FC = () =>
     <GatsbyLink className='navbar-brand mr-2' to='/'>
