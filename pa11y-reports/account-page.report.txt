@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://virtual.furnalequinox.com/gallery/index.html
+ > Running Pa11y on URL https://virtual.furnalequinox.com/account/index.html
 
-Results for URL: https://virtual.furnalequinox.com/gallery/
+Results for URL: https://virtual.furnalequinox.com/account/
 
  • Error: The html element should have a lang or xml:lang attribute which describes the language of the document.
    ├── WCAG2AA.Principle3.Guideline3_1.3_1_1.H57.2
@@ -23,7 +23,7 @@ Results for URL: https://virtual.furnalequinox.com/gallery/
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(3) > a
-   └── <a aria-current="page" class="nav-link" href="/gallery/">Gallery</a>
+   └── <a class="nav-link" href="/gallery/">Gallery</a>
 
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha

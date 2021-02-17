@@ -105,16 +105,74 @@ This website was built with these tools, if for some reason the website build fa
 
 
 # 🛠 Build Instructions 🛠
-***Assuming a Unix operating system such as macOS or Linux***
 
-0. Make sure you have installed NodeJS for your system. I recommend the workflow described [here on Tania Rascia's blog](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/#nodejs). 
-   1. Since this project uses a specific version, be sure to run `nvm install lts/fermium` and then `nvm alias default lts/fermium` (to set this version as the default) or `nvm use lts/fermium` (to use this version just for this session - you will have to run this every time you start a terminal, though!).
-   2. Run `npm i -g yarn` to install Yarn.
-1. Click on the green "Code" button at the top of the repository and clone or download this repository.
-2. `cd` into the directory and run `yarn` to install all the dependencies for this website.
-3. Run `gatsby develop` to start the local development server.
-4. If all went well, the website will be ready at `http://localhost:8000/`.
-5. Enjoy!!
+1. Make sure you have installed NodeJS for your system. NodeJS comes with NPM built in.
+   1. If you are on macOS or Linux, I recommend the workflow described [here on Tania Rascia's blog](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/#nodejs). 
+      1. Since this project uses a specific version, be sure to run `nvm install lts/fermium` and then `nvm alias default lts/fermium` (to set this version as the default) or `nvm use lts/fermium` (to use this version just for this session - you will have to run this every time you start a terminal, though!).
+      2. Run `npm i -g yarn` to install Yarn.
+   2. If you are on Windows, you cannot use `nvm` because it does not support non-POSIX operating systems. In this case, you can:
+      1. Install NodeJS normally from the website: https://nodejs.org/en/.
+      2. Install NodeJS using a Windows package manager as described here: https://nodejs.org/en/download/package-manager/#windows.
+      3. Or [install Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10#manual-installation-steps) and install nvm in the Linux VM you chose using the [directions in the GitHub repository for nvm](https://github.com/nvm-sh/nvm#install--update-script). After this, you may follow the directions above for macOS and Linux. ***Warning: This option is somewhat involved, and you may need to enable VM features in your BIOS to get this to work.***
+2. Click on the green "Code" button at the top of the repository and clone or download this repository.
+3. `cd` into the directory and run `yarn` to install all the dependencies for this website.
+4. Run `gatsby develop` to start the local development server.
+5. If all went well, the website will be ready at `http://localhost:8000/`.
+6. Enjoy!!
+
+
+# 🪄 NPM Script Info 🪄
+
+`yarn develop`
+: Starts the local Gatsby development server.
+
+`yarn build`
+: Builds an optimized production version of the website, ready to be deployed.
+
+`yarn clean`
+: Cleans the output from the build script. Useful for clearing Gatsby's cache.
+
+`yarn lint-code`
+: Runs `ts-standard`, a linter for TypeScript. You can read more about Standard JS [here](https://standardjs.com/).
+
+`yarn lint-styles`
+: Runs `stylelint`, a linter for CSS and its siblings. You can read more about Stylelint [here](https://stylelint.io/).
+
+`yarn line-words`
+: Runs `textline`, a linter for human prose! You can read more about Textlint [here](https://textlint.github.io/).
+
+`yarn plzfixmycode`
+: Same as `yarn lint-code` but appends `--fix` so that `ts-standard` will try to fix as many linting errors as it can.
+
+`yarn plzfixmystyles`
+: Same as `yarn lint-styles` but appends `--fix` so that `stylelint` will try to fix as many linting errors as it can.
+
+`yarn plzfixmywords`
+: Same as `yarn lint-words` but appends `--fix` so that `textlint` will try to fix as many linting errors as it can.
+
+`yarn storybook`
+: Runs a Storybook server locally. Kind of like `yarn develop` for Storybook.
+
+`yarn build-storybook`
+: Builds an optimized production version of the storybook, ready to be deployed.
+
+`yarn chromatic`
+: Runs `build-storybook` and deploys the storybook to Chromatic. I have `--auto-accept-changes` on because I don't think reviewing the UI changes every time is necessary since I am working closely with our lead designer anyway.
+
+`yarn netlify-functions-build`
+: Runs the TypeScript compiler on the code under `/functions/src`. The resulting JavaScript output is ready to be deployed to Netlify.
+
+`yarn netlify-functions-clean`
+: Cleans the build output from the above script.
+
+`yarn run-pa11y`
+: Runs the `pa11yRunner.hs` script, which runs pa11y over the website.
+
+`yarn clean-all`
+: Runs `yarn clean` and `yarn netlify-functions-clean`.
+
+`yarn build-all`
+: Runs `yarn netlify-functions-build` and `yarn build`.
 
 
 # 🚀 Deploy Instructions 🚀

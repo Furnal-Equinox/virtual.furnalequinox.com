@@ -10,6 +10,11 @@ Results for URL: https://virtual.furnalequinox.com/404/index.html
    ├── html > head > title
    └── <title data-react-helmet="true"></title>
 
+ • Error: The html element should have a lang or xml:lang attribute which describes the language of the document.
+   ├── WCAG2AA.Principle3.Guideline3_1.3_1_1.H57.2
+   ├── html
+   └── <html><head><meta charset="utf-8"><me...</html>
+
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(1) > a
@@ -28,12 +33,27 @@ Results for URL: https://virtual.furnalequinox.com/404/index.html
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(4) > a
-   └── <a class="nav-link" href="/shop/">Shop</a>
+   └── <a class="nav-link" href="/con-store/">Con-Store</a>
 
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(5) > a
-   └── <a class="nav-link" href="/adult/">Adult</a>
+   └── <a class="nav-link" href="/info/">Info</a>
+
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #navbarCollapse > ul > li:nth-child(6) > a
+   └── <a class="nav-link" href="/sign-up/">Sign Up</a>
+
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #navbarCollapse > ul > li:nth-child(7) > a
+   └── <a class="nav-link" href="/login/">Login</a>
+
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #gatsby-focus-wrapper > nav > div > span
+   └── <span class="navbar-text">Hello, stranger!</span>
 
  • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
@@ -95,6 +115,6 @@ Results for URL: https://virtual.furnalequinox.com/404/index.html
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-2 Errors
-16 Warnings
+3 Errors
+19 Warnings
 

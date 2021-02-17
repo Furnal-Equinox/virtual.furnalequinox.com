@@ -5,6 +5,11 @@ Welcome to Pa11y
 
 Results for URL: https://virtual.furnalequinox.com/news/2020-12-09-welcome/
 
+ • Error: The html element should have a lang or xml:lang attribute which describes the language of the document.
+   ├── WCAG2AA.Principle3.Guideline3_1.3_1_1.H57.2
+   ├── html
+   └── <html class=" emergence emergence"><head><meta charset="utf-8"><me...</html>
+
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(1) > a
@@ -23,77 +28,58 @@ Results for URL: https://virtual.furnalequinox.com/news/2020-12-09-welcome/
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(4) > a
-   └── <a class="nav-link" href="/shop/">Shop</a>
+   └── <a class="nav-link" href="/con-store/">Con-Store</a>
 
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(5) > a
-   └── <a class="nav-link" href="/adult/">Adult</a>
+   └── <a class="nav-link" href="/info/">Info</a>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div:nth-child(1) > a > h1
-   └── <h1>Welcome to Virtual Furnal Equin...</h1>
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #navbarCollapse > ul > li:nth-child(6) > a
+   └── <a class="nav-link" href="/sign-up/">Sign Up</a>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div:nth-child(1) > a > time
-   └── <time datetime="2020/12/09">2020/12/09</time>
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #navbarCollapse > ul > li:nth-child(7) > a
+   └── <a class="nav-link" href="/login/">Login</a>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(2)
-   └── <span class="badge badge-primary">Announcements</span>
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #gatsby-focus-wrapper > nav > div > span
+   └── <span class="navbar-text">Hello, stranger!</span>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(3)
-   └── <span class="badge badge-secondary">Announcements</span>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(4)
-   └── <span class="badge badge-secondary">General</span>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div:nth-child(2) > p
-   └── <p>Welcome to Virtual Furnal Equin...</p>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div:nth-child(3) > h2
-   └── <h2>Welcome to Virtual Furnal Equin...</h2>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div:nth-child(3) > p
-   └── <p>Please pardon the mess on the w...</p>
+ • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.63:1. Recommendation:  change text colour to #007db6.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
+   ├── #gatsby-focus-wrapper > div > section > div > div > div > div > p > a
+   └── <a href="mailto:ardal@furnalequinox.com" target="_blank" rel="noopener noreferrer">Ardal</a>
 
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p
+   ├── #gatsby-focus-wrapper > div > div > div > div:nth-child(1) > div > p
    └── <p><strong>Copyright © 2020 Anthro...</p>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p > strong
+   ├── #gatsby-focus-wrapper > div > div > div > div:nth-child(1) > div > p > strong
    └── <strong>Copyright © 2020 Anthropomorphi...</strong>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > p
+   ├── #gatsby-focus-wrapper > div > div > div > div:nth-child(2) > div:nth-child(1) > p
    └── <p>Help</p>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > p
+   ├── #gatsby-focus-wrapper > div > div > div > div:nth-child(2) > div:nth-child(2) > p
    └── <p>Privacy Policies</p>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
+   ├── #gatsby-focus-wrapper > div > div > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-18 Warnings
+2 Errors
+13 Warnings
 

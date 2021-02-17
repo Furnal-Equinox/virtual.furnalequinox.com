@@ -5,6 +5,11 @@ Welcome to Pa11y
 
 Results for URL: https://virtual.furnalequinox.com/
 
+ • Error: The html element should have a lang or xml:lang attribute which describes the language of the document.
+   ├── WCAG2AA.Principle3.Guideline3_1.3_1_1.H57.2
+   ├── html
+   └── <html class=" emergence emergence"><head><meta charset="utf-8"><me...</html>
+
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(1) > a
@@ -23,87 +28,32 @@ Results for URL: https://virtual.furnalequinox.com/
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(4) > a
-   └── <a class="nav-link" href="/shop/">Shop</a>
+   └── <a class="nav-link" href="/con-store/">Con-Store</a>
 
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(5) > a
-   └── <a class="nav-link" href="/adult/">Adult</a>
+   └── <a class="nav-link" href="/info/">Info</a>
 
- • Warning: If this table is a data table, consider using a caption element to the table element to identify this table.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H39.3.NoCaption
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table
-   └── <table class="table table-striped table-hover"><thead><tr><th scope="col">Star...</table>
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #navbarCollapse > ul > li:nth-child(6) > a
+   └── <a class="nav-link" href="/sign-up/">Sign Up</a>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table > tbody > tr:nth-child(1) > th
-   └── <th scope="row">12:00 PM</th>
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #navbarCollapse > ul > li:nth-child(7) > a
+   └── <a class="nav-link" href="/login/">Login</a>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table > tbody > tr:nth-child(1) > td
-   └── <td>Opening Ceremony</td>
+ • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
+   ├── #gatsby-focus-wrapper > nav > div > span
+   └── <span class="navbar-text">Hello, stranger!</span>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table > tbody > tr:nth-child(3) > th
-   └── <th scope="row">12:00 PM</th>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table > tbody > tr:nth-child(3) > td
-   └── <td>Opening Ceremony</td>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table > tbody > tr:nth-child(5) > th
-   └── <th scope="row">12:00 PM</th>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table > tbody > tr:nth-child(5) > td
-   └── <td>Opening Ceremony</td>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table > tbody > tr:nth-child(7) > th
-   └── <th scope="row">12:00 PM</th>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(2) > div > div > div > table > tbody > tr:nth-child(7) > td
-   └── <td>Opening Ceremony</td>
-
- • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
-   ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div:nth-child(1) > div > img
-   └── <img src="/static/moritz-mentges-unsplash-60ee874526012198caa73bbad6a645ed.jpg" class="card-img-top rounded-card-img-top">
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div:nth-child(1) > div > div > div:nth-child(2) > div > a
-   └── <a href="" class="btn rounded-pill btn-primary btn" target="_blank" rel="noopener noreferrer">Label</a>
-
- • Warning: Anchor element found with link content, but no href, ID or name attribute has been supplied.
-   ├── WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div:nth-child(1) > div > div > div:nth-child(2) > div > a
-   └── <a href="" class="btn rounded-pill btn-primary btn" target="_blank" rel="noopener noreferrer">Label</a>
-
- • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
-   ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div:nth-child(2) > div > img
-   └── <img src="/static/moritz-mentges-unsplash-60ee874526012198caa73bbad6a645ed.jpg" class="card-img-top rounded-card-img-top">
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > a
-   └── <a href="" class="btn rounded-pill btn-primary btn" target="_blank" rel="noopener noreferrer">Label</a>
-
- • Warning: Anchor element found with link content, but no href, ID or name attribute has been supplied.
-   ├── WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > a
-   └── <a href="" class="btn rounded-pill btn-primary btn" target="_blank" rel="noopener noreferrer">Label</a>
+ • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.63:1. Recommendation:  change text colour to #007db6.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
+   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div > div > div > div > p > a
+   └── <a href="mailto:ardal@furnalequinox.com" target="_blank" rel="noopener noreferrer">Ardal</a>
 
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
@@ -131,5 +81,5 @@ Results for URL: https://virtual.furnalequinox.com/
    └── <p>Credits</p>
 
 2 Errors
-23 Warnings
+13 Warnings
 

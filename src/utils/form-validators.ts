@@ -2,6 +2,9 @@ import * as Yup from 'yup'
 
 // TODO: credit regex found here: https://stackoverflow.com/a/21456918
 
+/**
+ * Inputs to the sign up form.
+ */
 export interface SignUpInputs {
   user_metadata: {
     full_name: string
@@ -10,15 +13,24 @@ export interface SignUpInputs {
   password: string
 }
 
+/**
+ * Inputs to the login form.
+ */
 export interface LoginInputs {
   email: string
   password: string
 }
 
+/**
+ * Inputs to the password recovery and invitation form.
+ */
 export interface PasswordRecoveryAndInvitationInputs {
   password: string
 }
 
+/**
+ * Inputs to the contact form.
+ */
 export interface ContactInputs {
   name: string
   email: string
@@ -59,21 +71,33 @@ const messageSchema = Yup.string()
   .required('Please enter a message.')
   .min(1, 'Your message cannot be empty!')
 
+/**
+ * The Yup form schema for the sign up form.
+ */
 export const signUpSchema = Yup.object().shape({
   user_metadata: userMetadataSchema,
   email: emailSchema,
   password: passwordSchema
 })
 
+/**
+ * The Yup form schema for the login form.
+ */
 export const loginSchema = Yup.object().shape({
   email: emailSchema,
   password: passwordSchema
 })
 
+/**
+ * The Yup form schema for the password recovery and invitation form.
+ */
 export const passwordRecoveryAndInvitationSchema = Yup.object().shape({
   password: passwordSchema
 })
 
+/**
+ * The Yup form schema for the contact form.
+ */
 export const contactSchema = Yup.object().shape({
   name: usernameSchema,
   email: emailSchema,

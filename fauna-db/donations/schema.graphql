@@ -8,8 +8,7 @@ type Donation {
   # The donor's Discord handle.
   discordHandle: String @unique
 
-  # Normalized donation amount in terms of lowest denominator, e.g.,
-  # $1.00 => 100 cents => stored as 100 here.
+  # The amount the donor donated.
   amount: Int!
 }
 

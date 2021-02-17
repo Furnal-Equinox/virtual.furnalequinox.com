@@ -8,6 +8,10 @@ import { TextCard } from '../components/cards'
 
 interface Props extends RouteComponentProps {}
 
+/**
+ * The 404 page.
+ * @param {WindowLocation<unknown>} location the location of this page.
+ */
 const NotFound: React.FC<Props> = ({ location }: Props) => {
   return (
     <Layout location={location}>

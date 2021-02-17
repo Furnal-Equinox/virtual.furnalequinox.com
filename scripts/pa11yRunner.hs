@@ -64,14 +64,17 @@ pathsToCheck =
   [
       ("index.html", "home-page")
     , ("404/index.html", "404-page")
-    , ("adult/index.html", "adult-page")
+    , ("account/index.html", "account-page")
+    , ("con-store/index.html", "con-store-page")
     , ("dealers/index.html", "dealers-index-page")
     , ("dealers/beast-within.html", "beast-within-dealer-page")
     , ("gallery/index.html", "gallery-index-page")
+    , ("help/index.html", "help-page")
+    , ("info/index.html", "info-page")
     , ("login/index.html", "login-page")
     , ("news/index.html", "news-index-page")
     , ("news/2020-12-09-welcome/index.html", "2020-12-09-welcome-page")
-    , ("shop/index.html", "shop-page")
+    , ("sign-up/index.html", "sign-up-page")
   ]
 
 -- | Command-line settings for pa11y.
