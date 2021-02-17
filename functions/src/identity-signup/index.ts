@@ -4,7 +4,7 @@ import { User } from '../utils/types'
 
 interface Payload {
   user: {
-    emailAddress: string
+    email: string
   }
 }
 
@@ -27,12 +27,12 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
   })
 
   const doesUserExist: boolean = await faunaClient.query(
-    q.Exists(q.Match(q.Index('getDonationByEmail'), payload?.user.emailAddress ?? ''))
+    q.Exists(q.Match(q.Index('getDonationByEmail'), payload?.user.email ?? ''))
   )
 
   if (doesUserExist) {
     const document = await faunaClient.query<faunadb.values.Document<User>>(
-      q.Get(q.Match(q.Index('getDonationByEmail'), payload?.user.emailAddress ?? ''))
+      q.Get(q.Match(q.Index('getDonationByEmail'), payload?.user.email ?? ''))
     )
 
     const roles: string[] = document.data.amount > 0 ? ['free', 'donor'] : ['free']
@@ -56,7 +56,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
           furName: 'unknown user'
         },
         app_metadata: {
-          roles: 'free'
+          roles: ['free']
         }
       })
     }
