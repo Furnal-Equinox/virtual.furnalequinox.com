@@ -24,8 +24,7 @@ const doesPayloadHaveExpectedFields = (data: DonationPayload): boolean => {
     data.billing.email !== undefined &&
     donationData.find(o => o.key === 'furName') !== undefined &&
     donationData.find(o => o.key === 'discordHandle') !== undefined &&
-    donationData.find(o => o.key === 'donationAmount') !== undefined &&
-    donationData.find(o => o.key === 'lineItem' && o.label === 'Convenience Fee') !== undefined
+    donationData.find(o => o.key === 'donationAmount') !== undefined
   )
 }
 
