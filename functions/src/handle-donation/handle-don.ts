@@ -108,14 +108,16 @@ const handleDonation = async (
     )
 
     if (!doesDonorExist) {
+      const donor: Donor = {
+        furName: furName,
+        emailAddress: emailAddress,
+        discordHandle: discordHandle,
+        hasDonated: amount > 0
+      }
+
       await faunaClient.query(
         q.Create(q.Collection('Donor'), {
-          data: {
-            furName: furName,
-            emailAddress: emailAddress,
-            discordHandle: discordHandle,
-            hasDonated: amount > 0
-          }
+          data: donor
         })
       )
     }
@@ -124,7 +126,7 @@ const handleDonation = async (
       q.Get(q.Match(q.Index('getDonorByFurName'), furName))
     )
 
-    await faunaClient.query<void>(
+    await faunaClient.query(
       q.Update(donorDocument.ref, {
         data: {
           hasDonated: amount > 0
@@ -137,14 +139,16 @@ const handleDonation = async (
     )
 
     if (!doesDonationExist) {
-      await faunaClient.query<void>(
+      const user: User = {
+        furName: furName,
+        emailAddress: emailAddress,
+        discordHandle: discordHandle,
+        amount: 0
+      }
+
+      await faunaClient.query(
         q.Create(q.Collection('Donation'), {
-          data: {
-            furName: furName,
-            emailAddress: emailAddress,
-            discordHandle: discordHandle,
-            donationAmount: 0
-          }
+          data: user
         })
       )
     }
@@ -153,7 +157,7 @@ const handleDonation = async (
       q.Get(q.Match(q.Index('getDonationByFurName'), furName))
     )
 
-    await faunaClient.query<void>(
+    await faunaClient.query(
       q.Update(document.ref, {
         data: {
           amount: document.data.amount + amount
@@ -175,12 +179,14 @@ const handleDonation = async (
     )
 
     if (!doesRecordExist) {
-      await faunaClient.query<void>(
+      const totals: Totals = {
+        numberOfDonors: 0,
+        amountDonated: 0
+      }
+
+      await faunaClient.query(
         q.Create(q.Collection('Totals'), {
-          data: {
-            numberOfDonors: 0,
-            amountDonated: 0
-          }
+          data: totals
         })
       )
     }
@@ -189,26 +195,40 @@ const handleDonation = async (
       q.Get(q.Match(q.Index('getTotals')))
     )
 
-    await faunaClient.query<void>(
+    const totals: Totals = {
+      numberOfDonors: document.data.numberOfDonors + 1,
+      amountDonated: document.data.amountDonated + amount
+    }
+
+    await faunaClient.query(
       q.Update(document.ref, {
-        data: {
-          numberOfDonors: document.data.numberOfDonors + 1,
-          amountDonated: document.data.amountDonated + amount
-        }
+        data: totals
       })
     )
   }
 
-  // Convert the payload into a list of users.
-  const user: User = parseUserFromPayload(data)
+  try {
+    // Convert the payload into a list of users.
+    const user: User = parseUserFromPayload(data)
 
-  await createOrMutateUserInDB(user)
+    await createOrMutateUserInDB(user)
 
-  await createOrMutateTotalDonation(user)
+    await createOrMutateTotalDonation(user)
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ received: true, message: 'Donation registered in DB!' })
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        received: true,
+        message: 'Donation registered in DB!'
+      })
+    }
+  } catch (err: any) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: 'An error occurred while trying to register a donation in the database.'
+      })
+    }
   }
 }
 

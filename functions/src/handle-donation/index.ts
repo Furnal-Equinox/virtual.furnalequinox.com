@@ -31,7 +31,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
     } else {
       throw new Error('Unrecognized event type!')
     }
-  } catch (err) {
+  } catch (err: any) {
     return {
       statusCode: 400,
       body: `Webhook Error: ${err.message as string}`

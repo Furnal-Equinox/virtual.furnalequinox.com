@@ -115,7 +115,6 @@ const handleRegistration = async (
             headers: { Authorization: adminAuthHeader },
             body: JSON.stringify({ email: emailAddress })
           })
-            .catch((err) => console.error(JSON.stringify(err, null, 2)))
         }
       )
     )
@@ -135,24 +134,26 @@ const handleRegistration = async (
           const doesDonorExist: boolean = await faunaClient.query<boolean>(
             q.Exists(q.Match(q.Index('getDonorByFurName'), furName))
           )
-      
+
           if (!doesDonorExist) {
+            const donor: Donor = {
+              furName: furName,
+              emailAddress: emailAddress,
+              discordHandle: discordHandle,
+              hasDonated: amount > 0
+            }
+
             await faunaClient.query(
               q.Create(q.Collection('Donor'), {
-                data: {
-                  furName: furName,
-                  emailAddress: emailAddress,
-                  discordHandle: discordHandle,
-                  hasDonated: amount > 0
-                }
+                data: donor
               })
             )
           }
-      
+
           const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
             q.Get(q.Match(q.Index('getDonorByFurName'), furName))
           )
-      
+
           await faunaClient.query(
             q.Update(donorDocument.ref, {
               data: {
@@ -160,20 +161,22 @@ const handleRegistration = async (
               }
             })
           )
-          
+
           const doesDonationExist: boolean = await faunaClient.query(
             q.Exists(q.Match(q.Index('getDonationByFurName'), furName))
           )
 
           if (!doesDonationExist) {
+            const user: User = {
+              furName: furName,
+              emailAddress: emailAddress,
+              discordHandle: discordHandle,
+              amount: 0
+            }
+
             await faunaClient.query(
               q.Create(q.Collection('Donation'), {
-                data: {
-                  furName: furName,
-                  emailAddress: emailAddress,
-                  discordHandle: discordHandle,
-                  donationAmount: 0
-                }
+                data: user
               })
             )
           }
@@ -206,12 +209,14 @@ const handleRegistration = async (
     )
 
     if (!doesRecordExist) {
-      await faunaClient.query<void>(
+      const totals: Totals = {
+        numberOfDonors: 0,
+        amountDonated: 0
+      }
+
+      await faunaClient.query(
         q.Create(q.Collection('Totals'), {
-          data: {
-            numberOfDonors: 0,
-            amountDonated: 0
-          }
+          data: totals
         })
       )
     }
@@ -223,12 +228,14 @@ const handleRegistration = async (
             q.Get(q.Match(q.Index('getTotals')))
           )
 
-          await faunaClient.query<void>(
+          const totals: Totals = {
+            numberOfDonors: document.data.numberOfDonors + 1,
+            amountDonated: document.data.amountDonated + amount
+          }
+
+          await faunaClient.query(
             q.Update(document.ref, {
-              data: {
-                numberOfDonors: document.data.numberOfDonors + 1,
-                amountDonated: document.data.amountDonated + amount
-              }
+              data: totals
             })
           )
         }
@@ -236,18 +243,27 @@ const handleRegistration = async (
     )
   }
 
-  // Convert the payload into a list of users.
-  const users: User[] = parseUsersFromPayload(registrants)
+  try {
+    // Convert the payload into a list of users.
+    const users: User[] = parseUsersFromPayload(registrants)
 
-  await createOrMutateUsersInDB(users)
+    await createOrMutateUsersInDB(users)
 
-  await createOrMutateTotalDonation(users)
+    await createOrMutateTotalDonation(users)
 
-  await inviteUsers(users)
+    await inviteUsers(users)
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ received: true, message: 'User(s) invited!' })
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ received: true, message: 'User(s) invited!' })
+    }
+  } catch (err: any) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: 'An error occurred while trying to register a donation in the database and / or trying to invite a user.'
+      })
+    }
   }
 }
 
