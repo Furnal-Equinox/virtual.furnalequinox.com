@@ -199,10 +199,17 @@ export interface User {
   furName: string
 }
 
-export interface Donor {
-  discordHandle: string | null
-  emailAddress: string
+export interface Donation {
   furName: string
+  discordHandle?: string
+  emailAddress: string
+  amount: number
+}
+
+export interface Donor {
+  furName: string
+  discordHandle?: string
+  emailAddress: string
   hasDonated: boolean
 }
 

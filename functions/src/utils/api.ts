@@ -1,29 +1,12 @@
 import * as faunadb from 'faunadb'
 
-export interface Totals {
-  numberOfDonors: number
-  amountDonated: number
-}
-
-export interface Donation {
-  furName: string
-  discordHandle?: string
-  emailAddress: string
-  amount: number
-}
-
-export interface Donor {
-  furName: string
-  discordHandle?: string
-  emailAddress: string
-  hasDonated: boolean
-}
+import { Totals } from './types'
 
 export const getTotals = async (): Promise<Totals | null> => {
   const q = faunadb.query
 
   const faunaClient = new faunadb.Client({
-    secret: process.env.GATSBY_FAUNA_CLIENT_KEY as string
+    secret: process.env.FAUNA_TOTALS_KEY as string
   })
 
   try {

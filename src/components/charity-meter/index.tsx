@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import * as faunadb from 'faunadb'
-import './style.scss'
-
-import { getTotals, Totals } from '../../utils/api'
+import { useIdentityContext } from 'react-netlify-identity-gotrue'
 
 const CharityMeter: React.FC = () => {
-  const [totals, setTotals] = useState<Totals | null>(null)
+  const [total, setTotal] = useState<number | null>(null)
   const donationGoal = parseInt(process.env.GATSBY_DONATION_GOAL as string)
   const timeToCheck = parseInt(process.env.GATSBY_INTERVAL_IN_MS_TO_CHECK_TOTAL_DONATION_AMOUNT as string)
 
+  const identity = useIdentityContext()
+
   useEffect(() => {
     const fetchTotals = async (): Promise<void> => {
-      const data = await getTotals()
-      setTotals(data)
+      try {
+        const res = await identity.authorizedFetch('/.netlify/functions/fetch-totals', {
+          method: 'POST'
+        })
+    
+        const data: number | null = await res.json()
+    
+        setTotal(data)
+      } catch (err: any) {
+        console.error(err)
+      }
     }
 
     fetchTotals()
@@ -27,7 +35,7 @@ const CharityMeter: React.FC = () => {
   }, [])
 
   const getPercentOfGoal = (): number =>
-    ((totals?.amountDonated ?? 0) / donationGoal) * 100
+    ((total ?? 0) / donationGoal) * 100
 
   return (
     <div className='progress progress-larger'>
