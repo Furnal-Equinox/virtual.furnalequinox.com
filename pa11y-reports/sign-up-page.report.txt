@@ -45,70 +45,25 @@ Results for URL: https://virtual.furnalequinox.com/sign-up/
    ├── #gatsby-focus-wrapper > nav > div > span
    └── <span class="navbar-text">Hello, stranger!</span>
 
- • Error: This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.
-   ├── WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(2) > input
-   └── <input name="user_metadata.full_name" type="text" class="form-control" placeholder="Your name">
-
- • Error: This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.F68
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(2) > input
-   └── <input name="user_metadata.full_name" type="text" class="form-control" placeholder="Your name">
-
- • Warning: This label's "for" attribute contains an ID that does not exist in the document fragment.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H44.NonExistentFragment
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(2) > label
-   └── <label for="inputUsername">Your name</label>
-
  • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(2) > label
-   └── <label for="inputUsername">Your name</label>
+   ├── #inputUsernameLabel
+   └── <label id="inputUsernameLabel" for="inputUsername">Your name</label>
 
  • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
    ├── #nameHelp
    └── <div id="nameHelp" class="form-text">Name must be at least one chara...</div>
 
- • Error: This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.
-   ├── WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(3) > input
-   └── <input name="email" type="text" class="form-control" placeholder="Email address">
-
- • Error: This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.F68
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(3) > input
-   └── <input name="email" type="text" class="form-control" placeholder="Email address">
-
- • Warning: This label's "for" attribute contains an ID that does not exist in the document fragment.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H44.NonExistentFragment
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(3) > label
-   └── <label for="inputEmail">Email address</label>
+ • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
+   ├── #inputEmailLabel
+   └── <label id="inputEmailLabel" for="inputEmail">Email address</label>
 
  • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(3) > label
-   └── <label for="inputEmail">Email address</label>
-
- • Error: This passwordinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.
-   ├── WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputPassword.Name
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(4) > input
-   └── <input name="password" type="password" class="form-control" placeholder="************">
-
- • Error: This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.F68
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(4) > input
-   └── <input name="password" type="password" class="form-control" placeholder="************">
-
- • Warning: This label's "for" attribute contains an ID that does not exist in the document fragment.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H44.NonExistentFragment
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(4) > label
-   └── <label for="inputPassword">Password</label>
-
- • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(4) > label
-   └── <label for="inputPassword">Password</label>
+   ├── #inputPasswordLabel
+   └── <label id="inputPasswordLabel" for="inputPassword">Password</label>
 
  • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
@@ -140,11 +95,6 @@ Results for URL: https://virtual.furnalequinox.com/sign-up/
    ├── #passwordHelp > ul > li:nth-child(5)
    └── <li>have at least one number</li>
 
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.63:1. Recommendation:  change text colour to #007db6.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(4) > p > a
-   └── <a title="passwordsgenerator.net" href="https://passwordsgenerator.net/" target="_blank" rel="noopener noreferrer">passwordsgenerator.net</a>
-
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > button
@@ -175,6 +125,6 @@ Results for URL: https://virtual.furnalequinox.com/sign-up/
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-14 Errors
-20 Warnings
+7 Errors
+17 Warnings
 

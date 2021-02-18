@@ -35,6 +35,7 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
                   Please go back and try again.<br />
                   If you think you've found an error, email{' '}
                   <a
+                    title="Ardal's email address"
                     href='mailto:ardal@furnalequinox.com'
                     target='_blank'
                     rel='noopener noreferrer'

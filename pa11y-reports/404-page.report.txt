@@ -5,11 +5,6 @@ Welcome to Pa11y
 
 Results for URL: https://virtual.furnalequinox.com/404/index.html
 
- • Error: The title element in the head section should be non-empty.
-   ├── WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.1.EmptyTitle
-   ├── html > head > title
-   └── <title data-react-helmet="true"></title>
-
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(1) > a
@@ -80,11 +75,6 @@ Results for URL: https://virtual.furnalequinox.com/404/index.html
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div > div > div > div
    └── <div class="col mx-auto"><h1>404</h1><img src="https://h...</div>
 
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.63:1. Recommendation:  change text colour to #007db6.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div > div > div > div > p > a
-   └── <a href="mailto:ardal@furnalequinox.com" target="_blank" rel="noopener noreferrer">Ardal</a>
-
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p
@@ -110,6 +100,5 @@ Results for URL: https://virtual.furnalequinox.com/404/index.html
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-2 Errors
 19 Warnings
 

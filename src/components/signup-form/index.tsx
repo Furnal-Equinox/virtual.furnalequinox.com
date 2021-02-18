@@ -64,6 +64,7 @@ const SignUpForm: React.FC = () => {
           name='user_metadata.full_name'
           id='inputUsername'
           aria-labelledby='inputUsernameLabel'
+          aria-describedby='nameHelp'
           type='text'
           className='form-control'
           placeholder='Your name'

@@ -45,45 +45,15 @@ Results for URL: https://virtual.furnalequinox.com/login/
    ├── #gatsby-focus-wrapper > nav > div > span
    └── <span class="navbar-text">Hello, stranger!</span>
 
- • Error: This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.
-   ├── WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(2) > input
-   └── <input name="email" type="text" class="form-control" placeholder="Email address">
-
- • Error: This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.F68
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(2) > input
-   └── <input name="email" type="text" class="form-control" placeholder="Email address">
-
- • Warning: This label's "for" attribute contains an ID that does not exist in the document fragment.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H44.NonExistentFragment
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(2) > label
-   └── <label for="inputEmail">Email address</label>
+ • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
+   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
+   ├── #inputEmailLabel
+   └── <label id="inputEmailLabel" for="inputEmail">Your email address</label>
 
  • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(2) > label
-   └── <label for="inputEmail">Email address</label>
-
- • Error: This passwordinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.
-   ├── WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputPassword.Name
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(3) > input
-   └── <input name="password" type="password" class="form-control" placeholder="************">
-
- • Error: This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.F68
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(3) > input
-   └── <input name="password" type="password" class="form-control" placeholder="************">
-
- • Warning: This label's "for" attribute contains an ID that does not exist in the document fragment.
-   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H44.NonExistentFragment
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(3) > label
-   └── <label for="inputPassword">Password</label>
-
- • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > div:nth-child(3) > label
-   └── <label for="inputPassword">Password</label>
+   ├── #inputPasswordLabel
+   └── <label id="inputPasswordLabel" for="inputPassword">Your password</label>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
@@ -115,6 +85,5 @@ Results for URL: https://virtual.furnalequinox.com/login/
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-4 Errors
-18 Warnings
+16 Warnings
 

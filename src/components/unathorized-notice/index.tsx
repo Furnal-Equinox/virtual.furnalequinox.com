@@ -19,6 +19,7 @@ const UnauthorizedNotice: React.FC = () =>
             Please check your account and try changing your ticket.<br />
             If you think you've found an error, email{' '}
             <a
+              title="Ardal's email address"
               href='mailto:ardal@furnalequinox.com'
               target='_blank'
               rel='noopener noreferrer'

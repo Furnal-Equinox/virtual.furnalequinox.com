@@ -7,14 +7,15 @@
 
 {-
 `LANGUAGE OverloadedStrings`
-allows strings to be contextually interpreted as types other than Haskell's basic String type.
+allows strings to be contextually inferred as types other than Haskell's basic String type.
 In this script, I use Data.Text's string implementation instead because it uses less space.
 -}
 
 {-
 Notes for people unfamiliar with Haskell:
 
-<> is string concatenation.
+<> is string concatenation. There is a ++ concatenation operator intended for lists,
+but <> is a more general form of the same operator. In fact, ++ is implemented as <>!
 It works the same way as the + in "Hello, " + "World!" in C-like languages.
 
 For the arrows below, think of it like this:

@@ -66,6 +66,8 @@ $link-hover-decoration: none !default;
 //
 @import './fonts.scss';
 
+$form-label-color: $steel-gray-700 !default;
+
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
