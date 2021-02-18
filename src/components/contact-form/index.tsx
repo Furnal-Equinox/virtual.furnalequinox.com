@@ -81,6 +81,8 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
         <input
           ref={register}
           name='name'
+          id='inputName'
+          aria-labelledby='inputNameLabel'
           type='text'
           className={[
             'form-control',
@@ -89,7 +91,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           placeholder='Your name'
           autoFocus
         />
-        <label htmlFor='inputName'>
+        <label id='inputNameLabel' htmlFor='inputName'>
           Your name
         </label>
         {errors.name !== undefined &&
@@ -101,6 +103,8 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
         <input
           ref={register}
           name='email'
+          id='inputEmail'
+          aria-labelledby='inputEmailLabel'
           type='text'
           className={[
             'form-control',
@@ -108,8 +112,8 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           ].join(' ')}
           placeholder='Email address'
         />
-        <label htmlFor='inputEmail'>
-          Email address
+        <label id='inputEmailLabel' htmlFor='inputEmail'>
+          Your email address
         </label>
         {errors.email !== undefined &&
           <p className='text-danger'>
@@ -120,6 +124,8 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
         <textarea
           ref={register}
           name='message'
+          id='inputMessage'
+          aria-labelledby='inputMessageLabel'
           className={[
             'form-control',
             errors.message !== undefined ? 'is-invalid' : null
@@ -127,7 +133,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           style={{ height: '100px' }}
           placeholder='Your message'
         />
-        <label htmlFor='inputMessage'>
+        <label id='inputMessageLabel' htmlFor='inputMessage'>
           Your message
         </label>
         {errors.message !== undefined &&

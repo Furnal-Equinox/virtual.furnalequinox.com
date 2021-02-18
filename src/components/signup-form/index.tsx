@@ -62,12 +62,14 @@ const SignUpForm: React.FC = () => {
         <input
           ref={register}
           name='user_metadata.full_name'
+          id='inputUsername'
+          aria-labelledby='inputUsernameLabel'
           type='text'
           className='form-control'
           placeholder='Your name'
           autoFocus
         />
-        <label htmlFor='inputUsername'>
+        <label id='inputUsernameLabel' htmlFor='inputUsername'>
           Your name
         </label>
         {errors.user_metadata?.full_name !== undefined &&
@@ -82,11 +84,13 @@ const SignUpForm: React.FC = () => {
         <input
           ref={register}
           name='email'
+          id='inputEmail'
+          aria-labelledby='inputEmailLabel'
           type='text'
           className='form-control'
           placeholder='Email address'
         />
-        <label htmlFor='inputEmail'>
+        <label id='inputEmailLabel' htmlFor='inputEmail'>
           Email address
         </label>
         {errors.email !== undefined &&
@@ -98,11 +102,14 @@ const SignUpForm: React.FC = () => {
         <input
           ref={register}
           name='password'
+          id='inputPassword'
+          aria-labelledby='inputPasswordLabel'
+          aria-describedby='passwordHelp'
           type='password'
           className='form-control'
           placeholder='************'
         />
-        <label htmlFor='inputPassword'>
+        <label id='inputPasswordLabel' htmlFor='inputPassword'>
           Password
         </label>
         {errors.password !== undefined &&
@@ -130,7 +137,8 @@ const SignUpForm: React.FC = () => {
           </ul>
         </div>
         <p>
-          Having trouble making a password?<br />
+          Having trouble making a password?
+          <br />
           Try this free password generator website!{' '}
           <OutboundLink
             title='passwordsgenerator.net'

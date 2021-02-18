@@ -67,13 +67,15 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
         <input
           ref={register}
           name='email'
+          id='inputEmail'
+          aria-labelledby='inputEmailLabel'
           type='text'
           className='form-control'
           placeholder='Email address'
           autoFocus
         />
-        <label htmlFor='inputEmail'>
-          Email address
+        <label id='inputEmailLabel' htmlFor='inputEmail'>
+          Your email address
         </label>
         {errors.email !== undefined &&
           <p className='text-danger'>
@@ -84,12 +86,14 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
         <input
           ref={register}
           name='password'
+          id='inputPassword'
+          aria-labelledby='inputPasswordLabel'
           type='password'
           className='form-control'
           placeholder='************'
         />
-        <label htmlFor='inputPassword'>
-          Password
+        <label id='inputPasswordLabel' htmlFor='inputPassword'>
+          Your password
         </label>
         {errors.password !== undefined &&
           <p className='text-danger'>

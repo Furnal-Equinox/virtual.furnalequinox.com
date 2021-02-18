@@ -56,11 +56,14 @@ const AuthOverlay: React.FC = () => {
         <input
           ref={register}
           name='password'
+          id='inputPassword'
+          aria-labelledby='inputPasswordLabel'
+          aria-describedby='passwordHelp'
           type='password'
           className='form-control'
           placeholder='************'
         />
-        <label htmlFor='inputPassword'>
+        <label id='inputPasswordLabel' htmlFor='inputPassword'>
           Password
         </label>
         <div id='passwordHelp' className='form-text'>
@@ -88,7 +91,8 @@ const AuthOverlay: React.FC = () => {
             {errors.password?.message ?? 'Unknown error'}
           </p>}
         <p>
-          Having trouble making a password?<br />
+          Having trouble making a password?
+          <br />
           Try this free password generator website!{' '}
           <OutboundLink
             title='passwordsgenerator.net'

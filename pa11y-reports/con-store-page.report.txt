@@ -5,11 +5,6 @@ Welcome to Pa11y
 
 Results for URL: https://virtual.furnalequinox.com/con-store/
 
- • Error: The html element should have a lang or xml:lang attribute which describes the language of the document.
-   ├── WCAG2AA.Principle3.Guideline3_1.3_1_1.H57.2
-   ├── html
-   └── <html class=" emergence emergence"><head><meta charset="utf-8"><me...</html>
-
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
    ├── #navbarCollapse > ul > li:nth-child(1) > a
@@ -80,6 +75,6 @@ Results for URL: https://virtual.furnalequinox.com/con-store/
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-2 Errors
+1 Errors
 13 Warnings
 

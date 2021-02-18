@@ -1,5 +1,7 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
+import { Helmet } from 'react-helmet'
+import config from '../../site-config'
 
 import Meta from '../components/meta'
 import Layout from '../layouts/layout'
@@ -15,6 +17,7 @@ interface Props extends RouteComponentProps {}
 const NotFound: React.FC<Props> = ({ location }: Props) => {
   return (
     <Layout location={location}>
+      <Helmet title={`404 | ${config.siteTitle}`} />
       <Meta />
       <div>
         <Section isContainer isTextCenter pos='middle'>
