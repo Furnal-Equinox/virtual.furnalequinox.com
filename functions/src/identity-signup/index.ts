@@ -35,8 +35,6 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
           q.Get(q.Match(q.Index('getDonationByEmailAddress'), payload?.user.email ?? ''))
         )
 
-        const roles: string[] = document.data.amount > 0 ? ['free', 'donor'] : ['free']
-
         return {
           statusCode: 200,
           body: JSON.stringify({
@@ -44,7 +42,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
               furName: document.data.furName
             },
             app_metadata: {
-              roles: roles
+              roles: ['free']
             }
           })
         }
