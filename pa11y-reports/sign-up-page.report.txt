@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://virtual.furnalequinox.com/sign-up/index.html
+ > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/sign-up/index.html
 
-Results for URL: https://virtual.furnalequinox.com/sign-up/
+Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/sign-up/
 
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
@@ -50,11 +50,6 @@ Results for URL: https://virtual.furnalequinox.com/sign-up/
    ├── #inputUsernameLabel
    └── <label id="inputUsernameLabel" for="inputUsername">Your name</label>
 
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #nameHelp
-   └── <div id="nameHelp" class="form-text">Name must be at least one chara...</div>
-
  • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
    ├── #inputEmailLabel
@@ -65,50 +60,15 @@ Results for URL: https://virtual.furnalequinox.com/sign-up/
    ├── #inputPasswordLabel
    └── <label id="inputPasswordLabel" for="inputPassword">Password</label>
 
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #passwordHelp
-   └── <div id="passwordHelp" class="form-text">Password must:<ul><li>be at lea...</div>
-
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #passwordHelp > ul > li:nth-child(1)
-   └── <li>be at least 8 characters long</li>
-
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #passwordHelp > ul > li:nth-child(2)
-   └── <li>be no longer than 32 characters...</li>
-
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #passwordHelp > ul > li:nth-child(3)
-   └── <li>have at least one lowercase let...</li>
-
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #passwordHelp > ul > li:nth-child(4)
-   └── <li>have at least one uppercase let...</li>
-
- • Error: This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.32:1. Recommendation:  change text colour to #6f777f.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail
-   ├── #passwordHelp > ul > li:nth-child(5)
-   └── <li>have at least one number</li>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > button
-   └── <button class="w-100 btn btn-lg btn-primary rounded-pill" type="submit">Submit</button>
-
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p
-   └── <p><strong>Copyright © 2020 Anthro...</p>
+   └── <p><strong>Copyright 2021 Anthropo...</p>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p > strong
-   └── <strong>Copyright © 2020 Anthropomorphi...</strong>
+   └── <strong>Copyright 2021 Anthropomorphic ...</strong>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
@@ -125,6 +85,5 @@ Results for URL: https://virtual.furnalequinox.com/sign-up/
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-7 Errors
-17 Warnings
+16 Warnings
 

@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://virtual.furnalequinox.com/info/index.html
+ > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/info/index.html
 
-Results for URL: https://virtual.furnalequinox.com/info/
+Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/info/
 
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
@@ -50,70 +50,40 @@ Results for URL: https://virtual.furnalequinox.com/info/
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div > div > div > div > div > div:nth-child(1) > div > img
    └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top rounded-card-img-top">
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div > div > div > div > div > div:nth-child(1) > div > div > div > div:nth-child(2) > div > a
-   └── <a class="btn rounded-pill btn-primary btn" href="/info">Go to their page</a>
-
  • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
    ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div > div > div > div > div > div:nth-child(2) > div > img
    └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top rounded-card-img-top">
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(2) > div > a
-   └── <a class="btn rounded-pill btn-primary btn" href="/info">Go to their page</a>
 
  • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
    ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div > div > div > div > div > div:nth-child(3) > div > img
    └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top rounded-card-img-top">
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(4) > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > a
-   └── <a class="btn rounded-pill btn-primary btn" href="/info">Go to their page</a>
-
  • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
    ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(5) > div > div > div > div > div > div > div:nth-child(1) > div > img
    └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top rounded-card-img-top">
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(5) > div > div > div > div > div > div > div:nth-child(1) > div > div > div > div:nth-child(2) > div > a
-   └── <a class="btn rounded-pill btn-primary btn" href="/info">Go to their page</a>
 
  • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
    ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(5) > div > div > div > div > div > div > div:nth-child(2) > div > img
    └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top rounded-card-img-top">
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(5) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(2) > div > a
-   └── <a class="btn rounded-pill btn-primary btn" href="/info">Go to their page</a>
-
  • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
    ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(5) > div > div > div > div > div > div > div:nth-child(3) > div > img
    └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top rounded-card-img-top">
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(5) > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > a
-   └── <a class="btn rounded-pill btn-primary btn" href="/info">Go to their page</a>
-
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p
-   └── <p><strong>Copyright © 2020 Anthro...</p>
+   └── <p><strong>Copyright 2021 Anthropo...</p>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p > strong
-   └── <strong>Copyright © 2020 Anthropomorphi...</strong>
+   └── <strong>Copyright 2021 Anthropomorphic ...</strong>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
@@ -131,5 +101,5 @@ Results for URL: https://virtual.furnalequinox.com/info/
    └── <p>Credits</p>
 
 6 Errors
-19 Warnings
+13 Warnings
 

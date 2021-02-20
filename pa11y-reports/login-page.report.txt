@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://virtual.furnalequinox.com/login/index.html
+ > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/login/index.html
 
-Results for URL: https://virtual.furnalequinox.com/login/
+Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/login/
 
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
@@ -55,20 +55,15 @@ Results for URL: https://virtual.furnalequinox.com/login/
    ├── #inputPasswordLabel
    └── <label id="inputPasswordLabel" for="inputPassword">Your password</label>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div > div > div > form > button
-   └── <button class="w-100 btn btn-lg btn-primary rounded-pill" type="submit">Submit</button>
-
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p
-   └── <p><strong>Copyright © 2020 Anthro...</p>
+   └── <p><strong>Copyright 2021 Anthropo...</p>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p > strong
-   └── <strong>Copyright © 2020 Anthropomorphi...</strong>
+   └── <strong>Copyright 2021 Anthropomorphic ...</strong>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
@@ -85,5 +80,5 @@ Results for URL: https://virtual.furnalequinox.com/login/
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-16 Warnings
+15 Warnings
 

@@ -57,7 +57,7 @@ type ReportName = Text
 
 -- | The URL of the root website to check. Should match the form https://subdomain.domain.com/
 website :: Url
-website = "https://virtual.furnalequinox.com/"
+website = "https://redesign--virtual-furnal-equinox.netlify.app/"
 
 -- | Paths to check, paired with the name of the report for that path.
 pathsToCheck :: [(Url, ReportName)]
@@ -148,7 +148,7 @@ main = do
       if numWentFine > 0
         then do
           print <|
-            "However, the other " <> (show numErrored) <>
+            "However, the other " <> (show numWentFine) <>
             " instance(s) of pa11y did not report any errors. "
         
         else do

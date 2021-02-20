@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://virtual.furnalequinox.com/404/index.html
+ > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/404/index.html
 
-Results for URL: https://virtual.furnalequinox.com/404/index.html
+Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/404/index.html
 
  • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
@@ -58,7 +58,7 @@ Results for URL: https://virtual.furnalequinox.com/404/index.html
  • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
    ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div
-   └── <div class="card rounded-card border border-info border-5"><div class="card-body"><div cla...</div>
+   └── <div class="card border border-primary border-5 mb-5"><div class="card-body"><div cla...</div>
 
  • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
@@ -78,12 +78,12 @@ Results for URL: https://virtual.furnalequinox.com/404/index.html
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p
-   └── <p><strong>Copyright © 2020 Anthro...</p>
+   └── <p><strong>Copyright 2021 Anthropo...</p>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p > strong
-   └── <strong>Copyright © 2020 Anthropomorphi...</strong>
+   └── <strong>Copyright 2021 Anthropomorphic ...</strong>
 
  • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
