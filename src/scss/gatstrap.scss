@@ -163,6 +163,9 @@ img {
 // Buttons
 
 .btn {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+
   @each $color, $value in $theme-colors {
     &-#{$color} {
       @if $enable-gradients {
@@ -277,6 +280,24 @@ legend {
 
   &.fixed-bottom {
     border-width: 1px 0 0;
+  }
+
+  .nav-link {
+    color: $white;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &.disabled,
+    &.disabled:hover {
+      background-color: transparent;
+      color: $nav-link-disabled-color;
+    }
+
+    &.active {
+      background-color: transparent;
+    }
   }
 }
 

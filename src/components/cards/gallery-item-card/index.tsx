@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Anchor from '../../anchor'
+import { PlaceholderSVG } from '../../placeholders'
 
 export interface GalleryItem {
   title?: string
@@ -12,29 +13,12 @@ export interface GalleryItem {
 type Props = GalleryItem
 
 const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url }: Props) => {
-  const PlaceholderImage: React.FC = () =>
-    <svg
-      className='bd-placeholder-img card-img rounded-card-img-top'
-      width='100%'
-      height='225'
-      xmlns='http://www.w3.org/2000/svg'
-      preserveAspectRatio='xMidYMid slice'
-      focusable='false'
-      role='img'
-      aria-label='Placeholder: Thumbnail'
-    >
-      <title>Placeholder</title>
-      <rect width='100%' height='100%' fill='#55595c' />
-      <text x='50%' y='50%' fill='#eceeef' dy='.3em'>
-        Item Picture
-      </text>
-    </svg>
 
   return (
-    <div className='card rounded-card mb-5 shadow-sm'>
+    <div className='card border-primary border-5 mb-5'>
       {image !== undefined
-        ? <img src={image} className='card-img-top rounded-card-img-top' />
-        : <PlaceholderImage />}
+        ? <img src={image} className='card-img-top' />
+        : <PlaceholderSVG />}
       <div className='card-body'>
         <div className='d-flex justify-content-between align-items-center'>
           <p className='card-title text-center h2'>

@@ -31,7 +31,7 @@ const Button: React.FC<Props> = ({
         className={
           !isClose
             ? [
-              'btn rounded-pill',
+              'btn rounded-3',
                 `btn${hasOutline ? '-outline' : ''}${state !== undefined ? `-${state}` : '-primary'}`,
                 `btn${size !== undefined ? `-${size}` : ''}`
             ].join(' ')
