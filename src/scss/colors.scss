@@ -1,25 +1,13 @@
-$white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #868e96 !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black: #000 !default;
-
-$blue: #03a9f4 !default;
+$blue:   #03a9f4 !default;
 $indigo: #3f51b5 !default;
 $purple: #673ab7 !default;
-$pink: #e91e63 !default;
-$red: #f44336 !default;
+$pink:   #e91e63 !default;
+$red:    #f44336 !default;
 $orange: #ff5722 !default;
 $yellow: #ffab00 !default;
-$green: #8bc34a !default;
-$teal: #009688 !default;
-$cyan: #00bcd4 !default;
+$green:  #8bc34a !default;
+$teal:   #009688 !default;
+$cyan:   #00bcd4 !default;
 
 $lake-blue-100: #d4e3f1 !default;
 $lake-blue-200: #a9c6e3 !default;
@@ -101,6 +89,34 @@ $pleasant-purple-700: #562979 !default;
 $pleasant-purple-800: #391c50 !default;
 $pleasant-purple-900: #1d0e28 !default;
 
+$synth-midnight-100: #cfd2df !default;
+$synth-midnight-200: #9fa5bf !default;
+$synth-midnight-300: #6f78a0 !default;
+$synth-midnight-400: #3f4b80 !default;
+$synth-midnight-500: #0f1e60 !default;
+$synth-midnight-600: #0c184d !default;
+$synth-midnight-700: #09123a !default;
+$synth-midnight-800: #060c26 !default;
+$synth-midnight-900: #030613 !default;
+
+$synth-sunset: #b821e0 !default;
+$neon-arizona-blue: #21e0cb !default;
+$neon-arizona-green: #21e06f !default;
+$neon-yellow: #e0de21 !default;
+$neon-cyan: #21d8e0 !default;
+$neon-danger: #e04021 !default;
+
+$white:    #fff !default;
+$gray-100: $synth-midnight-100 !default;
+$gray-200: $synth-midnight-200 !default;
+$gray-300: $synth-midnight-300 !default;
+$gray-400: $synth-midnight-400 !default;
+$gray-500: $synth-midnight-500 !default;
+$gray-600: $synth-midnight-600 !default;
+$gray-700: $synth-midnight-700 !default;
+$gray-800: $synth-midnight-800 !default;
+$gray-900: $synth-midnight-900 !default;
+$black:    #000 !default;
 
 /* Brand colors from https://brandcolors.net/ */
 $behance: #1769ff !default;
@@ -120,3 +136,23 @@ $tumblr: #35465c !default;
 $twitch: #9146ff !default;
 $twitter: #1da1f2 !default;
 $youtube: #ff0000 !default;
+
+// Reassign color vars to semantic color scheme
+$primary:       $synth-sunset !default;
+$secondary:     $neon-arizona-blue !default;
+$success:       $neon-arizona-green !default;
+$info:          $neon-cyan !default;
+$warning:       $neon-yellow !default;
+$danger:        $neon-danger !default;
+$light:         $gray-900 !default;
+$dark:          $gray-400 !default;
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval:      8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold:  175 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark:             $gray-900 !default;
+$yiq-text-light:            $white !default;

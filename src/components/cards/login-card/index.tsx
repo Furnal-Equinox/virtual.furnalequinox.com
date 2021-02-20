@@ -1,5 +1,4 @@
 import React from 'react'
-import './style.scss'
 
 const LoginCard: React.FC = ({ children }) => {
   return (

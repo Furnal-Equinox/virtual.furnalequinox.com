@@ -1,0 +1,12 @@
+@import './colors.scss';
+@import './tables.scss';
+
+$nav-tabs-border-color:                       $table-border-color !default;
+$nav-tabs-link-hover-border-color:            $nav-tabs-border-color !default;
+$nav-tabs-link-active-color:                  $white !default;
+$nav-tabs-link-active-bg:                     $nav-tabs-border-color !default;
+$nav-tabs-link-active-border-color:           $nav-tabs-border-color !default;
+
+// Navbar
+
+$navbar-dark-hover-color:           $white !default;

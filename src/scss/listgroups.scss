@@ -1,0 +1,9 @@
+@import './colors.scss';
+
+// List group
+
+$list-group-bg:                     $gray-800 !default;
+$list-group-border-color:           $gray-700 !default;
+$list-group-hover-bg:               $primary !default;
+$list-group-disabled-bg:            $gray-700 !default;
+$list-group-action-active-bg:       $primary !default;

@@ -1,0 +1,18 @@
+@import './colors.scss';
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+
+$input-btn-padding-x:               1rem !default;
+
+// Forms
+
+$input-disabled-bg:                 $gray-400 !default;
+$input-border-color:                $white !default;
+$input-group-addon-color:           $white !default;
+$input-group-addon-bg:              $gray-700 !default;
+$input-group-addon-border-color:    transparent !default;
+$custom-file-color:                 $white !default;
+$custom-file-border-color:          $gray-700 !default;

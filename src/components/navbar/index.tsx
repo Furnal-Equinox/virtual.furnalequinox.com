@@ -123,7 +123,7 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
   }
 
   return (
-    <nav className='navbar navbar-expand-lg navbar-light bg-white sticky-top py-0'>
+    <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-0'>
       <div className='container'>
         <Logo />
 
