@@ -19,7 +19,6 @@ const Info: React.FC<Props> = ({ location }: Props) => {
       <Meta customDescription='Information' />
       <div>
         <Jumbotron title='Info' subtitle='' />
-        <Section isContainer isTextCenter pos='middle' />
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <div className='row'>
@@ -33,28 +32,6 @@ const Info: React.FC<Props> = ({ location }: Props) => {
                 <p className='lead'>
                   Please donate to our charity!
                 </p>
-              </div>
-            </div>
-          </TextCard>
-        </Section>
-        <Section isContainer isTextCenter pos='middle'>
-          <TextCard>
-            <div className='row'>
-              <div className='col mx-auto'>
-                <h1>Our DJs</h1>
-                <div className='container'>
-                  <div className='row'>
-                    <div className='col-lg-12'>
-                      <DealerCard />
-                    </div>
-                    <div className='col-lg-12'>
-                      <DealerCard />
-                    </div>
-                    <div className='col-lg-12'>
-                      <DealerCard />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </TextCard>
