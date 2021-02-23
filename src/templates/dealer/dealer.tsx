@@ -157,7 +157,8 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
             <div className='col-lg-6 text-left p-1'>
               <h1>{post?.title ?? ''}</h1>
               <h2>by {post?.dealer ?? ''}</h2>
-              <p className='lead'>{post?.description ?? ''}</p>
+              <hr />
+              <p>{post?.description ?? ''}</p>
             </div>
             <div className='col-lg-6 text-center p-2'>
               {
@@ -175,8 +176,19 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
           <div className='row'>
             <div className='col-lg-6 p-2'>
               <h2>Streaming Times</h2>
+              <hr />
+              <h3>Friday, March 19th</h3>
+              <ol>
+                {
+                  post?.streaming?.friday?.map((block, i) =>
+                    <li key={`friday-time-${i}`}>
+                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                    </li>
+                  )
+                }
+              </ol>
               <h3>Saturday, March 20th</h3>
-              <ul>
+              <ol>
                 {
                   post?.streaming?.saturday?.map((block, i) =>
                     <li key={`saturday-time-${i}`}>
@@ -184,9 +196,9 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                     </li>
                   )
                 }
-              </ul>
+              </ol>
               <h3>Sunday, March 21st</h3>
-              <ul>
+              <ol>
                 {
                   post?.streaming?.sunday?.map((block, i) =>
                     <li key={`sunday-time-${i}`}>
@@ -194,7 +206,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                     </li>
                   )
                 }
-              </ul>
+              </ol>
             </div>
             <div className='col-lg-6 text-center p-2'>
               {

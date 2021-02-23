@@ -2,7 +2,7 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import logo from '../../../content/images/logo.png'
+import logo from '../../../content/images/Logo.svg'
 
 import './style.scss'
 

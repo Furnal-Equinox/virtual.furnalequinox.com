@@ -165,9 +165,9 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
         subtitle='Check out all these cool dealers!'
       />
       <Section isContainer isTextCenter pos='middle'>
-        <TextCard>
-          <div className='row'>
-            <div className='col mx-auto'>
+        <div className='row'>
+          <div className='col-lg-6'>
+            <TextCard>
               <h2>Feeling lucky?</h2>
               <p className='lead'>
                 Click this button to check out a random dealer!
@@ -179,14 +179,10 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
                 }`}
                 size='lg'
               />
-            </div>
+            </TextCard>
           </div>
-        </TextCard>
-      </Section>
-      <Section isContainer isTextCenter pos='middle'>
-        <TextCard>
-          <div className='row'>
-            <div className='col mx-auto'>
+          <div className='col-lg-6'>
+            <TextCard>
               <h2>Have something in mind?</h2>
               <p className='lead'>
                 Use the search bar!
@@ -196,33 +192,36 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
                 setSearchQuery={setSearchQuery}
                 navigate={navigate}
               />
-              {results.length > 0 && (
-                <>
-                  <DealerCardGrid data={
-                    fetchFullResults(getResultsTitles(results), premiumDealers)
-                      .map(result => dealerReducer(result))
-                  }
-                  />
-                  <DealerCardGrid data={
-                    fetchFullResults(getResultsTitles(results), regularDealers)
-                      .map(result => dealerReducer(result))
-                  }
-                  />
-                </>
-              )}
-            </div>
+            </TextCard>
           </div>
-        </TextCard>
+        </div>
       </Section>
+      {results.length > 0 && (
+        <Section isContainer isTextCenter pos='middle'>
+          <TextCard>
+            <h2>SEARCH RESULTS</h2>
+            <DealerCardGrid data={
+              fetchFullResults(getResultsTitles(results), premiumDealers)
+                .map(result => dealerReducer(result))
+              }
+            />
+            <DealerCardGrid data={
+              fetchFullResults(getResultsTitles(results), regularDealers)
+                .map(result => dealerReducer(result))
+              }
+            />
+          </TextCard>
+        </Section>
+      )}
       <Section pos='middle'>
-        <DealerCardGrid data={reducedPremiumDealers} />
+        <DealerCardGrid data={reducedPremiumDealers ?? []} />
       </Section>
       <Jumbotron
         title='Regular Dealers (Live Data)'
         subtitle='Check out all these cool dealers!'
       />
       <Section pos='last'>
-        <DealerCardGrid data={reducedRegularDealers} />
+        <DealerCardGrid data={reducedRegularDealers ?? []} />
       </Section>
     </>
   )
