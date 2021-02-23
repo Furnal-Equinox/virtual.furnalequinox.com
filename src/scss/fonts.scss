@@ -22,10 +22,11 @@ $font-size-xs:                $font-size-base * 0.75 !default;
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
+$font-weight-semibold:        600 !default;
 $font-weight-bold:            700 !default;
 $font-weight-bolder:          bolder !default;
 
-$font-weight-base:            $font-weight-normal !default;
+$font-weight-base:            $font-weight-semibold !default;
 $line-height-base:            1.5 !default;
 
 $h1-font-size:                $font-size-base * 2.5 !default;
