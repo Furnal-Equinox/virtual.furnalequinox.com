@@ -18,17 +18,17 @@ import {
 
 interface Props extends RouteComponentProps {}
 
-const HowTo: React.FC<Props> = ({ location }: Props) => {
-  const Content = makePrivateContent(HowToContent)
+const DiscordVR: React.FC<Props> = ({ location }: Props) => {
+  const Content = makePrivateContent(DiscordVRContent)
 
   return (
     <Layout location={location}>
-      <Helmet title={`How To | ${config.siteTitle}`} />
-      <Meta customDescription='Tutorials on how to join and use Discord and the VRChat worlds' />
+      <Helmet title={`Discord & VR | ${config.siteTitle}`} />
+      <Meta customDescription='Information about the Discord and the VRChat worlds' />
       <div>
         <Content
           location={location}
-          callbackPath='/event/how-to/'
+          callbackPath='/event/discord-vr/'
           allowedRoles={['free']}
         />
       </div>
@@ -36,9 +36,9 @@ const HowTo: React.FC<Props> = ({ location }: Props) => {
   )
 }
 
-export default HowTo
+export default DiscordVR
 
-const HowToContent: React.FC<Props> = ({ location }: Props) => {
+const DiscordVRContent: React.FC<Props> = ({ location }: Props) => {
   return (
     <>
       <Jumbotron title={'Discord & VR'} subtitle='' />
