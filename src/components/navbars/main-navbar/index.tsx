@@ -19,7 +19,7 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
   const handleLogout: any = identity.logout
 
   const Logo: React.FC = () =>
-    <GatsbyLink className='navbar-brand mr-2' to='/'>
+    <GatsbyLink className='navbar-brand mr-2' to='/event/'>
       <img src={logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
     </GatsbyLink>
 

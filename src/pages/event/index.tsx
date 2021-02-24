@@ -62,7 +62,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
     <>
       <Section isContainer isTextCenter pos='middle'>
         <div className='row'>
-          <div className='col-lg-6'>
+          <div className='col-lg-6 mb-3 mb-lg-0'>
             <TextCard>
               <h2>LIVESTREAM</h2>
               <p>
@@ -73,12 +73,12 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               </p>
               <Link
                 label={"Let's go!"}
-                to={`/livestream`}
+                to={`/event/livestream/`}
                 size='lg'
               />
             </TextCard>
           </div>
-          <div className='col-lg-6'>
+          <div className='col-lg-6 mt-3 mt-lg-0'>
             <TextCard>
               <h2>HOW TO</h2>
               <p>
@@ -89,7 +89,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               </p>
               <Link
                 label={"Let's go!"}
-                to={`/how-to`}
+                to={`/event/how-to/`}
                 size='lg'
               />
             </TextCard>
@@ -108,7 +108,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                 <div className='col-lg-4 p-3'>
                   <Link
                     label={"DEALERS DEN"}
-                    to={`/dealers`}
+                    to={`/event/dealers/`}
                     size='lg'
                     state='secondary'
                   />
@@ -116,14 +116,14 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                 <div className='col-lg-4 p-3'>
                   <Link
                     label={"DISCORD & VR"}
-                    to={`/how-to`}
+                    to={`/event/how-to/`}
                     size='lg'
                   />
                 </div>
                 <div className='col-lg-4 p-3'>
                   <Link
                     label={"GAMING"}
-                    to={`/how-to`}
+                    to={`/event/how-to/`}
                     size='lg'
                     state='secondary'
                   />
@@ -141,8 +141,8 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               <p>
                 We made Pixel Purrfect a free event because we know it's important for everyone to gather{' '}
                 together in these difficult times, and while we can't do a physical event, this is{' '}
-                the next best thing. As a free event, this is accessible to as many furs as possible{' '}
-                , and if you want to support the event, your donations are always welcome.
+                the next best thing. As a free event, this is accessible to as many furs as possible,{' '}
+                and if you want to support the event, your donations are always welcome.
               </p>
               <p>
                 All proceeds donated to this event will be split 50/50 between Furnal Equinox and{' '}

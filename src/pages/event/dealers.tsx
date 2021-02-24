@@ -164,12 +164,12 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
         title='Premium Dealers (Live Data)'
         subtitle='Check out all these cool dealers!'
       />
-      <Section isContainer isTextCenter pos='middle'>
+      <Section pos='middle'>
         <div className='row'>
-          <div className='col-lg-6'>
+          <div className='col-lg-6 mb-3 mb-lg-0'>
             <TextCard>
               <h2>Feeling lucky?</h2>
-              <p className='lead'>
+              <p>
                 Click this button to check out a random dealer!
               </p>
               <Link
@@ -181,10 +181,10 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
               />
             </TextCard>
           </div>
-          <div className='col-lg-6'>
+          <div className='col-lg-6 mt-3 mt-lg-0'>
             <TextCard>
               <h2>Have something in mind?</h2>
-              <p className='lead'>
+              <p>
                 Use the search bar!
               </p>
               <SearchBar
