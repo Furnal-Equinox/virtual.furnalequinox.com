@@ -6,6 +6,7 @@ import config from '../../site-config'
 import { NotFoundQueryQuery } from '../../../types/graphql-types'
 
 import { 
+  Button,
   Meta,
   TextCard
 } from '../components'
@@ -25,7 +26,7 @@ interface Props extends RouteComponentProps {
  * The 404 page.
  * @param {WindowLocation<unknown>} location the location of this page.
  */
-const NotFound: React.FC<Props> = ({ data, location }: Props) => {
+const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
   return (
     <Layout location={location}>
       <Helmet title={`404 | ${config.siteTitle}`} />
@@ -52,6 +53,11 @@ const NotFound: React.FC<Props> = ({ data, location }: Props) => {
                 Ardal
               </a>.
             </p>
+            <Button
+              label={"Return to the last page!"}
+              onClick={() => {navigate !== undefined && navigate(-1)}}
+              size='lg'
+            />
           </TextCard>
         </Section>
       </div>
