@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import emergence from 'emergence.js'
 
 import {
   AuthOverlay,
@@ -21,10 +20,6 @@ interface Props extends RouteComponentProps {
 
 const Event: React.FC<Props> = ({ children, location }: Props) => {
   const identity = useIdentityContext()
-
-  useEffect(() => {
-    emergence.init()
-  })
 
   const socialLinks = {
     data: {

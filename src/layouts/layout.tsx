@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { RouteComponentProps } from '@reach/router'
-import emergence from 'emergence.js'
 
 import {
   AuthOverlay,
@@ -19,9 +18,6 @@ interface Props extends RouteComponentProps {
 }
 
 const Layout: React.FC<Props> = ({ children, location }: Props) => {
-  useEffect(() => {
-    emergence.init()
-  })
 
   const socialLinks = {
     data: {
