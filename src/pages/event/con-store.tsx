@@ -58,7 +58,10 @@ export const conStoreQuery = graphql`
 const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <>
-      <Jumbotron title='ConStore' subtitle='Buy some cool stuff!' />
+      <Jumbotron
+        title='Con Store'
+        subtitle='Please buy something to support FE and Hobbitstee Wildlife Refuge!'
+      />
       <Section pos='middle'>
         <div className='container'>
           <div className='row'>

@@ -39,74 +39,26 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
   const CollapsibleLinks: React.FC = () =>
     <div className='collapse navbar-collapse' id='navbarCollapse'>
       <ul className='navbar-nav me-auto mb-2 mb-md-0'>
-        {
-          NavbarLinks.map(elem =>
-            <li
-              key={elem.name}
-              className={
-                location !== undefined &&
-                location?.pathname === elem.to
-                  ? 'nav-item active'
-                  : 'nav-item'
-              }
-            >
-              <GatsbyLink to={elem.to} className='nav-link'>
-                {elem.name}
-              </GatsbyLink>
-            </li>
-          )
-        }
-        {
-          (identity.user === undefined && identity.provisionalUser === undefined) &&
-            <li
-              key='Signup'
-              className={
-                location !== undefined &&
-                location?.pathname === '/sign-up/'
-                  ? 'nav-item active'
-                  : 'nav-item'
-              }
-            >
-              <GatsbyLink to='/sign-up/' className='nav-link'>
-                Sign Up
-              </GatsbyLink>
-            </li>
-        }
-        {identity.user !== undefined
-          ? <>
-            <li
-              key='Account'
-              className={
-                location !== undefined &&
-                  location?.pathname === '/account/'
-                  ? 'nav-item active'
-                  : 'nav-item'
-              }
-            >
-              <GatsbyLink to='/account/' className='nav-link'>
-                My Account
-              </GatsbyLink>
-            </li>
-            <li
-              key='Logout'
-            >
-              <Button label='Logout' onClick={handleLogout} />
-            </li>
-          </>
-          : <li
-            key='Login'
+        {NavbarLinks.map(elem =>
+          <li
+            key={elem.name}
             className={
               location !== undefined &&
-                location?.pathname === '/login/'
+              location?.pathname === elem.to
                 ? 'nav-item active'
                 : 'nav-item'
             }
           >
-            <GatsbyLink to='/login/' className='nav-link'>
-              Login
+            <GatsbyLink to={elem.to} className='nav-link'>
+              {elem.name}
             </GatsbyLink>
-          </li>}
+          </li>
+        )}
       </ul>
+      <Notification />
+      {identity.user !== undefined && 
+        <Button label='Logout' size='sm' onClick={handleLogout} />
+      }
     </div>
 
   const Notification: React.FC = () => {
@@ -128,8 +80,6 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
         <HamburgerMenu />
 
         <CollapsibleLinks />
-
-        <Notification />
       </div>
     </nav>
   )

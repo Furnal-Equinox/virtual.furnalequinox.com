@@ -73,7 +73,10 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
 
   return (
     <>
-      <Jumbotron title='Art Gallery (Live Data)' subtitle='Check out these cool art pieces!' />
+      <Jumbotron
+        title='Art Gallery'
+        subtitle='Enjoy our virtual gallery!'
+      />
       <Section isContainer isTextCenter pos='last'>
         <div className='row'>
           {artworks.map(({ artwork }) => (

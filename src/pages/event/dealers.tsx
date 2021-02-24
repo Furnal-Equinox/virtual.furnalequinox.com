@@ -161,8 +161,8 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
   return (
     <>
       <Jumbotron
-        title='Premium Dealers (Live Data)'
-        subtitle='Check out all these cool dealers!'
+        title='Dealers Den'
+        subtitle='Explore our dealers from the comfort of your home!'
       />
       <Section pos='middle'>
         <div className='row'>
@@ -216,10 +216,6 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
       <Section pos='middle'>
         <DealerCardGrid data={reducedPremiumDealers ?? []} />
       </Section>
-      <Jumbotron
-        title='Regular Dealers (Live Data)'
-        subtitle='Check out all these cool dealers!'
-      />
       <Section pos='last'>
         <DealerCardGrid data={reducedRegularDealers ?? []} />
       </Section>
