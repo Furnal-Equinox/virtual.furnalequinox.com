@@ -5,46 +5,6 @@ Welcome to Pa11y
 
 Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/help/
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(1) > a
-   └── <a class="nav-link" href="/">Home</a>
-
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(2) > a
-   └── <a class="nav-link" href="/dealers/">Dealers Den</a>
-
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(3) > a
-   └── <a class="nav-link" href="/gallery/">Gallery</a>
-
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(4) > a
-   └── <a class="nav-link" href="/con-store/">Con-Store</a>
-
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(5) > a
-   └── <a class="nav-link" href="/info/">Info</a>
-
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(6) > a
-   └── <a class="nav-link" href="/sign-up/">Sign Up</a>
-
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(7) > a
-   └── <a class="nav-link" href="/login/">Login</a>
-
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #gatsby-focus-wrapper > nav > div > span
-   └── <span class="navbar-text">Hello, stranger!</span>
-
  • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
    ├── #inputNameLabel
@@ -85,5 +45,5 @@ Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/help/
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-16 Warnings
+8 Warnings
 

@@ -15,7 +15,7 @@ type Props = SocialItem
 
 const SocialCard: React.FC<Props> = ({ title, description, banner, label, url }: Props) => {
   return (
-    <div className='card border border-primary border-5 mb-5'>
+    <div className='card rounded-3 border border-primary border-5 mb-5'>
       {banner !== undefined
         ? <img src={banner} className='card-img-top' />
         : <PlaceholderSVG />}

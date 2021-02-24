@@ -1,49 +1,54 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/dealers/beast-within.html
+ > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/event/dealers/beast-within.html
 
-Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/dealers/beast-within/
+Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/event/dealers/beast-within.html
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(1) > a
-   └── <a class="nav-link" href="/">Home</a>
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #___gatsby
+   └── <div id="___gatsby"><div style="outline:none" tabin...</div>
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(2) > a
-   └── <a class="nav-link" href="/dealers/">Dealers Den</a>
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #gatsby-focus-wrapper
+   └── <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar navbar-expan...</div>
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(3) > a
-   └── <a class="nav-link" href="/gallery/">Gallery</a>
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #gatsby-focus-wrapper > div
+   └── <div class="layout-container d-flex flex-column justify-content-between bg-image"><div><section class="container ...</div>
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(4) > a
-   └── <a class="nav-link" href="/con-store/">Con-Store</a>
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #gatsby-focus-wrapper > div > div:nth-child(1)
+   └── <div><section class="container py-3 ...</div>
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(5) > a
-   └── <a class="nav-link" href="/info/">Info</a>
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div
+   └── <div class="card border border-primary border-5 h-100"><div class="card-body"><div cla...</div>
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(6) > a
-   └── <a class="nav-link" href="/sign-up/">Sign Up</a>
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div > div
+   └── <div class="card-body"><div class="container text-cent...</div>
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #navbarCollapse > ul > li:nth-child(7) > a
-   └── <a class="nav-link" href="/login/">Login</a>
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div > div > div
+   └── <div class="container text-center p-1"><div class="row"><div class="co...</div>
 
- • Warning: This element's text or background contains transparency. Ensure the contrast ratio between the text and background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha
-   ├── #gatsby-focus-wrapper > nav > div > span
-   └── <span class="navbar-text">Hello, stranger!</span>
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div > div > div > div
+   └── <div class="row"><div class="col mx-auto"><h1>40...</div>
+
+ • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
+   ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
+   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section > div > div > div > div > div
+   └── <div class="col mx-auto"><h1>404</h1><img src="https://h...</div>
 
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
@@ -70,5 +75,5 @@ Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/dealers/be
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
    └── <p>Credits</p>
 
-13 Warnings
+14 Warnings
 

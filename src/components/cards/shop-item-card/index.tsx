@@ -15,7 +15,7 @@ type Props = ShopItem
 
 const ShopItemCard: React.FC<Props> = ({ name, price, description, banner, url }: Props) => {
   return (
-    <div className='card border border-primary border-5 mb-5'>
+    <div className='card rounded-3 border border-primary border-5 mb-5'>
       {banner !== undefined
         ? <img src={banner} className='card-img-top' />
         : <PlaceholderSVG />}

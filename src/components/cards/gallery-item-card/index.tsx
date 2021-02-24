@@ -15,7 +15,7 @@ type Props = GalleryItem
 const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url }: Props) => {
 
   return (
-    <div className='card border-primary border-5 mb-5'>
+    <div className='card rounded-3 border-primary border-5 mb-5'>
       {image !== undefined
         ? <img src={image} className='card-img-top' />
         : <PlaceholderSVG />}

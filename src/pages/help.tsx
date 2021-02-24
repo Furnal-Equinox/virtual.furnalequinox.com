@@ -27,7 +27,7 @@ const Help: React.FC<Props> = ({ location }: Props) => {
             <div className='row'>
               <div className='col mx-auto'>
                 <h1>Contact Form</h1>
-                <p className='lead'>
+                <p>
                   Do you have questions, comments, or suggestions?{' '}
                   Please send them using this form!
                 </p>

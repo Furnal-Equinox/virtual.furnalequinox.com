@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/event/news/index.html
+ > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/event/index.html
 
-Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/event/news/index.html
+Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/event/index.html
 
  • Warning: This content looks like it is simulating an ordered list using plain text. If so, marking up this content with an ol element would add proper structure information to the document.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H48.2
