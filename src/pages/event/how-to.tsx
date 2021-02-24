@@ -11,7 +11,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -22,7 +22,7 @@ const HowTo: React.FC<Props> = ({ location }: Props) => {
   const Content = makePrivateContent(HowToContent)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`How To | ${config.siteTitle}`} />
       <Meta customDescription='Tutorials on how to join and use Discord and the VRChat worlds' />
       <div>
@@ -32,7 +32,7 @@ const HowTo: React.FC<Props> = ({ location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

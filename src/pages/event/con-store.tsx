@@ -2,17 +2,23 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-
-import Meta from '../../components/meta'
-import Layout from '../../layouts/layout'
-
+import config from '../../../site-config'
 import { ConStoreQueryQuery } from '../../../types/graphql-types'
 
-import config from '../../../site-config'
-import { ShopItemCard } from '../../components/cards'
-import Jumbotron from '../../components/jumbotron'
-import Section from '../../layouts/section'
-import { makePrivateContent } from '../../layouts'
+import {
+  Jumbotron,
+  Meta,
+  ShopItemCard
+} from '../../components'
+
+import {
+  Event,
+  makePrivateContent,
+  Section
+} from '../../layouts'
+
+
+
 
 interface Props extends RouteComponentProps {
   data: ConStoreQueryQuery
@@ -22,7 +28,7 @@ const ConStore: React.FC<Props> = ({ data, location }: Props) => {
   const Content = makePrivateContent(ConStoreContent)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`Con-Store | ${config.siteTitle}`} />
       <Meta />
       <div>
@@ -33,7 +39,7 @@ const ConStore: React.FC<Props> = ({ data, location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

@@ -4,11 +4,16 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { Helmet } from 'react-helmet'
 import config from '../../../site-config'
 
-import Layout from '../../layouts/layout'
-import Meta from '../../components/meta'
-import makePrivateContent from '../../layouts/make-private-content'
-import Section from '../../layouts/section'
-import { TextCard } from '../../components/cards'
+import {
+  Meta,
+  TextCard
+} from '../../components'
+
+import {
+  Event,
+  makePrivateContent,
+  Section
+} from '../../layouts'
 
 interface Props extends RouteComponentProps {}
 
@@ -19,7 +24,7 @@ const Account: React.FC<Props> = ({ location }: Props) => {
   const Content = makePrivateContent(MyAccount)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`Account | ${config.siteTitle}`} />
       <Meta />
       <div>
@@ -28,7 +33,7 @@ const Account: React.FC<Props> = ({ location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

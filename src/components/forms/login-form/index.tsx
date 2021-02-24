@@ -5,6 +5,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
 import { LoginInputs, loginSchema } from '../../../utils/form-validators'
 
+import {
+  Link  
+} from '../../index'
+
 interface Props {
   navigateTarget?: string
 }
@@ -42,11 +46,11 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
       })
   }
 
-  const AlreadyLoggedIn: React.FC = () =>
-    <p className='h2'>You are already logged in!</p>
-
-  const ProvisionalUser: React.FC = () =>
-    <p>Your account has not yet been confirmed. Please check your email.</p>
+  const AlreadyLoggedIn: React.FC = () => 
+    <div>
+      <p className='h3 mb-3'>You are already logged in!</p>
+      <Link to={`/event/`} label='Return to the home page' isFullwidth />
+    </div>
 
   const Spinner: React.FC = () =>
     <>
@@ -117,9 +121,7 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   return (
     identity.user !== undefined
       ? <AlreadyLoggedIn />
-      : identity.provisionalUser !== undefined
-        ? <ProvisionalUser />
-        : <Form />
+      : <Form />
   )
 }
 

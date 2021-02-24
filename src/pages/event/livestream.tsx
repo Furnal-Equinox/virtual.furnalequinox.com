@@ -11,7 +11,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -22,7 +22,7 @@ const Livestream: React.FC<Props> = ({ location }: Props) => {
   const Content = makePrivateContent(LivestreamDashboard)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
       <div>
@@ -32,7 +32,7 @@ const Livestream: React.FC<Props> = ({ location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

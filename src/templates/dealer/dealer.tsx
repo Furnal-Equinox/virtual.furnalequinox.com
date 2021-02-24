@@ -16,7 +16,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -42,7 +42,7 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
   const Content = makePrivateContent(DealerContent)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet>
         <title>{`${post?.title ?? ''} | ${config.siteTitle}`}</title>
       </Helmet>
@@ -60,7 +60,7 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
           allowedRoles={isSfw ? ['free'] : ['adult']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

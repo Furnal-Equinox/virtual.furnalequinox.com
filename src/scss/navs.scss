@@ -1,6 +1,11 @@
 @import './colors.scss';
 @import './tables.scss';
 
+$navbar-dark-color:                 $white !default;
+$navbar-dark-hover-color:           $secondary !default;
+$navbar-dark-active-color:          $secondary !default;
+$navbar-dark-disabled-color:        rgba($white, 0.75) !default;
+
 $nav-tabs-border-color:                       $table-border-color !default;
 $nav-tabs-link-hover-border-color:            $nav-tabs-border-color !default;
 $nav-tabs-link-active-color:                  $white !default;

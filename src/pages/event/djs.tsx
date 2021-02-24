@@ -11,7 +11,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -22,7 +22,7 @@ const Djs: React.FC<Props> = ({ location }: Props) => {
   const Content = makePrivateContent(DjsContent)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`DJs | ${config.siteTitle}`} />
       <Meta customDescription='DJs' />
       <div>
@@ -32,7 +32,7 @@ const Djs: React.FC<Props> = ({ location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

@@ -10,7 +10,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -23,7 +23,7 @@ const News: React.FC<Props> = ({ data, location }: Props) => {
   const Content = makePrivateContent(NewsDashboard)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`News | ${config.siteTitle}`} />
       <Meta customDescription='News posts' />
       <div>
@@ -34,7 +34,7 @@ const News: React.FC<Props> = ({ data, location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 
@@ -86,7 +86,7 @@ const NewsDashboard: React.FC<Props> = ({ data, location }: Props) => {
     <>
       <Section isContainer>
         {posts.map(post =>
-          <div className='p-3 mx-3 my-5 bg-light text-left rounded-3' key={post?.post?.fields?.slug}>
+          <div className='p-3 mx-3 my-5 bg-light text-left border-5 border-primary rounded-3' key={post?.post?.fields?.slug}>
             <div className='col'>
               <h1>{post?.post?.frontmatter?.title ?? ''}</h1>
               <p className='lead'>{post?.post?.frontmatter?.description}</p>

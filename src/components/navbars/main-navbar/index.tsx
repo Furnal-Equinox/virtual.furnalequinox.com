@@ -2,14 +2,12 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import logo from '../../../content/images/Logo.svg'
+import logo from '../../../../content/images/Logo.svg'
 
-import './style.scss'
+import { Button } from '../../index'
 
-import { Button } from '../index'
-
-import { NavbarLinks } from '../../data/navbar-links'
-import { Maybe } from '../../types'
+import { NavbarLinks } from '../../../data/navbar-links'
+import { Maybe } from '../../../types'
 
 export interface Props extends RouteComponentProps {
   identityContext?: any
@@ -122,18 +120,8 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
     )
   }
 
-  const LogoOnlyNav: React.FC = () => {
-    return (
-      <div className='container-fluid justify-content-md-center'>
-        <GatsbyLink to='/'>
-          <img src={logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
-        </GatsbyLink>
-      </div>
-    )
-  }
-
-  const MainNav: React.FC = () => {
-    return (
+  return (
+    <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-0'>
       <div className='container-fluid'>
         <Logo />
 
@@ -143,15 +131,6 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
 
         <Notification />
       </div>
-    )
-  }
-
-  return (
-    <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-0'>
-      {location !== undefined && location.pathname !== '/'
-        ? <MainNav />
-        : <LogoOnlyNav />
-      }
     </nav>
   )
 }

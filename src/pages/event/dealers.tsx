@@ -24,7 +24,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -57,7 +57,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const Content = makePrivateContent(DealersDashboard)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
       <Meta customDescription='Dealers Den' />
       <div>
@@ -69,7 +69,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

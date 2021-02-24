@@ -12,7 +12,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -25,7 +25,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
   const Content = makePrivateContent(GalleryContent)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`Gallery | ${config.siteTitle}`} />
       <Meta customDescription='Art Gallery' />
       <div>
@@ -36,7 +36,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

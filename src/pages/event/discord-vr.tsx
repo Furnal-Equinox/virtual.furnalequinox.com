@@ -11,7 +11,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -22,7 +22,7 @@ const DiscordVR: React.FC<Props> = ({ location }: Props) => {
   const Content = makePrivateContent(DiscordVRContent)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`Discord & VR | ${config.siteTitle}`} />
       <Meta customDescription='Information about the Discord and the VRChat worlds' />
       <div>
@@ -32,7 +32,7 @@ const DiscordVR: React.FC<Props> = ({ location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 

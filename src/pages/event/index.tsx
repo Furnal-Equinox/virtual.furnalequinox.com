@@ -3,6 +3,7 @@ import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import config from '../../../site-config'
+import { HomeQueryQuery } from '../../../types/graphql-types'
 
 import {
   Anchor,
@@ -14,7 +15,7 @@ import {
 import Img from 'gatsby-image'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
@@ -27,7 +28,7 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
   const Content = makePrivateContent(HomeDashboard)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
       <div>
@@ -38,7 +39,7 @@ const Home: React.FC<Props> = ({ data, location }: Props) => {
           allowedRoles={['free']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 
