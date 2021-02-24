@@ -16,20 +16,23 @@ export type { GalleryItem } from './cards'
 // no exported type for LoginCard
 export type { ShopItem } from './cards'
 export type { SocialItem } from './cards'
+// no exported type for TextCard
 
-export { default as ContactForm } from './contact-form'
+export { ContactForm } from './forms'
+export { LoginForm } from './forms'
+export { SignupForm } from './forms'
+
 export { default as CharityMeter } from './charity-meter'
 export { default as DealerCardGrid } from './dealer-card-grid'
 export { default as Footer } from './footer'
 export { default as Icon } from './icon'
 export { default as Jumbotron } from './jumbotron'
 export { default as Link } from './link'
-export { default as LoginForm } from './login-form'
+
 export { default as Meta } from './meta'
 export { default as Navbar } from './navbar'
 export { default as ResponsivePlayer } from './responsive-player'
 export { default as SearchBar } from './search-bar'
 export type { SearchParams } from './search-bar'
-export { default as SignupForm } from './signup-form'
 export { default as SocialLinks } from './social-links'
 export { default as UnauthorizedNotice } from './unathorized-notice'

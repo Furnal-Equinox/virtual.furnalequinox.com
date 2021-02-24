@@ -1,24 +1,47 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
+import config from '../../../site-config'
 
-import Meta from '../components/meta'
-import Layout from '../layouts/layout'
+import {
+  DealerCard,
+  Jumbotron,
+  Meta,
+  TextCard
+} from '../../components'
 
-import config from '../../site-config'
-import Jumbotron from '../components/jumbotron'
-import Section from '../layouts/section'
-import { DealerCard, TextCard } from '../components/cards'
+import {
+  Layout,
+  makePrivateContent,
+  Section
+} from '../../layouts'
 
 interface Props extends RouteComponentProps {}
 
 const Djs: React.FC<Props> = ({ location }: Props) => {
+  const Content = makePrivateContent(DjsContent)
+
   return (
     <Layout location={location}>
       <Helmet title={`DJs | ${config.siteTitle}`} />
       <Meta customDescription='DJs' />
       <div>
-        <Jumbotron title='DJs' subtitle='' />
+        <Content
+          location={location}
+          callbackPath='/event/djs/'
+          allowedRoles={['free']}
+        />
+      </div>
+    </Layout>
+  )
+}
+
+export default Djs
+
+const DjsContent: React.FC<Props> = ({ location }: Props) => {
+  return (
+    <>
+      <Jumbotron title='DJs' subtitle='' />
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <div className='row'>
@@ -41,9 +64,6 @@ const Djs: React.FC<Props> = ({ location }: Props) => {
             </div>
           </TextCard>
         </Section>
-      </div>
-    </Layout>
+    </>
   )
 }
-
-export default Djs

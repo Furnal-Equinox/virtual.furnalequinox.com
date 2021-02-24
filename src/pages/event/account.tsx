@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { Helmet } from 'react-helmet'
-import config from '../../site-config'
+import config from '../../../site-config'
 
-import Layout from '../layouts/layout'
-import Meta from '../components/meta'
-import makePrivateContent from '../layouts/make-private-content'
-import Section from '../layouts/section'
-import { TextCard } from '../components/cards'
+import Layout from '../../layouts/layout'
+import Meta from '../../components/meta'
+import makePrivateContent from '../../layouts/make-private-content'
+import Section from '../../layouts/section'
+import { TextCard } from '../../components/cards'
 
 interface Props extends RouteComponentProps {}
 
@@ -24,7 +24,7 @@ const Account: React.FC<Props> = ({ location }: Props) => {
       <Meta />
       <div>
         <Content
-          callbackPath='/account/'
+          callbackPath='/event/account/'
           allowedRoles={['free']}
         />
       </div>

@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
-import { ContactInputs, contactSchema } from '../../utils/form-validators'
+import { ContactInputs, contactSchema } from '../../../utils/form-validators'
 
 const encode = (data: Record<string, string>): string => Object.keys(data)
   .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))

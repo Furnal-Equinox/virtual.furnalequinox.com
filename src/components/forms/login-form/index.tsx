@@ -3,7 +3,7 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
-import { LoginInputs, loginSchema } from '../../utils/form-validators'
+import { LoginInputs, loginSchema } from '../../../utils/form-validators'
 
 interface Props {
   navigateTarget?: string

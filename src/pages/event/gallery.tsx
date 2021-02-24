@@ -2,20 +2,20 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { GalleryQueryQuery } from '../../types/graphql-types'
-import config from '../../site-config'
+import { GalleryQueryQuery } from '../../../types/graphql-types'
+import config from '../../../site-config'
 
 import {
   GalleryItemCard,
   Jumbotron,
   Meta
-} from '../components'
+} from '../../components'
 
 import {
   Layout,
   makePrivateContent,
   Section
-} from '../layouts'
+} from '../../layouts'
 
 interface Props extends RouteComponentProps {
   data: GalleryQueryQuery
@@ -32,7 +32,7 @@ const Gallery: React.FC<Props> = ({ data, location }: Props) => {
         <Content
           data={data}
           location={location}
-          callbackPath='/gallery/'
+          callbackPath='/event/gallery/'
           allowedRoles={['free']}
         />
       </div>

@@ -122,9 +122,19 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
     )
   }
 
-  return (
-    <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-0'>
-      <div className='container'>
+  const LogoOnlyNav: React.FC = () => {
+    return (
+      <div className='container-fluid justify-content-md-center'>
+        <GatsbyLink to='/'>
+          <img src={logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
+        </GatsbyLink>
+      </div>
+    )
+  }
+
+  const MainNav: React.FC = () => {
+    return (
+      <div className='container-fluid'>
         <Logo />
 
         <HamburgerMenu />
@@ -133,6 +143,15 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
 
         <Notification />
       </div>
+    )
+  }
+
+  return (
+    <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-0'>
+      {location !== undefined && location.pathname !== '/'
+        ? <MainNav />
+        : <LogoOnlyNav />
+      }
     </nav>
   )
 }

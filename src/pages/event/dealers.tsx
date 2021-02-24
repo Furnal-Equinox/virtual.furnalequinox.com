@@ -10,7 +10,7 @@ import {
   MarkdownRemarkFields,
   MarkdownRemarkFrontmatter,
   Maybe
-} from '../../types/graphql-types'
+} from '../../../types/graphql-types'
 
 import {
   Dealer,
@@ -21,17 +21,17 @@ import {
   SearchBar,
   SearchParams,
   TextCard
-} from '../components'
+} from '../../components'
 
 import {
   Layout,
   makePrivateContent,
   Section
-} from '../layouts'
+} from '../../layouts'
 
-import config from '../../site-config'
+import config from '../../../site-config'
 
-import { sample } from '../utils/tools'
+import { sample } from '../../utils/tools'
 
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
@@ -65,7 +65,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
           data={data}
           location={location}
           navigate={navigate}
-          callbackPath='/dealers/'
+          callbackPath='/event/dealers/'
           allowedRoles={['free']}
         />
       </div>

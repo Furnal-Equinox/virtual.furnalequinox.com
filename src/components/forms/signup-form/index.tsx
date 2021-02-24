@@ -3,7 +3,7 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
-import { SignUpInputs, signUpSchema } from '../../utils/form-validators'
+import { SignUpInputs, signUpSchema } from '../../../utils/form-validators'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const SignUpForm: React.FC = () => {

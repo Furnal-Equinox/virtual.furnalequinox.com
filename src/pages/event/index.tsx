@@ -2,14 +2,14 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import config from '../../site-config'
+import config from '../../../site-config'
 
 import {
   Anchor,
   Link,
   Meta,
   TextCard
-} from '../components'
+} from '../../components'
 
 import Img from 'gatsby-image'
 
@@ -17,24 +17,24 @@ import {
   Layout,
   makePrivateContent,
   Section
-} from '../layouts'
+} from '../../layouts'
 
 interface Props extends RouteComponentProps {
-  data: WelcomeQueryQuery
+  data: HomeQueryQuery
 }
 
-const Welcome: React.FC<Props> = ({ data, location }: Props) => {
-  const Content = makePrivateContent(WelcomeDashboard)
+const Home: React.FC<Props> = ({ data, location }: Props) => {
+  const Content = makePrivateContent(HomeDashboard)
 
   return (
     <Layout location={location}>
-      <Helmet title={`Welcome | ${config.siteTitle}`} />
+      <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
       <div>
         <Content
           data={data}
           location={location}
-          callbackPath='/'
+          callbackPath='/event/'
           allowedRoles={['free']}
         />
       </div>
@@ -42,10 +42,10 @@ const Welcome: React.FC<Props> = ({ data, location }: Props) => {
   )
 }
 
-export default Welcome
+export default Home
 
-export const welcomeQuery = graphql`
-  query WelcomeQuery {
+export const homeQuery = graphql`
+  query HomeQuery {
     marty: file(relativePath: { eq: "marty-skateboard.png" }) {
       childImageSharp {
         fluid(maxWidth: 768) {
@@ -56,7 +56,7 @@ export const welcomeQuery = graphql`
   }
 `
 
-const WelcomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
+const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <>
       <Section isContainer isTextCenter pos='middle'>

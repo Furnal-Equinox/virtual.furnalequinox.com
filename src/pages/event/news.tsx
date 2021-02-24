@@ -2,18 +2,18 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import config from '../../site-config'
-import { NewsQueryQuery } from '../../types/graphql-types'
+import config from '../../../site-config'
+import { NewsQueryQuery } from '../../../types/graphql-types'
 
 import {
   Meta
-} from '../components'
+} from '../../components'
 
 import {
   Layout,
   makePrivateContent,
   Section
-} from '../layouts'
+} from '../../layouts'
 
 interface Props extends RouteComponentProps {
   data: NewsQueryQuery
@@ -30,7 +30,7 @@ const News: React.FC<Props> = ({ data, location }: Props) => {
         <Content
           data={data}
           location={location}
-          callbackPath='/news/'
+          callbackPath='/event/news/'
           allowedRoles={['free']}
         />
       </div>
