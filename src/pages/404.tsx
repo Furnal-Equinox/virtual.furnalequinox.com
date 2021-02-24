@@ -39,7 +39,7 @@ const NotFound: React.FC<Props> = ({ data, location }: Props) => {
               className='img-fluid'
               alt='Picture of Marty, the Pixel Purrfect mascot, shrugging with the number 404 behind him'
             />
-            <p className='lead'>
+            <p>
               Oops! We couldn't find the page you were looking for.<br />
               Please go back and try again.<br />
               If you think you've found an error, email{' '}

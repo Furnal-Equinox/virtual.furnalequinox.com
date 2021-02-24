@@ -14,7 +14,7 @@ const UnauthorizedNotice: React.FC = () =>
             className='rounded-3'
             alt='Image of a cat outside a glass door with a sign that says "no cats allowed"'
           />
-          <p className='lead'>
+          <p>
             Oops! You don't have permission to view this page.<br />
             Please check your account and try changing your ticket.<br />
             If you think you've found an error, email{' '}
