@@ -1,7 +1,10 @@
 import React from 'react'
 import SocialLinks, { Props as SocialLinksProps } from '../social-links'
+import Link from 'gatsby-link'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import './style.scss'
+
+import { TextCard } from '../index'
 
 export interface Props {
   copyright: string
@@ -9,41 +12,35 @@ export interface Props {
 }
 
 const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
-  <div className='footer'>
-    <div className='container text-center text-white py-2'>
-      <div className='row'>
-        <div className='col'>
-          <p>
-            <strong>{copyright}</strong>
-          </p>
-        </div>
-      </div>
-      <div className='row'>
-        <div className='col'>
-          <p>Help</p>
-        </div>
-        <div className='col'>
-          <p>Privacy Policies</p>
-        </div>
-        <div className='col'>
-          <p>Credits</p>
-        </div>
-      </div>
-      <SocialLinks data={socialLinks.data} />
-      <div className='row'>
-        <div className='col'>
-          <OutboundLink
-            href='https://www.netlify.com/'
-            title='Hosted by Netlify'
-            target='_blank'
-            rel='noopener noreferrer'
-            style={{ height: '32px' }}
-          >
-            <img src='https://www.netlify.com/img/press/logos/logomark.svg' alt='Deploys by Netlify' />
-          </OutboundLink>
-        </div>
+  <div className='container p-3'>
+  <TextCard>
+    <div className='row'>
+      <div className='col'>
+        <p>
+          <strong>{copyright}</strong>
+        </p>
       </div>
     </div>
+    <div className='row'>
+      <div className='col'>
+        <Link to={'/help/'}>Help</Link>
+      </div>
+      <div className='col'>
+        <OutboundLink
+          href='https://furnalequinox.com/privacy-policy/'
+          title='Link to privacy policy page on the main Furnal Equinox website'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Privacy Policies
+        </OutboundLink>
+      </div>
+      <div className='col'>
+        <Link to={'/info/#credits'}>Credits</Link>
+      </div>
+    </div>
+    <SocialLinks data={socialLinks.data} />
+  </TextCard>
   </div>
 )
 

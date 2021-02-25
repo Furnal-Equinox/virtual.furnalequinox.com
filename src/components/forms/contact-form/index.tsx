@@ -146,7 +146,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
       </div>
       <div className='mb-3'>
         <button
-          className='w-100 btn btn-lg btn-primary rounded-pill'
+          className='w-100 btn btn-lg btn-primary rounded-3'
           type='submit'
           disabled={isSubmitting}
         >

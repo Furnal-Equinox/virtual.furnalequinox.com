@@ -17,7 +17,7 @@ export const PlaceholderProductPhoto: React.FC = () =>
 
 export const PlaceholderSVG: React.FC = () =>
   <svg
-    className='bd-placeholder-img card-img'
+    className='bd-placeholder-img card-img-top'
     width='100%'
     height='250'
     xmlns='http://www.w3.org/2000/svg'

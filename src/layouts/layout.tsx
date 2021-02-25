@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import {
@@ -6,6 +6,8 @@ import {
   Footer,
   LogoNavbar
 } from '../components'
+
+import { Parallax } from 'react-parallax'
 
 import config from '../../site-config'
 
@@ -32,7 +34,7 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
     <>
       <AuthOverlay />
       <LogoNavbar location={location} />
-      <div className='layout-container d-flex flex-column justify-content-between bg-image'>
+      <div className='layout-container d-flex flex-column justify-content-between'>
         {children}
         <Footer
           copyright={config.copyright}

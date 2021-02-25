@@ -10,6 +10,7 @@ interface Props {
   bg?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
   pos?: Position
   className?: string
+  id?: string
   children: React.ReactNode
 }
 
@@ -20,6 +21,7 @@ const Section: React.FC<Props> = ({
   bg = undefined,
   pos = 'middle',
   className = undefined,
+  id = undefined,
   children
 }: Props) => {
   const matchPosition = (pos: Position): string => {
@@ -35,6 +37,7 @@ const Section: React.FC<Props> = ({
 
   return (
     <section
+      id={id !== undefined ? id : undefined}
       className={[
         `${[
           isContainer ? 'container' : '', 

@@ -66,7 +66,7 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
       (identity.user?.user_metadata?.furName as Maybe<string>)?.split(' ')[0] ?? 'stranger'
 
     return (
-      <span className='navbar-text'>
+      <span className='navbar-text p-3'>
         {`Hello, ${name}!`}
       </span>
     )

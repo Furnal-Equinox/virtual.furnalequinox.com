@@ -200,17 +200,17 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <h2>SEARCH RESULTS</h2>
-            <DealerCardGrid data={
-              fetchFullResults(getResultsTitles(results), premiumDealers)
-                .map(result => dealerReducer(result))
-              }
-            />
-            <DealerCardGrid data={
-              fetchFullResults(getResultsTitles(results), regularDealers)
-                .map(result => dealerReducer(result))
-              }
-            />
           </TextCard>
+          <DealerCardGrid data={
+            fetchFullResults(getResultsTitles(results), premiumDealers)
+              .map(result => dealerReducer(result))
+            }
+          />
+          <DealerCardGrid data={
+            fetchFullResults(getResultsTitles(results), regularDealers)
+              .map(result => dealerReducer(result))
+            }
+          />
         </Section>
       )}
       <Section pos='middle'>

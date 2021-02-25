@@ -49,7 +49,7 @@ export interface Props {
 
 const SocialLinks: React.FC<Props> = ({ data }: Props) => {
   return (
-    <div className='row'>
+    <div className='row py-3'>
       {
         !isStrEmpty(data.behance) &&
           <div className='col'>

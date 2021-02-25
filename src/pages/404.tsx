@@ -54,9 +54,10 @@ const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
               </a>.
             </p>
             <Button
-              label={"Return to the last page!"}
+              label={"Return to the last page"}
               onClick={() => {navigate !== undefined && navigate(-1)}}
               size='lg'
+              state='secondary'
             />
           </TextCard>
         </Section>

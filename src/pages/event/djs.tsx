@@ -43,26 +43,17 @@ const DjsContent: React.FC<Props> = ({ location }: Props) => {
     <>
       <Jumbotron title='DJs' subtitle='' />
         <Section isContainer isTextCenter pos='middle'>
-          <TextCard>
-            <div className='row'>
-              <div className='col mx-auto'>
-                <h1>Our DJs</h1>
-                <div className='container'>
-                  <div className='row'>
-                    <div className='col-lg-12'>
-                      <DealerCard />
-                    </div>
-                    <div className='col-lg-12'>
-                      <DealerCard />
-                    </div>
-                    <div className='col-lg-12'>
-                      <DealerCard />
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className='row'>
+            <div className='col-lg-12'>
+              <DealerCard />
             </div>
-          </TextCard>
+            <div className='col-lg-12'>
+              <DealerCard />
+            </div>
+            <div className='col-lg-12'>
+              <DealerCard />
+            </div>
+          </div>
         </Section>
     </>
   )

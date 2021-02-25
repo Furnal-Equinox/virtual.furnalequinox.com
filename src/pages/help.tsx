@@ -7,6 +7,7 @@ import Section from '../layouts/section'
 import config from '../../site-config'
 
 import {
+  Button,
   ContactForm,
   Jumbotron,
   Meta,
@@ -15,18 +16,18 @@ import {
 
 interface Props extends RouteComponentProps {}
 
-const Help: React.FC<Props> = ({ location }: Props) => {
+const Help: React.FC<Props> = ({ location, navigate }: Props) => {
   return (
     <Layout location={location}>
       <Helmet title={`Help | ${config.siteTitle}`} />
       <Meta customDescription='Help' />
       <div>
         <Jumbotron title='Help' subtitle='' />
-        <Section isContainer isTextCenter pos='last'>
+        <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <div className='row'>
               <div className='col mx-auto'>
-                <h1>Contact Form</h1>
+                <h1>Contact Us</h1>
                 <p>
                   Do you have questions, comments, or suggestions?{' '}
                   Please send them using this form!
@@ -34,6 +35,12 @@ const Help: React.FC<Props> = ({ location }: Props) => {
                 <ContactForm />
               </div>
             </div>
+            <Button
+              label={"Return to the last page"}
+              onClick={() => {navigate !== undefined && navigate(-1)}}
+              size='lg'
+              state='secondary'
+            />
           </TextCard>
         </Section>
       </div>

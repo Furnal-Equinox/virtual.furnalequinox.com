@@ -121,6 +121,8 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 
 [Using React’s useEffect Hook to Fetch Data and Periodically Refresh The Data](https://medium.com/javascript-in-plain-english/using-reacts-useeffect-hook-to-fetch-data-and-periodically-refresh-that-data-2a69b6d44081)
 
+[Perfect Full Page Background Image ](https://css-tricks.com/perfect-full-page-background-image/)
+
 ### Haskell Script
 
 [Turtle Tutorial](https://hackage.haskell.org/package/turtle-1.5.21/docs/Turtle-Tutorial.html)
