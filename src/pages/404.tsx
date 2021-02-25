@@ -1,20 +1,32 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
 import config from '../../site-config'
+import { NotFoundQueryQuery } from '../../../types/graphql-types'
 
-import Meta from '../components/meta'
-import Layout from '../layouts/layout'
-import Section from '../layouts/section'
-import { TextCard } from '../components/cards'
+import { 
+  Button,
+  Meta,
+  TextCard
+} from '../components'
 
-interface Props extends RouteComponentProps {}
+import Img from 'gatsby-image'
+
+import {
+  Layout,
+  Section
+} from '../layouts'
+
+interface Props extends RouteComponentProps {
+  data: NotFoundQueryQuery
+}
 
 /**
  * The 404 page.
  * @param {WindowLocation<unknown>} location the location of this page.
  */
-const NotFound: React.FC<Props> = ({ location }: Props) => {
+const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
   return (
     <Layout location={location}>
       <Helmet title={`404 | ${config.siteTitle}`} />
@@ -22,29 +34,31 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
       <div>
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
-            <div className='row'>
-              <div className='col mx-auto'>
-                <h1>404</h1>
-                <img
-                  src='https://http.cat/404'
-                  className='rounded-3'
-                  alt='Image of a cat hiding under some papers'
-                />
-                <p className='lead'>
-                  Oops! We couldn't find the page you were looking for.<br />
-                  Please go back and try again.<br />
-                  If you think you've found an error, email{' '}
-                  <a
-                    title="Ardal's email address"
-                    href='mailto:ardal@furnalequinox.com'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    Ardal
-                  </a>.
-                </p>
-              </div>
-            </div>
+            <h1>404</h1>
+            <Img
+              fluid={data.marty.childImageSharp.fluid}
+              className='img-fluid'
+              alt='Picture of Marty, the Pixel Purrfect mascot, shrugging with the number 404 behind him'
+            />
+            <p>
+              Oops! We couldn't find the page you were looking for.<br />
+              Please go back and try again.<br />
+              If you think you've found an error, email{' '}
+              <a
+                title="Ardal's email address"
+                href='mailto:ardal@furnalequinox.com'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                Ardal
+              </a>.
+            </p>
+            <Button
+              label={"Return to the last page"}
+              onClick={() => {navigate !== undefined && navigate(-1)}}
+              size='lg'
+              state='secondary'
+            />
           </TextCard>
         </Section>
       </div>
@@ -53,3 +67,15 @@ const NotFound: React.FC<Props> = ({ location }: Props) => {
 }
 
 export default NotFound
+
+export const notFoundQuery = graphql`
+  query NotFoundQuery {
+    marty: file(relativePath: { eq: "404_75dpi.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 768) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

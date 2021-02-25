@@ -13,7 +13,7 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent
 } from '../../layouts'
 
@@ -28,7 +28,7 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
   const Content = makePrivateContent(PostContent)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet>
         <title>{`${post?.title ?? ''} | ${config.siteTitle}`}</title>
       </Helmet>
@@ -43,7 +43,7 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
         callbackPath={`/news${postNode?.fields?.slug ?? '/'}`}
         allowedRoles={['free']}
       />
-    </Layout>
+    </Event>
   )
 }
 

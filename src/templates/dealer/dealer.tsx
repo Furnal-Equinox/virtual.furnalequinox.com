@@ -16,10 +16,12 @@ import {
 } from '../../components'
 
 import {
-  Layout,
+  Event,
   makePrivateContent,
   Section
 } from '../../layouts'
+
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 interface Props extends RouteComponentProps {
   data: DealerBySlugQuery
@@ -42,7 +44,7 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
   const Content = makePrivateContent(DealerContent)
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet>
         <title>{`${post?.title ?? ''} | ${config.siteTitle}`}</title>
       </Helmet>
@@ -60,7 +62,7 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
           allowedRoles={isSfw ? ['free'] : ['adult']}
         />
       </div>
-    </Layout>
+    </Event>
   )
 }
 
@@ -110,7 +112,7 @@ export const dealerQuery = graphql`
         }
         banner {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 1140) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -140,16 +142,18 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
 
   return (
     <>
-      <Section pos='first'>
-        <div className='content'>
-          {
-            banner?.childImageSharp?.fluid !== null &&
+      <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
+        <div className='container'>
+          <div className='row'>
+            {banner?.childImageSharp?.fluid !== null &&
               <Img
                 fluid={banner?.childImageSharp?.fluid as FluidObject}
-                style={{ display: 'block', margin: '0 auto' }}
+                className='img-fluid'
               />
-          }
+            }
+          </div>
         </div>
+          
       </Section>
       <Section isContainer>
         <TextCard>
@@ -157,26 +161,38 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
             <div className='col-lg-6 text-left p-1'>
               <h1>{post?.title ?? ''}</h1>
               <h2>by {post?.dealer ?? ''}</h2>
-              <p className='lead'>{post?.description ?? ''}</p>
+              <hr />
+              <p>{post?.description ?? ''}</p>
             </div>
             <div className='col-lg-6 text-center p-2'>
               {
                 socialLinks !== null && socialLinks !== undefined
-                  ? <>
-                    <h2>Say hello!</h2>
-                    <SocialLinks data={socialLinks} />
-                    </>
-                  : <>
-                    <h2>I do not have any social media links to share!</h2>
-                    </>
+                  ? <div className='container text-center'>
+                      <h2>Say hello!</h2>
+                      <SocialLinks data={socialLinks} />
+                    </div>
+                  : <div className='container text-center'>
+                      <h2>I do not have any social media links to share!</h2>
+                    </div>
               }
             </div>
           </div>
           <div className='row'>
             <div className='col-lg-6 p-2'>
               <h2>Streaming Times</h2>
+              <hr />
+              <h3>Friday, March 19th</h3>
+              <ol>
+                {
+                  post?.streaming?.friday?.map((block, i) =>
+                    <li key={`friday-time-${i}`}>
+                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                    </li>
+                  )
+                }
+              </ol>
               <h3>Saturday, March 20th</h3>
-              <ul>
+              <ol>
                 {
                   post?.streaming?.saturday?.map((block, i) =>
                     <li key={`saturday-time-${i}`}>
@@ -184,9 +200,9 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                     </li>
                   )
                 }
-              </ul>
+              </ol>
               <h3>Sunday, March 21st</h3>
-              <ul>
+              <ol>
                 {
                   post?.streaming?.sunday?.map((block, i) =>
                     <li key={`sunday-time-${i}`}>
@@ -194,7 +210,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                     </li>
                   )
                 }
-              </ul>
+              </ol>
             </div>
             <div className='col-lg-6 text-center p-2'>
               {
@@ -207,19 +223,19 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
         </TextCard>
       </Section>
       <Section isContainer>
-        <div className='row'>
-          {
-            images?.map(image =>
-              image?.childImageSharp?.fluid !== null &&
-                <div className='col-12'>
-                  <Img
-                    fluid={image?.childImageSharp?.fluid as FluidObject}
-                    className='d-block rounded-3 my-3'
-                  />
-                </div>
-            )
-          }
-        </div>
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
+        >
+          <Masonry>
+          {images?.map(image =>
+            image?.childImageSharp?.fluid !== null &&
+              <Img
+                fluid={image?.childImageSharp?.fluid as FluidObject}
+                className='d-block rounded-3 border border-primary m-1'
+              />
+            )}
+          </Masonry>
+        </ResponsiveMasonry>
       </Section>
       <Section isContainer>
         <TextCard>

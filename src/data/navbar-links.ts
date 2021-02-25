@@ -5,41 +5,31 @@ interface NavLink {
 
 export const NavbarLinks: NavLink[] = [
   {
-    to: '/',
-    name: 'Home'
+    to: '/event/livestream/',
+    name: 'Livestream'
   },
   {
-    to: '/dealers/',
+    to: '/event/dealers/',
     name: 'Dealers Den'
   },
   {
-    to: '/gallery/',
+    to: '/event/discord-vr/',
+    name: 'Discord & VR'
+  },
+  {
+    to: '/event/gallery/',
     name: 'Gallery'
   },
   {
-    to: '/con-store/',
+    to: '/event/con-store/',
     name: 'Con-Store'
   },
   {
-    to: '/info/',
-    name: 'Info'
-  }
-]
-
-export const NavbarAccountLinks: NavLink[] = [
-  {
-    to: '/sign-up/',
-    name: 'Sign Up'
+    to: '/event/djs/',
+    name: 'DJs'
   },
   {
-    to: '/login/',
-    name: 'Login'
-  }
-]
-
-export const FooterLinks: NavLink[] = [
-  {
-    to: '/help/',
-    name: 'Help'
+    to: '/event/how-to/',
+    name: 'How-To'
   }
 ]

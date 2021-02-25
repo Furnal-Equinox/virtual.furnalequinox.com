@@ -57,25 +57,27 @@ type ReportName = Text
 
 -- | The URL of the root website to check. Should match the form https://subdomain.domain.com/
 website :: Url
-website = "https://virtual.furnalequinox.com/"
+website = "https://redesign--virtual-furnal-equinox.netlify.app/"
 
 -- | Paths to check, paired with the name of the report for that path.
 pathsToCheck :: [(Url, ReportName)]
 pathsToCheck =
   [
-      ("index.html", "home-page")
-    , ("404/index.html", "404-page")
-    , ("account/index.html", "account-page")
-    , ("con-store/index.html", "con-store-page")
-    , ("dealers/index.html", "dealers-index-page")
-    , ("dealers/beast-within.html", "beast-within-dealer-page")
-    , ("gallery/index.html", "gallery-index-page")
-    , ("help/index.html", "help-page")
-    , ("info/index.html", "info-page")
-    , ("login/index.html", "login-page")
-    , ("news/index.html", "news-index-page")
-    , ("news/2020-12-09-welcome/index.html", "2020-12-09-welcome-page")
-    , ("sign-up/index.html", "sign-up-page")
+      ("event/index.html",                         "landing-page")
+    , ("event/con-store/index.html",               "con-store-page")
+    , ("event/dealers/index.html",                 "dealers-index-page")
+    , ("event/dealers/beast-within.html",          "beast-within-dealer-page")
+    , ("event/discord-vr/index.html",              "discord-vr-page")
+    , ("event/djs/index.html",                     "djs-page")
+    , ("event/gallery/index.html",                 "gallery-index-page")
+    , ("event/how-to/index.html",                  "how-to-page")
+    , ("event/livestream/index.html",              "livestream-page")
+    , ("event/news/index.html",                    "news-index-page")
+    , ("event/news/2020-12-09-welcome/index.html", "2020-12-09-welcome-page")
+    , ("help/index.html",                          "help-page")
+    , ("info/index.html",                          "info-page")
+    , ("index.html",                               "login-page")
+    , ("404/index.html",                           "404-page")
   ]
 
 -- | Command-line settings for pa11y.
@@ -148,7 +150,7 @@ main = do
       if numWentFine > 0
         then do
           print <|
-            "However, the other " <> (show numErrored) <>
+            "However, the other " <> (show numWentFine) <>
             " instance(s) of pa11y did not report any errors. "
         
         else do

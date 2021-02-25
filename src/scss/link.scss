@@ -1,0 +1,11 @@
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              $secondary !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        lighten($link-color, 15%) !default;
+$link-hover-decoration:                   underline !default;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 0% !default;

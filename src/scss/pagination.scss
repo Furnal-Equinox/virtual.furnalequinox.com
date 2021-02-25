@@ -1,0 +1,12 @@
+@import './colors.scss';
+
+// Pagination
+
+$pagination-color:                     $white !default;
+$pagination-bg:                        $gray-700 !default;
+$pagination-border-color:              transparent !default;
+$pagination-hover-color:               $white !default;
+$pagination-hover-bg:                  $primary !default;
+$pagination-hover-border-color:        $pagination-border-color !default;
+$pagination-disabled-bg:               $pagination-bg !default;
+$pagination-disabled-border-color:     $pagination-border-color !default;

@@ -1,3 +1,4 @@
+import { Jenkinsx } from '@icons-pack/react-simple-icons'
 import React from 'react'
 
 type Position = 'first' | 'middle' | 'last'
@@ -8,6 +9,8 @@ interface Props {
   isTextCenter?: boolean
   bg?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
   pos?: Position
+  className?: string
+  id?: string
   children: React.ReactNode
 }
 
@@ -17,6 +20,8 @@ const Section: React.FC<Props> = ({
   isTextCenter = false,
   bg = undefined,
   pos = 'middle',
+  className = undefined,
+  id = undefined,
   children
 }: Props) => {
   const matchPosition = (pos: Position): string => {
@@ -32,24 +37,17 @@ const Section: React.FC<Props> = ({
 
   return (
     <section
+      id={id !== undefined ? id : undefined}
       className={[
-        `${
-          isContainer ? 'container' : ''
-        }${
+        `${[
+          isContainer ? 'container' : '', 
           isContainer && isFluid ? '-fluid' : ''
-        }`,
-        `${
-          matchPosition(pos)
-        }`,
-        `${
-          !isFluid ? 'px-3' : ''
-        }`,
-        `${
-          isTextCenter ? 'text-center' : ''
-        }`,
-        `${
-          bg !== undefined ? `bg-${bg}` : ''
-        }`
+        ].join('')}`,
+        matchPosition(pos),
+        !isFluid ? 'px-3' : '',
+        isTextCenter ? 'text-center' : '',
+        bg !== undefined ? `bg-${bg}` : '',
+        className !== undefined ? className : ''
       ].join(' ')}
     >
       {children}

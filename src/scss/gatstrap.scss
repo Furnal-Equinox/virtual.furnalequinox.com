@@ -1,76 +1,34 @@
-
-
-
-
-// Colors
-//
-// Grayscale and brand colors for use across Bootstrap.
-
-// Start with assigning color names to specific hex values.
-//
-// Color system
-//
-@import './colors.scss';
-
-// Reassign color vars to semantic color scheme
-$theme-colors: (
-  primary: $steel-gray-500,
-  secondary: $pleasant-purple-500,
-  success: $park-green-500,
-  info: $river-teal-500,
-  warning: $sunshine-yellow-500,
-  danger: $magical-magenta-500,
-  light: $steel-gray-100,
-  dark: $steel-gray-800,
-) !default;
-
-// Options
-//
-// Quickly modify global styling by enabling or disabling optional features.
-$enable-rounded: true !default;
-$enable-shadows: true !default;
-$enable-gradients: true !default;
-$enable-transitions: true !default;
-$enable-hover-media-query: false !default;
-$enable-grid-classes: true !default;
-$enable-print-styles: true !default;
-
-// Grid containers
-//
-// Define the maximum width of `.container` for different screen sizes.
-
-$container-max-widths: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-) !default;
-
-// Body
-//
-// Settings for the `<body>` element.
-
-$body-bg: $white !default;
-$body-color: $steel-gray-700 !default;
-$inverse-bg: $steel-gray-900 !default;
-$inverse-color: $steel-gray-600 !default;
-
-// Links
-//
-// Style anchor elements.
-$link-color: $lake-blue-900 !default;
-$link-decoration: none !default;
-$link-hover-decoration: none !default;
-
-// Fonts
-//
-@import './fonts.scss';
-
-$form-label-color: $steel-gray-700 !default;
-
 @import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
+
+
+@import './colors.scss';
+@import './options.scss';
+@import './spacing.scss';
+@import './body.scss';
+@import './link.scss';
+@import './paragraph.scss';
+@import './grid.scss';
+@import './components.scss';
+@import './fonts.scss';
+@import './tables.scss';
+@import './input.scss';
+@import './dropdown.scss';
+@import './navs.scss';
+@import './pagination.scss';
+@import './jumbotron.scss';
+@import './cards.scss';
+@import './tooltips.scss';
+@import './popovers.scss';
+@import './toasts.scss';
+@import './modals.scss';
+@import './progress.scss';
+@import './listgroups.scss';
+@import './breadcrumbs.scss';
+@import './close.scss';
+@import './code.scss';
+
+@import "../../node_modules/bootstrap/scss/variables";
 @import '../../node_modules/bootstrap/scss/utilities';
 
 $utilities: map-merge(
@@ -96,10 +54,27 @@ $utilities: map-merge(
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
-/* Global settings */
+//================================================================================================//
+//                                      Custom CSS                                                //
+//================================================================================================//
+
+// Global Settings
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 
 html {
   height: 100%;
+}
+
+body { 
+  background: url(../../content/images/bg_75dpi.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
@@ -119,6 +94,284 @@ body {
   min-width: 100vw;
 }
 
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+
+img {
+  margin: 0;
+  max-width: 100%;
+}
+
+//================================================================================================//
+// Specific Settings and Overrides
+
+// Alerts
+
+.alert {
+  border: none;
+  color: $white;
+
+  a,
+  .alert-link {
+    color: $white;
+    text-decoration: underline;
+  }
+
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
+  }
+}
+
+//================================================================================================//
+
+// Background Images
+
+.bg-image {
+  background-image: url('../../content/images/bg.png');
+  
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+//================================================================================================//
+
+// Badges
+
+.badge {
+  &-warning {
+    color: $white;
+  }
+}
+
+//================================================================================================//
+
+// Breadcrumbs
+
+.breadcrumb {
+  a {
+    color: $white;
+  }
+}
+
+//================================================================================================//
+
+// Buttons
+
+.btn {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
+  }
+}
+
+//================================================================================================//
+
+// Cards
+
+.rounded-card {
+  border-radius: 1rem;
+
+  .rounded-card-img, .rounded-card-img-top {
+    border-top-left-radius: calc(1rem - 1px);
+    border-top-right-radius: calc(1rem - 1px); 
+  }
+}
+
+//================================================================================================//
+
+// Close
+
+.close {
+  opacity: .6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+//================================================================================================//
+
+// Forms and Inputs
+
+legend {
+  color: $white;
+}
+
+.form-control {
+  background-clip: border-box;
+
+  &:disabled,
+  &[readonly] {
+    border-color: transparent;
+  }
+}
+
+.form-floating {
+  label {
+    color: $primary;
+  }
+}
+
+//================================================================================================//
+
+// Jumbotrons
+
+.jumbotron {
+  border: 1px solid $gray-500;
+}
+
+//================================================================================================//
+
+// List Groups
+
+.list-group-item {
+  &:hover {
+    background-color: $gray-700;
+    color: $white;
+  }
+
+  &-action {
+    color: $gray-500;
+
+    .list-group-item-heading {
+      color: $gray-500;
+    }
+  }
+
+  &:hover .list-group-item-heading {
+    color: $white;
+  }
+}
+
+.card,
+.list-group-item {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: inherit;
+  }
+}
+
+//================================================================================================//
+
+// Navs and Navbars
+
+.navbar {
+  font-family: $headings-font-family !important;
+
+  &.bg-primary {
+    border: 1px solid $gray-700;
+  }
+
+  &.bg-dark {
+    background-color: $body-bg !important;
+    border: 1px solid $gray-700;
+  }
+
+  &.bg-light {
+    background-color: $gray-500 !important;
+  }
+
+  &.fixed-top {
+    border-width: 0 0 1px;
+  }
+
+  &.fixed-bottom {
+    border-width: 1px 0 0;
+  }
+
+  .nav-link {
+    color: $white;
+
+    &:hover {
+      color: $secondary;
+      background-color: transparent;
+    }
+
+    &.disabled,
+    &.disabled:hover {
+      background-color: transparent;
+      color: $nav-link-disabled-color;
+    }
+
+    &.active {
+      color: $secondary;
+      background-color: transparent;
+    }
+  }
+}
+
+.nav-tabs,
+.nav-pills {
+  .nav-link {
+    color: $white;
+
+    &:hover {
+      background-color: $gray-700;
+    }
+
+    &.disabled,
+    &.disabled:hover {
+      background-color: transparent;
+      color: $nav-link-disabled-color;
+    }
+
+    &.active {
+      background-color: $primary;
+    }
+  }
+}
+
+.navbar .navbar-brand img {
+  &:hover {
+    animation: pulse 0.5s;
+  }
+}
+
+.navbar {
+  .navbar-text {
+    color: $white;
+  }
+}
+
+//================================================================================================//
+
+// Pagination
+
+.pagination {
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+//================================================================================================//
+
+// Placeholder Images
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -134,62 +387,171 @@ body {
   }
 }
 
-.bg-image {
-  background-image: url(../../content/images/moritz-mentges-unsplash.jpg);
-  
-  height: 100%;
+//================================================================================================//
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+// Popovers
 
-.rounded-card {
-  border-radius: 1rem;
-
-  .rounded-card-img, .rounded-card-img-top {
-    border-top-left-radius: calc(1rem - 1px);
-    border-top-right-radius: calc(1rem - 1px); 
+.popover {
+  &-title {
+    border-bottom: none;
   }
 }
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+//================================================================================================//
+
+// Tables
+
+table {
+  color: $white;
 }
 
-p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
+.table {
+  &-primary {
+    &,
+    > th,
+    > td {
+      background-color: $primary;
+    }
+  }
 
+  &-secondary {
+    &,
+    > th,
+    > td {
+      background-color: $secondary;
+    }
+  }
 
-img {
-  margin: 0;
-  max-width: 100%;
-}
+  &-light {
+    &,
+    > th,
+    > td {
+      background-color: $light;
+    }
+  }
 
-/*
-html {
-  font-size: 1rem;
-}
+  &-dark {
+    &,
+    > th,
+    > td {
+      background-color: $dark;
+    }
+  }
 
-@include media-breakpoint-down(sm) {
-  html {
-    font-size: 1.2rem;
+  &-success {
+    &,
+    > th,
+    > td {
+      background-color: $success;
+    }
+  }
+
+  &-info {
+    &,
+    > th,
+    > td {
+      background-color: $info;
+    }
+  }
+
+  &-danger {
+    &,
+    > th,
+    > td {
+      background-color: $danger;
+    }
+  }
+
+  &-warning {
+    &,
+    > th,
+    > td {
+      background-color: $warning;
+    }
+  }
+
+  &-active {
+    &,
+    > th,
+    > td {
+      background-color: $table-active-bg;
+    }
+  }
+
+  &-hover {
+    .table-primary:hover {
+      &,
+      > th,
+      > td {
+        background-color: darken($primary, 5%);
+      }
+    }
+
+    .table-secondary:hover {
+      &,
+      > th,
+      > td {
+        background-color: darken($secondary, 5%);
+      }
+    }
+
+    .table-light:hover {
+      &,
+      > th,
+      > td {
+        background-color: darken($light, 5%);
+      }
+    }
+
+    .table-dark:hover {
+      &,
+      > th,
+      > td {
+        background-color: darken($dark, 5%);
+      }
+    }
+
+    .table-success:hover {
+      &,
+      > th,
+      > td {
+        background-color: darken($success, 5%);
+      }
+    }
+
+    .table-info:hover {
+      &,
+      > th,
+      > td {
+        background-color: darken($info, 5%);
+      }
+    }
+
+    .table-danger:hover {
+      &,
+      > th,
+      > td {
+        background-color: darken($danger, 5%);
+      }
+    }
+
+    .table-warning:hover {
+      &,
+      > th,
+      > td {
+        background-color: darken($warning, 5%);
+      }
+    }
+
+    .table-active:hover {
+      &,
+      > th,
+      > td {
+        background-color: $table-active-bg;
+      }
+    }
+
   }
 }
 
-@include media-breakpoint-down(md) {
-  html {
-    font-size: 1.4rem;
-  }
-}
-
-@include media-breakpoint-down(lg) {
-  html {
-    font-size: 1.6rem;
-  }
-}
-*/
+//================================================================================================//

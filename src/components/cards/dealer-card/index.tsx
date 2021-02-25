@@ -1,9 +1,7 @@
 import React from 'react'
-import './style.scss'
 
 import Link from '../../link'
-
-import placeholderImage from '../../../../content/images/VFE_dealer_banner.png'
+import { PlaceholderImage } from '../../placeholders'
 
 export interface Dealer {
   title?: string | null | undefined
@@ -17,31 +15,10 @@ export interface Dealer {
 type Props = Dealer
 
 const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug }: Props) => {
-  const PlaceholderSVG: React.FC = () =>
-    <svg
-      className='bd-placeholder-img card-img rounded-card-img-top'
-      width='100%'
-      height='250'
-      xmlns='http://www.w3.org/2000/svg'
-      preserveAspectRatio='xMidYMid slice'
-      focusable='false'
-      role='img'
-      aria-label='Placeholder: Thumbnail'
-    >
-      <title>Placeholder</title>
-      <rect width='100%' height='100%' fill='#55595c' />
-      <text x='50%' y='50%' fill='#eceeef' dy='.3em'>
-        Dealer Banner
-      </text>
-    </svg>
-
-  const PlaceholderImage: React.FC = () => 
-    <img src={placeholderImage} className='card-img-top rounded-card-img-top' />
-
   return (
-    <div className='card rounded-card mb-5 shadow-sm'>
+    <div className='card rounded-3 border border-primary border-5 mb-5'>
       {banner !== undefined
-        ? <img src={banner ?? ''} className='card-img-top rounded-card-img-top' />
+        ? <img src={banner ?? ''} className='card-img-top' />
         : <PlaceholderImage/>}
       <div className='card-body'>
         <div className='container'>

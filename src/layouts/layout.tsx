@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { RouteComponentProps } from '@reach/router'
-import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import emergence from 'emergence.js'
 
 import {
   AuthOverlay,
   Footer,
-  Navbar
+  LogoNavbar
 } from '../components'
+
+import { Parallax } from 'react-parallax'
 
 import config from '../../site-config'
 
@@ -20,11 +20,6 @@ interface Props extends RouteComponentProps {
 }
 
 const Layout: React.FC<Props> = ({ children, location }: Props) => {
-  const identity = useIdentityContext()
-
-  useEffect(() => {
-    emergence.init()
-  })
 
   const socialLinks = {
     data: {
@@ -38,8 +33,8 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
   return (
     <>
       <AuthOverlay />
-      <Navbar location={location} identityContext={identity} />
-      <div className='layout-container d-flex flex-column justify-content-between bg-image'>
+      <LogoNavbar location={location} />
+      <div className='layout-container d-flex flex-column justify-content-between'>
         {children}
         <Footer
           copyright={config.copyright}
