@@ -74,7 +74,7 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
             label={"DONATE"}
             url='https://fe.regfox.com/pixel-purrfect-donations'
             size='lg'
-            state='light'
+            state='dark'
           />
         </TextCard>
       </Section>

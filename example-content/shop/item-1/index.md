@@ -1,8 +1,7 @@
 ---
-layout: image
+layout: product
 title: "Title"
-artist: "Artist Name"
-url: "Artist's website"
+url: "Link to item's page"
 image: "./the-image-file-in-the-same-folder-as-this-file.png"
 desc: "A short, screen-reader-friendly description"
 ---
