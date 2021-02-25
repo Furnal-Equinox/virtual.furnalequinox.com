@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://redesign--virtual-furnal-equinox.netlify.app/help/index.html
+ > Running Pa11y on URL https://virtual-furnal-equinox.netlify.app/help/index.html
 
-Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/help/
+Results for URL: https://virtual-furnal-equinox.netlify.app/help/
 
  • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
@@ -22,28 +22,8 @@ Results for URL: https://redesign--virtual-furnal-equinox.netlify.app/help/
 
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p
+   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div > div > div:nth-child(1) > div > p
    └── <p><strong>Copyright 2021 Anthropo...</p>
 
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(1) > div > p > strong
-   └── <strong>Copyright 2021 Anthropomorphic ...</strong>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) > p
-   └── <p>Help</p>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > p
-   └── <p>Privacy Policies</p>
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > p
-   └── <p>Credits</p>
-
-8 Warnings
+4 Warnings
 
