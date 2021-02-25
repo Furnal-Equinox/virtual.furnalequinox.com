@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import config from '../../../site-config'
 
 import {
+  Anchor,
   CharityMeter,
   Meta,
   ResponsivePlayer,
@@ -45,7 +46,7 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
         <div className='container'>
           <div className='row'>
-            <ResponsivePlayer url='https://vimeo.com/410693732' />
+            <ResponsivePlayer url={process.env.GATSBY_STREAM_URL as string} />
           </div>
         </div>
       </Section>
@@ -69,6 +70,12 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
               </div>
             </div>
           </div>
+          <Anchor
+            label={"DONATE"}
+            url='https://fe.regfox.com/pixel-purrfect-donations'
+            size='lg'
+            state='light'
+          />
         </TextCard>
       </Section>
       <Section isContainer pos='middle'>
