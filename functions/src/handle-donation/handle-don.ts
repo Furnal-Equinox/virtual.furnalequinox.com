@@ -107,6 +107,8 @@ const handleDonation = async (
     )
 
     if (!doesDonorExist) {
+      console.log('Donor does not exist! Creating donor now.')
+
       const donor: Donor = {
         furName: furName,
         emailAddress: emailAddress,
@@ -119,7 +121,11 @@ const handleDonation = async (
           data: donor
         })
       )
+
+      console.log('Donor created in DB!')
     }
+
+    console.log('Getting donor document.')
 
     const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
       q.Get(q.Match(q.Index('getDonorByFurName'), furName))
@@ -133,11 +139,15 @@ const handleDonation = async (
       })
     )
 
+    console.log('Donor updated.')
+
     const doesDonationExist: boolean = await faunaClient.query<boolean>(
       q.Exists(q.Match(q.Index('getDonationByFurName'), furName))
     )
 
     if (!doesDonationExist) {
+      console.log('Donation does not exist! Creating donation now.')
+
       const user: User = {
         furName: furName,
         emailAddress: emailAddress,
@@ -150,7 +160,11 @@ const handleDonation = async (
           data: user
         })
       )
+
+      console.log('Donation created.')
     }
+
+    console.log('Getting donation document.')
 
     const document = await faunaClient.query<faunadb.values.Document<User>>(
       q.Get(q.Match(q.Index('getDonationByFurName'), furName))
@@ -163,6 +177,8 @@ const handleDonation = async (
         }
       })
     )
+
+    console.log('Donation updated.')
   }
 
   const createOrMutateTotalDonation = async (user: User): Promise<void> => {
@@ -178,6 +194,8 @@ const handleDonation = async (
     )
 
     if (!doesRecordExist) {
+      console.log('Totals record does not exist! Creating it now.')
+
       const totals: Totals = {
         numberOfDonors: 0,
         amountDonated: 0
@@ -188,7 +206,11 @@ const handleDonation = async (
           data: totals
         })
       )
+
+      console.log('Totals record created.')
     }
+
+    console.log('Getting totals record.')
 
     const document = await faunaClient.query<faunadb.values.Document<Totals>>(
       q.Get(q.Match(q.Index('getTotals')))
@@ -204,15 +226,30 @@ const handleDonation = async (
         data: totals
       })
     )
+
+    console.log('Totals record updated.')
   }
 
   try {
     // Convert the payload into a list of users.
+
+    console.log('Parsing user from payload...')
+
     const user: User = parseUserFromPayload(data)
+
+    console.log('Done.')
+
+    console.log('Creating or updating donor/donation in DB...')
 
     await createOrMutateUserInDB(user)
 
+    console.log('Done.')
+
+    console.log('Creating or updating totals record...')
+
     await createOrMutateTotalDonation(user)
+
+    console.log('Done.')
 
     return {
       statusCode: 200,
@@ -222,6 +259,8 @@ const handleDonation = async (
       })
     }
   } catch (err: any) {
+    console.error(err.message as string)
+
     return {
       statusCode: 500,
       body: JSON.stringify({

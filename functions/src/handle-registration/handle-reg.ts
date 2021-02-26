@@ -110,11 +110,15 @@ const handleRegistration = async (
     await Promise.all(
       users.map(
         async ({ emailAddress }: User) => {
+          console.log('Inviting user.')
+
           await fetch(inviteUrl, {
             method: 'POST',
             headers: { Authorization: adminAuthHeader },
             body: JSON.stringify({ email: emailAddress })
           })
+
+          console.log('User invited!')
         }
       )
     )
@@ -136,6 +140,8 @@ const handleRegistration = async (
           )
 
           if (!doesDonorExist) {
+            console.log('Donor does not exist! Creating donor now.')
+
             const donor: Donor = {
               furName: furName,
               emailAddress: emailAddress,
@@ -148,7 +154,11 @@ const handleRegistration = async (
                 data: donor
               })
             )
+
+            console.log('Donor created.')
           }
+
+          console.log('Getting donor document.')
 
           const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
             q.Get(q.Match(q.Index('getDonorByFurName'), furName))
@@ -162,11 +172,15 @@ const handleRegistration = async (
             })
           )
 
+          console.log('Donor updated.')
+
           const doesDonationExist: boolean = await faunaClient.query(
             q.Exists(q.Match(q.Index('getDonationByFurName'), furName))
           )
 
           if (!doesDonationExist) {
+            console.log('Donation does not exist! Creating donation now.')
+
             const user: User = {
               furName: furName,
               emailAddress: emailAddress,
@@ -179,7 +193,11 @@ const handleRegistration = async (
                 data: user
               })
             )
+
+            console.log('Donation created.')
           }
+
+          console.log('Getting donation document.')
 
           const document = await faunaClient.query<faunadb.values.Document<User>>(
             q.Get(q.Match(q.Index('getDonationByFurName'), furName))
@@ -192,6 +210,8 @@ const handleRegistration = async (
               }
             })
           )
+
+          console.log('Donation updated.')
         }
       )
     )
@@ -209,6 +229,8 @@ const handleRegistration = async (
     )
 
     if (!doesRecordExist) {
+      console.log('Totals record does not exist! Creating it now.')
+
       const totals: Totals = {
         numberOfDonors: 0,
         amountDonated: 0
@@ -219,11 +241,16 @@ const handleRegistration = async (
           data: totals
         })
       )
+
+      console.log('Totals record created.')
     }
 
     await Promise.all(
       users.map(
         async ({ amount }: User): Promise<void> => {
+
+          console.log('Getting totals record.')
+
           const document = await faunaClient.query<faunadb.values.Document<Totals>>(
             q.Get(q.Match(q.Index('getTotals')))
           )
@@ -238,6 +265,8 @@ const handleRegistration = async (
               data: totals
             })
           )
+
+          console.log('Totals record updated.')
         }
       )
     )
@@ -245,19 +274,38 @@ const handleRegistration = async (
 
   try {
     // Convert the payload into a list of users.
+
+    console.log('Parsing users from payload...')
+
     const users: User[] = parseUsersFromPayload(registrants)
+
+    console.log('Done.')
+
+    console.log('Creating or updating donors/donations in DB...')
 
     await createOrMutateUsersInDB(users)
 
+    console.log('Done.')
+
+    console.log('Creating or updating totals record...')
+
     await createOrMutateTotalDonation(users)
 
+    console.log('Done.')
+
+    console.log('Inviting users now...')
+
     await inviteUsers(users)
+
+    console.log('Done.')
 
     return {
       statusCode: 200,
       body: JSON.stringify({ received: true, message: 'User(s) invited!' })
     }
   } catch (err: any) {
+    console.error(err.message as string)
+
     return {
       statusCode: 500,
       body: JSON.stringify({
