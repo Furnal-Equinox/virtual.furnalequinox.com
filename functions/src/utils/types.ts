@@ -201,14 +201,14 @@ export interface User {
 
 export interface Donation {
   furName: string
-  discordHandle?: string
+  discordHandle: string | null
   emailAddress: string
   amount: number
 }
 
 export interface Donor {
   furName: string
-  discordHandle?: string
+  discordHandle: string | null
   emailAddress: string
   hasDonated: boolean
 }

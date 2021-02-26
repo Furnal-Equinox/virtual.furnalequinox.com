@@ -5,8 +5,7 @@ import { graphql } from 'gatsby'
 import config from '../../site-config'
 import { NotFoundQueryQuery } from '../../../types/graphql-types'
 
-import { 
-  Button,
+import {
   Meta,
   TextCard
 } from '../components'
@@ -17,6 +16,8 @@ import {
   Layout,
   Section
 } from '../layouts'
+
+import Button from 'react-bootstrap/Button'
 
 interface Props extends RouteComponentProps {
   data: NotFoundQueryQuery
@@ -54,11 +55,14 @@ const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
               </a>.
             </p>
             <Button
-              label={"Return to the last page"}
+              type='button'
+              title='Return to the last page'
               onClick={() => {navigate !== undefined && navigate(-1)}}
               size='lg'
-              state='secondary'
-            />
+              variant='secondary'
+            >
+              Go Back
+            </Button>
           </TextCard>
         </Section>
       </div>

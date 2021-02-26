@@ -139,7 +139,7 @@ const handleRegistration = async (
             const donor: Donor = {
               furName: furName,
               emailAddress: emailAddress,
-              discordHandle: discordHandle ?? undefined,
+              discordHandle: discordHandle ?? null,
               hasDonated: amount > 0
             }
 
