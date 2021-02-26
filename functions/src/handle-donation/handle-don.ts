@@ -212,24 +212,26 @@ const handleDonation = async (
       console.log('Totals record created.')
     }
 
-    console.log('Getting totals record.')
+    if (amount > 0) {
+      console.log('Getting totals record.')
 
-    const document = await faunaClient.query<faunadb.values.Document<Totals>>(
-      q.Get(q.Match(q.Index('getTotals')))
-    )
+      const document = await faunaClient.query<faunadb.values.Document<Totals>>(
+        q.Get(q.Match(q.Index('getTotals')))
+      )
 
-    const totals: Totals = {
-      numberOfDonors: document.data.numberOfDonors + 1,
-      amountDonated: document.data.amountDonated + amount
+      const totals: Totals = {
+        numberOfDonors: document.data.numberOfDonors + 1,
+        amountDonated: document.data.amountDonated + amount
+      }
+
+      await faunaClient.query(
+        q.Update(document.ref, {
+          data: totals
+        })
+      )
+
+      console.log('Totals record updated.')
     }
-
-    await faunaClient.query(
-      q.Update(document.ref, {
-        data: totals
-      })
-    )
-
-    console.log('Totals record updated.')
   }
 
   try {

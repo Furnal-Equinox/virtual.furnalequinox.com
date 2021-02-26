@@ -250,25 +250,26 @@ const handleRegistration = async (
     await Promise.all(
       users.map(
         async ({ amount }: User): Promise<void> => {
+          if (amount > 0) {
+            console.log('Updating totals record.')
 
-          console.log('Getting totals record.')
+            const document = await faunaClient.query<faunadb.values.Document<Totals>>(
+              q.Get(q.Match(q.Index('getTotals')))
+            )
 
-          const document = await faunaClient.query<faunadb.values.Document<Totals>>(
-            q.Get(q.Match(q.Index('getTotals')))
-          )
+            const totals: Totals = {
+              numberOfDonors: document.data.numberOfDonors + 1,
+              amountDonated: document.data.amountDonated + amount
+            }
 
-          const totals: Totals = {
-            numberOfDonors: document.data.numberOfDonors + 1,
-            amountDonated: document.data.amountDonated + amount
+            await faunaClient.query(
+              q.Update(document.ref, {
+                data: totals
+              })
+            )
+
+            console.log('Totals record updated.')
           }
-
-          await faunaClient.query(
-            q.Update(document.ref, {
-              data: totals
-            })
-          )
-
-          console.log('Totals record updated.')
         }
       )
     )
