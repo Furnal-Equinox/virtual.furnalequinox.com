@@ -159,14 +159,14 @@ export interface DonationFields {
     label: 'Amount'
     type: 'amountField'
     value: string
-  }
+  } | undefined
   coverFee: {
     label: string
     type: 'checkbox'
     amount: string
     discount: string
     value: boolean
-  }
+  } | undefined
 }
 
 export interface DonationAmount {

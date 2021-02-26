@@ -63,10 +63,12 @@ const getDonationAmountFromRegistrant = (data: DonationData): number => {
     data.find(o => o.key === 'donationAmount') as DonationAmount
 
   const sumAmount: number = donationAmount.repeater
-    .map(o => parseInt(o.amount.value))
+    .map(o => o.amount !== undefined ? parseInt(o.amount.value) : 0)
     .reduce((acc, curr) => acc + curr)
 
-  const coveredCCFee: boolean = donationAmount.repeater.every(o => o.coverFee.value)
+  const coveredCCFee: boolean = donationAmount.repeater.every(o => 
+    o.coverFee !== undefined ? o.coverFee.value : false
+  )
 
   const trueAmount: number = coveredCCFee ? sumAmount : (sumAmount - (sumAmount * 0.03))
 
