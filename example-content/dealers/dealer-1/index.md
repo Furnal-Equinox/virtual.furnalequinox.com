@@ -127,3 +127,7 @@ streaming:
     - start: "15:00"
       end: "16:00"
 ---
+
+Add the dealer's long description here. The dealer may use any Markdown formatting here :)
+
+See [this website](https://www.markdownguide.org/cheat-sheet/) for available Markdown syntax.
