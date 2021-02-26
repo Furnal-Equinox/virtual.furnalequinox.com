@@ -102,6 +102,8 @@ const handleRegistration = async (
     )
   }
 
+  let hasAlreadyDonated: boolean[] = []
+
   const inviteUsers = async (users: User[]): Promise<void> => {
     // Netlify puts the identity instance on the clientContext object.
     // This object does not exist on AWS's Context type, so I'm ignoring it here.
@@ -166,6 +168,10 @@ const handleRegistration = async (
             q.Get(q.Match(q.Index('getDonorByFurName'), furName))
           )
 
+          // If the user has already donated (meaning that a record already exists for them,
+          // and they have donated in the past), then do not increment the number of donors later.
+          hasAlreadyDonated.push(doesDonorExist && donorDocument.data.hasDonated)
+
           await faunaClient.query(
             q.Update(donorDocument.ref, {
               data: {
@@ -222,7 +228,7 @@ const handleRegistration = async (
     )
   }
 
-  const createOrMutateTotalDonation = async (users: User[]): Promise<void> => {
+  const createOrMutateTotalDonation = async (users: User[], hasAlreadyDonated: boolean[]): Promise<void> => {
     const q = faunadb.query
 
     const faunaClient = new faunadb.Client({
@@ -250,36 +256,49 @@ const handleRegistration = async (
       console.log('Totals record created.')
     }
 
-    await Promise.all(
-      users.map(
-        async ({ amount }: User): Promise<void> => {
-          if (amount > 0) {
-            console.log('Updating totals record.')
-
-            const document = await faunaClient.query<faunadb.values.Document<Totals>>(
-              q.Get(q.Match(q.Index('getTotals')))
-            )
-
-            await faunaClient.query(
-              q.Update(document.ref, {
-                data: {
-                  numberOfDonors: q.Add(
-                    q.Select(['data', 'numberOfDonors'], q.Get(document.ref)),
-                    1
-                  ),
-                  amountDonated: q.Add(
-                    q.Select(['data', 'amountDonated'], q.Get(document.ref)),
-                    amount
-                  )
-                }
-              })
-            )
-
-            console.log('Totals record updated.')
-          }
+    for (let i = 0; i < users.length; i += 1) {
+      if (!hasAlreadyDonated[i]) {
+        console.log('Getting totals record.')
+  
+        const document = await faunaClient.query<faunadb.values.Document<Totals>>(
+          q.Get(q.Match(q.Index('getTotals')))
+        )
+  
+        await faunaClient.query(
+          q.Update(document.ref, {
+            data: {
+              numberOfDonors: q.Add(
+                q.Select(['data', 'numberOfDonors'], q.Get(document.ref)),
+                1
+              ),
+              amountDonated: q.Add(
+                q.Select(['data', 'amountDonated'], q.Get(document.ref)),
+                users[i].amount
+              )
+            }
+          })
+        )
+      } else {
+        if (users[i].amount > 0) {
+          console.log('Getting totals record.')
+  
+          const document = await faunaClient.query<faunadb.values.Document<Totals>>(
+            q.Get(q.Match(q.Index('getTotals')))
+          )
+  
+          await faunaClient.query(
+            q.Update(document.ref, {
+              data: {
+                amountDonated: q.Add(
+                  q.Select(['data', 'amountDonated'], q.Get(document.ref)),
+                  users[i].amount
+                )
+              }
+            })
+          )
         }
-      )
-    )
+      }
+    }
   }
 
   try {
@@ -299,7 +318,7 @@ const handleRegistration = async (
 
     console.log('Creating or updating totals record...')
 
-    await createOrMutateTotalDonation(users)
+    await createOrMutateTotalDonation(users, hasAlreadyDonated)
 
     console.log('Done.')
 

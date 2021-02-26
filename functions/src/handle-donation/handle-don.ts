@@ -96,6 +96,8 @@ const handleDonation = async (
     )
   }
 
+  let hasAlreadyDonated: boolean = false
+
   const createOrMutateUserInDB = async (user: User): Promise<void> => {
     const { furName, emailAddress, discordHandle, amount } = user
     const q = faunadb.query
@@ -132,6 +134,10 @@ const handleDonation = async (
     const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
       q.Get(q.Match(q.Index('getDonorByFurName'), furName))
     )
+
+    // If the user has already donated (meaning that a record already exists for them,
+    // and they have donated in the past), then do not increment the number of donors later.
+    hasAlreadyDonated = doesDonorExist && donorDocument.data.hasDonated
 
     await faunaClient.query(
       q.Update(donorDocument.ref, {
@@ -186,7 +192,7 @@ const handleDonation = async (
     console.log('Donation updated.')
   }
 
-  const createOrMutateTotalDonation = async ({ amount }: User): Promise<void> => {
+  const createOrMutateTotalDonation = async ({ amount }: User, hasAlreadyDonated: boolean): Promise<void> => {
     const q = faunadb.query
 
     const faunaClient = new faunadb.Client({
@@ -214,7 +220,7 @@ const handleDonation = async (
       console.log('Totals record created.')
     }
 
-    if (amount > 0) {
+    if (!hasAlreadyDonated) {
       console.log('Getting totals record.')
 
       const document = await faunaClient.query<faunadb.values.Document<Totals>>(
@@ -235,9 +241,28 @@ const handleDonation = async (
           }
         })
       )
+    } else {
+      if (amount > 0) {
+        console.log('Getting totals record.')
 
-      console.log('Totals record updated.')
+        const document = await faunaClient.query<faunadb.values.Document<Totals>>(
+          q.Get(q.Match(q.Index('getTotals')))
+        )
+
+        await faunaClient.query(
+          q.Update(document.ref, {
+            data: {
+              amountDonated: q.Add(
+                q.Select(['data', 'amountDonated'], q.Get(document.ref)),
+                amount
+              )
+            }
+          })
+        )
+      }
     }
+
+    console.log('Totals record updated.')
   }
 
   try {
@@ -257,7 +282,7 @@ const handleDonation = async (
 
     console.log('Creating or updating totals record...')
 
-    await createOrMutateTotalDonation(user)
+    await createOrMutateTotalDonation(user, hasAlreadyDonated)
 
     console.log('Done.')
 
