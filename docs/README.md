@@ -119,6 +119,8 @@ This project doesn't use Tailwind CSS, but the utility classes in Tailwind CSS's
 [Build a Like Counter With Fauna, Netlify and Nuxt](https://davidparks.dev/blog/building-a-like-counter-with-faunadb-and-nuxt/#intro)
 * Logic that I'm using in the Netlify Functions and in the Charity Meter to fetch data from the Fauna database.
 
+[Atomic Increment/Decrement in FaunaDB](https://karmasakshi.medium.com/atomic-increment-decrement-in-faunadb-82ec286b364c)
+
 [Using React’s useEffect Hook to Fetch Data and Periodically Refresh The Data](https://medium.com/javascript-in-plain-english/using-reacts-useeffect-hook-to-fetch-data-and-periodically-refresh-that-data-2a69b6d44081)
 
 [Perfect Full Page Background Image ](https://css-tricks.com/perfect-full-page-background-image/)

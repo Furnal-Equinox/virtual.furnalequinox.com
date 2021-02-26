@@ -175,7 +175,10 @@ const handleDonation = async (
     await faunaClient.query(
       q.Update(document.ref, {
         data: {
-          amount: document.data.amount + amount
+          amount: q.Add(
+            q.Select(['data', 'amount'], q.Get(document.ref)),
+            amount
+          )
         }
       })
     )
@@ -183,8 +186,7 @@ const handleDonation = async (
     console.log('Donation updated.')
   }
 
-  const createOrMutateTotalDonation = async (user: User): Promise<void> => {
-    const { amount } = user
+  const createOrMutateTotalDonation = async ({ amount }: User): Promise<void> => {
     const q = faunadb.query
 
     const faunaClient = new faunadb.Client({
@@ -219,14 +221,18 @@ const handleDonation = async (
         q.Get(q.Match(q.Index('getTotals')))
       )
 
-      const totals: Totals = {
-        numberOfDonors: document.data.numberOfDonors + 1,
-        amountDonated: document.data.amountDonated + amount
-      }
-
       await faunaClient.query(
         q.Update(document.ref, {
-          data: totals
+          data: {
+            numberOfDonors: q.Add(
+              q.Select(['data', 'numberOfDonors'], q.Get(document.ref)),
+              1
+            ),
+            amountDonated: q.Add(
+              q.Select(['data', 'amountDonated'], q.Get(document.ref)),
+              amount
+            )
+          }
         })
       )
 
