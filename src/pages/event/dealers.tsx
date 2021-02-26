@@ -57,7 +57,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const Content = makePrivateContent(DealersDashboard)
 
   return (
-    <Event location={location}>
+    <Event location={location} navigate={navigate}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
       <Meta customDescription='Dealers Den' />
       <div>

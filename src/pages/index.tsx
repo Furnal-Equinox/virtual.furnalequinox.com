@@ -25,7 +25,7 @@ interface LocationState {
 }
 
 const Login: React.FC<Props> = ({ data, location }: Props) => {
-  const navigateTarget: string = (location?.state as LocationState)?.navigateTarget ?? '/'
+  const navigateTarget: string = (location?.state as LocationState)?.navigateTarget ?? '/event/'
 
   return (
     <Layout location={location}>

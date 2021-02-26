@@ -18,11 +18,11 @@ import {
 
 interface Props extends RouteComponentProps {}
 
-const Djs: React.FC<Props> = ({ location }: Props) => {
+const Djs: React.FC<Props> = ({ location, navigate }: Props) => {
   const Content = makePrivateContent(DjsContent)
 
   return (
-    <Event location={location}>
+    <Event location={location} navigate={navigate}>
       <Helmet title={`DJs | ${config.siteTitle}`} />
       <Meta customDescription='DJs' />
       <div>
@@ -42,19 +42,11 @@ const DjsContent: React.FC<Props> = ({ location }: Props) => {
   return (
     <>
       <Jumbotron title='DJs' subtitle='' />
-        <Section isContainer isTextCenter pos='middle'>
-          <div className='row'>
-            <div className='col-lg-12'>
-              <DealerCard />
-            </div>
-            <div className='col-lg-12'>
-              <DealerCard />
-            </div>
-            <div className='col-lg-12'>
-              <DealerCard />
-            </div>
-          </div>
-        </Section>
+      <Section isContainer isTextCenter pos='middle'>
+        <TextCard>
+          <h1>Coming soon!</h1>
+        </TextCard>
+      </Section>
     </>
   )
 }

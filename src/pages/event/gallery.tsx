@@ -17,15 +17,18 @@ import {
   Section
 } from '../../layouts'
 
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+
+
 interface Props extends RouteComponentProps {
   data: GalleryQueryQuery
 }
 
-const Gallery: React.FC<Props> = ({ data, location }: Props) => {
+const Gallery: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const Content = makePrivateContent(GalleryContent)
 
   return (
-    <Event location={location}>
+    <Event location={location} navigate={navigate}>
       <Helmet title={`Gallery | ${config.siteTitle}`} />
       <Meta customDescription='Art Gallery' />
       <div>
@@ -77,20 +80,22 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
         title='Art Gallery'
         subtitle='Enjoy our virtual gallery!'
       />
-      <Section isContainer isTextCenter pos='last'>
-        <div className='row'>
+      <Section isContainer>
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
+        >
+          <Masonry>
           {artworks.map(({ artwork }) => (
             artwork.frontmatter?.image?.childImageSharp?.fluid !== null &&
-              <div className='col-lg-12'>
-                <GalleryItemCard
-                  title={artwork.frontmatter?.title ?? ''}
-                  artist={artwork.frontmatter?.artist ?? ''}
-                  image={artwork.frontmatter?.image?.childImageSharp?.fluid?.src ?? ''}
-                  url={artwork.frontmatter?.url ?? ''}
-                />
-              </div>
+              <GalleryItemCard
+                title={artwork.frontmatter?.title ?? ''}
+                artist={artwork.frontmatter?.artist ?? ''}
+                image={artwork.frontmatter?.image?.childImageSharp?.fluid?.src ?? ''}
+                url={artwork.frontmatter?.url ?? ''}
+              />
           ))}
-        </div>
+          </Masonry>
+        </ResponsiveMasonry>
       </Section>
     </>
   )

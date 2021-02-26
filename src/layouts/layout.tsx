@@ -19,7 +19,7 @@ interface Props extends RouteComponentProps {
   children?: React.ReactNode
 }
 
-const Layout: React.FC<Props> = ({ children, location }: Props) => {
+const Layout: React.FC<Props> = ({ children, location, navigate }: Props) => {
 
   const socialLinks = {
     data: {
@@ -33,7 +33,7 @@ const Layout: React.FC<Props> = ({ children, location }: Props) => {
   return (
     <>
       <AuthOverlay />
-      <LogoNavbar location={location} />
+      <LogoNavbar location={location} navigate={navigate} />
       <div className='layout-container d-flex flex-column justify-content-between'>
         {children}
         <Footer

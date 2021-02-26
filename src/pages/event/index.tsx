@@ -24,11 +24,11 @@ interface Props extends RouteComponentProps {
   data: HomeQueryQuery
 }
 
-const Home: React.FC<Props> = ({ data, location }: Props) => {
+const Home: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const Content = makePrivateContent(HomeDashboard)
 
   return (
-    <Event location={location}>
+    <Event location={location} navigate={navigate}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
       <div>

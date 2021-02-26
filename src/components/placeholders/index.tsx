@@ -7,7 +7,7 @@ import placeholderDealerBanner from '../../../content/images/VFE_dealer_banner.p
 import placeholderProductPhoto from '../../../content/images/VFE_product_photo.png'
 
 export const PlaceholderAdBanner: React.FC = () =>
-  <img src={placeholderAdBanner} className='img-fluid' />
+  <img src={placeholderAdBanner} className='img-fluid border border-primary' />
 
 export const PlaceholderImage: React.FC = () => 
   <img src={placeholderDealerBanner} className='card-img-top' />

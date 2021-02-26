@@ -18,11 +18,11 @@ import {
 
 interface Props extends RouteComponentProps {}
 
-const HowTo: React.FC<Props> = ({ location }: Props) => {
+const HowTo: React.FC<Props> = ({ location, navigate }: Props) => {
   const Content = makePrivateContent(HowToContent)
 
   return (
-    <Event location={location}>
+    <Event location={location} navigate={navigate}>
       <Helmet title={`How To | ${config.siteTitle}`} />
       <Meta customDescription='Tutorials on how to join and use Discord and the VRChat worlds' />
       <div>
@@ -42,11 +42,12 @@ const HowToContent: React.FC<Props> = ({ location }: Props) => {
   return (
     <>
       <Jumbotron title={'Discord & VR'} subtitle='' />
-        <Section isContainer isTextCenter pos='middle'>
-          <TextCard>
-            <h1>Nothing to see here...</h1>
-          </TextCard>
-        </Section>
+      <Section isContainer isTextCenter pos='middle'>
+        <TextCard>
+          <h1>Coming soon!</h1>
+          <p>We're working hard on filming and editing the video tutorials!</p>
+        </TextCard>
+      </Section>
     </>
   )
 }

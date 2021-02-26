@@ -16,15 +16,18 @@ import {
   makePrivateContent,
   Section
 } from '../../layouts'
+
 import { PlaceholderAdBanner } from '../../components/placeholders'
+
+import Carousel from 'react-bootstrap/Carousel'
 
 interface Props extends RouteComponentProps {}
 
-const Livestream: React.FC<Props> = ({ location }: Props) => {
+const Livestream: React.FC<Props> = ({ location, navigate }: Props) => {
   const Content = makePrivateContent(LivestreamDashboard)
 
   return (
-    <Event location={location}>
+    <Event location={location} navigate={navigate}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
       <div>
@@ -78,10 +81,20 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
           />
         </TextCard>
       </Section>
-      <Section isContainer pos='middle'>
-        <TextCard>
-          <PlaceholderAdBanner />
-        </TextCard>
+      <Section pos='middle'>
+        <div className='mx-auto' style={{ maxWidth: '728px'}}>
+          <Carousel indicators={false}>
+            <Carousel.Item>
+              <PlaceholderAdBanner />
+            </Carousel.Item>
+            <Carousel.Item>
+              <PlaceholderAdBanner />
+            </Carousel.Item>
+            <Carousel.Item>
+              <PlaceholderAdBanner />
+            </Carousel.Item>
+          </Carousel>
+        </div>
       </Section>
       <Section isContainer pos='middle'>
         <TextCard>

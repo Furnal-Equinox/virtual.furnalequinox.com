@@ -19,11 +19,11 @@ interface Props extends RouteComponentProps {
   data: NewsQueryQuery
 }
 
-const News: React.FC<Props> = ({ data, location }: Props) => {
+const News: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const Content = makePrivateContent(NewsDashboard)
 
   return (
-    <Event location={location}>
+    <Event location={location} navigate={navigate}>
       <Helmet title={`News | ${config.siteTitle}`} />
       <Meta customDescription='News posts' />
       <div>

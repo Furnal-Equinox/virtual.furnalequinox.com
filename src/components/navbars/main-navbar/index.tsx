@@ -4,7 +4,7 @@ import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import logo from '../../../../content/images/Logo.svg'
 
-import { Button } from '../../index'
+import { Link } from '../../index'
 
 import { NavbarLinks } from '../../../data/navbar-links'
 import { Maybe } from '../../../types'
@@ -13,10 +13,12 @@ export interface Props extends RouteComponentProps {
   identityContext?: any
 }
 
-const Navbar: React.FC<Props> = ({ location }: Props) => {
+const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
   const identity = useIdentityContext()
 
-  const handleLogout: any = identity.logout
+  const handleLogout = () => {
+    identity.logout()
+  }
 
   const Logo: React.FC = () =>
     <GatsbyLink className='navbar-brand mr-2' to='/event/'>
@@ -57,7 +59,7 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
       </ul>
       <Notification />
       {identity.user !== undefined && 
-        <Button label='Logout' size='sm' onClick={handleLogout} />
+        <Link to='/' label='Logout' size='sm' onClick={handleLogout} />
       }
     </div>
 
