@@ -4,6 +4,7 @@ import { RouteComponentProps } from '@reach/router'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import logo from '../../../../content/images/Logo.svg'
 
+
 import { NavbarLinks } from '../../../data/navbar-links'
 import { Maybe } from '../../../types'
 
@@ -11,7 +12,7 @@ export interface Props extends RouteComponentProps {
   identityContext?: any
 }
 
-const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
+const FakeMainNavbar: React.FC<Props> = ({ location, navigate }: Props) => {
   const identity = useIdentityContext()
 
   const handleLogout = () => {
@@ -49,7 +50,7 @@ const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
                 : 'nav-item'
             }
           >
-            <Link to={elem.to} className='nav-link'>
+            <Link to={'.'} className='nav-link'>
               {elem.name}
             </Link>
           </li>
@@ -92,4 +93,4 @@ const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
   )
 }
 
-export default Navbar
+export default FakeMainNavbar

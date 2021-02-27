@@ -3,13 +3,12 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { DealerBySlugQuery } from '../../../types/graphql-types'
+import { Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
 import config from '../../../site-config'
 import './style.scss'
 
 import {
-  Anchor,
-  Link,
   Meta,
   SocialLinks,
   TextCard
@@ -20,6 +19,8 @@ import {
   makePrivateContent,
   Section
 } from '../../layouts'
+
+import Button from 'react-bootstrap/Button'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
@@ -222,7 +223,13 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
             </div>
             <div className='col-lg-6 text-center p-2'>
               {post?.url !== null && post?.url !== undefined
-                ? <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
+                ? <Button
+                    title={`Link to the store or website for ${post?.title ?? 'this dealer'}`}
+                    href={post?.url ?? ''}
+                    size='lg'
+                  >
+                    Check out my store!
+                  </Button>
                 : <h2>I do not have a website to share!</h2>
               }
             </div>
@@ -259,8 +266,22 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
       <Section isContainer>
         <TextCard>
           <div className='d-flex justify-content-between align-items-center'>
-            <Link label={`← ${prevTitle}`} to={`..${prevSlug}`} />
-            <Link label={`${nextTitle} →`} to={`..${nextSlug}`} />
+            <Link
+              title={`Link to the previous dealer, ${prevTitle}`}
+              to={`..${prevSlug}`}
+              role='button'
+              className='btn btn-primary btn-lg rounded-3'
+            >
+              {`← ${prevTitle}`}
+            </Link>
+            <Link
+              title={`Link to the next dealer, ${nextTitle}`}
+              to={`..${nextSlug}`}
+              role='button'
+              className='btn btn-primary btn-lg rounded-3'
+            >
+              {`${nextTitle} →`}
+            </Link> 
           </div>
         </TextCard>
       </Section>

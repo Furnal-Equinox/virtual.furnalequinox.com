@@ -5,10 +5,8 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import {
   AuthOverlay,
   Footer,
-  MainNavbar
+  FakeNavbar
 } from '../components'
-
-import { Parallax } from 'react-parallax'
 
 import config from '../../site-config'
 
@@ -20,7 +18,7 @@ interface Props extends RouteComponentProps {
   children?: React.ReactNode
 }
 
-const Sample: React.FC<Props> = ({ children, location }: Props) => {
+const FakeEvent: React.FC<Props> = ({ children, location }: Props) => {
   const identity = useIdentityContext()
 
   const socialLinks = {
@@ -35,7 +33,7 @@ const Sample: React.FC<Props> = ({ children, location }: Props) => {
   return (
     <>
       <AuthOverlay />
-      <MainNavbar location={location} identityContext={identity} />
+      <FakeNavbar location={location} identityContext={identity} />
       <div className='layout-container d-flex flex-column justify-content-between'>
         {children}
         <Footer
@@ -47,4 +45,4 @@ const Sample: React.FC<Props> = ({ children, location }: Props) => {
   )
 }
 
-export default Sample
+export default FakeEvent

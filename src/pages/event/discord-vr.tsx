@@ -5,7 +5,6 @@ import config from '../../../site-config'
 import { Link as GatsbyLink } from 'gatsby'
  
 import {
-  Anchor,
   DealerCard,
   Jumbotron,
   Meta,
@@ -17,6 +16,8 @@ import {
   makePrivateContent,
   Section
 } from '../../layouts'
+
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 interface Props extends RouteComponentProps {}
 
@@ -52,11 +53,13 @@ const DiscordVRContent: React.FC<Props> = ({ location }: Props) => {
             You can talk to dealers, ask questions to panelists and game with friends!{' '}
             We have gaming channels set up for different games and to allow you to jump in!
           </p>
-          <Anchor
-            label='Link to Discord'
-            url='https://discord.gg/KBRdaXSPu6'
-            size='lg'
-          />
+          <OutboundLink
+            title='Link to the Discord invite for the Furnal Equinox Discord server'
+            href='https://discord.gg/KBRdaXSPu6'
+            className='btn btn-primary btn-lg rounded-3'
+          >
+            Discord
+          </OutboundLink>
         </TextCard>
       </Section>
       <Section isContainer isTextCenter pos='middle'>

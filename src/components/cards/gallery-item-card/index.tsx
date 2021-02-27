@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Anchor from '../../anchor'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+
 import { PlaceholderSVG } from '../../placeholders'
 
 export interface GalleryItem {
@@ -24,7 +25,15 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url }: Props) 
           <p className='card-title text-center h2'>
             <i>{title ?? 'Title'}</i> by {artist ?? 'Artist'}
           </p>
-          <Anchor label='Check them out here!' url={url ?? ''} />
+          {url !== undefined && 
+            <OutboundLink
+              title={`Link to the artist's page for this art piece`}
+              href={url}
+              className='btn btn-primary btn-lg rounded-3'
+            >
+              Learn More
+            </OutboundLink>
+          }
         </div>
       </div>
     </div>

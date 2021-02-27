@@ -7,8 +7,6 @@ import {
   LogoNavbar
 } from '../components'
 
-import { Parallax } from 'react-parallax'
-
 import config from '../../site-config'
 
 import 'scss/gatstrap.scss'

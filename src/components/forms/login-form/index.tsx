@@ -5,9 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { navigate } from 'gatsby'
 import { LoginInputs, loginSchema } from '../../../utils/form-validators'
 
-import {
-  Link  
-} from '../../index'
+import { Link } from 'gatsby'
 
 interface Props {
   navigateTarget?: string
@@ -49,7 +47,15 @@ const LoginForm: React.FC<Props> = ({ navigateTarget }) => {
   const AlreadyLoggedIn: React.FC = () => 
     <div>
       <p className='h3 mb-3'>You are already logged in!</p>
-      <Link to={`/event/`} label='Return to the home page' isFullwidth />
+      <div className='d-grid'>
+        <Link
+          title='Return to the event home page'
+          to={`/event/`}
+          className='btn btn-primary btn-lg rounded-3'
+        >
+          Return to the event home
+        </Link>
+      </div>
     </div>
 
   const Spinner: React.FC = () =>

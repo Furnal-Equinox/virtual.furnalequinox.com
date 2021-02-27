@@ -6,8 +6,6 @@ import config from '../../../site-config'
 import { HomeQueryQuery } from '../../../types/graphql-types'
 
 import {
-  Anchor,
-  Link,
   Meta,
   TextCard
 } from '../../components'
@@ -19,6 +17,10 @@ import {
   makePrivateContent,
   Section
 } from '../../layouts'
+
+import { Link } from 'gatsby'
+
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 interface Props extends RouteComponentProps {
   data: HomeQueryQuery
@@ -72,10 +74,12 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                 Click below to check out the livestream!
               </p>
               <Link
-                label={"Let's go!"}
+                title='Link to the Livestream page on this website'
                 to={`/event/livestream/`}
-                size='lg'
-              />
+                className='btn btn-primary btn-lg rounded-3'
+              >
+                Let's go!
+              </Link>
             </TextCard>
           </div>
           <div className='col-lg-6 mt-3 mt-lg-0'>
@@ -88,10 +92,12 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                 We've got you covered! We've made some tutorial videos to help you join the fun!
               </p>
               <Link
-                label={"Let's go!"}
+                title='Link to the How To page on this website'
                 to={`/event/how-to/`}
-                size='lg'
-              />
+                className='btn btn-primary btn-lg rounded-3'
+              >
+                Let's go!
+              </Link>
             </TextCard>
           </div>
         </div>
@@ -106,27 +112,31 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               </p>
               <div className='row'>
                 <div className='col-lg-4 p-3'>
-                  <Link
-                    label={"DEALERS DEN"}
-                    to={`/event/dealers/`}
-                    size='lg'
-                    state='secondary'
-                  />
+                <Link
+                  title='Link to the Dealers Den page on this website'
+                  to={`/event/dealers-den/`}
+                  className='btn btn-secondary btn-lg rounded-3'
+                >
+                  DEALERS DEN
+                </Link>
                 </div>
                 <div className='col-lg-4 p-3'>
                   <Link
-                    label={"DISCORD & VR"}
-                    to={`/event/how-to/`}
-                    size='lg'
-                  />
+                    title={'Link to the Discord & VR page on this website'}
+                    to={`/event/discord-vr/`}
+                    className='btn btn-primary btn-lg rounded-3'
+                  >
+                    {'DISCORD & VR'}
+                  </Link>
                 </div>
                 <div className='col-lg-4 p-3'>
-                  <Link
-                    label={"GAMING"}
-                    to={`/event/how-to/`}
-                    size='lg'
-                    state='secondary'
-                  />
+                <Link
+                  title='Link to the gaming section on the How To page on this website'
+                  to={`/event/how-to/#gaming`}
+                  className='btn btn-secondary btn-lg rounded-3'
+                >
+                  GAMING
+                </Link>
                 </div>
               </div>
             </TextCard>
@@ -151,11 +161,13 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               <p>
                 Please use the link below to go to our donation page.
               </p>
-              <Anchor
-                label={"DONATE"}
-                url='https://fe.regfox.com/pixel-purrfect-donations'
-                size='lg'
-              />
+              <OutboundLink
+                title='Link to our donation page on RegFox'
+                href='https://fe.regfox.com/pixel-purrfect-donations'
+                className='btn btn-primary btn-lg rounded-3'
+              >
+                DONATE
+              </OutboundLink>
             </TextCard>
           </div>
         </div>

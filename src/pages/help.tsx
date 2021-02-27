@@ -7,12 +7,13 @@ import Section from '../layouts/section'
 import config from '../../site-config'
 
 import {
-  Button,
   ContactForm,
   Jumbotron,
   Meta,
   TextCard
 } from '../components'
+
+import Button from 'react-bootstrap/Button'
 
 interface Props extends RouteComponentProps {}
 
@@ -36,11 +37,14 @@ const Help: React.FC<Props> = ({ location, navigate }: Props) => {
               </div>
             </div>
             <Button
-              label={"Return to the last page"}
+              type='button'
+              title='Return to the last page you were on'
               onClick={() => {navigate !== undefined && navigate(-1)}}
               size='lg'
-              state='secondary'
-            />
+              variant='secondary'
+            >
+              Go Back
+            </Button>
           </TextCard>
         </Section>
       </div>

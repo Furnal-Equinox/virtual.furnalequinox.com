@@ -4,22 +4,22 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { SampleDealerQuery } from '../../types/graphql-types'
 import Img, { FluidObject } from 'gatsby-image'
+import { Link } from 'gatsby'
 import config from '../../site-config'
 import '../templates/dealer/style.scss'
 
 import {
-  Anchor,
-  Link,
   Meta,
   SocialLinks,
   TextCard
 } from '../components'
 
 import {
-  Event,
-  makePrivateContent,
+  FakeEvent,
   Section
 } from '../layouts'
+
+import Button from 'react-bootstrap/Button'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
@@ -40,7 +40,7 @@ const Dealer: React.FC<Props> = ({ data, location }: { data: SampleDealerQuery }
   const post = postNode?.frontmatter
 
   return (
-    <Event location={location}>
+    <FakeEvent location={location}>
       <Helmet>
         <title>{`${post?.title ?? ''} | ${config.siteTitle}`}</title>
       </Helmet>
@@ -63,13 +63,14 @@ const Dealer: React.FC<Props> = ({ data, location }: { data: SampleDealerQuery }
           }}
         />
       </div>
-    </Event>
+    </FakeEvent>
   )
 }
 
 export const sampleDealerQuery = graphql`
   query SampleDealer {
     markdownRemark(fields: { slug: { eq: "/beast-within/" } }) {
+      html
       fields {
         slug
       }
@@ -138,6 +139,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
   const banner = post?.banner ?? null
   const images = post?.images ?? null
   const socialLinks = post?.social
+  const html = postNode?.html ?? null
 
   const { prevTitle, prevSlug, nextTitle, nextSlug } = pageContext
 
@@ -182,47 +184,70 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
             <div className='col-lg-6 p-2'>
               <h2>Streaming Times</h2>
               <hr />
-              <h3>Friday, March 19th</h3>
-              <ol>
-                {
-                  post?.streaming?.friday?.map((block, i) =>
-                    <li key={`friday-time-${i}`}>
-                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                    </li>
-                  )
-                }
-              </ol>
-              <h3>Saturday, March 20th</h3>
-              <ol>
-                {
-                  post?.streaming?.saturday?.map((block, i) =>
-                    <li key={`saturday-time-${i}`}>
-                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                    </li>
-                  )
-                }
-              </ol>
-              <h3>Sunday, March 21st</h3>
-              <ol>
-                {
-                  post?.streaming?.sunday?.map((block, i) =>
-                    <li key={`sunday-time-${i}`}>
-                      {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                    </li>
-                  )
-                }
-              </ol>
+              <div className='table-responsive'>
+                <table className='table table-striped table-hover'>
+                  <thead>
+                    <tr>
+                      <th scope='col'>Date</th>
+                      <th scope='col'>Time (24 Hour Clock)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {post?.streaming?.friday?.map((block, i) =>
+                    <tr key={`friday-time-${i}`}>
+                      <th scope='row'>Friday, March 19th</th>
+                      <td>
+                        {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                      </td>
+                    </tr>
+                  )}
+                  {post?.streaming?.saturday?.map((block, i) =>
+                    <tr key={`saturday-time-${i}`}>
+                      <th scope='row'>Saturday, March 20th</th>
+                      <td>
+                        {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                      </td>
+                    </tr>
+                  )}
+                  {post?.streaming?.sunday?.map((block, i) =>
+                    <tr key={`sunday-time-${i}`}>
+                      <th scope='row'>Sunday, March 21st</th>
+                      <td>
+                        {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                      </td>
+                    </tr>
+                  )}
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className='col-lg-6 text-center p-2'>
-              {
-                post?.url !== null && post?.url !== undefined
-                  ? <Anchor label='Check out my store!' url={post?.url ?? ''} isFullwidth />
-                  : <h2>I do not have a website to share!</h2>
+              {post?.url !== null && post?.url !== undefined
+                ? <Button
+                    title={`Link to the store or website for ${post?.title ?? 'this dealer'}`}
+                    href={post?.url ?? ''}
+                    size='lg'
+                  >
+                    Check out my store!
+                  </Button>
+                : <h2>I do not have a website to share!</h2>
               }
             </div>
           </div>
         </TextCard>
       </Section>
+      {html !== null &&
+        <Section isContainer>
+          <TextCard>
+            <div
+              className='content'
+              dangerouslySetInnerHTML={{
+                __html: html
+              }}
+            />
+          </TextCard>
+        </Section>
+      }
       <Section isContainer>
         <ResponsiveMasonry
           columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
@@ -241,8 +266,22 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
       <Section isContainer>
         <TextCard>
           <div className='d-flex justify-content-between align-items-center'>
-            <Link label={`← ${prevTitle}`} to={`..${prevSlug}`} />
-            <Link label={`${nextTitle} →`} to={`..${nextSlug}`} />
+            <Link
+              title={`Link to the previous dealer, ${prevTitle}`}
+              to={`..${prevSlug}`}
+              role='button'
+              className='btn btn-primary btn-lg rounded-3'
+            >
+              {`← ${prevTitle}`}
+            </Link>
+            <Link
+              title={`Link to the next dealer, ${nextTitle}`}
+              to={`..${nextSlug}`}
+              role='button'
+              className='btn btn-primary btn-lg rounded-3'
+            >
+              {`${nextTitle} →`}
+            </Link> 
           </div>
         </TextCard>
       </Section>

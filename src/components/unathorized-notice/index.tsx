@@ -16,7 +16,7 @@ const UnauthorizedNotice: React.FC = () =>
           />
           <p>
             Oops! You don't have permission to view this page.<br />
-            Please check your account and try changing your ticket.<br />
+            Have you registered for our event?<br />
             If you think you've found an error, email{' '}
             <a
               title="Ardal's email address"

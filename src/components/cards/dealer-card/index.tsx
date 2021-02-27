@@ -1,6 +1,6 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
-import Link from '../../link'
 import { PlaceholderImage } from '../../placeholders'
 
 export interface Dealer {
@@ -35,7 +35,15 @@ const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug 
             </div>
           </div>
           <div className='row mt-3'>
-            <Link to={`.${slug ?? ''}`} label='Go to their page' isFullwidth />
+            <div className='d-grid'>
+              <Link
+                title={`Link to the dealer page for ${title ?? 'this dealer'}`}
+                to={`.${slug ?? ''}`}
+                className='btn btn-primary btn-lg rounded-3'
+              >
+                Let's go!
+              </Link>
+            </div>
           </div>
         </div>
       </div>

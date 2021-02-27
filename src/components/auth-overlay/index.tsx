@@ -108,7 +108,7 @@ const AuthOverlay: React.FC = () => {
         {formError !== null && <p>{`Error: ${formError}`}</p>}
       </div>
       <button
-        className='w-100 btn btn-lg btn-primary rounded-pill'
+        className='w-100 btn btn-lg btn-primary rounded-3'
         type='submit'
         disabled={formProcessing}
       >

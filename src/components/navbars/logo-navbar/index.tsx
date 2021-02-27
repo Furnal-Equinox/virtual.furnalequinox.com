@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
+import { Link } from 'gatsby'
 import { RouteComponentProps } from '@reach/router'
 import logo from '../../../../content/images/Logo.svg'
 
@@ -11,9 +11,9 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-0'>
       <div className='container-fluid justify-content-center'>
-        <GatsbyLink to='/'>
+        <Link to='/'>
           <img src={logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
-        </GatsbyLink>
+        </Link>
       </div>
     </nav>
   )

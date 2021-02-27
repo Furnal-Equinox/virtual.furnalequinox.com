@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet'
 import config from '../../../site-config'
 
 import {
-  Anchor,
   CharityMeter,
   Meta,
   ResponsivePlayer,
@@ -20,6 +19,8 @@ import {
 import { PlaceholderAdBanner } from '../../components/placeholders'
 
 import Carousel from 'react-bootstrap/Carousel'
+
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 interface Props extends RouteComponentProps {}
 
@@ -73,12 +74,13 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
               </div>
             </div>
           </div>
-          <Anchor
-            label={"DONATE"}
-            url='https://fe.regfox.com/pixel-purrfect-donations'
-            size='lg'
-            state='dark'
-          />
+          <OutboundLink
+            title='Link to our donation page on RegFox'
+            href='https://fe.regfox.com/pixel-purrfect-donations'
+            className='btn btn-dark btn-lg rounded-3'
+          >
+            DONATE
+          </OutboundLink>
         </TextCard>
       </Section>
       <Section pos='middle'>

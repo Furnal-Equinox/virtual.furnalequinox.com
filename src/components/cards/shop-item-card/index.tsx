@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Anchor from '../../anchor'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+
 import { PlaceholderSVG } from '../../placeholders'
 
 export interface ShopItem {
@@ -33,7 +34,15 @@ const ShopItemCard: React.FC<Props> = ({ name, price, description, banner, url }
           </div>
         </div>
         <div className='row mt-3'>
-          <Anchor label='Redbubble Store' url={url ?? ''} isFullwidth />
+          <div className='d-grid'>
+            <OutboundLink
+              title={`Link to the page where you can buy this item`}
+              href={url ?? ''}
+              className='btn btn-primary btn-lg rounded-3'
+            >
+              Learn More
+            </OutboundLink>
+          </div>
         </div>
       </div>
     </div>

@@ -1,21 +1,17 @@
-export { default as Anchor } from './anchor'
 export { default as AuthOverlay } from './auth-overlay'
 export { default as Badge } from './badge'
-export { default as Button } from './button'
 
 // Cards
 export { DealerCard } from './cards'
 export { GalleryItemCard } from './cards'
 export { LoginCard } from './cards'
 export { ShopItemCard } from './cards'
-export { SocialCard } from './cards'
 export { TextCard } from './cards'
 
 export type { Dealer } from './cards'
 export type { GalleryItem } from './cards'
 // no exported type for LoginCard
 export type { ShopItem } from './cards'
-export type { SocialItem } from './cards'
 // no exported type for TextCard
 
 export { ContactForm } from './forms'
@@ -27,9 +23,9 @@ export { default as DealerCardGrid } from './dealer-card-grid'
 export { default as Footer } from './footer'
 export { default as Icon } from './icon'
 export { default as Jumbotron } from './jumbotron'
-export { default as Link } from './link'
 
 export { default as Meta } from './meta'
+export { FakeNavbar } from './navbars'
 export { LogoNavbar } from './navbars'
 export { MainNavbar } from './navbars'
 export { default as ResponsivePlayer } from './responsive-player'

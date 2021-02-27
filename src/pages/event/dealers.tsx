@@ -16,7 +16,6 @@ import {
   Dealer,
   DealerCardGrid,
   Jumbotron,
-  Link,
   Meta,
   SearchBar,
   SearchParams,
@@ -28,6 +27,10 @@ import {
   makePrivateContent,
   Section
 } from '../../layouts'
+
+import Button from 'react-bootstrap/Button'
+
+import { Link } from 'gatsby'
 
 import config from '../../../site-config'
 
@@ -173,12 +176,15 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
                 Click this button to check out a random dealer!
               </p>
               <Link
-                label={'Let\'s go!'}
+                title='Link to a random dealer page!' 
                 to={`.${
                   sample(allDealers as GatsbyDealer[]).dealer.fields?.slug ?? ''
                 }`}
-                size='lg'
-              />
+                role='button'
+                className='btn btn-primary btn-lg rounded-3'
+              >
+                Let's go!
+              </Link>
             </TextCard>
           </div>
           <div className='col-lg-6 mt-3 mt-lg-0'>

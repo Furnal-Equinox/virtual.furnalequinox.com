@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet'
 import config from '../../site-config'
 
 import {
-  Button,
   DealerCard,
   Jumbotron,
   Meta,
@@ -16,11 +15,13 @@ import {
   Section
 } from '../layouts'
 
+import Button from 'react-bootstrap/Button'
+
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 interface Props extends RouteComponentProps {}
 
-const Info: React.FC<Props> = ({ location }: Props) => {
+const Info: React.FC<Props> = ({ location, navigate }: Props) => {
   return (
     <Layout location={location}>
       <Helmet title={`Info | ${config.siteTitle}`} />
@@ -90,11 +91,14 @@ const Info: React.FC<Props> = ({ location }: Props) => {
               </div>
             </div>
             <Button
-              label={"Return to the last page!"}
+              type='button'
+              title='Return to the last page you were on'
               onClick={() => {navigate !== undefined && navigate(-1)}}
               size='lg'
-              state='secondary'
-            />
+              variant='secondary'
+            >
+              Go Back
+            </Button>
           </TextCard>
         </Section>
       </div>

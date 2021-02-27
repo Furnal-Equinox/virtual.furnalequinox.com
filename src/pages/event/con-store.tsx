@@ -18,9 +18,6 @@ import {
   Section
 } from '../../layouts'
 
-
-
-
 interface Props extends RouteComponentProps {
   data: ConStoreQueryQuery
 }
