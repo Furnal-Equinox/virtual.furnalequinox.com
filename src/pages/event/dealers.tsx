@@ -39,19 +39,6 @@ import { sample } from '../../utils/tools'
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
 
-interface GatsbyDealer {
-  dealer: (Pick<MarkdownRemark, 'id' | 'html'> & {
-    fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>
-    frontmatter?: Maybe<(Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'kind' | 'isPremium' | 'path'> & {
-      banner?: Maybe<{
-        childImageSharp?: Maybe<{
-          fluid?: Maybe<GatsbyImageSharpFluidFragment>
-        }>
-      }>
-    })>
-  })
-}
-
 interface Props extends RouteComponentProps {
   data: DealersIndexQueryQuery
 }
@@ -110,9 +97,11 @@ export const dealersQuery = graphql`
               description
               isPremium
               banner {
-                childImageSharp {
-                  fluid(maxHeight: 250) {
-                    ...GatsbyImageSharpFluid
+                imgFile {
+                  childImageSharp {
+                    fluid(maxHeight: 360) {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
@@ -141,24 +130,24 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
   const getResultsTitles = (results: Dealer[]): string[] =>
     results.map(result => result?.title ?? '')
 
-  const fetchFullResults = (titles: string[], store: GatsbyDealer[]): GatsbyDealer[] =>
+  const fetchFullResults = (titles: string[], store: any[]): any[] =>
     store.filter(dealer => titles.includes(dealer.dealer.frontmatter?.title ?? ''))
 
-  const dealerReducer = (dealer: GatsbyDealer): Dealer => ({
+  const dealerReducer = (dealer: any): Dealer => ({
     title: dealer.dealer.frontmatter?.title,
     dealer: dealer.dealer.frontmatter?.dealer,
     description: dealer.dealer.frontmatter?.description,
-    banner: dealer.dealer.frontmatter?.banner?.childImageSharp?.fluid?.src,
+    banner: dealer.dealer.frontmatter?.banner?.imgFile?.childImageSharp?.fluid,
     slug: dealer.dealer.fields?.slug,
     isPremium: dealer.dealer.frontmatter?.isPremium
   })
 
   const reducedRegularDealers: Dealer[] | undefined = regularDealers?.map(
-    (dealer: GatsbyDealer) => dealerReducer(dealer)
+    (dealer: any) => dealerReducer(dealer)
   )
 
   const reducedPremiumDealers: Dealer[] | undefined = premiumDealers?.map(
-    (dealer: GatsbyDealer) => dealerReducer(dealer)
+    (dealer: any) => dealerReducer(dealer)
   )
 
   return (
@@ -178,7 +167,7 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
               <Link
                 title='Link to a random dealer page!' 
                 to={`.${
-                  sample(allDealers as GatsbyDealer[]).dealer.fields?.slug ?? ''
+                  sample(allDealers as any[]).dealer.fields?.slug ?? ''
                 }`}
                 role='button'
                 className='btn btn-primary btn-lg rounded-3'

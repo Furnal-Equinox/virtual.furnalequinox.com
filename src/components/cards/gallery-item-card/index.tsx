@@ -9,16 +9,17 @@ export interface GalleryItem {
   artist?: string
   image?: string
   url?: string
+  desc?: string
 }
 
 type Props = GalleryItem
 
-const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url }: Props) => {
+const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: Props) => {
 
   return (
     <div className='card rounded-3 border-primary border-5 mb-5'>
       {image !== undefined
-        ? <img src={image} className='card-img-top' />
+        ? <img title={desc ?? 'An art piece'} src={image} className='card-img-top' />
         : <PlaceholderSVG />}
       <div className='card-body'>
         <div className='d-flex justify-content-between align-items-center'>

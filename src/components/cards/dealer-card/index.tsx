@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { PlaceholderImage } from '../../placeholders'
+import Img, { FluidObject } from 'gatsby-image'
 
 export interface Dealer {
   title?: string | null | undefined
   dealer?: string | null | undefined
   description?: string | null | undefined
-  banner?: string | null | undefined
+  banner?: FluidObject
   slug?: string | null | undefined
   isPremium?: boolean | null | undefined
 }
@@ -18,7 +19,7 @@ const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug 
   return (
     <div className='card rounded-3 border border-primary border-5 mb-5'>
       {banner !== undefined
-        ? <img src={banner ?? ''} className='card-img-top' />
+        ? <Img title={`Thumbnail banner image for ${dealer ?? 'this dealer'}`} fluid={banner} className='card-img-top' />
         : <PlaceholderImage/>}
       <div className='card-body'>
         <div className='container'>

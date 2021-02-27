@@ -12,11 +12,11 @@ const DealerCardGrid: React.FC<Props> = ({ data }: Props) => {
       key={dealer?.slug ?? '#'}
     >
       <DealerCard
-        title={dealer?.title ?? undefined}
-        dealer={dealer?.dealer ?? undefined}
-        description={dealer?.description ?? undefined}
-        banner={dealer?.banner ?? undefined}
-        slug={dealer?.slug ?? undefined}
+        title={dealer?.title}
+        dealer={dealer?.dealer}
+        description={dealer?.description}
+        banner={dealer?.banner}
+        slug={dealer?.slug}
       />
     </div>
   )

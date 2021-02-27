@@ -113,18 +113,24 @@ export const sampleDealerQuery = graphql`
           }
         }
         banner {
-          childImageSharp {
-            fluid(maxWidth: 1140) {
-              ...GatsbyImageSharpFluid
+          imgFile {
+            childImageSharp {
+              fluid(maxWidth: 1140) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
+          desc
         }
         images {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+          imgFile {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
+          desc
         }
       }
     }
@@ -148,9 +154,10 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
         <div className='container'>
           <div className='row'>
-            {banner?.childImageSharp?.fluid !== null &&
+            {banner?.imgFile?.childImageSharp?.fluid !== null &&
               <Img
-                fluid={banner?.childImageSharp?.fluid as FluidObject}
+                title={banner?.desc ?? "Dealer's banner for their store"}
+                fluid={banner?.imgFile?.childImageSharp?.fluid as FluidObject}
                 className='img-fluid'
               />
             }
@@ -256,7 +263,8 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
           {images?.map(image =>
             image?.childImageSharp?.fluid !== null &&
               <Img
-                fluid={image?.childImageSharp?.fluid as FluidObject}
+                title={image?.desc ?? "One of this dealer's images"}
+                fluid={image?.imgFile?.childImageSharp?.fluid as FluidObject}
                 className='d-block rounded-3 border border-primary m-1'
               />
             )}

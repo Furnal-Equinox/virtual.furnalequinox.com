@@ -65,6 +65,7 @@ export const galleryQuery = graphql`
                 }
               }
             }
+            desc
           }
         }
       }
@@ -88,10 +89,11 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
           {artworks.map(({ artwork }) => (
             artwork.frontmatter?.image?.childImageSharp?.fluid !== null &&
               <GalleryItemCard
-                title={artwork.frontmatter?.title ?? ''}
-                artist={artwork.frontmatter?.artist ?? ''}
-                image={artwork.frontmatter?.image?.childImageSharp?.fluid?.src ?? ''}
-                url={artwork.frontmatter?.url ?? ''}
+                title={artwork.frontmatter?.title}
+                artist={artwork.frontmatter?.artist}
+                image={artwork.frontmatter?.image?.childImageSharp?.fluid?.src}
+                url={artwork.frontmatter?.url}
+                desc={artwork.frontmatter?.desc}
               />
           ))}
           </Masonry>
