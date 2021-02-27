@@ -761,6 +761,7 @@ export type FileFieldsEnum =
   | 'childrenMarkdownRemark___frontmatter___social___twitch'
   | 'childrenMarkdownRemark___frontmatter___social___twitter'
   | 'childrenMarkdownRemark___frontmatter___social___youtube'
+  | 'childrenMarkdownRemark___frontmatter___social___patreon'
   | 'childrenMarkdownRemark___frontmatter___streaming___friday'
   | 'childrenMarkdownRemark___frontmatter___streaming___saturday'
   | 'childrenMarkdownRemark___frontmatter___streaming___sunday'
@@ -893,6 +894,7 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___social___twitch'
   | 'childMarkdownRemark___frontmatter___social___twitter'
   | 'childMarkdownRemark___frontmatter___social___youtube'
+  | 'childMarkdownRemark___frontmatter___social___patreon'
   | 'childMarkdownRemark___frontmatter___streaming___friday'
   | 'childMarkdownRemark___frontmatter___streaming___saturday'
   | 'childMarkdownRemark___frontmatter___streaming___sunday'
@@ -2156,6 +2158,7 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___social___twitch'
   | 'frontmatter___social___twitter'
   | 'frontmatter___social___youtube'
+  | 'frontmatter___social___patreon'
   | 'frontmatter___streaming___friday'
   | 'frontmatter___streaming___friday___start'
   | 'frontmatter___streaming___friday___end'
@@ -2486,6 +2489,7 @@ export type MarkdownRemarkFrontmatterSocial = {
   twitch?: Maybe<Scalars['String']>;
   twitter?: Maybe<Scalars['String']>;
   youtube?: Maybe<Scalars['String']>;
+  patreon?: Maybe<Scalars['String']>;
 };
 
 export type MarkdownRemarkFrontmatterSocialFilterInput = {
@@ -2506,6 +2510,7 @@ export type MarkdownRemarkFrontmatterSocialFilterInput = {
   twitch?: Maybe<StringQueryOperatorInput>;
   twitter?: Maybe<StringQueryOperatorInput>;
   youtube?: Maybe<StringQueryOperatorInput>;
+  patreon?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkFrontmatterStreaming = {

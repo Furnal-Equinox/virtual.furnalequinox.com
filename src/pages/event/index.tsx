@@ -49,7 +49,7 @@ export default Home
 
 export const homeQuery = graphql`
   query HomeQuery {
-    marty: file(relativePath: { eq: "marty-skateboard.png" }) {
+    martySkateboard: file(relativePath: { eq: "marty-skateboard.png" }) {
       childImageSharp {
         fluid(maxWidth: 768) {
           ...GatsbyImageSharpFluid
@@ -174,7 +174,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
       </Section>
       <Section isContainer isTextCenter pos='middle'>
         <Img
-          fluid={data.marty.childImageSharp.fluid}
+          fluid={data.martySkateboard.childImageSharp.fluid}
           className='img-fluid'
           alt='Picture of Marty, the Pixel Purrfect mascot, jumping off of a skateboard'
         />

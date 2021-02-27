@@ -3,11 +3,13 @@ import React from 'react'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 import { PlaceholderSVG } from '../../placeholders'
+import Img, { FluidObject } from 'gatsby-image'
+import { isStrEmpty } from '../../../utils/tools'
 
 export interface GalleryItem {
   title?: string
   artist?: string
-  image?: string
+  image?: FluidObject
   url?: string
   desc?: string
 }
@@ -15,16 +17,27 @@ export interface GalleryItem {
 type Props = GalleryItem
 
 const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: Props) => {
-
   return (
-    <div className='card rounded-3 border-primary border-5 mb-5'>
+    <div className='card rounded-3 border-primary border-5 m-2'>
       {image !== undefined
-        ? <img title={desc ?? 'An art piece'} src={image} className='card-img-top' />
+        ? <Img
+            title={
+              `${
+                isStrEmpty(title) ? 'Untitled' : title
+              } by ${
+                isStrEmpty(artist) ? 'unknown artist' : artist
+              }. ${
+                isStrEmpty(desc) ? 'An art piece' : desc
+              }`
+            }
+            fluid={image}
+            className='card-img-top' />
         : <PlaceholderSVG />}
       <div className='card-body'>
         <div className='d-flex justify-content-between align-items-center'>
-          <p className='card-title text-center h2'>
-            <i>{title ?? 'Title'}</i> by {artist ?? 'Artist'}
+          <p className='card-title text-center h5'>
+            {!isStrEmpty(title) ? <><i>{title ?? 'Title'}</i><br /></> : <></>}
+            {`by ${artist ?? 'Artist'}`}
           </p>
           {url !== undefined && 
             <OutboundLink

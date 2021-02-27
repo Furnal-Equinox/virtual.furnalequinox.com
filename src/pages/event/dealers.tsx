@@ -193,9 +193,11 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
       </Section>
       {results.length > 0 && (
         <Section isContainer isTextCenter pos='middle'>
-          <TextCard>
-            <h2>SEARCH RESULTS</h2>
-          </TextCard>
+          <div className='pb-3'>
+            <TextCard>
+              <h2>SEARCH RESULTS</h2>
+            </TextCard>
+          </div>
           <DealerCardGrid data={
             fetchFullResults(getResultsTitles(results), premiumDealers)
               .map(result => dealerReducer(result))

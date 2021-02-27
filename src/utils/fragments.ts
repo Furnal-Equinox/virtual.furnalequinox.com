@@ -21,7 +21,6 @@ query MyQuery {
 export const gqlSocialLinks = graphql`
   fragment SocialLinks on MarkdownRemarkFrontmatter {
     social {
-      steam
       behance
       deviantart
       discord
@@ -32,6 +31,7 @@ export const gqlSocialLinks = graphql`
       instagram
       picarto
       pinterest
+      steam
       telegram
       tumblr
       twitch
@@ -44,6 +44,10 @@ export const gqlSocialLinks = graphql`
 export const gqlStreamTimes = graphql`
   fragment StreamTimes on MarkdownRemarkFrontmatter {
     streaming {
+      friday {
+        end
+        start
+      }
       saturday {
         end
         start
@@ -63,11 +67,14 @@ export const gqlDealerTile = graphql`
     }
     frontmatter {
       banner {
-        childImageSharp {
-          fluid(maxHeight: 250) {
-            src
+        imgFile {
+          childImageSharp {
+            fluid(maxHeight: 250) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
+        desc
       }
       dealer
       description

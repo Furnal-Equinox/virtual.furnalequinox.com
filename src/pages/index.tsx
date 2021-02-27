@@ -35,7 +35,7 @@ const Login: React.FC<Props> = ({ data, location }: Props) => {
         <Img
           fluid={data.pixelBanner.childImageSharp.fluid}
           className='img-fluid'
-          alt='Picture of Marty, the Pixel Purrfect mascot, shrugging with the number 404 behind him'
+          alt='Picture of the banner for Pixel Purrfect'
         />
         <LoginCard>
           <h1 className='card-title'>Welcome!</h1>

@@ -37,7 +37,7 @@ const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
           <TextCard>
             <h1>404</h1>
             <Img
-              fluid={data.marty.childImageSharp.fluid}
+              fluid={data.marty404.childImageSharp.fluid}
               className='img-fluid'
               alt='Picture of Marty, the Pixel Purrfect mascot, shrugging with the number 404 behind him'
             />
@@ -74,7 +74,7 @@ export default NotFound
 
 export const notFoundQuery = graphql`
   query NotFoundQuery {
-    marty: file(relativePath: { eq: "404_75dpi.png" }) {
+    marty404: file(relativePath: { eq: "404_75dpi.png" }) {
       childImageSharp {
         fluid(maxWidth: 768) {
           ...GatsbyImageSharpFluid

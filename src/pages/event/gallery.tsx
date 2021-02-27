@@ -91,7 +91,7 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
               <GalleryItemCard
                 title={artwork.frontmatter?.title}
                 artist={artwork.frontmatter?.artist}
-                image={artwork.frontmatter?.image?.childImageSharp?.fluid?.src}
+                image={artwork.frontmatter?.image?.childImageSharp?.fluid}
                 url={artwork.frontmatter?.url}
                 desc={artwork.frontmatter?.desc}
               />

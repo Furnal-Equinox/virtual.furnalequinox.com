@@ -11,6 +11,7 @@ import {
   Furaffinity,
   Github,
   Instagram,
+  Patreon,
   PicartoDotTv,
   Pinterest,
   Steam,
@@ -37,6 +38,7 @@ export interface Props {
   | 'furaffinity'
   | 'github'
   | 'instagram'
+  | 'patreon'
   | 'picarto'
   | 'pinterest'
   | 'steam'
@@ -119,6 +121,14 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
           <div className='col'>
             <OutboundLink title='Instagram' href={data.instagram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Instagram size='32px' className='icon instagram' />
+            </OutboundLink>
+          </div>
+      }
+      {
+        !isStrEmpty(data.patreon) &&
+          <div className='col'>
+            <OutboundLink title='Picarto.tv' href={data.patreon as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+              <Patreon size='32px' className='icon patreon' />
             </OutboundLink>
           </div>
       }
