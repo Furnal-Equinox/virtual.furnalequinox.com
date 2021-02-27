@@ -2,7 +2,7 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import config from '../../../site-config'
-import { Link as GatsbyLink } from 'gatsby'
+import { Link } from 'gatsby'
  
 import {
   DealerCard,
@@ -60,11 +60,22 @@ const DiscordVRContent: React.FC<Props> = ({ location }: Props) => {
           >
             Discord
           </OutboundLink>
+          <p>
+            New to Discord? We have a tutorial just for you on our How-To page!
+          </p>
+          <Link
+            title='Link to the Discord tutorial on the How-To page'
+            to={'/event/how-to/#discord'}
+            className='btn btn-secondary btn-lg rounded-3'
+          >
+            Let's go!
+          </Link>
         </TextCard>
       </Section>
       <Section isContainer isTextCenter pos='middle'>
         <TextCard>
           <h1>VRChat links coming soon!</h1>
+          <h2>No VR headset? No worries! You can play in desktop mode!</h2>
         </TextCard>
       </Section>
     </>
