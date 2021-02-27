@@ -45,15 +45,34 @@ export default ConStore
 
 export const conStoreQuery = graphql`
   query ConStoreQuery {
-    site {
-      siteMetadata {
-        title
+    remark: allMarkdownRemark(
+      filter: { frontmatter: { layout: { eq: "product" } } }
+    ) {
+      products: edges {
+        product: node {
+          id
+          frontmatter {
+            title
+            url
+            image {
+              childImageSharp {
+                fluid(maxWidth: 250) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            desc
+          }
+        }
       }
     }
   }
 `
 
 const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
+  const products = data.remark.products
+
+
   return (
     <>
       <Jumbotron
@@ -70,42 +89,16 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer pos='middle'>
         <div className='container'>
           <div className='row'>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
+            {products.map(({ product }) => 
+              <div className='col-lg-4'>
+                <ShopItemCard
+                  name={product?.frontmatter?.title}
+                  description={product?.frontmatter?.desc}
+                  url={product?.frontmatter?.url}
+                  banner={product?.frontmatter?.image?.childImageSharp?.fluid}
+                />
+              </div>
+            )}
           </div>
         </div>
       </Section>

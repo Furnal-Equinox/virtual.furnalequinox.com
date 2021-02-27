@@ -171,6 +171,14 @@ module.exports = {
       }
     },
 
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/shop/`,
+        name: 'shop'
+      }
+    },
+
     /// ==============================================================================================///
     ///                                          MARKDOWN                                             ///
     /// ==============================================================================================///
@@ -236,6 +244,7 @@ module.exports = {
                   title
                   dealer
                   description
+                  keywords
                 }
               }
             }
@@ -244,7 +253,7 @@ module.exports = {
         ref: 'slug',
 
         // What to search against
-        index: ['title', 'dealer', 'description'],
+        index: ['title', 'dealer', 'description', 'keywords'],
 
         // What results will be represented as
         store: ['id', 'slug', 'title', 'dealer'],

@@ -74,12 +74,12 @@ export const dealersQuery = graphql`
     remark: allMarkdownRemark(
       filter: {
         frontmatter: {
-          layout: {eq: "dealer"}, 
+          layout: {eq: "dealer"} 
           isAdult: {eq: false}
         }
-      }, 
+      } 
       sort: {
-        fields: [frontmatter___title], 
+        fields: [frontmatter___title] 
         order: ASC
       }
     ) {

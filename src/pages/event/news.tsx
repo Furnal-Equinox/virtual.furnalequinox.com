@@ -42,11 +42,6 @@ export default News
 
 export const newsQuery = graphql`
   query NewsQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     remark: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { layout: { eq: "post" } } }
