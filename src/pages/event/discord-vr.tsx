@@ -70,7 +70,7 @@ const DiscordVRContent: React.FC<Props> = ({ location }: Props) => {
             to='/event/how-to/#discord'
             className='btn btn-secondary btn-lg rounded-3'
           >
-            Let's go!
+            Tutorial
           </Link>
         </TextCard>
       </Section>

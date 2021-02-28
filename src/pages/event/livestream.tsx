@@ -102,6 +102,9 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
       </Section>
       <Section isContainer pos='middle'>
         <TextCard>
+          <h1>Lineup</h1>
+          <h2>Stay tuned - we'll be filling this out soon!</h2>
+          <h2>Friday, March 19th</h2>
           <div className='table-responsive'>
             <table className='table table-striped table-hover'>
               <thead>
@@ -111,34 +114,6 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
                 <tr>
                   <th scope='row'>12:00 PM</th>
                   <td>Opening Ceremony</td>

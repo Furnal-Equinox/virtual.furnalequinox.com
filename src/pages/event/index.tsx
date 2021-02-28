@@ -113,7 +113,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                 <div className='col-lg-4 p-3'>
                   <Link
                     title='Link to the Dealers Den page on this website'
-                    to='/event/dealers-den/'
+                    to='/event/dealers/'
                     className='btn btn-secondary btn-lg rounded-3'
                   >
                     DEALERS DEN
@@ -129,13 +129,15 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                   </Link>
                 </div>
                 <div className='col-lg-4 p-3'>
-                  <Link
-                    title='Link to the gaming section on the How To page on this website'
-                    to='/event/how-to/#gaming'
+                  <OutboundLink
+                    title='Link to the Discord where you can learn more about gaming during Furnal Equinox'
+                    href='https://discord.com/invite/furnal-equinox'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className='btn btn-secondary btn-lg rounded-3'
                   >
                     GAMING
-                  </Link>
+                  </OutboundLink>
                 </div>
               </div>
             </TextCard>
