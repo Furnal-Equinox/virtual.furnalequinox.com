@@ -17,6 +17,8 @@ const SignUpForm: React.FC = () => {
   const [formError, setFormError] = useState<string | null>(null)
   const [isSigningUp, setIsSigningUp] = useState<boolean>(false)
 
+  // I intend for the user_metadata parameter here to match its shape and name in the user data
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   const onSubmit = async ({ email, password, user_metadata }: SignUpInputs): Promise<void> => {
     setIsSigningUp(true)
     setFormError(null)

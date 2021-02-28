@@ -9,8 +9,8 @@ export const handler: APIGatewayProxyHandlerV2 = async () => {
       statusCode: 200,
       body: JSON.stringify(
         totals !== null
-        ? totals.amountDonated
-        : null
+          ? totals.amountDonated
+          : null
       )
     }
   } catch (err: any) {

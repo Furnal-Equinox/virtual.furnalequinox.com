@@ -18,7 +18,6 @@ interface Props extends RouteComponentProps {
 }
 
 const Layout: React.FC<Props> = ({ children, location, navigate }: Props) => {
-
   const socialLinks = {
     data: {
       facebook: config.userLinks.facebook,

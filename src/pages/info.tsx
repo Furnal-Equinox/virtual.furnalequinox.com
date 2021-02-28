@@ -93,7 +93,7 @@ const Info: React.FC<Props> = ({ location, navigate }: Props) => {
             <Button
               type='button'
               title='Return to the last page you were on'
-              onClick={() => {navigate !== undefined && navigate(-1)}}
+              onClick={() => { navigate !== undefined && navigate(-1) }}
               size='lg'
               variant='secondary'
             >

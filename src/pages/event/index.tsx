@@ -1,7 +1,7 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import config from '../../../site-config'
 import { HomeQueryQuery } from '../../../types/graphql-types'
 
@@ -17,8 +17,6 @@ import {
   makePrivateContent,
   Section
 } from '../../layouts'
-
-import { Link } from 'gatsby'
 
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
@@ -75,7 +73,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               </p>
               <Link
                 title='Link to the Livestream page on this website'
-                to={`/event/livestream/`}
+                to='/event/livestream/'
                 className='btn btn-primary btn-lg rounded-3'
               >
                 Let's go!
@@ -93,7 +91,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               </p>
               <Link
                 title='Link to the How To page on this website'
-                to={`/event/how-to/`}
+                to='/event/how-to/'
                 className='btn btn-primary btn-lg rounded-3'
               >
                 Let's go!
@@ -112,31 +110,31 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               </p>
               <div className='row'>
                 <div className='col-lg-4 p-3'>
-                <Link
-                  title='Link to the Dealers Den page on this website'
-                  to={`/event/dealers-den/`}
-                  className='btn btn-secondary btn-lg rounded-3'
-                >
-                  DEALERS DEN
-                </Link>
-                </div>
-                <div className='col-lg-4 p-3'>
                   <Link
-                    title={'Link to the Discord & VR page on this website'}
-                    to={`/event/discord-vr/`}
-                    className='btn btn-primary btn-lg rounded-3'
+                    title='Link to the Dealers Den page on this website'
+                    to='/event/dealers-den/'
+                    className='btn btn-secondary btn-lg rounded-3'
                   >
-                    {'DISCORD & VR'}
+                    DEALERS DEN
                   </Link>
                 </div>
                 <div className='col-lg-4 p-3'>
-                <Link
-                  title='Link to the gaming section on the How To page on this website'
-                  to={`/event/how-to/#gaming`}
-                  className='btn btn-secondary btn-lg rounded-3'
-                >
-                  GAMING
-                </Link>
+                  <Link
+                    title='Link to the Discord & VR page on this website'
+                    to='/event/discord-vr/'
+                    className='btn btn-primary btn-lg rounded-3'
+                  >
+                    DISCORD & VR
+                  </Link>
+                </div>
+                <div className='col-lg-4 p-3'>
+                  <Link
+                    title='Link to the gaming section on the How To page on this website'
+                    to='/event/how-to/#gaming'
+                    className='btn btn-secondary btn-lg rounded-3'
+                  >
+                    GAMING
+                  </Link>
                 </div>
               </div>
             </TextCard>

@@ -72,7 +72,6 @@ export const conStoreQuery = graphql`
 const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
   const products = data.remark.products
 
-
   return (
     <>
       <Jumbotron
@@ -82,15 +81,15 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer pos='middle'>
         <TextCard>
           <p>
-            Show your support for Furnal Equinox with this Virtual Furnal Equinox: Pixel Purrfect merchandise! 
+            Show your support for Furnal Equinox with this Virtual Furnal Equinox: Pixel Purrfect merchandise!
           </p>
         </TextCard>
       </Section>
       <Section isContainer pos='middle'>
         <div className='container'>
           <div className='row'>
-            {products.map(({ product }) => 
-              <div className='col-lg-4'>
+            {products.map(({ product }, i) =>
+              <div className='col-lg-4' key={`product-${i}`}>
                 <ShopItemCard
                   name={product?.frontmatter?.title}
                   description={product?.frontmatter?.desc}

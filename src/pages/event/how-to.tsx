@@ -41,7 +41,7 @@ export default HowTo
 const HowToContent: React.FC<Props> = ({ location }: Props) => {
   return (
     <>
-      <Jumbotron title={'Discord & VR'} subtitle='' />
+      <Jumbotron title='Discord & VR' subtitle='' />
       <Section isContainer isTextCenter pos='middle'>
         <TextCard>
           <h1>Coming soon!</h1>

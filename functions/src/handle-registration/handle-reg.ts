@@ -71,7 +71,7 @@ const getDonationAmountFromRegistrant = (data: RegistrantData): number => {
     .map(o => o.amount !== undefined ? parseInt(o.amount.value) : 0)
     .reduce((acc, curr) => acc + curr)
 
-  const coveredCCFee: boolean = donationAmount.repeater.every(o => 
+  const coveredCCFee: boolean = donationAmount.repeater.every(o =>
     o.coverFee !== undefined ? o.coverFee.value : false
   )
 
@@ -102,7 +102,7 @@ const handleRegistration = async (
     )
   }
 
-  let hasAlreadyDonated: boolean[] = []
+  const hasAlreadyDonated: boolean[] = []
 
   const inviteUsers = async (users: User[]): Promise<void> => {
     // Netlify puts the identity instance on the clientContext object.
@@ -259,11 +259,11 @@ const handleRegistration = async (
     for (let i = 0; i < users.length; i += 1) {
       if (!hasAlreadyDonated[i]) {
         console.log('Getting totals record.')
-  
+
         const document = await faunaClient.query<faunadb.values.Document<Totals>>(
           q.Get(q.Match(q.Index('getTotals')))
         )
-  
+
         await faunaClient.query(
           q.Update(document.ref, {
             data: {
@@ -281,11 +281,11 @@ const handleRegistration = async (
       } else {
         if (users[i].amount > 0) {
           console.log('Getting totals record.')
-  
+
           const document = await faunaClient.query<faunadb.values.Document<Totals>>(
             q.Get(q.Match(q.Index('getTotals')))
           )
-  
+
           await faunaClient.query(
             q.Update(document.ref, {
               data: {

@@ -38,7 +38,7 @@ const AuthOverlay: React.FC = () => {
     setFormProcessing(false)
   }
 
-  const handleHide = () => setShow(false)
+  const handleHide = (): void => setShow(false)
 
   const Spinner: React.FC = () =>
     <>
@@ -120,7 +120,7 @@ const AuthOverlay: React.FC = () => {
 
   return (
     <>
-      {identity.urlToken?.type === 'passwordRecovery' || identity.urlToken?.type === 'invite' &&
+      {(identity.urlToken?.type === 'passwordRecovery' || identity.urlToken?.type === 'invite') &&
         <Modal
           show={show}
           onHide={handleHide}

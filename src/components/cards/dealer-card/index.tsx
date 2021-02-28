@@ -20,7 +20,7 @@ const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug 
     <div className='card rounded-3 border border-primary border-5 mb-5'>
       {banner !== undefined
         ? <Img title={`Thumbnail banner image for ${dealer ?? 'this dealer'}`} fluid={banner} className='card-img-top' />
-        : <PlaceholderImage/>}
+        : <PlaceholderImage />}
       <div className='card-body'>
         <div className='container'>
           <div className='row'>

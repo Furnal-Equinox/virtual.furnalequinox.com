@@ -20,7 +20,8 @@ const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props
       {banner !== undefined
         ? <Img
             title={`${name ?? 'Unnamed product'}, ${description ?? 'has no description.'}`}
-            fluid={banner} className='card-img-top' />
+            fluid={banner} className='card-img-top'
+        />
         : <PlaceholderSVG />}
       <div className='card-body'>
         <div className='row'>
@@ -38,7 +39,7 @@ const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props
         <div className='row mt-3'>
           <div className='d-grid'>
             <OutboundLink
-              title={`Link to the page where you can buy this item`}
+              title='Link to the page where you can buy this item'
               href={url ?? ''}
               className='btn btn-primary btn-lg rounded-3'
             >

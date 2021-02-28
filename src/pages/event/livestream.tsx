@@ -84,7 +84,7 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
         </TextCard>
       </Section>
       <Section pos='middle'>
-        <div className='mx-auto' style={{ maxWidth: '728px'}}>
+        <div className='mx-auto' style={{ maxWidth: '728px' }}>
           <Carousel indicators={false}>
             <Carousel.Item>
               <PlaceholderAdBanner />

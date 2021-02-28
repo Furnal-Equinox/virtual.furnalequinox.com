@@ -9,7 +9,7 @@ import placeholderProductPhoto from '../../../content/images/VFE_product_photo.p
 export const PlaceholderAdBanner: React.FC = () =>
   <img src={placeholderAdBanner} className='img-fluid border border-primary' />
 
-export const PlaceholderImage: React.FC = () => 
+export const PlaceholderImage: React.FC = () =>
   <img src={placeholderDealerBanner} className='card-img-top' />
 
 export const PlaceholderProductPhoto: React.FC = () =>

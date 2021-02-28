@@ -14,7 +14,7 @@ export interface Props extends RouteComponentProps {
 const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
   const identity = useIdentityContext()
 
-  const handleLogout = () => {
+  const handleLogout = (): void => {
     identity.logout()
   }
 
@@ -56,7 +56,7 @@ const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
         )}
       </ul>
       <Notification />
-      {identity.user !== undefined && 
+      {identity.user !== undefined &&
         <Link
           title='Logout and return to the login page'
           to='/'
@@ -64,8 +64,7 @@ const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
           onClick={handleLogout}
         >
           Logout
-        </Link>
-      }
+        </Link>}
     </div>
 
   const Notification: React.FC = () => {

@@ -8,7 +8,6 @@ import {
   MainNavbar
 } from '../components'
 
-
 import config from '../../site-config'
 
 import 'scss/gatstrap.scss'

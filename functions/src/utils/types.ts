@@ -48,7 +48,7 @@ export interface DonationPayload {
   formName: string
   currency: string
   deductibleTotal: number
-  registrants: Donation[]
+  registrants: DonationRecord[]
 }
 
 export interface Billing {
@@ -94,7 +94,7 @@ RegistrationOptions
 | DiscordHandle
 >
 
-export interface Donation {
+export interface DonationRecord {
   id: string
   lookupId: number
   amount: number

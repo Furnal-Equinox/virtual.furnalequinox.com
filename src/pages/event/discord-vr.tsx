@@ -3,7 +3,7 @@ import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import config from '../../../site-config'
 import { Link } from 'gatsby'
- 
+
 import {
   DealerCard,
   Jumbotron,
@@ -44,7 +44,7 @@ export default DiscordVR
 const DiscordVRContent: React.FC<Props> = ({ location }: Props) => {
   return (
     <>
-      <Jumbotron title={'Discord & VR'} subtitle='' />
+      <Jumbotron title='Discord & VR' subtitle='' />
       <Section isContainer isTextCenter pos='middle'>
         <TextCard>
           <h1>Discord</h1>
@@ -65,7 +65,7 @@ const DiscordVRContent: React.FC<Props> = ({ location }: Props) => {
           </p>
           <Link
             title='Link to the Discord tutorial on the How-To page'
-            to={'/event/how-to/#discord'}
+            to='/event/how-to/#discord'
             className='btn btn-secondary btn-lg rounded-3'
           >
             Let's go!

@@ -23,15 +23,16 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: P
         ? <Img
             title={
               `${
-                isStrEmpty(title) ? 'Untitled' : title
+                isStrEmpty(title) ? 'Untitled' : title as string
               } by ${
-                isStrEmpty(artist) ? 'unknown artist' : artist
+                isStrEmpty(artist) ? 'unknown artist' : artist as string
               }. ${
-                isStrEmpty(desc) ? 'An art piece' : desc
+                isStrEmpty(desc) ? 'An art piece' : desc as string
               }`
-            }
+          }
             fluid={image}
-            className='card-img-top' />
+            className='card-img-top'
+        />
         : <PlaceholderSVG />}
       <div className='card-body'>
         <div className='d-flex justify-content-between align-items-center'>
@@ -39,15 +40,14 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: P
             {!isStrEmpty(title) ? <><i>{title ?? 'Title'}</i><br /></> : <></>}
             {`by ${artist ?? 'Artist'}`}
           </p>
-          {url !== undefined && 
+          {url !== undefined &&
             <OutboundLink
-              title={`Link to the artist's page for this art piece`}
+              title={'Link to the artist\'s page for this art piece'}
               href={url}
               className='btn btn-primary btn-lg rounded-3'
             >
               Learn More
-            </OutboundLink>
-          }
+            </OutboundLink>}
         </div>
       </div>
     </div>

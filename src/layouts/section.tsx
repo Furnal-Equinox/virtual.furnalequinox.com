@@ -1,4 +1,3 @@
-import { Jenkinsx } from '@icons-pack/react-simple-icons'
 import React from 'react'
 
 type Position = 'first' | 'middle' | 'last'
@@ -40,7 +39,7 @@ const Section: React.FC<Props> = ({
       id={id !== undefined ? id : undefined}
       className={[
         `${[
-          isContainer ? 'container' : '', 
+          isContainer ? 'container' : '',
           isContainer && isFluid ? '-fluid' : ''
         ].join('')}`,
         matchPosition(pos),

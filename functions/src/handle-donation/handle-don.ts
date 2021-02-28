@@ -66,7 +66,7 @@ const getDonationAmountFromRegistrant = (data: DonationData): number => {
     .map(o => o.amount !== undefined ? parseInt(o.amount.value) : 0)
     .reduce((acc, curr) => acc + curr)
 
-  const coveredCCFee: boolean = donationAmount.repeater.every(o => 
+  const coveredCCFee: boolean = donationAmount.repeater.every(o =>
     o.coverFee !== undefined ? o.coverFee.value : false
   )
 

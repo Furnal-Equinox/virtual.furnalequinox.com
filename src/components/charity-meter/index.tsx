@@ -14,9 +14,9 @@ const CharityMeter: React.FC = () => {
         const res = await identity.authorizedFetch('/.netlify/functions/fetch-totals', {
           method: 'POST'
         })
-    
+
         const data: number | null = await res.json()
-    
+
         setTotal(data)
       } catch (err: any) {
         console.error(err)

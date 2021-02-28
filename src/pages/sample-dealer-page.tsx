@@ -1,10 +1,10 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { SampleDealerQuery } from '../../types/graphql-types'
 import Img, { FluidObject } from 'gatsby-image'
-import { Link } from 'gatsby'
+
 import config from '../../site-config'
 import '../templates/dealer/style.scss'
 
@@ -26,11 +26,11 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 interface Props extends RouteComponentProps {
   data: SampleDealerQuery
   pageContext: {
-    isSfw: boolean,
-    slug: string,
-    nextTitle: string,
-    nextSlug: string,
-    prevTitle: string,
+    isSfw: boolean
+    slug: string
+    nextTitle: string
+    nextSlug: string
+    prevTitle: string
     prevSlug: string
   }
 }
@@ -159,11 +159,10 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                 title={banner?.desc ?? "Dealer's banner for their store"}
                 fluid={banner?.imgFile?.childImageSharp?.fluid as FluidObject}
                 className='img-fluid'
-              />
-            }
+              />}
           </div>
         </div>
-          
+
       </Section>
       <Section isContainer>
         <TextCard>
@@ -178,11 +177,11 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               {
                 socialLinks !== null && socialLinks !== undefined
                   ? <div className='container text-center'>
-                      <h2>Say hello!</h2>
-                      <SocialLinks data={socialLinks} />
+                    <h2>Say hello!</h2>
+                    <SocialLinks data={socialLinks} />
                     </div>
                   : <div className='container text-center'>
-                      <h2>I do not have any social media links to share!</h2>
+                    <h2>I do not have any social media links to share!</h2>
                     </div>
               }
             </div>
@@ -200,30 +199,30 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                     </tr>
                   </thead>
                   <tbody>
-                  {post?.streaming?.friday?.map((block, i) =>
-                    <tr key={`friday-time-${i}`}>
-                      <th scope='row'>Friday, March 19th</th>
-                      <td>
-                        {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                      </td>
-                    </tr>
-                  )}
-                  {post?.streaming?.saturday?.map((block, i) =>
-                    <tr key={`saturday-time-${i}`}>
-                      <th scope='row'>Saturday, March 20th</th>
-                      <td>
-                        {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                      </td>
-                    </tr>
-                  )}
-                  {post?.streaming?.sunday?.map((block, i) =>
-                    <tr key={`sunday-time-${i}`}>
-                      <th scope='row'>Sunday, March 21st</th>
-                      <td>
-                        {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                      </td>
-                    </tr>
-                  )}
+                    {post?.streaming?.friday?.map((block, i) =>
+                      <tr key={`friday-time-${i}`}>
+                        <th scope='row'>Friday, March 19th</th>
+                        <td>
+                          {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                        </td>
+                      </tr>
+                    )}
+                    {post?.streaming?.saturday?.map((block, i) =>
+                      <tr key={`saturday-time-${i}`}>
+                        <th scope='row'>Saturday, March 20th</th>
+                        <td>
+                          {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                        </td>
+                      </tr>
+                    )}
+                    {post?.streaming?.sunday?.map((block, i) =>
+                      <tr key={`sunday-time-${i}`}>
+                        <th scope='row'>Sunday, March 21st</th>
+                        <td>
+                          {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                        </td>
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -235,10 +234,9 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                     href={post?.url ?? ''}
                     size='lg'
                   >
-                    Check out my store!
-                  </Button>
-                : <h2>I do not have a website to share!</h2>
-              }
+                  Check out my store!
+                </Button>
+                : <h2>I do not have a website to share!</h2>}
             </div>
           </div>
         </TextCard>
@@ -253,20 +251,19 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               }}
             />
           </TextCard>
-        </Section>
-      }
+        </Section>}
       <Section isContainer>
         <ResponsiveMasonry
           columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
         >
           <Masonry>
-          {images?.map(image =>
-            image?.childImageSharp?.fluid !== null &&
-              <Img
-                title={image?.desc ?? "One of this dealer's images"}
-                fluid={image?.imgFile?.childImageSharp?.fluid as FluidObject}
-                className='d-block rounded-3 border border-primary m-1'
-              />
+            {images?.map(image =>
+              image?.childImageSharp?.fluid !== null &&
+                <Img
+                  title={image?.desc ?? "One of this dealer's images"}
+                  fluid={image?.imgFile?.childImageSharp?.fluid as FluidObject}
+                  className='d-block rounded-3 border border-primary m-1'
+                />
             )}
           </Masonry>
         </ResponsiveMasonry>
@@ -289,7 +286,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               className='btn btn-primary btn-lg rounded-3'
             >
               {`${nextTitle} →`}
-            </Link> 
+            </Link>
           </div>
         </TextCard>
       </Section>

@@ -15,7 +15,6 @@ import Img from 'gatsby-image'
 
 import { Layout } from '../layouts'
 
-
 interface Props extends RouteComponentProps {
   data: LoginQueryQuery
 }

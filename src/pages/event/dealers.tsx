@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import {
@@ -29,8 +29,6 @@ import {
 } from '../../layouts'
 
 import Button from 'react-bootstrap/Button'
-
-import { Link } from 'gatsby'
 
 import config from '../../../site-config'
 
@@ -165,7 +163,7 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
                 Click this button to check out a random dealer!
               </p>
               <Link
-                title='Link to a random dealer page!' 
+                title='Link to a random dealer page!'
                 to={`.${
                   sample(allDealers as any[]).dealer.fields?.slug ?? ''
                 }`}
@@ -201,12 +199,12 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
           <DealerCardGrid data={
             fetchFullResults(getResultsTitles(results), premiumDealers)
               .map(result => dealerReducer(result))
-            }
+          }
           />
           <DealerCardGrid data={
             fetchFullResults(getResultsTitles(results), regularDealers)
               .map(result => dealerReducer(result))
-            }
+          }
           />
         </Section>
       )}

@@ -19,7 +19,6 @@ import {
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
-
 interface Props extends RouteComponentProps {
   data: GalleryQueryQuery
 }
@@ -86,16 +85,16 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
           columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
         >
           <Masonry>
-          {artworks.map(({ artwork }) => (
-            artwork.frontmatter?.image?.childImageSharp?.fluid !== null &&
-              <GalleryItemCard
-                title={artwork.frontmatter?.title}
-                artist={artwork.frontmatter?.artist}
-                image={artwork.frontmatter?.image?.childImageSharp?.fluid}
-                url={artwork.frontmatter?.url}
-                desc={artwork.frontmatter?.desc}
-              />
-          ))}
+            {artworks.map(({ artwork }) => (
+              artwork.frontmatter?.image?.childImageSharp?.fluid !== null &&
+                <GalleryItemCard
+                  title={artwork.frontmatter?.title}
+                  artist={artwork.frontmatter?.artist}
+                  image={artwork.frontmatter?.image?.childImageSharp?.fluid}
+                  url={artwork.frontmatter?.url}
+                  desc={artwork.frontmatter?.desc}
+                />
+            ))}
           </Masonry>
         </ResponsiveMasonry>
       </Section>
