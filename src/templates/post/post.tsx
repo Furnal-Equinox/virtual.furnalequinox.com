@@ -3,7 +3,6 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Img, { FluidObject } from 'gatsby-image'
-import { PostBySlugQuery } from '../../../types/graphql-types'
 import config from '../../../site-config'
 import './style.scss'
 
@@ -18,7 +17,7 @@ import {
 } from '../../layouts'
 
 interface Props extends RouteComponentProps {
-  data: PostBySlugQuery
+  data: GatsbyTypes.PostBySlugQuery
 }
 
 const Post: React.FC<Props> = ({ data, location }: Props) => {
@@ -90,8 +89,8 @@ const PostContent: React.FC<Props> = ({ data, location }: Props) => {
               <time dateTime={post?.date ?? ''}>{post?.date ?? ''}</time>
             </Link>
             <Badge label={post?.category ?? ''} primary />
-            {(post?.tags ?? []).map((tag: string, index?: number) =>
-              <Badge label={tag} primary={false} key={index} />
+            {(post?.tags ?? []).map((tag, i) =>
+              <Badge label={tag} primary={false} key={i} />
             )}
           </div>
           <div className='content'>

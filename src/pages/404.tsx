@@ -3,7 +3,6 @@ import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import config from '../../site-config'
-import { NotFoundQueryQuery } from '../../../types/graphql-types'
 
 import {
   Meta,
@@ -20,7 +19,7 @@ import {
 import Button from 'react-bootstrap/Button'
 
 interface Props extends RouteComponentProps {
-  data: NotFoundQueryQuery
+  data: GatsbyTypes.NotFoundQueryQuery
 }
 
 /**
@@ -28,6 +27,8 @@ interface Props extends RouteComponentProps {
  * @param {WindowLocation<unknown>} location the location of this page.
  */
 const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
+  const marty404 = data?.marty404?.childImageSharp?.fluid
+
   return (
     <Layout location={location}>
       <Helmet title={`404 | ${config.siteTitle}`} />
@@ -36,11 +37,11 @@ const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <h1>404</h1>
-            <Img
-              fluid={data.marty404.childImageSharp.fluid}
+            {marty404 !== undefined && <Img
+              fluid={marty404}
               className='img-fluid'
               alt='Picture of Marty, the Pixel Purrfect mascot, shrugging with the number 404 behind him'
-            />
+            />}
             <p>
               Oops! We couldn't find the page you were looking for.<br />
               Please go back and try again.<br />

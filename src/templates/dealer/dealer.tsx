@@ -2,7 +2,6 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { DealerBySlugQuery } from '../../../types/graphql-types'
 
 import Img, { FluidObject } from 'gatsby-image'
 import config from '../../../site-config'
@@ -25,7 +24,7 @@ import Button from 'react-bootstrap/Button'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 interface Props extends RouteComponentProps {
-  data: DealerBySlugQuery
+  data: GatsbyTypes.DealerBySlugQuery
   pageContext: {
     isSfw: boolean
     slug: string
@@ -142,7 +141,8 @@ export default Dealer
 const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
-  const banner = post?.banner ?? null
+  const banner = post?.banner?.imgFile?.childImageSharp?.fluid
+  const bannerDesc = post?.banner?.desc
   const images = post?.images ?? null
   const socialLinks = post?.social
   const html = postNode?.html ?? null
@@ -154,10 +154,10 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
         <div className='container'>
           <div className='row'>
-            {banner?.file?.childImageSharp?.fluid !== null &&
+            {banner !== undefined &&
               <Img
-                title={banner?.desc ?? "Dealer's banner for their store"}
-                fluid={banner?.imgFile?.childImageSharp?.fluid as FluidObject}
+                title={bannerDesc ?? "Dealer's banner for their store"}
+                fluid={banner}
                 className='img-fluid'
               />}
           </div>
@@ -261,7 +261,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
         >
           <Masonry>
             {images?.map(image =>
-              image?.file?.childImageSharp?.fluid !== null &&
+              image?.imgFile?.childImageSharp?.fluid !== undefined &&
                 <Img
                   title={image?.desc ?? "One of this dealer's images"}
                   fluid={image?.imgFile?.childImageSharp?.fluid as FluidObject}

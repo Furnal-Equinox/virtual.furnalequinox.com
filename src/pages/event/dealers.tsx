@@ -4,15 +4,6 @@ import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import {
-  DealersIndexQueryQuery,
-  GatsbyImageSharpFluidFragment,
-  MarkdownRemark,
-  MarkdownRemarkFields,
-  MarkdownRemarkFrontmatter,
-  Maybe
-} from '../../../types/graphql-types'
-
-import {
   Dealer,
   DealerCardGrid,
   Jumbotron,
@@ -38,7 +29,7 @@ import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
 
 interface Props extends RouteComponentProps {
-  data: DealersIndexQueryQuery
+  data: GatsbyTypes.DealersIndexQueryQuery
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {

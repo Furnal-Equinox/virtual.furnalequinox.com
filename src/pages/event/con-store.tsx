@@ -3,7 +3,6 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import config from '../../../site-config'
-import { ConStoreQueryQuery } from '../../../types/graphql-types'
 
 import {
   Jumbotron,
@@ -19,7 +18,7 @@ import {
 } from '../../layouts'
 
 interface Props extends RouteComponentProps {
-  data: ConStoreQueryQuery
+  data: GatsbyTypes.ConStoreQueryQuery
 }
 
 const ConStore: React.FC<Props> = ({ data, location, navigate }: Props) => {

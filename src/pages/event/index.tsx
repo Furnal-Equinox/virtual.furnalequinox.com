@@ -3,7 +3,6 @@ import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import config from '../../../site-config'
-import { HomeQueryQuery } from '../../../types/graphql-types'
 
 import {
   Meta,
@@ -21,7 +20,7 @@ import {
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 interface Props extends RouteComponentProps {
-  data: HomeQueryQuery
+  data: GatsbyTypes.HomeQueryQuery
 }
 
 const Home: React.FC<Props> = ({ data, location, navigate }: Props) => {
@@ -58,6 +57,8 @@ export const homeQuery = graphql`
 `
 
 const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
+  const martySkateboard = data?.martySkateboard?.childImageSharp?.fluid
+
   return (
     <>
       <Section isContainer isTextCenter pos='middle'>
@@ -171,11 +172,11 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
         </div>
       </Section>
       <Section isContainer isTextCenter pos='middle'>
-        <Img
-          fluid={data.martySkateboard.childImageSharp.fluid}
+        {martySkateboard !== undefined && <Img
+          fluid={martySkateboard}
           className='img-fluid'
           alt='Picture of Marty, the Pixel Purrfect mascot, jumping off of a skateboard'
-        />
+        />}
       </Section>
     </>
   )

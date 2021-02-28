@@ -275,9 +275,12 @@ module.exports = {
 
     /// GraphQL Type Code Generation
     {
-      resolve: 'gatsby-plugin-graphql-codegen',
+      resolve: 'gatsby-plugin-typegen',
       options: {
-        fileName: 'types/graphql-types.d.ts'
+        outputPath: './types/graphql-types.d.ts',
+        emitSchema: {
+          './graphql/website-schema.graphql': true
+        }
       }
     },
 

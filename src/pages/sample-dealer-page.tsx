@@ -2,7 +2,6 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { SampleDealerQuery } from '../../types/graphql-types'
 import Img, { FluidObject } from 'gatsby-image'
 
 import config from '../../site-config'
@@ -24,7 +23,7 @@ import Button from 'react-bootstrap/Button'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 interface Props extends RouteComponentProps {
-  data: SampleDealerQuery
+  data: GatsbyTypes.SampleDealerQuery
   pageContext: {
     isSfw: boolean
     slug: string
@@ -35,7 +34,7 @@ interface Props extends RouteComponentProps {
   }
 }
 
-const Dealer: React.FC<Props> = ({ data, location }: { data: SampleDealerQuery } & RouteComponentProps) => {
+const Dealer: React.FC<Props> = ({ data, location }: { data: GatsbyTypes.SampleDealerQuery } & RouteComponentProps) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
 
@@ -85,6 +84,7 @@ export const sampleDealerQuery = graphql`
           flickr
           furaffinity
           picarto
+          patreon
           twitter
           behance
           discord
@@ -258,7 +258,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
         >
           <Masonry>
             {images?.map(image =>
-              image?.childImageSharp?.fluid !== null &&
+              image?.imgFile?.childImageSharp?.fluid !== null &&
                 <Img
                   title={image?.desc ?? "One of this dealer's images"}
                   fluid={image?.imgFile?.childImageSharp?.fluid as FluidObject}

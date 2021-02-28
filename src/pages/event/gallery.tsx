@@ -2,7 +2,6 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { GalleryQueryQuery } from '../../../types/graphql-types'
 import config from '../../../site-config'
 
 import {
@@ -20,7 +19,7 @@ import {
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 interface Props extends RouteComponentProps {
-  data: GalleryQueryQuery
+  data: GatsbyTypes.GalleryQueryQuery
 }
 
 const Gallery: React.FC<Props> = ({ data, location, navigate }: Props) => {

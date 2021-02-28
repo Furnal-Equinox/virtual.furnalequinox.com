@@ -54,6 +54,7 @@
     "chromatic": "^5.6.3",
     "css-loader": "^5.1.0",
     "font-awesome": "^4.7.0",
+    "gatsby-plugin-typegen": "^2.2.4",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.20",
     "netlify-plugin-gatsby-cache": "^0.3.2",
     "react": "^17.0.1",

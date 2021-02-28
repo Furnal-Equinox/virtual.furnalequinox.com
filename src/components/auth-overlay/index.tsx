@@ -84,6 +84,9 @@ const AuthOverlay: React.FC = () => {
             <li>
               have at least one number
             </li>
+            <li>
+              not have any special characters
+            </li>
           </ul>
         </div>
         {errors.password !== undefined &&

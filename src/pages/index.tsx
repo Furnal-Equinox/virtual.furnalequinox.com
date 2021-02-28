@@ -3,7 +3,6 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import config from '../../site-config'
-import { LoginQueryQuery } from '../../../types/graphql-types'
 
 import {
   LoginCard,
@@ -16,7 +15,7 @@ import Img from 'gatsby-image'
 import { Layout } from '../layouts'
 
 interface Props extends RouteComponentProps {
-  data: LoginQueryQuery
+  data: GatsbyTypes.LoginQueryQuery
 }
 
 interface LocationState {
@@ -26,16 +25,18 @@ interface LocationState {
 const Login: React.FC<Props> = ({ data, location }: Props) => {
   const navigateTarget: string = (location?.state as LocationState)?.navigateTarget ?? '/event/'
 
+  const pixelBanner = data?.pixelBanner?.childImageSharp?.fluid
+
   return (
     <Layout location={location}>
       <Helmet title={`Login | ${config.siteTitle}`} />
       <Meta />
       <div className='container align-items-center'>
-        <Img
-          fluid={data.pixelBanner.childImageSharp.fluid}
+        {pixelBanner !== undefined && <Img
+          fluid={pixelBanner}
           className='img-fluid'
           alt='Picture of the banner for Pixel Purrfect'
-        />
+        />}
         <LoginCard>
           <h1 className='card-title'>Welcome!</h1>
           <div>
