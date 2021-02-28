@@ -1,6 +1,6 @@
 #!/usr/bin/env stack
 {- stack script
- --resolver lts-16.23
+ --resolver lts-17.4
  --package "text turtle"
 -}
 {-# LANGUAGE OverloadedStrings #-}
@@ -125,7 +125,16 @@ countSuccesses codes =
 main :: IO ()
 main = do
   -- Make the output directory if it does not already exist.
-  mkdir <| fromText outDir
+  let pa11yDir = fromText outDir
+  
+  dirExists <- testdir <| pa11yDir
+
+  if dirExists
+    then do 
+      rmtree <| pa11yDir
+      mkdir <| pa11yDir
+    else do 
+      mkdir <| pa11yDir
 
   -- Run pa11y over the paths to check, saving the reports to the directory
   -- that this program just made.

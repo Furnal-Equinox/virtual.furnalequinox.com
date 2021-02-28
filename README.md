@@ -166,7 +166,8 @@ This website was built with these tools, if for some reason the website build fa
 : Cleans the build output from the above script.
 
 `yarn run-pa11y`
-: Runs the `pa11yRunner.hs` script, which runs pa11y over the website.
+: Runs the `pa11yRunner.hs` script, which runs pa11y over the website. 
+⚠️ ***When you first run this script, your computer may take a while to download the Haskell compiler and the script's dependencies.***
 
 `yarn clean-all`
 : Runs `yarn clean` and `yarn netlify-functions-clean`.

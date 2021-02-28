@@ -67,10 +67,11 @@ const passwordSchema = Yup.string()
     at least one uppercase letter,
     at least one lowercase letter,
     at least one number,
-    and at least one special character
+    and at least one special character,
+    with an alternative case for grandfathering old passwords with no special characters.
     TODO: credit https://stackoverflow.com/a/21456918 !!!
     */
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()[\]{};:,."'`~_?><|+=])[A-Za-z\d!@#$%^&*()[\]{};:,."'`~_?><|+=]{8,32}$/gm,
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()[\]{};:,."'`~_?><|+=])[A-Za-z\d!@#$%^&*()[\]{};:,."'`~_?><|+=]{8,32}|[A-Za-z\d]{8,32}$/gm,
     'Your password does not meet the requirements.'
   )
   .notOneOf(blacklistedPasswords, 'Please choose a different password.')
