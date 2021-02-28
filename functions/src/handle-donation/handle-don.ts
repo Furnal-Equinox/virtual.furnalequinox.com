@@ -70,7 +70,7 @@ const getDonationAmountFromRegistrant = (data: DonationData): number => {
     o.coverFee !== undefined ? o.coverFee.value : false
   )
 
-  const trueAmount: number = coveredCCFee ? sumAmount : (sumAmount - (sumAmount * 0.03))
+  const trueAmount: number = coveredCCFee ? sumAmount : (sumAmount - (sumAmount * 0.05))
 
   return trueAmount
 }
