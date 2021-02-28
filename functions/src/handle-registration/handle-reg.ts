@@ -263,29 +263,29 @@ const handleRegistration = async (
     }
 
     for (let i = 0; i < users.length; i += 1) {
-      if (!hasAlreadyDonated[i]) {
-        console.log('Getting totals record.')
+      if (users[i].amount > 0) {
+        if (!hasAlreadyDonated[i]) {
+          console.log('Getting totals record.')
 
-        const document = await faunaClient.query<faunadb.values.Document<Totals>>(
-          q.Get(q.Match(q.Index('getTotals')))
-        )
+          const document = await faunaClient.query<faunadb.values.Document<Totals>>(
+            q.Get(q.Match(q.Index('getTotals')))
+          )
 
-        await faunaClient.query(
-          q.Update(document.ref, {
-            data: {
-              numberOfDonors: q.Add(
-                q.Select(['data', 'numberOfDonors'], q.Get(document.ref)),
-                1
-              ),
-              amountDonated: q.Add(
-                q.Select(['data', 'amountDonated'], q.Get(document.ref)),
-                users[i].amount
-              )
-            }
-          })
-        )
-      } else {
-        if (users[i].amount > 0) {
+          await faunaClient.query(
+            q.Update(document.ref, {
+              data: {
+                numberOfDonors: q.Add(
+                  q.Select(['data', 'numberOfDonors'], q.Get(document.ref)),
+                  1
+                ),
+                amountDonated: q.Add(
+                  q.Select(['data', 'amountDonated'], q.Get(document.ref)),
+                  users[i].amount
+                )
+              }
+            })
+          )
+        } else {
           console.log('Getting totals record.')
 
           const document = await faunaClient.query<faunadb.values.Document<Totals>>(
