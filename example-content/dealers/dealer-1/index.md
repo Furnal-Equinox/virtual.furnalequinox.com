@@ -66,21 +66,21 @@ url: "Dealer's website"
 # The "./" at the start is a shorthand for the current folder / directory.
 # You can leave it out if you like.
 banner: 
-  file: "./the-image-file-in-the-same-folder-as-this-file.png"
+  imgFile: "./the-image-file-in-the-same-folder-as-this-file.png"
   desc: "A short, screen-reader-friendly description"
 
 # Images to display below the dealer's info.
 images:
-  - file: "./the-image-file-in-the-same-folder-as-this-file-2.png"
+  - imgFile: "./the-image-file-in-the-same-folder-as-this-file-2.png"
     desc: "A short, screen-reader-friendly description"
-  - file: "./the-image-file-in-the-same-folder-as-this-file-3.png"
+  - imgFile: "./the-image-file-in-the-same-folder-as-this-file-3.png"
     desc: "A short, screen-reader-friendly description"
-  - file: "./the-image-file-in-the-same-folder-as-this-file-4.png"
+  - imgFile: "./the-image-file-in-the-same-folder-as-this-file-4.png"
     desc: "A short, screen-reader-friendly description"
 
 # Optional GIFs.
 gifs:
-  - file: "./an-optional-gif.gif"
+  - imgFile: "./an-optional-gif.gif"
     desc: "A short, screen-reader-friendly description"
 
 # Social media URLs.
