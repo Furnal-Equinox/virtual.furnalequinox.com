@@ -29,6 +29,7 @@ export const gqlSocialLinks = graphql`
       furaffinity
       github
       instagram
+      patreon
       picarto
       pinterest
       steam
