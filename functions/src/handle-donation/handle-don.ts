@@ -107,7 +107,7 @@ const handleDonation = async (
     })
 
     const doesDonorExist: boolean = await faunaClient.query<boolean>(
-      q.Exists(q.Match(q.Index('getDonorByFurName'), furName))
+      q.Exists(q.Match(q.Index('getDonorEmailAddress'), emailAddress))
     )
 
     if (!doesDonorExist) {
@@ -132,7 +132,7 @@ const handleDonation = async (
     console.log('Getting donor document.')
 
     const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
-      q.Get(q.Match(q.Index('getDonorByFurName'), furName))
+      q.Get(q.Match(q.Index('getDonorByEmailAddress'), emailAddress))
     )
 
     // If the user has already donated (meaning that a record already exists for them,
@@ -150,7 +150,7 @@ const handleDonation = async (
     console.log('Donor updated.')
 
     const doesDonationExist: boolean = await faunaClient.query<boolean>(
-      q.Exists(q.Match(q.Index('getDonationByFurName'), furName))
+      q.Exists(q.Match(q.Index('getDonationByEmailAddress'), emailAddress))
     )
 
     if (!doesDonationExist) {
@@ -175,7 +175,7 @@ const handleDonation = async (
     console.log('Getting donation document.')
 
     const document = await faunaClient.query<faunadb.values.Document<User>>(
-      q.Get(q.Match(q.Index('getDonationByFurName'), furName))
+      q.Get(q.Match(q.Index('getDonationByEmailAddress'), emailAddress))
     )
 
     await faunaClient.query(
