@@ -62,7 +62,15 @@ const emailSchema = Yup.string()
 const passwordSchema = Yup.string()
   .required('Please enter a password.')
   .matches(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,32}$/gm,
+    /*
+    8 - 32 characters,
+    at least one uppercase letter,
+    at least one lowercase letter,
+    at least one number,
+    and at least one special character
+    TODO: credit https://stackoverflow.com/a/21456918 !!!
+    */
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()[\]{};:,."'`~_?><|+=])[A-Za-z\d!@#$%^&*()[\]{};:,."'`~_?><|+=]{8,32}$/gm,
     'Your password does not meet the requirements.'
   )
   .notOneOf(blacklistedPasswords, 'Please choose a different password.')
@@ -70,6 +78,8 @@ const passwordSchema = Yup.string()
 const messageSchema = Yup.string()
   .required('Please enter a message.')
   .min(1, 'Your message cannot be empty!')
+
+  
 
 /**
  * The Yup form schema for the sign up form.

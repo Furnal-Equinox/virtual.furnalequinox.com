@@ -77,6 +77,8 @@ const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
           <OutboundLink
             title='Link to our donation page on RegFox'
             href='https://fe.regfox.com/pixel-purrfect-donations'
+            target='_blank'
+            rel='noopener noreferrer'
             className='btn btn-dark btn-lg rounded-3'
           >
             DONATE

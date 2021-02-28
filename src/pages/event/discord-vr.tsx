@@ -56,6 +56,8 @@ const DiscordVRContent: React.FC<Props> = ({ location }: Props) => {
           <OutboundLink
             title='Link to the Discord invite for the Furnal Equinox Discord server'
             href='https://discord.com/invite/furnal-equinox'
+            target='_blank'
+            rel='noopener noreferrer'
             className='btn btn-primary btn-lg rounded-3'
           >
             Discord
