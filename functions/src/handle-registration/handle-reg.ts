@@ -160,6 +160,16 @@ const handleRegistration = async (
             )
 
             console.log('Donor created.')
+          } else {
+            // The donor already exists in the DB.
+            // Get their document to see if they have already donated.
+            const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
+              q.Get(q.Match(q.Index('getDonorByEmailAddress'), emailAddress))
+            )
+            
+            // If the user has already donated (meaning that a record already exists for them,
+            // and they have donated in the past), then do not increment the number of donors later.
+            hasAlreadyDonated.push(donorDocument.data.hasDonated)
           }
 
           console.log('Getting donor document.')
@@ -167,10 +177,6 @@ const handleRegistration = async (
           const donorDocument = await faunaClient.query<faunadb.values.Document<Donor>>(
             q.Get(q.Match(q.Index('getDonorByEmailAddress'), emailAddress))
           )
-
-          // If the user has already donated (meaning that a record already exists for them,
-          // and they have donated in the past), then do not increment the number of donors later.
-          hasAlreadyDonated.push(doesDonorExist && donorDocument.data.hasDonated)
 
           await faunaClient.query(
             q.Update(donorDocument.ref, {
