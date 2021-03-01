@@ -31,5 +31,13 @@ export const NavbarLinks: NavLink[] = [
   {
     to: '/event/how-to/',
     name: 'How-To'
+  },
+  {
+    to: '/info/',
+    name: 'Info'
+  },
+  {
+    to: '/help/',
+    name: 'Help'
   }
 ]

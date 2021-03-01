@@ -1,6 +1,6 @@
 type Donation {
   # The donor's fur name.
-  furName: String! @unique
+  furName: String!
 
   # The donor's email address.
   emailAddress: String! @unique
@@ -14,7 +14,7 @@ type Donation {
 
 type Donor {
   # The donor's fur name.
-  furName: String! @unique
+  furName: String!
 
   # The donor's email address.
   emailAddress: String! @unique

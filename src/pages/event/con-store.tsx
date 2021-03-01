@@ -86,7 +86,7 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer pos='middle'>
         <TextCard>
           <p>
-            Show your support for Furnal Equinox with this Virtual Furnal Equinox: Pixel Purrfect merchandise!
+            Show your support for Furnal Equinox with these Virtual Furnal Equinox: Pixel Purrfect merchandise!
           </p>
         </TextCard>
       </Section>
