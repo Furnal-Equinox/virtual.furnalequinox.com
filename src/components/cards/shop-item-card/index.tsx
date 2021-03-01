@@ -24,27 +24,29 @@ const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props
         />
         : <PlaceholderSVG />}
       <div className='card-body'>
-        <div className='row'>
-          <div className='col'>
-            <p className='m-0'>
-              {name ?? 'Item Name'}
-            </p>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-12'>
+              <p className='card-title text-center h5'>
+                {name ?? 'Item Name'}
+              </p>
+            </div>
+            <div className='col-12'>
+              <p className='card-text text-center'>
+                {description ?? 'Description'}
+              </p>
+            </div>
           </div>
-          <div className='col'>
-            <p className='card-text text-center'>
-              {description ?? 'Description'}
-            </p>
-          </div>
-        </div>
-        <div className='row mt-3'>
-          <div className='d-grid'>
-            <OutboundLink
-              title='Link to the page where you can buy this item'
-              href={url ?? ''}
-              className='btn btn-primary btn-lg rounded-3'
-            >
-              Learn More
-            </OutboundLink>
+          <div className='row mt-3'>
+            <div className='d-grid'>
+              <OutboundLink
+                title='Link to the page where you can buy this item'
+                href={url ?? ''}
+                className='btn btn-primary btn-lg rounded-3'
+              >
+                Learn More
+              </OutboundLink>
+            </div>
           </div>
         </div>
       </div>

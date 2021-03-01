@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import config from '../../../site-config'
@@ -16,15 +17,19 @@ import {
   Section
 } from '../../layouts'
 
+import Img, { FluidObject } from 'gatsby-image'
+
 import { PlaceholderAdBanner } from '../../components/placeholders'
 
 import Carousel from 'react-bootstrap/Carousel'
 
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
-interface Props extends RouteComponentProps {}
+interface Props extends RouteComponentProps {
+  data: GatsbyTypes.LivestreamQueryQuery
+}
 
-const Livestream: React.FC<Props> = ({ location, navigate }: Props) => {
+const Livestream: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const Content = makePrivateContent(LivestreamDashboard)
 
   return (
@@ -33,6 +38,7 @@ const Livestream: React.FC<Props> = ({ location, navigate }: Props) => {
       <Meta />
       <div>
         <Content
+          data={data}
           location={location}
           callbackPath='/event/livestream/'
           allowedRoles={['free']}
@@ -44,13 +50,31 @@ const Livestream: React.FC<Props> = ({ location, navigate }: Props) => {
 
 export default Livestream
 
-const LivestreamDashboard: React.FC<Props> = ({ location }: Props) => {
+export const livestreamQuery = graphql`
+  query LivestreamQuery {
+    martyPlaceholder: file(relativePath: { eq: "video_loop.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1140) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
+const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
+  const martyPlaceholder = data?.martyPlaceholder?.childImageSharp?.fluid
+  
   return (
     <>
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
         <div className='container'>
           <div className='row'>
-            <ResponsivePlayer url={process.env.GATSBY_STREAM_URL as string} />
+            {martyPlaceholder !== undefined && <Img 
+              fluid={martyPlaceholder}
+              className='img-fluid'
+              alt="This image reads 'The convention is being held March 19, 20, 21. Visit www.furnalequinox.com and Furnal Equinox on Twitter.' This is the livestream placeholder image featuring Marty in a VR headset."
+            />}
           </div>
         </div>
       </Section>

@@ -47,20 +47,24 @@ export const conStoreQuery = graphql`
     remark: allMarkdownRemark(
       filter: { frontmatter: { layout: { eq: "product" } } }
     ) {
-      products: edges {
-        product: node {
-          id
-          frontmatter {
-            title
-            url
-            image {
-              childImageSharp {
-                fluid(maxWidth: 250) {
-                  ...GatsbyImageSharpFluid
+      group(field: frontmatter___limited) {
+        fieldValue
+        products: edges {
+          product: node {
+            id
+            frontmatter {
+              title
+              url
+              limited
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 250) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
+              desc
             }
-            desc
           }
         }
       }
@@ -69,7 +73,9 @@ export const conStoreQuery = graphql`
 `
 
 const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
-  const products = data.remark.products
+  const productGroups = data.remark.group
+  const limitedProducts = productGroups[1].fieldValue === 'true' ? productGroups[1].products : []
+  const regularProducts = productGroups[0].fieldValue === 'false' ? productGroups[0].products : []
 
   return (
     <>
@@ -87,7 +93,7 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer pos='middle'>
         <div className='container'>
           <div className='row'>
-            {products.map(({ product }, i) =>
+            {regularProducts.map(({ product }, i) =>
               <div className='col-lg-4' key={`product-${i}`}>
                 <ShopItemCard
                   name={product?.frontmatter?.title}
@@ -102,6 +108,7 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
       </Section>
       <Section isContainer pos='middle'>
         <TextCard>
+          <h2>Limited Stock</h2>
           <p>
             We’ve also had some exclusive products made this year, these are available in limited quantities!{' '}
             These feature talented artists from the fandom.{' '}
@@ -112,33 +119,16 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer pos='middle'>
         <div className='container'>
           <div className='row'>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
-            <div className='col-lg-4'>
-              <ShopItemCard />
-            </div>
+          {limitedProducts.map(({ product }, i) =>
+              <div className='col-lg-4' key={`product-${i}`}>
+                <ShopItemCard
+                  name={product?.frontmatter?.title}
+                  description={product?.frontmatter?.desc}
+                  url={product?.frontmatter?.url}
+                  banner={product?.frontmatter?.image?.childImageSharp?.fluid}
+                />
+              </div>
+            )}
           </div>
         </div>
       </Section>
