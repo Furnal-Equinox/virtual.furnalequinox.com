@@ -2,6 +2,7 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
+import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import config from '../../../site-config'
 
 import {
@@ -57,10 +58,19 @@ export const homeQuery = graphql`
 `
 
 const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
+  const identity = useIdentityContext()
   const martySkateboard = data?.martySkateboard?.childImageSharp?.fluid
+
+  const name =
+    (identity.user?.user_metadata?.furName as (string | null | undefined)) ?? 'stranger'
 
   return (
     <>
+      <Section isContainer isTextCenter pos='middle'>
+        <TextCard>
+          <h3>{`Hello, ${name}!`}</h3>
+        </TextCard>
+      </Section>
       <Section isContainer isTextCenter pos='middle'>
         <div className='row'>
           <div className='col-lg-6 mb-3 mb-lg-0'>

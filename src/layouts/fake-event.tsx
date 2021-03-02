@@ -1,6 +1,5 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
-import { useIdentityContext } from 'react-netlify-identity-gotrue'
 
 import {
   AuthOverlay,
@@ -19,7 +18,6 @@ interface Props extends RouteComponentProps {
 }
 
 const FakeEvent: React.FC<Props> = ({ children, location }: Props) => {
-  const identity = useIdentityContext()
 
   const socialLinks = {
     data: {
@@ -33,7 +31,7 @@ const FakeEvent: React.FC<Props> = ({ children, location }: Props) => {
   return (
     <>
       <AuthOverlay />
-      <FakeNavbar location={location} identityContext={identity} />
+      <FakeNavbar location={location} />
       <div className='layout-container d-flex flex-column justify-content-between'>
         {children}
         <Footer
