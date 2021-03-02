@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 
-const CharityMeter: React.FC = () => {
+const DonationsMeter: React.FC = () => {
   const [total, setTotal] = useState<number | null>(null)
   const donationGoal = parseInt(process.env.GATSBY_DONATION_GOAL as string)
   const timeToCheck = parseInt(process.env.GATSBY_INTERVAL_IN_MS_TO_CHECK_TOTAL_DONATION_AMOUNT as string)
@@ -52,4 +52,4 @@ const CharityMeter: React.FC = () => {
   )
 }
 
-export default CharityMeter
+export default DonationsMeter

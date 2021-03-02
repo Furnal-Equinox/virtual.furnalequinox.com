@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import {
+  AdCrawl,
   Dealer,
   DealerCardGrid,
   Jumbotron,
@@ -146,6 +147,9 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
         title='Dealers Den'
         subtitle='Explore our dealers from the comfort of your home!'
       />
+      <Section pos='middle'>
+        <AdCrawl />
+      </Section>
       <Section pos='middle'>
         <div className='row'>
           <div className='col-lg-6 mb-3 mb-lg-0'>

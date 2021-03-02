@@ -4551,4 +4551,18 @@ type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
+type AdCrawlQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AdCrawlQueryQuery = { readonly remark: { readonly dealers: ReadonlyArray<{ readonly dealer: (
+        Pick<MarkdownRemark, 'id'>
+        & { readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title'>
+          & { readonly gifs: Maybe<ReadonlyArray<Maybe<(
+            Pick<MarkdownRemarkFrontmatterGifs, 'desc'>
+            & { readonly imgFile: Maybe<Pick<File, 'publicURL'>> }
+          )>>> }
+        )> }
+      ) }> } };
+
 }

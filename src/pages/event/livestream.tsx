@@ -5,7 +5,8 @@ import { Helmet } from 'react-helmet'
 import config from '../../../site-config'
 
 import {
-  CharityMeter,
+  AdCrawl,
+  DonationsMeter,
   Meta,
   ResponsivePlayer,
   TextCard
@@ -17,9 +18,10 @@ import {
   Section
 } from '../../layouts'
 
-import Img, { FluidObject } from 'gatsby-image'
+import Img from 'gatsby-image'
 
-import { PlaceholderAdBanner } from '../../components/placeholders'
+import placeholderAdBanner from '../../../content/images/VFE_ad_banner.png'
+
 
 import Carousel from 'react-bootstrap/Carousel'
 
@@ -82,14 +84,14 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
         <TextCard>
           <div className='text-white'>
             <div className='row'>
-              <h1>Charity Meter</h1>
+              <h1>Donations Meter</h1>
             </div>
             <div className='row'>
               <div className='col'>
                 <p className='h1 m-0'>$0</p>
               </div>
               <div className='col-6 d-block my-auto'>
-                <CharityMeter />
+                <DonationsMeter />
               </div>
               <div className='col'>
                 <p className='h1 m-0'>
@@ -110,19 +112,7 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
         </TextCard>
       </Section>
       <Section pos='middle'>
-        <div className='mx-auto' style={{ maxWidth: '728px' }}>
-          <Carousel indicators={false}>
-            <Carousel.Item>
-              <PlaceholderAdBanner />
-            </Carousel.Item>
-            <Carousel.Item>
-              <PlaceholderAdBanner />
-            </Carousel.Item>
-            <Carousel.Item>
-              <PlaceholderAdBanner />
-            </Carousel.Item>
-          </Carousel>
-        </div>
+        <AdCrawl />
       </Section>
       <Section isContainer pos='middle'>
         <TextCard>

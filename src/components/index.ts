@@ -1,6 +1,8 @@
 export { default as AuthOverlay } from './auth-overlay'
 export { default as Badge } from './badge'
 
+export { default as AdCrawl } from './ad-crawl'
+
 // Cards
 export { DealerCard } from './cards'
 export { GalleryItemCard } from './cards'
@@ -18,7 +20,7 @@ export { ContactForm } from './forms'
 export { LoginForm } from './forms'
 export { SignupForm } from './forms'
 
-export { default as CharityMeter } from './charity-meter'
+export { default as DonationsMeter } from './donations-meter'
 export { default as DealerCardGrid } from './dealer-card-grid'
 export { default as Footer } from './footer'
 export { default as Icon } from './icon'
