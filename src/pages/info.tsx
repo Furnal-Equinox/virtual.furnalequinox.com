@@ -1,6 +1,7 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
 import config from '../../site-config'
 
 import {
@@ -18,11 +19,14 @@ import {
 import Button from 'react-bootstrap/Button'
 
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
-import { graphql } from 'gatsby'
 
-interface Props extends RouteComponentProps {}
+interface Props extends RouteComponentProps {
+  data: GatsbyTypes.InfoQueryQuery
+}
 
-const Info: React.FC<Props> = ({ location, navigate }: Props) => {
+const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
+  const staff = data?.remark?.frontmatter?.staff
+
   return (
     <Layout location={location}>
       <Helmet title={`Info | ${config.siteTitle}`} />
@@ -141,23 +145,17 @@ const Info: React.FC<Props> = ({ location, navigate }: Props) => {
             <div className='row'>
               <div className='col mx-auto'>
                 <h1>Credits</h1>
-                <p className='lead'>
-                  This website was made possible by
+                <p>
+                  Furnal Equinox 2021: Pixel Purrfect was made possible by
                 </p>
               </div>
             </div>
             <div className='row'>
-              <div className='col'>
-                <OutboundLink
-                  href='https://www.netlify.com/'
-                  title='Hosted by Netlify'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  style={{ height: '32px' }}
-                >
-                  <img src='https://www.netlify.com/img/press/logos/logomark.svg' alt='Deploys by Netlify' />
-                </OutboundLink>
-              </div>
+              {staff?.map(name => name !== undefined && 
+                <div className='col-sm-6 col-md-4 col-lg-3'>
+                  <p>{name}</p>
+                </div>  
+              )}
             </div>
           </TextCard>
         </Section>
@@ -180,3 +178,13 @@ const Info: React.FC<Props> = ({ location, navigate }: Props) => {
 }
 
 export default Info
+
+export const infoQuery = graphql`
+  query InfoQuery {
+    remark: markdownRemark(fileAbsolutePath: { regex: "/staff.md/" }) {
+      frontmatter {
+        staff
+      }
+    }
+  }
+`

@@ -4414,6 +4414,11 @@ type LoginQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type LoginQueryQuery = { readonly pixelBanner: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
+type InfoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type InfoQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'staff'>> }> };
+
 type SampleDealerQueryVariables = Exact<{ [key: string]: never; }>;
 
 
