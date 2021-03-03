@@ -45,7 +45,7 @@ const DiscordVRContent: React.FC<Props> = ({ location }: Props) => {
   return (
     <>
       <Jumbotron title='Discord & VR' subtitle='' />
-      <Section isContainer isTextCenter pos='middle'>
+      <Section isContainer isTextCenter pos='middle' id='discord'>
         <TextCard>
           <h1>Discord</h1>
           <p>

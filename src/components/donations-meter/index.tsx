@@ -40,11 +40,12 @@ const DonationsMeter: React.FC = () => {
   return (
     <div className='progress progress-larger'>
       <div
-        className='progress-bar progress-bar-striped progress-bar-animated'
+        className='progress-bar bg-secondary progress-bar-striped progress-bar-animated'
         role='progressbar'
         aria-valuenow={getPercentOfGoal()}
         aria-valuemin={0}
         aria-valuemax={100}
+        aria-label={`This is our donations progress bar! We're currently ${getPercentOfGoal().toFixed()}% to our goal of ${donationGoal}!`}
         style={{ width: `${getPercentOfGoal().toFixed()}%` }}
       />
     </div>

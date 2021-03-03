@@ -21,7 +21,7 @@ import {
 import Img from 'gatsby-image'
 
 import placeholderAdBanner from '../../../content/images/VFE_ad_banner.png'
-
+import donationsMeterBG from '../../../content/images/donation_meter_bg.png'
 
 import Carousel from 'react-bootstrap/Carousel'
 
@@ -81,35 +81,18 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
         </div>
       </Section>
       <Section isContainer pos='middle'>
-        <TextCard>
-          <div className='text-white'>
-            <div className='row'>
-              <h1>Donations Meter</h1>
-            </div>
-            <div className='row'>
-              <div className='col'>
-                <p className='h1 m-0'>$0</p>
-              </div>
-              <div className='col-6 d-block my-auto'>
-                <DonationsMeter />
-              </div>
-              <div className='col'>
-                <p className='h1 m-0'>
-                  {`$${process.env.GATSBY_DONATION_GOAL as string}`}
-                </p>
+        <div className='card rounded-3 border border-primary border-5'>
+          <img src={donationsMeterBG} className='img-fluid rounded-3' />
+          <div className='card-img-overlay'>
+            <div className='card-body w-100 h-100 d-flex align-items-center'>
+              <div className='row justify-content-center w-75'>
+                <div className='col align-items-center d-block my-auto'>
+                  <DonationsMeter />
+                </div>
               </div>
             </div>
           </div>
-          <OutboundLink
-            title='Link to our donation page on RegFox'
-            href='https://fe.regfox.com/pixel-purrfect-donations'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='btn btn-dark btn-lg rounded-3'
-          >
-            DONATE
-          </OutboundLink>
-        </TextCard>
+        </div>
       </Section>
       <Section pos='middle'>
         <AdCrawl />
