@@ -87,13 +87,13 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer pos='middle'>
         <TextCard>
           <h1>Lineup</h1>
-          <h2>Stay tuned - we'll be filling this out soon!</h2>
+          <p className='fs-3'>Stay tuned - we'll be filling this out soon!</p>
           <h2>Friday, March 19th</h2>
           <div className='table-responsive'>
-            <table className='table table-striped table-hover'>
+            <table className='table align-middle table-striped table-hover'>
               <thead>
                 <tr>
-                  <th scope='col'>Starting Time</th>
+                  <th scope='col'>Time (EST)</th>
                   <th scope='col'>Event Name</th>
                 </tr>
               </thead>
