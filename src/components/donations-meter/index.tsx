@@ -43,21 +43,26 @@ const DonationsMeter: React.FC = () => {
   const getPercentOfGoal = (): number =>
     ((total ?? 0) / donationGoal) * 100
 
-  const ProgressBar: React.FC = () => 
-    <div className='d-block progress progress-larger'>
-      <div
-        className='progress-bar bg-secondary progress-bar-striped progress-bar-animated'
-        role='progressbar'
-        aria-valuenow={getPercentOfGoal()}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-label={[
-          'This is our donations progress bar!',
-          `We're currently ${getPercentOfGoal().toFixed()}% to our goal of ${donationGoal}!`
-        ].join(' ')}
-        style={{ width: `${getPercentOfGoal().toFixed()}%` }}
-      />
-    </div>
+  const ProgressBar: React.FC = () => {
+    const percent = getPercentOfGoal()
+
+    return (
+      <div className='progress progress-larger'>
+        <div
+          className='progress-bar bg-secondary progress-bar-striped progress-bar-animated'
+          role='progressbar'
+          aria-valuenow={percent}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={[
+            'This is our donations progress bar!',
+            `We're currently ${percent.toFixed()}% to our goal of ${donationGoal}!`
+          ].join(' ')}
+          style={{ width: `${percent}%` }}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className='card rounded-3 border border-primary border-5'>
