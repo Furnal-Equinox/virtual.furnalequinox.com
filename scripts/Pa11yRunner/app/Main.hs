@@ -1,8 +1,3 @@
-#!/usr/bin/env stack
-{- stack script
- --resolver lts-17.4
- --package "text turtle"
--}
 {-# LANGUAGE OverloadedStrings #-}
 
 {-
@@ -31,14 +26,22 @@ In short, you may think of everything before the last arrow as being like a para
 
 module Main where
 
-import           Data.Text (Text)
+import           Data.Text      (Text)
 import qualified Data.Text as T
-import           Turtle
+import           Turtle         (   mkdir
+                                  , rmtree
+                                  , testdir
+                                  , fromText
+                                  , shell
+                                  , Text
+                                  , Alternative(empty)
+                                  , MonadIO
+                                  , ExitCode(..) )
 
 -- | Synonym for the $ backwards function application operator
 infixr 0 <|
 (<|) :: (a -> b) -> a -> b
-(<|) f x = f x
+(<|) f = f
 {-# INLINE (<|) #-}
 
 -- | Synonym for the & forwards function application operator
@@ -86,7 +89,7 @@ pa11ySettings = "--standard WCAG2AA --reporter cli --level error --include-warni
 
 -- | The directory to save the reports to. pa11y defaults to the current working directory.
 outDir :: Text
-outDir = "./pa11y-reports/"
+outDir = "../../pa11y-reports/"
 
 -- | Runs pa11y with `pa11ySettings` over the list of paths and saves the reports to `outDir`.
 runPa11y :: MonadIO io => Url -> Url -> ReportName -> io ExitCode
@@ -124,6 +127,9 @@ countSuccesses codes =
 -- | The main function.
 main :: IO ()
 main = do
+
+  putStrLn <| "Hello! I'll replace the output directory if it exists now."
+
   -- Make the output directory if it does not already exist.
   let pa11yDir = fromText outDir
   
@@ -136,10 +142,14 @@ main = do
     else do 
       mkdir <| pa11yDir
 
+  putStrLn <| "Okay! Next, I'll run pa11y on the pages you chose."
+
   -- Run pa11y over the paths to check, saving the reports to the directory
   -- that this program just made.
   -- Additionally, save the error codes that each pa11y instance returns. 
   results <- traverse (uncurry (runPa11y website)) pathsToCheck
+
+  putStrLn <| "Done! Let's see the results!"
 
   -- How many instances of pa11y reported errors?
   let numErrored = countFailures results
@@ -149,23 +159,23 @@ main = do
 
   if numErrored > 0
     then do
-      print <|
+      putStrLn <|
         "Ran pa11y " <> (show <| length results) <>
-        " times with the following settings: " <> (T.unpack pa11ySettings)
+        " times with the following settings: " <> T.unpack pa11ySettings
       
-      print <|
-        (show numErrored) <> " instance(s) of pa11y reported errors. Check the reports for details."
+      putStrLn <|
+        show numErrored <> " instance(s) of pa11y reported errors. Check the reports for details."
       
       if numWentFine > 0
         then do
-          print <|
-            "However, the other " <> (show numWentFine) <>
+          putStrLn <|
+            "However, the other " <> show numWentFine <>
             " instance(s) of pa11y did not report any errors. "
         
         else do
-          print <| "Oh no! It looks like all of the input pages have errors :-("
+          putStrLn <| "Oh no! It looks like all of the input pages have errors :-("
     
     else do
-      print <| 
+      putStrLn <| 
         "None of the pa11y instances reported any errors. Everything looks good! " <>
         "However, there may be warnings, so please check the reports to be sure!"
