@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
 
 import Carousel from 'react-bootstrap/Carousel'
 
@@ -16,11 +17,16 @@ const AdCrawl: React.FC = () => {
         {dealers?.map(({ dealer }) =>
           dealer?.frontmatter?.gifs?.map(gif => 
             <Carousel.Item>
-              <img
-                title={gif?.desc ?? 'No description'}
-                src={gif?.imgFile?.publicURL ?? placeholderAdBanner}
-                className='border border-light d-block img-fluid'
-              />
+              <Link
+                title={`Link to ${dealer?.frontmatter?.title ?? "this ad's dealer"}'s page on this website.`}
+                to={`/event/dealers${dealer?.fields?.slug ?? ''}`}
+              >
+                <img
+                  title={gif?.desc ?? 'No description'}
+                  src={gif?.imgFile?.publicURL ?? placeholderAdBanner}
+                  className='border border-light d-block img-fluid'
+                />
+              </Link>
             </Carousel.Item>
           )  
         )}
@@ -48,6 +54,9 @@ export const adCrawlQuery = graphql`
       dealers: edges {
         dealer: node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             gifs {

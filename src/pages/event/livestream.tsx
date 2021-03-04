@@ -20,13 +20,6 @@ import {
 
 import Img from 'gatsby-image'
 
-import placeholderAdBanner from '../../../content/images/VFE_ad_banner.png'
-import donationsMeterBG from '../../../content/images/donation_meter_bg.png'
-
-import Carousel from 'react-bootstrap/Carousel'
-
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
-
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.LivestreamQueryQuery
 }
@@ -75,24 +68,18 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
             {martyPlaceholder !== undefined && <Img 
               fluid={martyPlaceholder}
               className='img-fluid'
-              alt="This image reads 'The convention is being held March 19, 20, 21. Visit www.furnalequinox.com and Furnal Equinox on Twitter.' This is the livestream placeholder image featuring Marty in a VR headset."
+              alt={[
+                "This image reads",
+                "'The convention is being held March 19, 20, 21.",
+                "Visit www.furnalequinox.com and Furnal Equinox on Twitter.'",
+                "This is the livestream placeholder image featuring Marty in a VR headset."
+              ].join(' ')}
             />}
           </div>
         </div>
       </Section>
       <Section isContainer pos='middle'>
-        <div className='card rounded-3 border border-primary border-5'>
-          <img src={donationsMeterBG} className='img-fluid rounded-3' />
-          <div className='card-img-overlay'>
-            <div className='card-body w-100 h-100 d-flex align-items-center'>
-              <div className='row justify-content-center w-75'>
-                <div className='col align-items-center d-block my-auto'>
-                  <DonationsMeter />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DonationsMeter />
       </Section>
       <Section pos='middle'>
         <AdCrawl />

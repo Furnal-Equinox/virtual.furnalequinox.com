@@ -399,6 +399,32 @@ legend {
 
 //================================================================================================//
 
+// Progress Bars
+
+.progress-larger {
+  height: 0.5rem;
+}
+
+@include media-breakpoint-up(sm) {
+  .progress-larger {
+    height: 0.75rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .progress-larger {
+    height: 1rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .progress-larger {
+    height: 1.5rem;
+  }
+}
+
+//================================================================================================//
+
 // Tables
 
 table {
