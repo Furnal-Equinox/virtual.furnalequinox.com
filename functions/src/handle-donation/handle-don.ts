@@ -107,7 +107,7 @@ const handleDonation = async (
     })
 
     const doesDonorExist: boolean = await faunaClient.query<boolean>(
-      q.Exists(q.Match(q.Index('getDonorEmailAddress'), emailAddress))
+      q.Exists(q.Match(q.Index('getDonorByEmailAddress'), emailAddress))
     )
 
     if (!doesDonorExist) {
