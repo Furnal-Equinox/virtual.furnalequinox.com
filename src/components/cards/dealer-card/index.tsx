@@ -4,6 +4,8 @@ import { Link } from 'gatsby'
 import { PlaceholderImage } from '../../placeholders'
 import Img, { FluidObject } from 'gatsby-image'
 
+import { isStrEmpty } from '../../../utils/tools'
+
 export interface Dealer {
   title?: string | null | undefined
   dealer?: string | null | undefined
@@ -26,7 +28,7 @@ const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug 
           <div className='row'>
             <div className='col-lg-6'>
               <p className='card-title text-center h2'>
-                {`${title ?? 'Store Name'} by ${dealer ?? 'Dealer'}`}
+                {`${title ?? 'Store Name'}${!isStrEmpty(dealer) ? ` by ${dealer}` : ''}`}
               </p>
             </div>
             <div className='col-lg-6'>

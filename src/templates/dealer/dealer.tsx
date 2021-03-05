@@ -23,6 +23,8 @@ import Button from 'react-bootstrap/Button'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.DealerBySlugQuery
   pageContext: {
@@ -278,17 +280,19 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               title={`Link to the previous dealer, ${prevTitle}`}
               to={`..${prevSlug}`}
               role='button'
-              className='btn btn-primary btn-lg rounded-3'
+              className='btn btn-primary btn rounded-3'
             >
-              {`← ${prevTitle}`}
+              <FontAwesomeIcon icon='angle-left' size='lg' />{' '}
+              {prevTitle}
             </Link>
             <Link
               title={`Link to the next dealer, ${nextTitle}`}
               to={`..${nextSlug}`}
               role='button'
-              className='btn btn-primary btn-lg rounded-3'
+              className='btn btn-primary btn rounded-3'
             >
-              {`${nextTitle} →`}
+              {nextTitle}
+              {' '}<FontAwesomeIcon icon='angle-right' size='lg' />
             </Link>
           </div>
         </TextCard>
