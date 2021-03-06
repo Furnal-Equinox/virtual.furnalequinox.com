@@ -30,7 +30,10 @@ export { default as Meta } from './meta'
 export { FakeNavbar } from './navbars'
 export { LogoNavbar } from './navbars'
 export { MainNavbar } from './navbars'
-export * as ResponsivePlayer from './responsive-player'
+export { 
+  Vimeo as ResponsiveVimeoPlayer,
+  YouTube as ResponsiveYouTubePlayer
+} from './responsive-player'
 export { default as SearchBar } from './search-bar'
 export type { SearchParams } from './search-bar'
 export { default as SocialLinks } from './social-links'

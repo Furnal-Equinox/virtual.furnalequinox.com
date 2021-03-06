@@ -8,7 +8,7 @@ import {
   AdCrawl,
   DonationsMeter,
   Meta,
-  ResponsivePlayer,
+  ResponsiveVimeoPlayer,
   TextCard
 } from '../../components'
 

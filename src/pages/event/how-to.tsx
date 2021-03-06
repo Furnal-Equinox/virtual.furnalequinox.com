@@ -7,7 +7,7 @@ import {
   DealerCard,
   Jumbotron,
   Meta,
-  ResponsivePlayer,
+  ResponsiveYouTubePlayer,
   TextCard
 } from '../../components'
 
@@ -51,7 +51,7 @@ const HowToContent: React.FC<Props> = ({ location }: Props) => {
       </Section>
       {/*<Section isContainer isTextCenter pos='middle'>
         <TextCard>
-          <ResponsivePlayer.YouTube url='https://youtu.be/p9hEg4u2fxE' />
+          <ResponsiveYouTubePlayer url='https://youtu.be/p9hEg4u2fxE' />
         </TextCard>
       </Section>*/}
     </>
