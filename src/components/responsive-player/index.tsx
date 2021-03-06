@@ -1,15 +1,16 @@
 import React from 'react'
-import ReactPlayer from 'react-player/vimeo'
+import ReactVimeoPlayer from 'react-player/vimeo'
+import ReactYouTubePlayer from 'react-player/youtube'
 import './style.scss'
 
 export interface Props {
   url: string
 }
 
-const ResponsivePlayer: React.FC<Props> = ({ url }: Props) => {
+export const Vimeo: React.FC<Props> = ({ url }: Props) => {
   return (
     <div className='player-wrapper'>
-      <ReactPlayer
+      <ReactVimeoPlayer
         className='react-player'
         url={url}
         width='100%'
@@ -20,4 +21,16 @@ const ResponsivePlayer: React.FC<Props> = ({ url }: Props) => {
   )
 }
 
-export default ResponsivePlayer
+export const YouTube: React.FC<Props> = ({ url }: Props) => {
+  return (
+    <div className='player-wrapper'>
+      <ReactYouTubePlayer
+        className='react-player'
+        url={url}
+        width='100%'
+        height='100%'
+        controls
+      />
+    </div>
+  )
+}
