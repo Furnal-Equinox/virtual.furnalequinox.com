@@ -4,13 +4,15 @@ import ReactYouTubePlayer from 'react-player/youtube'
 import './style.scss'
 
 export interface Props {
+  title: string
   url: string
 }
 
-export const Vimeo: React.FC<Props> = ({ url }: Props) => {
+export const Vimeo: React.FC<Props> = ({ url, title }: Props) => {
   return (
     <div className='player-wrapper'>
       <ReactVimeoPlayer
+        title={title}
         className='react-player'
         url={url}
         width='100%'
@@ -21,10 +23,11 @@ export const Vimeo: React.FC<Props> = ({ url }: Props) => {
   )
 }
 
-export const YouTube: React.FC<Props> = ({ url }: Props) => {
+export const YouTube: React.FC<Props> = ({ url, title }: Props) => {
   return (
     <div className='player-wrapper'>
       <ReactYouTubePlayer
+        title={title}
         className='react-player'
         url={url}
         width='100%'

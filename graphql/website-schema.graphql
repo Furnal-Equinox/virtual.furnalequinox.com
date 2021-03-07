@@ -838,23 +838,17 @@ enum FileFieldsEnum {
   childrenMarkdownRemark
   childrenMarkdownRemark___id
   childrenMarkdownRemark___frontmatter___title
-  childrenMarkdownRemark___frontmatter___date
   childrenMarkdownRemark___frontmatter___layout
-  childrenMarkdownRemark___frontmatter___path
-  childrenMarkdownRemark___frontmatter___description
-  childrenMarkdownRemark___frontmatter___category
-  childrenMarkdownRemark___frontmatter___tags
   childrenMarkdownRemark___frontmatter___dealer
   childrenMarkdownRemark___frontmatter___kind
   childrenMarkdownRemark___frontmatter___isAdult
   childrenMarkdownRemark___frontmatter___isPremium
+  childrenMarkdownRemark___frontmatter___description
   childrenMarkdownRemark___frontmatter___keywords
   childrenMarkdownRemark___frontmatter___url
   childrenMarkdownRemark___frontmatter___banner___desc
   childrenMarkdownRemark___frontmatter___images
   childrenMarkdownRemark___frontmatter___images___desc
-  childrenMarkdownRemark___frontmatter___gifs
-  childrenMarkdownRemark___frontmatter___gifs___desc
   childrenMarkdownRemark___frontmatter___social___behance
   childrenMarkdownRemark___frontmatter___social___deviantart
   childrenMarkdownRemark___frontmatter___social___discord
@@ -873,6 +867,8 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___social___twitter
   childrenMarkdownRemark___frontmatter___social___youtube
   childrenMarkdownRemark___frontmatter___social___patreon
+  childrenMarkdownRemark___frontmatter___gifs
+  childrenMarkdownRemark___frontmatter___gifs___desc
   childrenMarkdownRemark___frontmatter___streaming___friday
   childrenMarkdownRemark___frontmatter___streaming___saturday
   childrenMarkdownRemark___frontmatter___streaming___sunday
@@ -916,8 +912,12 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___image___id
   childrenMarkdownRemark___frontmatter___image___children
   childrenMarkdownRemark___frontmatter___desc
-  childrenMarkdownRemark___frontmatter___limited
   childrenMarkdownRemark___frontmatter___staff
+  childrenMarkdownRemark___frontmatter___date
+  childrenMarkdownRemark___frontmatter___path
+  childrenMarkdownRemark___frontmatter___category
+  childrenMarkdownRemark___frontmatter___tags
+  childrenMarkdownRemark___frontmatter___limited
   childrenMarkdownRemark___excerpt @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childrenMarkdownRemark___rawMarkdownBody @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childrenMarkdownRemark___fileAbsolutePath @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -973,23 +973,17 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childMarkdownRemark___id
   childMarkdownRemark___frontmatter___title
-  childMarkdownRemark___frontmatter___date
   childMarkdownRemark___frontmatter___layout
-  childMarkdownRemark___frontmatter___path
-  childMarkdownRemark___frontmatter___description
-  childMarkdownRemark___frontmatter___category
-  childMarkdownRemark___frontmatter___tags
   childMarkdownRemark___frontmatter___dealer
   childMarkdownRemark___frontmatter___kind
   childMarkdownRemark___frontmatter___isAdult
   childMarkdownRemark___frontmatter___isPremium
+  childMarkdownRemark___frontmatter___description
   childMarkdownRemark___frontmatter___keywords
   childMarkdownRemark___frontmatter___url
   childMarkdownRemark___frontmatter___banner___desc
   childMarkdownRemark___frontmatter___images
   childMarkdownRemark___frontmatter___images___desc
-  childMarkdownRemark___frontmatter___gifs
-  childMarkdownRemark___frontmatter___gifs___desc
   childMarkdownRemark___frontmatter___social___behance
   childMarkdownRemark___frontmatter___social___deviantart
   childMarkdownRemark___frontmatter___social___discord
@@ -1008,6 +1002,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___social___twitter
   childMarkdownRemark___frontmatter___social___youtube
   childMarkdownRemark___frontmatter___social___patreon
+  childMarkdownRemark___frontmatter___gifs
+  childMarkdownRemark___frontmatter___gifs___desc
   childMarkdownRemark___frontmatter___streaming___friday
   childMarkdownRemark___frontmatter___streaming___saturday
   childMarkdownRemark___frontmatter___streaming___sunday
@@ -1051,8 +1047,12 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___image___id
   childMarkdownRemark___frontmatter___image___children
   childMarkdownRemark___frontmatter___desc
-  childMarkdownRemark___frontmatter___limited
   childMarkdownRemark___frontmatter___staff
+  childMarkdownRemark___frontmatter___date
+  childMarkdownRemark___frontmatter___path
+  childMarkdownRemark___frontmatter___category
+  childMarkdownRemark___frontmatter___tags
+  childMarkdownRemark___frontmatter___limited
   childMarkdownRemark___excerpt @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childMarkdownRemark___rawMarkdownBody @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childMarkdownRemark___fileAbsolutePath @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2074,16 +2074,12 @@ type MarkdownRemarkFields {
 enum MarkdownRemarkFieldsEnum {
   id
   frontmatter___title
-  frontmatter___date
   frontmatter___layout
-  frontmatter___path
-  frontmatter___description
-  frontmatter___category
-  frontmatter___tags
   frontmatter___dealer
   frontmatter___kind
   frontmatter___isAdult
   frontmatter___isPremium
+  frontmatter___description
   frontmatter___keywords
   frontmatter___url
   frontmatter___banner___imgFile___sourceInstanceName
@@ -2165,6 +2161,24 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___images___imgFile___id
   frontmatter___images___imgFile___children
   frontmatter___images___desc
+  frontmatter___social___behance
+  frontmatter___social___deviantart
+  frontmatter___social___discord
+  frontmatter___social___etsy
+  frontmatter___social___facebook
+  frontmatter___social___flickr
+  frontmatter___social___furaffinity
+  frontmatter___social___github
+  frontmatter___social___instagram
+  frontmatter___social___picarto
+  frontmatter___social___pinterest
+  frontmatter___social___steam
+  frontmatter___social___telegram
+  frontmatter___social___tumblr
+  frontmatter___social___twitch
+  frontmatter___social___twitter
+  frontmatter___social___youtube
+  frontmatter___social___patreon
   frontmatter___gifs
   frontmatter___gifs___imgFile___sourceInstanceName
   frontmatter___gifs___imgFile___absolutePath
@@ -2205,24 +2219,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___gifs___imgFile___id
   frontmatter___gifs___imgFile___children
   frontmatter___gifs___desc
-  frontmatter___social___behance
-  frontmatter___social___deviantart
-  frontmatter___social___discord
-  frontmatter___social___etsy
-  frontmatter___social___facebook
-  frontmatter___social___flickr
-  frontmatter___social___furaffinity
-  frontmatter___social___github
-  frontmatter___social___instagram
-  frontmatter___social___picarto
-  frontmatter___social___pinterest
-  frontmatter___social___steam
-  frontmatter___social___telegram
-  frontmatter___social___tumblr
-  frontmatter___social___twitch
-  frontmatter___social___twitter
-  frontmatter___social___youtube
-  frontmatter___social___patreon
   frontmatter___streaming___friday
   frontmatter___streaming___friday___start
   frontmatter___streaming___friday___end
@@ -2312,8 +2308,12 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___image___internal___owner
   frontmatter___image___internal___type
   frontmatter___desc
-  frontmatter___limited
   frontmatter___staff
+  frontmatter___date
+  frontmatter___path
+  frontmatter___category
+  frontmatter___tags
+  frontmatter___limited
   excerpt @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   rawMarkdownBody @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   fileAbsolutePath @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2446,6 +2446,23 @@ input MarkdownRemarkFilterListInput {
 
 type MarkdownRemarkFrontmatter {
   title: String
+  layout: String
+  dealer: String
+  kind: String
+  isAdult: Boolean
+  isPremium: Boolean
+  description: String
+  keywords: [String]
+  url: String
+  banner: MarkdownRemarkFrontmatterBanner
+  images: [MarkdownRemarkFrontmatterImages]
+  social: MarkdownRemarkFrontmatterSocial
+  gifs: [MarkdownRemarkFrontmatterGifs]
+  streaming: MarkdownRemarkFrontmatterStreaming
+  artist: String
+  image: File
+  desc: String
+  staff: [String]
   date(
     # Format the date using Moment.js' date tokens, e.g. `date(formatString: "YYYY
     # MMMM DD")`. See https://momentjs.com/docs/#/displaying/format/ for
@@ -2463,27 +2480,10 @@ type MarkdownRemarkFrontmatter {
     # Configures the locale Moment.js will use to format the date.
     locale: String
   ): Date
-  layout: String
   path: String
-  description: String
   category: String
   tags: [String]
-  dealer: String
-  kind: String
-  isAdult: Boolean
-  isPremium: Boolean
-  keywords: [String]
-  url: String
-  banner: MarkdownRemarkFrontmatterBanner
-  images: [MarkdownRemarkFrontmatterImages]
-  gifs: [MarkdownRemarkFrontmatterGifs]
-  social: MarkdownRemarkFrontmatterSocial
-  streaming: MarkdownRemarkFrontmatterStreaming
-  artist: String
-  image: File
-  desc: String
   limited: Boolean
-  staff: [String]
 }
 
 type MarkdownRemarkFrontmatterBanner {
@@ -2498,28 +2498,28 @@ input MarkdownRemarkFrontmatterBannerFilterInput {
 
 input MarkdownRemarkFrontmatterFilterInput {
   title: StringQueryOperatorInput
-  date: DateQueryOperatorInput
   layout: StringQueryOperatorInput
-  path: StringQueryOperatorInput
-  description: StringQueryOperatorInput
-  category: StringQueryOperatorInput
-  tags: StringQueryOperatorInput
   dealer: StringQueryOperatorInput
   kind: StringQueryOperatorInput
   isAdult: BooleanQueryOperatorInput
   isPremium: BooleanQueryOperatorInput
+  description: StringQueryOperatorInput
   keywords: StringQueryOperatorInput
   url: StringQueryOperatorInput
   banner: MarkdownRemarkFrontmatterBannerFilterInput
   images: MarkdownRemarkFrontmatterImagesFilterListInput
-  gifs: MarkdownRemarkFrontmatterGifsFilterListInput
   social: MarkdownRemarkFrontmatterSocialFilterInput
+  gifs: MarkdownRemarkFrontmatterGifsFilterListInput
   streaming: MarkdownRemarkFrontmatterStreamingFilterInput
   artist: StringQueryOperatorInput
   image: FileFilterInput
   desc: StringQueryOperatorInput
-  limited: BooleanQueryOperatorInput
   staff: StringQueryOperatorInput
+  date: DateQueryOperatorInput
+  path: StringQueryOperatorInput
+  category: StringQueryOperatorInput
+  tags: StringQueryOperatorInput
+  limited: BooleanQueryOperatorInput
 }
 
 type MarkdownRemarkFrontmatterGifs {
@@ -2732,7 +2732,7 @@ type Query {
   allFile(filter: FileFilterInput, sort: FileSortInput, skip: Int, limit: Int): FileConnection!
   directory(sourceInstanceName: StringQueryOperatorInput, absolutePath: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, extension: StringQueryOperatorInput, size: IntQueryOperatorInput, prettySize: StringQueryOperatorInput, modifiedTime: DateQueryOperatorInput, accessTime: DateQueryOperatorInput, changeTime: DateQueryOperatorInput, birthTime: DateQueryOperatorInput, root: StringQueryOperatorInput, dir: StringQueryOperatorInput, base: StringQueryOperatorInput, ext: StringQueryOperatorInput, name: StringQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, dev: IntQueryOperatorInput, mode: IntQueryOperatorInput, nlink: IntQueryOperatorInput, uid: IntQueryOperatorInput, gid: IntQueryOperatorInput, rdev: IntQueryOperatorInput, ino: FloatQueryOperatorInput, atimeMs: FloatQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, atime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, ctime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Directory
   allDirectory(filter: DirectoryFilterInput, sort: DirectorySortInput, skip: Int, limit: Int): DirectoryConnection!
-  site(buildTime: DateQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Site
+  site(buildTime: DateQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, port: IntQueryOperatorInput, host: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Site
   allSite(filter: SiteFilterInput, sort: SiteSortInput, skip: Int, limit: Int): SiteConnection!
   sitePage(path: StringQueryOperatorInput, component: StringQueryOperatorInput, internalComponentName: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, matchPath: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, context: SitePageContextFilterInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput, componentPath: StringQueryOperatorInput): SitePage
   allSitePage(filter: SitePageFilterInput, sort: SitePageSortInput, skip: Int, limit: Int): SitePageConnection!
@@ -2767,6 +2767,8 @@ type Site implements Node {
     locale: String
   ): Date
   siteMetadata: SiteSiteMetadata
+  port: Int
+  host: String
   polyfill: Boolean
   pathPrefix: String
   id: ID!
@@ -2948,6 +2950,8 @@ enum SiteFieldsEnum {
   siteMetadata___author___name
   siteMetadata___siteUrl
   siteMetadata___logo
+  port
+  host
   polyfill
   pathPrefix
   id
@@ -3041,6 +3045,8 @@ enum SiteFieldsEnum {
 input SiteFilterInput {
   buildTime: DateQueryOperatorInput
   siteMetadata: SiteSiteMetadataFilterInput
+  port: IntQueryOperatorInput
+  host: StringQueryOperatorInput
   polyfill: BooleanQueryOperatorInput
   pathPrefix: StringQueryOperatorInput
   id: StringQueryOperatorInput

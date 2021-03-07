@@ -725,23 +725,17 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
-  | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.layout'
-  | 'childrenMarkdownRemark.frontmatter.path'
-  | 'childrenMarkdownRemark.frontmatter.description'
-  | 'childrenMarkdownRemark.frontmatter.category'
-  | 'childrenMarkdownRemark.frontmatter.tags'
   | 'childrenMarkdownRemark.frontmatter.dealer'
   | 'childrenMarkdownRemark.frontmatter.kind'
   | 'childrenMarkdownRemark.frontmatter.isAdult'
   | 'childrenMarkdownRemark.frontmatter.isPremium'
+  | 'childrenMarkdownRemark.frontmatter.description'
   | 'childrenMarkdownRemark.frontmatter.keywords'
   | 'childrenMarkdownRemark.frontmatter.url'
   | 'childrenMarkdownRemark.frontmatter.banner.desc'
   | 'childrenMarkdownRemark.frontmatter.images'
   | 'childrenMarkdownRemark.frontmatter.images.desc'
-  | 'childrenMarkdownRemark.frontmatter.gifs'
-  | 'childrenMarkdownRemark.frontmatter.gifs.desc'
   | 'childrenMarkdownRemark.frontmatter.social.behance'
   | 'childrenMarkdownRemark.frontmatter.social.deviantart'
   | 'childrenMarkdownRemark.frontmatter.social.discord'
@@ -760,6 +754,8 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.social.twitter'
   | 'childrenMarkdownRemark.frontmatter.social.youtube'
   | 'childrenMarkdownRemark.frontmatter.social.patreon'
+  | 'childrenMarkdownRemark.frontmatter.gifs'
+  | 'childrenMarkdownRemark.frontmatter.gifs.desc'
   | 'childrenMarkdownRemark.frontmatter.streaming.friday'
   | 'childrenMarkdownRemark.frontmatter.streaming.saturday'
   | 'childrenMarkdownRemark.frontmatter.streaming.sunday'
@@ -803,8 +799,12 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.image.id'
   | 'childrenMarkdownRemark.frontmatter.image.children'
   | 'childrenMarkdownRemark.frontmatter.desc'
-  | 'childrenMarkdownRemark.frontmatter.limited'
   | 'childrenMarkdownRemark.frontmatter.staff'
+  | 'childrenMarkdownRemark.frontmatter.date'
+  | 'childrenMarkdownRemark.frontmatter.path'
+  | 'childrenMarkdownRemark.frontmatter.category'
+  | 'childrenMarkdownRemark.frontmatter.tags'
+  | 'childrenMarkdownRemark.frontmatter.limited'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -860,23 +860,17 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
-  | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.layout'
-  | 'childMarkdownRemark.frontmatter.path'
-  | 'childMarkdownRemark.frontmatter.description'
-  | 'childMarkdownRemark.frontmatter.category'
-  | 'childMarkdownRemark.frontmatter.tags'
   | 'childMarkdownRemark.frontmatter.dealer'
   | 'childMarkdownRemark.frontmatter.kind'
   | 'childMarkdownRemark.frontmatter.isAdult'
   | 'childMarkdownRemark.frontmatter.isPremium'
+  | 'childMarkdownRemark.frontmatter.description'
   | 'childMarkdownRemark.frontmatter.keywords'
   | 'childMarkdownRemark.frontmatter.url'
   | 'childMarkdownRemark.frontmatter.banner.desc'
   | 'childMarkdownRemark.frontmatter.images'
   | 'childMarkdownRemark.frontmatter.images.desc'
-  | 'childMarkdownRemark.frontmatter.gifs'
-  | 'childMarkdownRemark.frontmatter.gifs.desc'
   | 'childMarkdownRemark.frontmatter.social.behance'
   | 'childMarkdownRemark.frontmatter.social.deviantart'
   | 'childMarkdownRemark.frontmatter.social.discord'
@@ -895,6 +889,8 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.social.twitter'
   | 'childMarkdownRemark.frontmatter.social.youtube'
   | 'childMarkdownRemark.frontmatter.social.patreon'
+  | 'childMarkdownRemark.frontmatter.gifs'
+  | 'childMarkdownRemark.frontmatter.gifs.desc'
   | 'childMarkdownRemark.frontmatter.streaming.friday'
   | 'childMarkdownRemark.frontmatter.streaming.saturday'
   | 'childMarkdownRemark.frontmatter.streaming.sunday'
@@ -938,8 +934,12 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.image.id'
   | 'childMarkdownRemark.frontmatter.image.children'
   | 'childMarkdownRemark.frontmatter.desc'
-  | 'childMarkdownRemark.frontmatter.limited'
   | 'childMarkdownRemark.frontmatter.staff'
+  | 'childMarkdownRemark.frontmatter.date'
+  | 'childMarkdownRemark.frontmatter.path'
+  | 'childMarkdownRemark.frontmatter.category'
+  | 'childMarkdownRemark.frontmatter.tags'
+  | 'childMarkdownRemark.frontmatter.limited'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -2012,16 +2012,12 @@ type MarkdownRemarkFields = {
 type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.title'
-  | 'frontmatter.date'
   | 'frontmatter.layout'
-  | 'frontmatter.path'
-  | 'frontmatter.description'
-  | 'frontmatter.category'
-  | 'frontmatter.tags'
   | 'frontmatter.dealer'
   | 'frontmatter.kind'
   | 'frontmatter.isAdult'
   | 'frontmatter.isPremium'
+  | 'frontmatter.description'
   | 'frontmatter.keywords'
   | 'frontmatter.url'
   | 'frontmatter.banner.imgFile.sourceInstanceName'
@@ -2103,6 +2099,24 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.images.imgFile.id'
   | 'frontmatter.images.imgFile.children'
   | 'frontmatter.images.desc'
+  | 'frontmatter.social.behance'
+  | 'frontmatter.social.deviantart'
+  | 'frontmatter.social.discord'
+  | 'frontmatter.social.etsy'
+  | 'frontmatter.social.facebook'
+  | 'frontmatter.social.flickr'
+  | 'frontmatter.social.furaffinity'
+  | 'frontmatter.social.github'
+  | 'frontmatter.social.instagram'
+  | 'frontmatter.social.picarto'
+  | 'frontmatter.social.pinterest'
+  | 'frontmatter.social.steam'
+  | 'frontmatter.social.telegram'
+  | 'frontmatter.social.tumblr'
+  | 'frontmatter.social.twitch'
+  | 'frontmatter.social.twitter'
+  | 'frontmatter.social.youtube'
+  | 'frontmatter.social.patreon'
   | 'frontmatter.gifs'
   | 'frontmatter.gifs.imgFile.sourceInstanceName'
   | 'frontmatter.gifs.imgFile.absolutePath'
@@ -2143,24 +2157,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.gifs.imgFile.id'
   | 'frontmatter.gifs.imgFile.children'
   | 'frontmatter.gifs.desc'
-  | 'frontmatter.social.behance'
-  | 'frontmatter.social.deviantart'
-  | 'frontmatter.social.discord'
-  | 'frontmatter.social.etsy'
-  | 'frontmatter.social.facebook'
-  | 'frontmatter.social.flickr'
-  | 'frontmatter.social.furaffinity'
-  | 'frontmatter.social.github'
-  | 'frontmatter.social.instagram'
-  | 'frontmatter.social.picarto'
-  | 'frontmatter.social.pinterest'
-  | 'frontmatter.social.steam'
-  | 'frontmatter.social.telegram'
-  | 'frontmatter.social.tumblr'
-  | 'frontmatter.social.twitch'
-  | 'frontmatter.social.twitter'
-  | 'frontmatter.social.youtube'
-  | 'frontmatter.social.patreon'
   | 'frontmatter.streaming.friday'
   | 'frontmatter.streaming.friday.start'
   | 'frontmatter.streaming.friday.end'
@@ -2250,8 +2246,12 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.image.internal.owner'
   | 'frontmatter.image.internal.type'
   | 'frontmatter.desc'
-  | 'frontmatter.limited'
   | 'frontmatter.staff'
+  | 'frontmatter.date'
+  | 'frontmatter.path'
+  | 'frontmatter.category'
+  | 'frontmatter.tags'
+  | 'frontmatter.limited'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -2383,28 +2383,28 @@ type MarkdownRemarkFilterListInput = {
 
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
-  readonly date: Maybe<Scalars['Date']>;
   readonly layout: Maybe<Scalars['String']>;
-  readonly path: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly category: Maybe<Scalars['String']>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly dealer: Maybe<Scalars['String']>;
   readonly kind: Maybe<Scalars['String']>;
   readonly isAdult: Maybe<Scalars['Boolean']>;
   readonly isPremium: Maybe<Scalars['Boolean']>;
+  readonly description: Maybe<Scalars['String']>;
   readonly keywords: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly url: Maybe<Scalars['String']>;
   readonly banner: Maybe<MarkdownRemarkFrontmatterBanner>;
   readonly images: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterImages>>>;
-  readonly gifs: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterGifs>>>;
   readonly social: Maybe<MarkdownRemarkFrontmatterSocial>;
+  readonly gifs: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterGifs>>>;
   readonly streaming: Maybe<MarkdownRemarkFrontmatterStreaming>;
   readonly artist: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
   readonly desc: Maybe<Scalars['String']>;
-  readonly limited: Maybe<Scalars['Boolean']>;
   readonly staff: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly date: Maybe<Scalars['Date']>;
+  readonly path: Maybe<Scalars['String']>;
+  readonly category: Maybe<Scalars['String']>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly limited: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -2427,28 +2427,28 @@ type MarkdownRemarkFrontmatterBannerFilterInput = {
 
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
-  readonly date: Maybe<DateQueryOperatorInput>;
   readonly layout: Maybe<StringQueryOperatorInput>;
-  readonly path: Maybe<StringQueryOperatorInput>;
-  readonly description: Maybe<StringQueryOperatorInput>;
-  readonly category: Maybe<StringQueryOperatorInput>;
-  readonly tags: Maybe<StringQueryOperatorInput>;
   readonly dealer: Maybe<StringQueryOperatorInput>;
   readonly kind: Maybe<StringQueryOperatorInput>;
   readonly isAdult: Maybe<BooleanQueryOperatorInput>;
   readonly isPremium: Maybe<BooleanQueryOperatorInput>;
+  readonly description: Maybe<StringQueryOperatorInput>;
   readonly keywords: Maybe<StringQueryOperatorInput>;
   readonly url: Maybe<StringQueryOperatorInput>;
   readonly banner: Maybe<MarkdownRemarkFrontmatterBannerFilterInput>;
   readonly images: Maybe<MarkdownRemarkFrontmatterImagesFilterListInput>;
-  readonly gifs: Maybe<MarkdownRemarkFrontmatterGifsFilterListInput>;
   readonly social: Maybe<MarkdownRemarkFrontmatterSocialFilterInput>;
+  readonly gifs: Maybe<MarkdownRemarkFrontmatterGifsFilterListInput>;
   readonly streaming: Maybe<MarkdownRemarkFrontmatterStreamingFilterInput>;
   readonly artist: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
   readonly desc: Maybe<StringQueryOperatorInput>;
-  readonly limited: Maybe<BooleanQueryOperatorInput>;
   readonly staff: Maybe<StringQueryOperatorInput>;
+  readonly date: Maybe<DateQueryOperatorInput>;
+  readonly path: Maybe<StringQueryOperatorInput>;
+  readonly category: Maybe<StringQueryOperatorInput>;
+  readonly tags: Maybe<StringQueryOperatorInput>;
+  readonly limited: Maybe<BooleanQueryOperatorInput>;
 };
 
 type MarkdownRemarkFrontmatterGifs = {
@@ -2783,6 +2783,8 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  port: Maybe<IntQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -2943,6 +2945,8 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -3147,6 +3151,8 @@ type SiteFieldsEnum =
   | 'siteMetadata.author.name'
   | 'siteMetadata.siteUrl'
   | 'siteMetadata.logo'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3239,6 +3245,8 @@ type SiteFieldsEnum =
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  readonly port: Maybe<IntQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -4357,94 +4365,54 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
-type AdCrawlQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type PostBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
 
 
-type AdCrawlQueryQuery = { readonly remark: { readonly dealers: ReadonlyArray<{ readonly dealer: (
-        Pick<MarkdownRemark, 'id'>
-        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'title'>
-          & { readonly gifs: Maybe<ReadonlyArray<Maybe<(
-            Pick<MarkdownRemarkFrontmatterGifs, 'desc'>
-            & { readonly imgFile: Maybe<Pick<File, 'publicURL'>> }
-          )>>> }
-        )> }
-      ) }> } };
+type PostBySlugQuery = { readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'html'>
+    & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+      Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'date' | 'category' | 'tags'>
+      & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+    )> }
+  )> };
 
-type DealersIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type DealerBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
 
 
-type DealersIndexQueryQuery = { readonly localSearchDealersSfw: Maybe<Pick<LocalSearchDealersSfw, 'index' | 'store'>>, readonly remark: { readonly group: ReadonlyArray<(
-      Pick<MarkdownRemarkGroupConnection, 'fieldValue'>
-      & { readonly dealers: ReadonlyArray<{ readonly dealer: (
-          Pick<MarkdownRemark, 'id'>
-          & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-            Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'isPremium'>
-            & { readonly banner: Maybe<{ readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }> }
-          )> }
-        ) }> }
-    )> } };
+type DealerBySlugQuery = { readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'html'>
+    & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+      Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'url'>
+      & { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'deviantart' | 'facebook' | 'flickr' | 'furaffinity' | 'picarto' | 'twitter' | 'behance' | 'discord' | 'etsy' | 'github' | 'instagram' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'youtube'>>, readonly streaming: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingFriday, 'start' | 'end'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSaturday, 'start' | 'end'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSunday, 'start' | 'end'>>>> }>, readonly banner: Maybe<(
+        Pick<MarkdownRemarkFrontmatterBanner, 'desc'>
+        & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+      )>, readonly images: Maybe<ReadonlyArray<Maybe<(
+        Pick<MarkdownRemarkFrontmatterImages, 'desc'>
+        & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+      )>>> }
+    )> }
+  )> };
+
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 type NotFoundQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type NotFoundQueryQuery = { readonly marty404: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
-type ConStoreQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ConStoreQueryQuery = { readonly remark: { readonly group: ReadonlyArray<(
-      Pick<MarkdownRemarkGroupConnection, 'fieldValue'>
-      & { readonly products: ReadonlyArray<{ readonly product: (
-          Pick<MarkdownRemark, 'id'>
-          & { readonly frontmatter: Maybe<(
-            Pick<MarkdownRemarkFrontmatter, 'title' | 'url' | 'limited' | 'desc'>
-            & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-          )> }
-        ) }> }
-    )> } };
-
-type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
-type GalleryQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type GalleryQueryQuery = { readonly remark: { readonly artworks: ReadonlyArray<{ readonly artwork: (
-        Pick<MarkdownRemark, 'id'>
-        & { readonly frontmatter: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'title' | 'artist' | 'url' | 'desc'>
-          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-        )> }
-      ) }> } };
-
-type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HomeQueryQuery = { readonly martySkateboard: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
-type NewsQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type NewsQueryQuery = { readonly remark: { readonly posts: ReadonlyArray<{ readonly post: (
-        Pick<MarkdownRemark, 'html'>
-        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'layout' | 'title' | 'path' | 'category' | 'tags' | 'description' | 'date'>
-          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-        )> }
-      ) }> } };
-
 type LoginQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type LoginQueryQuery = { readonly pixelBanner: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
-type LivestreamQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type LivestreamQueryQuery = { readonly martyPlaceholder: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type InfoQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4468,37 +4436,89 @@ type SampleDealerQuery = { readonly markdownRemark: Maybe<(
     )> }
   )> };
 
-type DealerBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
+type ConStoreQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type DealerBySlugQuery = { readonly markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'html'>
-    & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-      Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'url'>
-      & { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'deviantart' | 'facebook' | 'flickr' | 'furaffinity' | 'picarto' | 'twitter' | 'behance' | 'discord' | 'etsy' | 'github' | 'instagram' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'youtube'>>, readonly streaming: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingFriday, 'start' | 'end'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSaturday, 'start' | 'end'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSunday, 'start' | 'end'>>>> }>, readonly banner: Maybe<(
-        Pick<MarkdownRemarkFrontmatterBanner, 'desc'>
-        & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-      )>, readonly images: Maybe<ReadonlyArray<Maybe<(
-        Pick<MarkdownRemarkFrontmatterImages, 'desc'>
-        & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-      )>>> }
-    )> }
-  )> };
+type ConStoreQueryQuery = { readonly remark: { readonly group: ReadonlyArray<(
+      Pick<MarkdownRemarkGroupConnection, 'fieldValue'>
+      & { readonly products: ReadonlyArray<{ readonly product: (
+          Pick<MarkdownRemark, 'id'>
+          & { readonly frontmatter: Maybe<(
+            Pick<MarkdownRemarkFrontmatter, 'title' | 'url' | 'limited' | 'desc'>
+            & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+          )> }
+        ) }> }
+    )> } };
 
-type PostBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
+type DealersIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PostBySlugQuery = { readonly markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'html'>
-    & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-      Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'date' | 'category' | 'tags'>
-      & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-    )> }
-  )> };
+type DealersIndexQueryQuery = { readonly localSearchDealersSfw: Maybe<Pick<LocalSearchDealersSfw, 'index' | 'store'>>, readonly remark: { readonly group: ReadonlyArray<(
+      Pick<MarkdownRemarkGroupConnection, 'fieldValue'>
+      & { readonly dealers: ReadonlyArray<{ readonly dealer: (
+          Pick<MarkdownRemark, 'id'>
+          & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+            Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'isPremium'>
+            & { readonly banner: Maybe<{ readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }> }
+          )> }
+        ) }> }
+    )> } };
+
+type GalleryQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type GalleryQueryQuery = { readonly remark: { readonly artworks: ReadonlyArray<{ readonly artwork: (
+        Pick<MarkdownRemark, 'id'>
+        & { readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title' | 'artist' | 'url' | 'desc'>
+          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+        )> }
+      ) }> } };
+
+type HowToQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HowToQueryQuery = { readonly vrChatAvatarPDF: Maybe<Pick<File, 'publicURL'>> };
+
+type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HomeQueryQuery = { readonly martySkateboard: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+
+type LivestreamQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type LivestreamQueryQuery = { readonly martyPlaceholder: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+
+type NewsQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NewsQueryQuery = { readonly remark: { readonly posts: ReadonlyArray<{ readonly post: (
+        Pick<MarkdownRemark, 'html'>
+        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'layout' | 'title' | 'path' | 'category' | 'tags' | 'description' | 'date'>
+          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+        )> }
+      ) }> } };
+
+type AdCrawlQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AdCrawlQueryQuery = { readonly remark: { readonly dealers: ReadonlyArray<{ readonly dealer: (
+        Pick<MarkdownRemark, 'id'>
+        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title'>
+          & { readonly gifs: Maybe<ReadonlyArray<Maybe<(
+            Pick<MarkdownRemarkFrontmatterGifs, 'desc'>
+            & { readonly imgFile: Maybe<Pick<File, 'publicURL'>> }
+          )>>> }
+        )> }
+      ) }> } };
+
+type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type SocialLinksFragment = { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'behance' | 'deviantart' | 'discord' | 'etsy' | 'facebook' | 'furaffinity' | 'github' | 'instagram' | 'patreon' | 'picarto' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'twitter' | 'youtube'>> };
 
@@ -4523,8 +4543,6 @@ type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 't
 type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
 

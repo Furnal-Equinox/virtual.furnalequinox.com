@@ -117,6 +117,7 @@
     "react-hook-form": "^6.15.4",
     "react-icons": "^4.2.0",
     "react-parallax": "^3.2.1",
+    "react-pdf": "^5.2.0",
     "react-player": "^2.9.0",
     "react-responsive-masonry": "2.1.1",
     "react-use-flexsearch": "^0.1.1",

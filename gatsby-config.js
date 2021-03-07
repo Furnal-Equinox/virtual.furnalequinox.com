@@ -142,22 +142,6 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/posts/`,
-        name: 'posts'
-      }
-    },
-
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/images/`,
-        name: 'images'
-      }
-    },
-
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         path: `${__dirname}/content/dealers/`,
         name: 'dealers'
       }
@@ -174,8 +158,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/shop/`,
-        name: 'shop'
+        path: `${__dirname}/content/images/`,
+        name: 'images'
       }
     },
 
@@ -184,6 +168,30 @@ module.exports = {
       options: {
         path: `${__dirname}/content/misc/`,
         name: 'misc'
+      }
+    },
+
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/pdfs/`,
+        name: 'pdfs'
+      }
+    },
+
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/posts/`,
+        name: 'posts'
+      }
+    },
+
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/shop/`,
+        name: 'shop'
       }
     },
 
