@@ -3334,6 +3334,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___directives___connect_src
   pluginCreator___pluginOptions___directives___default_src
   pluginCreator___pluginOptions___directives___font_src
+  pluginCreator___pluginOptions___directives___frame_src
   pluginCreator___pluginOptions___directives___img_src
   pluginCreator___pluginOptions___directives___script_src
   pluginCreator___pluginOptions___directives___style_src
@@ -3609,6 +3610,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___directives___connect_src
   pluginOptions___directives___default_src
   pluginOptions___directives___font_src
+  pluginOptions___directives___frame_src
   pluginOptions___directives___img_src
   pluginOptions___directives___script_src
   pluginOptions___directives___style_src
@@ -3813,6 +3815,7 @@ type SitePluginPluginOptionsDirectives {
   connect_src: String
   default_src: String
   font_src: String
+  frame_src: String
   img_src: String
   script_src: String
   style_src: String
@@ -3822,6 +3825,7 @@ input SitePluginPluginOptionsDirectivesFilterInput {
   connect_src: StringQueryOperatorInput
   default_src: StringQueryOperatorInput
   font_src: StringQueryOperatorInput
+  frame_src: StringQueryOperatorInput
   img_src: StringQueryOperatorInput
   script_src: StringQueryOperatorInput
   style_src: StringQueryOperatorInput

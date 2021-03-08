@@ -49,11 +49,19 @@ export const howToQuery = graphql`
     vrChatAvatarPDF: file(relativePath: { eq: "VRChat-Add-Your-Badge-Tutorial-Script.pdf" }) {
       publicURL
     }
+    badgeAttendeeT1: file(relativePath: { eq: "Badge_T1_Attendee.unitypackage" }) {
+      publicURL
+    }
+    badgeAttendeT2: file(relativePath: { eq: "Badge_T2_Attendee.unitypackage" }) {
+      publicURL
+    }
   }
 `
 
 const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
   const vrChatAvatarPDF = data?.vrChatAvatarPDF
+  const badgeAttendeeT1 = data?.badgeAttendeeT1
+  const badgeAttendeeT2 = data?.badgeAttendeeT2
 
   return (
     <>
@@ -90,6 +98,31 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
           >
             Download transcript
           </a>
+          <div className='row'>
+            <div className='col-lg-6 p-3'>
+              <a
+                title='Click this to download the Type 1 Attendee Badge Unity package!'
+                href={badgeAttendeeT1?.publicURL}
+                className='btn btn-secondary btn-lg rounded-3'
+                download
+              >
+                Attendee Badge, type 1
+              </a>
+            </div>
+            <div className='col-lg-6 p-3'>
+              <a
+                title='Link to the Discord & VR page on this website'
+                href={badgeAttendeeT2?.publicURL}
+                className='btn btn-secondary btn-lg rounded-3'
+              >
+                Attendee Badge, type 2
+              </a>
+            </div>
+          </div>
+          <p className='text-warning'>
+            Looking for the Supporter badge? Hop on Discord{' '}
+            and we'll get you set up with the Supporter role and give you the badge!
+          </p>
         </TextCard>
       </Section>
     </>

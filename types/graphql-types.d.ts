@@ -3546,6 +3546,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.directives.connect_src'
   | 'pluginCreator.pluginOptions.directives.default_src'
   | 'pluginCreator.pluginOptions.directives.font_src'
+  | 'pluginCreator.pluginOptions.directives.frame_src'
   | 'pluginCreator.pluginOptions.directives.img_src'
   | 'pluginCreator.pluginOptions.directives.script_src'
   | 'pluginCreator.pluginOptions.directives.style_src'
@@ -3832,6 +3833,7 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.directives.connect_src'
   | 'pluginOptions.directives.default_src'
   | 'pluginOptions.directives.font_src'
+  | 'pluginOptions.directives.frame_src'
   | 'pluginOptions.directives.img_src'
   | 'pluginOptions.directives.script_src'
   | 'pluginOptions.directives.style_src'
@@ -4027,6 +4029,7 @@ type SitePluginPluginOptionsDirectives = {
   readonly connect_src: Maybe<Scalars['String']>;
   readonly default_src: Maybe<Scalars['String']>;
   readonly font_src: Maybe<Scalars['String']>;
+  readonly frame_src: Maybe<Scalars['String']>;
   readonly img_src: Maybe<Scalars['String']>;
   readonly script_src: Maybe<Scalars['String']>;
   readonly style_src: Maybe<Scalars['String']>;
@@ -4036,6 +4039,7 @@ type SitePluginPluginOptionsDirectivesFilterInput = {
   readonly connect_src: Maybe<StringQueryOperatorInput>;
   readonly default_src: Maybe<StringQueryOperatorInput>;
   readonly font_src: Maybe<StringQueryOperatorInput>;
+  readonly frame_src: Maybe<StringQueryOperatorInput>;
   readonly img_src: Maybe<StringQueryOperatorInput>;
   readonly script_src: Maybe<StringQueryOperatorInput>;
   readonly style_src: Maybe<StringQueryOperatorInput>;
@@ -4478,7 +4482,7 @@ type GalleryQueryQuery = { readonly remark: { readonly artworks: ReadonlyArray<{
 type HowToQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HowToQueryQuery = { readonly vrChatAvatarPDF: Maybe<Pick<File, 'publicURL'>> };
+type HowToQueryQuery = { readonly vrChatAvatarPDF: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeeT1: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeT2: Maybe<Pick<File, 'publicURL'>> };
 
 type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
