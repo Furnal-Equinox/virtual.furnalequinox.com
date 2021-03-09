@@ -736,6 +736,8 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.banner.desc'
   | 'childrenMarkdownRemark.frontmatter.images'
   | 'childrenMarkdownRemark.frontmatter.images.desc'
+  | 'childrenMarkdownRemark.frontmatter.gifs'
+  | 'childrenMarkdownRemark.frontmatter.gifs.desc'
   | 'childrenMarkdownRemark.frontmatter.social.behance'
   | 'childrenMarkdownRemark.frontmatter.social.deviantart'
   | 'childrenMarkdownRemark.frontmatter.social.discord'
@@ -754,8 +756,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.social.twitter'
   | 'childrenMarkdownRemark.frontmatter.social.youtube'
   | 'childrenMarkdownRemark.frontmatter.social.patreon'
-  | 'childrenMarkdownRemark.frontmatter.gifs'
-  | 'childrenMarkdownRemark.frontmatter.gifs.desc'
   | 'childrenMarkdownRemark.frontmatter.streaming.friday'
   | 'childrenMarkdownRemark.frontmatter.streaming.saturday'
   | 'childrenMarkdownRemark.frontmatter.streaming.sunday'
@@ -871,6 +871,8 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.banner.desc'
   | 'childMarkdownRemark.frontmatter.images'
   | 'childMarkdownRemark.frontmatter.images.desc'
+  | 'childMarkdownRemark.frontmatter.gifs'
+  | 'childMarkdownRemark.frontmatter.gifs.desc'
   | 'childMarkdownRemark.frontmatter.social.behance'
   | 'childMarkdownRemark.frontmatter.social.deviantart'
   | 'childMarkdownRemark.frontmatter.social.discord'
@@ -889,8 +891,6 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.social.twitter'
   | 'childMarkdownRemark.frontmatter.social.youtube'
   | 'childMarkdownRemark.frontmatter.social.patreon'
-  | 'childMarkdownRemark.frontmatter.gifs'
-  | 'childMarkdownRemark.frontmatter.gifs.desc'
   | 'childMarkdownRemark.frontmatter.streaming.friday'
   | 'childMarkdownRemark.frontmatter.streaming.saturday'
   | 'childMarkdownRemark.frontmatter.streaming.sunday'
@@ -2099,24 +2099,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.images.imgFile.id'
   | 'frontmatter.images.imgFile.children'
   | 'frontmatter.images.desc'
-  | 'frontmatter.social.behance'
-  | 'frontmatter.social.deviantart'
-  | 'frontmatter.social.discord'
-  | 'frontmatter.social.etsy'
-  | 'frontmatter.social.facebook'
-  | 'frontmatter.social.flickr'
-  | 'frontmatter.social.furaffinity'
-  | 'frontmatter.social.github'
-  | 'frontmatter.social.instagram'
-  | 'frontmatter.social.picarto'
-  | 'frontmatter.social.pinterest'
-  | 'frontmatter.social.steam'
-  | 'frontmatter.social.telegram'
-  | 'frontmatter.social.tumblr'
-  | 'frontmatter.social.twitch'
-  | 'frontmatter.social.twitter'
-  | 'frontmatter.social.youtube'
-  | 'frontmatter.social.patreon'
   | 'frontmatter.gifs'
   | 'frontmatter.gifs.imgFile.sourceInstanceName'
   | 'frontmatter.gifs.imgFile.absolutePath'
@@ -2157,6 +2139,24 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.gifs.imgFile.id'
   | 'frontmatter.gifs.imgFile.children'
   | 'frontmatter.gifs.desc'
+  | 'frontmatter.social.behance'
+  | 'frontmatter.social.deviantart'
+  | 'frontmatter.social.discord'
+  | 'frontmatter.social.etsy'
+  | 'frontmatter.social.facebook'
+  | 'frontmatter.social.flickr'
+  | 'frontmatter.social.furaffinity'
+  | 'frontmatter.social.github'
+  | 'frontmatter.social.instagram'
+  | 'frontmatter.social.picarto'
+  | 'frontmatter.social.pinterest'
+  | 'frontmatter.social.steam'
+  | 'frontmatter.social.telegram'
+  | 'frontmatter.social.tumblr'
+  | 'frontmatter.social.twitch'
+  | 'frontmatter.social.twitter'
+  | 'frontmatter.social.youtube'
+  | 'frontmatter.social.patreon'
   | 'frontmatter.streaming.friday'
   | 'frontmatter.streaming.friday.start'
   | 'frontmatter.streaming.friday.end'
@@ -2393,8 +2393,8 @@ type MarkdownRemarkFrontmatter = {
   readonly url: Maybe<Scalars['String']>;
   readonly banner: Maybe<MarkdownRemarkFrontmatterBanner>;
   readonly images: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterImages>>>;
-  readonly social: Maybe<MarkdownRemarkFrontmatterSocial>;
   readonly gifs: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterGifs>>>;
+  readonly social: Maybe<MarkdownRemarkFrontmatterSocial>;
   readonly streaming: Maybe<MarkdownRemarkFrontmatterStreaming>;
   readonly artist: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
@@ -2437,8 +2437,8 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly url: Maybe<StringQueryOperatorInput>;
   readonly banner: Maybe<MarkdownRemarkFrontmatterBannerFilterInput>;
   readonly images: Maybe<MarkdownRemarkFrontmatterImagesFilterListInput>;
-  readonly social: Maybe<MarkdownRemarkFrontmatterSocialFilterInput>;
   readonly gifs: Maybe<MarkdownRemarkFrontmatterGifsFilterListInput>;
+  readonly social: Maybe<MarkdownRemarkFrontmatterSocialFilterInput>;
   readonly streaming: Maybe<MarkdownRemarkFrontmatterStreamingFilterInput>;
   readonly artist: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
@@ -4482,7 +4482,7 @@ type GalleryQueryQuery = { readonly remark: { readonly artworks: ReadonlyArray<{
 type HowToQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HowToQueryQuery = { readonly vrChatAvatarPDF: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeeT1: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeT2: Maybe<Pick<File, 'publicURL'>> };
+type HowToQueryQuery = { readonly vrChatAvatarPDF: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeeT1: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeeT2: Maybe<Pick<File, 'publicURL'>> };
 
 type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

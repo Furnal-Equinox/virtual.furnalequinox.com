@@ -849,6 +849,8 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___banner___desc
   childrenMarkdownRemark___frontmatter___images
   childrenMarkdownRemark___frontmatter___images___desc
+  childrenMarkdownRemark___frontmatter___gifs
+  childrenMarkdownRemark___frontmatter___gifs___desc
   childrenMarkdownRemark___frontmatter___social___behance
   childrenMarkdownRemark___frontmatter___social___deviantart
   childrenMarkdownRemark___frontmatter___social___discord
@@ -867,8 +869,6 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___social___twitter
   childrenMarkdownRemark___frontmatter___social___youtube
   childrenMarkdownRemark___frontmatter___social___patreon
-  childrenMarkdownRemark___frontmatter___gifs
-  childrenMarkdownRemark___frontmatter___gifs___desc
   childrenMarkdownRemark___frontmatter___streaming___friday
   childrenMarkdownRemark___frontmatter___streaming___saturday
   childrenMarkdownRemark___frontmatter___streaming___sunday
@@ -984,6 +984,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___banner___desc
   childMarkdownRemark___frontmatter___images
   childMarkdownRemark___frontmatter___images___desc
+  childMarkdownRemark___frontmatter___gifs
+  childMarkdownRemark___frontmatter___gifs___desc
   childMarkdownRemark___frontmatter___social___behance
   childMarkdownRemark___frontmatter___social___deviantart
   childMarkdownRemark___frontmatter___social___discord
@@ -1002,8 +1004,6 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___social___twitter
   childMarkdownRemark___frontmatter___social___youtube
   childMarkdownRemark___frontmatter___social___patreon
-  childMarkdownRemark___frontmatter___gifs
-  childMarkdownRemark___frontmatter___gifs___desc
   childMarkdownRemark___frontmatter___streaming___friday
   childMarkdownRemark___frontmatter___streaming___saturday
   childMarkdownRemark___frontmatter___streaming___sunday
@@ -2161,24 +2161,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___images___imgFile___id
   frontmatter___images___imgFile___children
   frontmatter___images___desc
-  frontmatter___social___behance
-  frontmatter___social___deviantart
-  frontmatter___social___discord
-  frontmatter___social___etsy
-  frontmatter___social___facebook
-  frontmatter___social___flickr
-  frontmatter___social___furaffinity
-  frontmatter___social___github
-  frontmatter___social___instagram
-  frontmatter___social___picarto
-  frontmatter___social___pinterest
-  frontmatter___social___steam
-  frontmatter___social___telegram
-  frontmatter___social___tumblr
-  frontmatter___social___twitch
-  frontmatter___social___twitter
-  frontmatter___social___youtube
-  frontmatter___social___patreon
   frontmatter___gifs
   frontmatter___gifs___imgFile___sourceInstanceName
   frontmatter___gifs___imgFile___absolutePath
@@ -2219,6 +2201,24 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___gifs___imgFile___id
   frontmatter___gifs___imgFile___children
   frontmatter___gifs___desc
+  frontmatter___social___behance
+  frontmatter___social___deviantart
+  frontmatter___social___discord
+  frontmatter___social___etsy
+  frontmatter___social___facebook
+  frontmatter___social___flickr
+  frontmatter___social___furaffinity
+  frontmatter___social___github
+  frontmatter___social___instagram
+  frontmatter___social___picarto
+  frontmatter___social___pinterest
+  frontmatter___social___steam
+  frontmatter___social___telegram
+  frontmatter___social___tumblr
+  frontmatter___social___twitch
+  frontmatter___social___twitter
+  frontmatter___social___youtube
+  frontmatter___social___patreon
   frontmatter___streaming___friday
   frontmatter___streaming___friday___start
   frontmatter___streaming___friday___end
@@ -2456,8 +2456,8 @@ type MarkdownRemarkFrontmatter {
   url: String
   banner: MarkdownRemarkFrontmatterBanner
   images: [MarkdownRemarkFrontmatterImages]
-  social: MarkdownRemarkFrontmatterSocial
   gifs: [MarkdownRemarkFrontmatterGifs]
+  social: MarkdownRemarkFrontmatterSocial
   streaming: MarkdownRemarkFrontmatterStreaming
   artist: String
   image: File
@@ -2508,8 +2508,8 @@ input MarkdownRemarkFrontmatterFilterInput {
   url: StringQueryOperatorInput
   banner: MarkdownRemarkFrontmatterBannerFilterInput
   images: MarkdownRemarkFrontmatterImagesFilterListInput
-  social: MarkdownRemarkFrontmatterSocialFilterInput
   gifs: MarkdownRemarkFrontmatterGifsFilterListInput
+  social: MarkdownRemarkFrontmatterSocialFilterInput
   streaming: MarkdownRemarkFrontmatterStreamingFilterInput
   artist: StringQueryOperatorInput
   image: FileFilterInput

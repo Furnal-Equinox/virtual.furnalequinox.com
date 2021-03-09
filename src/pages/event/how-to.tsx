@@ -52,7 +52,7 @@ export const howToQuery = graphql`
     badgeAttendeeT1: file(relativePath: { eq: "Badge_T1_Attendee.unitypackage" }) {
       publicURL
     }
-    badgeAttendeT2: file(relativePath: { eq: "Badge_T2_Attendee.unitypackage" }) {
+    badgeAttendeeT2: file(relativePath: { eq: "Badge_T2_Attendee.unitypackage" }) {
       publicURL
     }
   }
@@ -106,7 +106,7 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
                 className='btn btn-secondary btn-lg rounded-3'
                 download
               >
-                Attendee Badge, type 1
+                Attendee Badge, Type 1
               </a>
             </div>
             <div className='col-lg-6 p-3'>
@@ -114,8 +114,9 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
                 title='Link to the Discord & VR page on this website'
                 href={badgeAttendeeT2?.publicURL}
                 className='btn btn-secondary btn-lg rounded-3'
+                download
               >
-                Attendee Badge, type 2
+                Attendee Badge, Type 2
               </a>
             </div>
           </div>
