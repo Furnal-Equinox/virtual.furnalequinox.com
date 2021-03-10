@@ -275,25 +275,31 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
       </Section>
       <Section isContainer>
         <TextCard>
-          <div className='d-flex justify-content-between align-items-center'>
-            <Link
-              title={`Link to the previous dealer, ${prevTitle}`}
-              to={`..${prevSlug}`}
-              role='button'
-              className='btn btn-primary btn rounded-3'
-            >
-              <FontAwesomeIcon icon='angle-left' size='lg' />{' '}
-              {prevTitle}
-            </Link>
-            <Link
-              title={`Link to the next dealer, ${nextTitle}`}
-              to={`..${nextSlug}`}
-              role='button'
-              className='btn btn-primary btn rounded-3'
-            >
-              {nextTitle}
-              {' '}<FontAwesomeIcon icon='angle-right' size='lg' />
-            </Link>
+          <div className='container'>
+            <div className='row justify-content-between'>
+              <div className='col-md-6 p-3'>
+                <Link
+                  title={`Link to the previous dealer, ${prevTitle}`}
+                  to={`..${prevSlug}`}
+                  role='button'
+                  className='btn btn-primary btn-lg rounded-3'
+                >
+                  <FontAwesomeIcon icon='angle-left' size='lg' />{' '}
+                  {prevTitle}
+                </Link>
+              </div>
+              <div className='col-md-6 p-3'>
+                <Link
+                  title={`Link to the next dealer, ${nextTitle}`}
+                  to={`..${nextSlug}`}
+                  role='button'
+                  className='btn btn-primary btn-lg rounded-3'
+                >
+                  {nextTitle}
+                  {' '}<FontAwesomeIcon icon='angle-right' size='lg' />
+                </Link>
+              </div>
+            </div>
           </div>
         </TextCard>
       </Section>
