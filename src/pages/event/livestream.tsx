@@ -59,20 +59,20 @@ export const livestreamQuery = graphql`
 
 const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
   const martyPlaceholder = data?.martyPlaceholder?.childImageSharp?.fluid
-  
+
   return (
     <>
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
         <div className='container'>
           <div className='row'>
-            {martyPlaceholder !== undefined && <Img 
+            {martyPlaceholder !== undefined && <Img
               fluid={martyPlaceholder}
               className='img-fluid'
               alt={[
-                "This image reads",
+                'This image reads',
                 "'The convention is being held March 19, 20, 21.",
                 "Visit www.furnalequinox.com and Furnal Equinox on Twitter.'",
-                "This is the livestream placeholder image featuring Marty in a VR headset."
+                'This is the livestream placeholder image featuring Marty in a VR headset.'
               ].join(' ')}
             />}
           </div>

@@ -5,26 +5,10 @@ Welcome to Pa11y
 
 Results for URL: https://virtual-furnal-equinox.netlify.app/info/
 
- • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
-   ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(3) > div > div > div > div > div > div > div > div:nth-child(1) > div > img
-   └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top">
-
- • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
-   ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(3) > div > div > div > div > div > div > div > div:nth-child(2) > div > img
-   └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top">
-
- • Error: Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.
-   ├── WCAG2AA.Principle1.Guideline1_1.1_1_1.H37
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > section:nth-child(3) > div > div > div > div > div > div > div > div:nth-child(3) > div > img
-   └── <img src="/static/VFE_dealer_banner-88f03cfc2276f74f8f83cfca9e06af12.png" class="card-img-top">
-
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div > div > div:nth-child(1) > div > p
    └── <p><strong>Copyright 2021 Anthropo...</p>
 
-3 Errors
 1 Warnings
 

@@ -42,22 +42,21 @@ const Help: React.FC<Props> = ({ location, navigate }: Props) => {
         </Section>
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
-            {identity.user !== undefined 
+            {identity.user !== undefined
               ? <Link
                   title='Return to the event landing page if you are logged in'
                   to='/event/'
                   className='btn btn-secondary btn-lg rounded-3'
                 >
-                  Return to Event
-                </Link>
+                Return to Event
+              </Link>
               : <Link
                   title='Return to the login page'
                   to='/'
                   className='btn btn-secondary btn-lg rounded-3'
                 >
-                  Return to Login
-                </Link>
-            }
+                Return to Login
+              </Link>}
           </TextCard>
         </Section>
       </div>

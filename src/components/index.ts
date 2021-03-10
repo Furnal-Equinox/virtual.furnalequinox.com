@@ -30,7 +30,7 @@ export { default as Meta } from './meta'
 export { FakeNavbar } from './navbars'
 export { LogoNavbar } from './navbars'
 export { MainNavbar } from './navbars'
-export { 
+export {
   Vimeo as ResponsiveVimeoPlayer,
   YouTube as ResponsiveYouTubePlayer
 } from './responsive-player'

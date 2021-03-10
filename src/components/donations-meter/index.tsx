@@ -66,14 +66,14 @@ const DonationsMeter: React.FC = () => {
 
   return (
     <div className='card rounded-3 border border-primary border-5'>
-      {donationsMeterBG !== undefined && <Img 
+      {donationsMeterBG !== undefined && <Img
         fluid={donationsMeterBG}
         className='img-fluid rounded-3'
         alt={[
-          "This image is the background for the donations meter.",
+          'This image is the background for the donations meter.',
           "It has the words 'Donation Meter' in the top left,",
-          "our donation goal of $6000 in the top right,",
-          "and Marty along the right side grinning and giving two thumbs up!"
+          'our donation goal of $6000 in the top right,',
+          'and Marty along the right side grinning and giving two thumbs up!'
         ].join(' ')}
       />}
       <div className='card-img-overlay p-1 p-md-3'>

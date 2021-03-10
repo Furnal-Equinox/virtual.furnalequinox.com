@@ -18,7 +18,6 @@ interface Props extends RouteComponentProps {
 }
 
 const FakeEvent: React.FC<Props> = ({ children, location }: Props) => {
-
   const socialLinks = {
     data: {
       facebook: config.userLinks.facebook,

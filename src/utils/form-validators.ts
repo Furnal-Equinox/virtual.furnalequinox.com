@@ -80,8 +80,6 @@ const messageSchema = Yup.string()
   .required('Please enter a message.')
   .min(1, 'Your message cannot be empty!')
 
-  
-
 /**
  * The Yup form schema for the sign up form.
  */

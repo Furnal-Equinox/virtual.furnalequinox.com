@@ -33,21 +33,21 @@ export const NavbarLinks: NavLink[] = [
   {
     to: '/event/djs/',
     name: 'DJs',
-    desc: "Link to the DJs page, where you can learn more about our DJs and find links to their websites and social media."
+    desc: 'Link to the DJs page, where you can learn more about our DJs and find links to their websites and social media.'
   },
   {
     to: '/event/how-to/',
     name: 'How-To',
-    desc: "Link to the how to page, where you can learn how to make the most of Discord and VRChat! We have tutorial videos with transcriptions."
+    desc: 'Link to the how to page, where you can learn how to make the most of Discord and VRChat! We have tutorial videos with transcriptions.'
   },
   {
     to: '/info/',
     name: 'Info',
-    desc: "Link to the info page, where you can learn more about our charity, Hobbitstee Wildlife Refuge, find some links to our affiliate Canadian conventions, and credits to our staff."
+    desc: 'Link to the info page, where you can learn more about our charity, Hobbitstee Wildlife Refuge, find some links to our affiliate Canadian conventions, and credits to our staff.'
   },
   {
     to: '/help/',
     name: 'Help',
-    desc: "Link to the help page, where we have a contact form you can use to send us a message."
+    desc: 'Link to the help page, where we have a contact form you can use to send us a message.'
   }
 ]

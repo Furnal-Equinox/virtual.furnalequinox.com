@@ -80,8 +80,8 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
           <ResponsiveYouTubePlayer
             url='https://youtu.be/p9hEg4u2fxE'
             title={[
-              "Our YouTube video tutorial showing you how to setup your own avatar,",
-              "add your badge to it, and upload it to VRChat!"
+              'Our YouTube video tutorial showing you how to setup your own avatar,',
+              'add your badge to it, and upload it to VRChat!'
             ].join(' ')}
           />
           <p className='text-warning'>

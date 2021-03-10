@@ -55,7 +55,7 @@ const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
 
 export default DealersIndex
 
-//TODO add desc
+// TODO add desc
 export const dealersQuery = graphql`
   query DealersIndexQuery {
     localSearchDealersSfw {

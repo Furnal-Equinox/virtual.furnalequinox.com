@@ -25,7 +25,7 @@
     "chromatic": "chromatic --auto-accept-changes",
     "netlify-functions-build": "tsc --project ./functions/tsconfig.json",
     "netlify-functions-clean": "rimraf ./functions/build",
-    "run-pa11y": "stack ./scripts/pa11yRunner.hs",
+    "run-pa11y": "cd scripts/Pa11yRunner && cabal run :Pa11yRunner",
     "clean-all": "yarn clean && yarn netlify-functions-clean",
     "build-all": "yarn netlify-functions-build && yarn build"
   },
@@ -117,7 +117,6 @@
     "react-hook-form": "^6.15.4",
     "react-icons": "^4.2.0",
     "react-parallax": "^3.2.1",
-    "react-pdf": "^5.2.0",
     "react-player": "^2.9.0",
     "react-responsive-masonry": "2.1.1",
     "react-use-flexsearch": "^0.1.1",

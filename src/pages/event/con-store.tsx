@@ -119,7 +119,7 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer pos='middle'>
         <div className='container'>
           <div className='row'>
-          {limitedProducts.map(({ product }, i) =>
+            {limitedProducts.map(({ product }, i) =>
               <div className='col-lg-4' key={`product-${i}`}>
                 <ShopItemCard
                   name={product?.frontmatter?.title}

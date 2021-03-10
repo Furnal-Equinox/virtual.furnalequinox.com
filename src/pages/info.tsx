@@ -36,22 +36,21 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
         <Jumbotron title='Info' subtitle='' />
         <Section isContainer>
           <TextCard>
-            {identity.user !== undefined 
-                ? <Link
-                    title='Return to the event landing page if you are logged in'
-                    to='/event/'
-                    className='btn btn-secondary btn-lg rounded-3'
-                  >
-                    Return to Event
-                  </Link>
-                : <Link
-                    title='Return to the login page'
-                    to='/'
-                    className='btn btn-secondary btn-lg rounded-3'
-                  >
-                    Return to Login
-                  </Link>
-              }
+            {identity.user !== undefined
+              ? <Link
+                  title='Return to the event landing page if you are logged in'
+                  to='/event/'
+                  className='btn btn-secondary btn-lg rounded-3'
+                >
+                Return to Event
+                </Link>
+              : <Link
+                  title='Return to the login page'
+                  to='/'
+                  className='btn btn-secondary btn-lg rounded-3'
+                >
+                Return to Login
+                </Link>}
           </TextCard>
         </Section>
         <Section isContainer isTextCenter pos='middle'>
@@ -159,32 +158,31 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
               </div>
             </div>
             <div className='row'>
-              {staff?.map(name => name !== undefined && 
+              {staff?.map(name => name !== undefined &&
                 <div className='col-sm-6 col-md-4 col-lg-3'>
                   <p>{name}</p>
-                </div>  
+                </div>
               )}
             </div>
           </TextCard>
         </Section>
         <Section isContainer>
           <TextCard>
-            {identity.user !== undefined 
+            {identity.user !== undefined
               ? <Link
                   title='Return to the event landing page if you are logged in'
                   to='/event/'
                   className='btn btn-secondary btn-lg rounded-3'
                 >
-                  Return to Event
-                </Link>
+                Return to Event
+              </Link>
               : <Link
                   title='Return to the login page'
                   to='/'
                   className='btn btn-secondary btn-lg rounded-3'
                 >
-                  Return to Login
-                </Link>
-            }
+                Return to Login
+              </Link>}
           </TextCard>
         </Section>
       </div>
