@@ -16,6 +16,7 @@ import {
   Pinterest,
   Steam,
   Telegram,
+  Tiktok,
   Tumblr,
   Twitch,
   Twitter,
@@ -43,6 +44,7 @@ export interface Props {
   | 'pinterest'
   | 'steam'
   | 'telegram'
+  | 'tiktok'
   | 'tumblr'
   | 'twitch'
   | 'twitter'
@@ -161,6 +163,14 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
           <div className='col'>
             <OutboundLink title='Telegram' href={data.telegram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Telegram size='32px' className='icon telegram' />
+            </OutboundLink>
+          </div>
+      }
+      {
+        !isStrEmpty(data.tiktok) &&
+          <div className='col'>
+            <OutboundLink title='Tiktok' href={data.tiktok as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+              <Tiktok size='32px' className='icon tiktok' />
             </OutboundLink>
           </div>
       }
