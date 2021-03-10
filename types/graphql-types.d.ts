@@ -747,10 +747,12 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.social.furaffinity'
   | 'childrenMarkdownRemark.frontmatter.social.github'
   | 'childrenMarkdownRemark.frontmatter.social.instagram'
+  | 'childrenMarkdownRemark.frontmatter.social.other'
   | 'childrenMarkdownRemark.frontmatter.social.picarto'
   | 'childrenMarkdownRemark.frontmatter.social.pinterest'
   | 'childrenMarkdownRemark.frontmatter.social.steam'
   | 'childrenMarkdownRemark.frontmatter.social.telegram'
+  | 'childrenMarkdownRemark.frontmatter.social.tiktok'
   | 'childrenMarkdownRemark.frontmatter.social.tumblr'
   | 'childrenMarkdownRemark.frontmatter.social.twitch'
   | 'childrenMarkdownRemark.frontmatter.social.twitter'
@@ -882,10 +884,12 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.social.furaffinity'
   | 'childMarkdownRemark.frontmatter.social.github'
   | 'childMarkdownRemark.frontmatter.social.instagram'
+  | 'childMarkdownRemark.frontmatter.social.other'
   | 'childMarkdownRemark.frontmatter.social.picarto'
   | 'childMarkdownRemark.frontmatter.social.pinterest'
   | 'childMarkdownRemark.frontmatter.social.steam'
   | 'childMarkdownRemark.frontmatter.social.telegram'
+  | 'childMarkdownRemark.frontmatter.social.tiktok'
   | 'childMarkdownRemark.frontmatter.social.tumblr'
   | 'childMarkdownRemark.frontmatter.social.twitch'
   | 'childMarkdownRemark.frontmatter.social.twitter'
@@ -2148,10 +2152,12 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.social.furaffinity'
   | 'frontmatter.social.github'
   | 'frontmatter.social.instagram'
+  | 'frontmatter.social.other'
   | 'frontmatter.social.picarto'
   | 'frontmatter.social.pinterest'
   | 'frontmatter.social.steam'
   | 'frontmatter.social.telegram'
+  | 'frontmatter.social.tiktok'
   | 'frontmatter.social.tumblr'
   | 'frontmatter.social.twitch'
   | 'frontmatter.social.twitter'
@@ -2489,10 +2495,12 @@ type MarkdownRemarkFrontmatterSocial = {
   readonly furaffinity: Maybe<Scalars['String']>;
   readonly github: Maybe<Scalars['String']>;
   readonly instagram: Maybe<Scalars['String']>;
+  readonly other: Maybe<Scalars['String']>;
   readonly picarto: Maybe<Scalars['String']>;
   readonly pinterest: Maybe<Scalars['String']>;
   readonly steam: Maybe<Scalars['String']>;
   readonly telegram: Maybe<Scalars['String']>;
+  readonly tiktok: Maybe<Scalars['String']>;
   readonly tumblr: Maybe<Scalars['String']>;
   readonly twitch: Maybe<Scalars['String']>;
   readonly twitter: Maybe<Scalars['String']>;
@@ -2510,10 +2518,12 @@ type MarkdownRemarkFrontmatterSocialFilterInput = {
   readonly furaffinity: Maybe<StringQueryOperatorInput>;
   readonly github: Maybe<StringQueryOperatorInput>;
   readonly instagram: Maybe<StringQueryOperatorInput>;
+  readonly other: Maybe<StringQueryOperatorInput>;
   readonly picarto: Maybe<StringQueryOperatorInput>;
   readonly pinterest: Maybe<StringQueryOperatorInput>;
   readonly steam: Maybe<StringQueryOperatorInput>;
   readonly telegram: Maybe<StringQueryOperatorInput>;
+  readonly tiktok: Maybe<StringQueryOperatorInput>;
   readonly tumblr: Maybe<StringQueryOperatorInput>;
   readonly twitch: Maybe<StringQueryOperatorInput>;
   readonly twitter: Maybe<StringQueryOperatorInput>;
@@ -4393,7 +4403,7 @@ type DealerBySlugQuery = { readonly markdownRemark: Maybe<(
     Pick<MarkdownRemark, 'html'>
     & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
       Pick<MarkdownRemarkFrontmatter, 'title' | 'dealer' | 'description' | 'url'>
-      & { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'deviantart' | 'facebook' | 'flickr' | 'furaffinity' | 'picarto' | 'twitter' | 'behance' | 'discord' | 'etsy' | 'github' | 'instagram' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'youtube'>>, readonly streaming: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingFriday, 'start' | 'end'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSaturday, 'start' | 'end'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSunday, 'start' | 'end'>>>> }>, readonly banner: Maybe<(
+      & { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'deviantart' | 'facebook' | 'flickr' | 'furaffinity' | 'picarto' | 'twitter' | 'behance' | 'discord' | 'etsy' | 'github' | 'instagram' | 'other' | 'pinterest' | 'steam' | 'telegram' | 'tiktok' | 'tumblr' | 'twitch' | 'youtube'>>, readonly streaming: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingFriday, 'start' | 'end'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSaturday, 'start' | 'end'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSunday, 'start' | 'end'>>>> }>, readonly banner: Maybe<(
         Pick<MarkdownRemarkFrontmatterBanner, 'desc'>
         & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
       )>, readonly images: Maybe<ReadonlyArray<Maybe<(

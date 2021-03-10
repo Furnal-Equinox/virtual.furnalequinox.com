@@ -27,6 +27,7 @@ import { MarkdownRemarkFrontmatterSocial } from '../../../types/graphql-types'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 import { isStrEmpty } from '../../utils/tools'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export interface Props {
   data: Pick<MarkdownRemarkFrontmatterSocial,
@@ -39,6 +40,7 @@ export interface Props {
   | 'furaffinity'
   | 'github'
   | 'instagram'
+  | 'other'
   | 'patreon'
   | 'picarto'
   | 'pinterest'
@@ -123,6 +125,14 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
           <div className='col'>
             <OutboundLink title='Instagram' href={data.instagram as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
               <Instagram size='32px' className='icon instagram' />
+            </OutboundLink>
+          </div>
+      }
+      {
+        !isStrEmpty(data.other) &&
+          <div className='col'>
+            <OutboundLink title='Other Social Media Link' href={data.other as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
+              <FontAwesomeIcon icon='globe' size='2x' className='icon' />
             </OutboundLink>
           </div>
       }

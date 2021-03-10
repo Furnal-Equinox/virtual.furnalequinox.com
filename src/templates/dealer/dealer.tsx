@@ -92,9 +92,11 @@ export const dealerQuery = graphql`
           etsy
           github
           instagram
+          other
           pinterest
           steam
           telegram
+          tiktok
           tumblr
           twitch
           youtube
