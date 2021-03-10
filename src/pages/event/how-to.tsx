@@ -17,8 +17,6 @@ import {
   Section
 } from '../../layouts'
 
-import { Document } from 'react-pdf'
-
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.HowToQueryQuery
 }

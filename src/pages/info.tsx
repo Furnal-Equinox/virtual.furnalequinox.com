@@ -2,10 +2,10 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
+import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import config from '../../site-config'
 
 import {
-  DealerCard,
   Jumbotron,
   Meta,
   TextCard
@@ -16,7 +16,7 @@ import {
   Section
 } from '../layouts'
 
-import Button from 'react-bootstrap/Button'
+import Link from 'gatsby-link'
 
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
@@ -25,6 +25,7 @@ interface Props extends RouteComponentProps {
 }
 
 const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
+  const identity = useIdentityContext()
   const staff = data?.remark?.frontmatter?.staff
 
   return (
@@ -35,15 +36,22 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
         <Jumbotron title='Info' subtitle='' />
         <Section isContainer>
           <TextCard>
-            <Button
-                type='button'
-                title='Return to the last page you were on'
-                onClick={() => { navigate !== undefined && navigate(-1) }}
-                size='lg'
-                variant='secondary'
-              >
-                Go Back
-              </Button>
+            {identity.user !== undefined 
+                ? <Link
+                    title='Return to the event landing page if you are logged in'
+                    to='/event/'
+                    className='btn btn-secondary btn-lg rounded-3'
+                  >
+                    Return to Event
+                  </Link>
+                : <Link
+                    title='Return to the login page'
+                    to='/'
+                    className='btn btn-secondary btn-lg rounded-3'
+                  >
+                    Return to Login
+                  </Link>
+              }
           </TextCard>
         </Section>
         <Section isContainer isTextCenter pos='middle'>
@@ -161,15 +169,22 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
         </Section>
         <Section isContainer>
           <TextCard>
-            <Button
-                type='button'
-                title='Return to the last page you were on'
-                onClick={() => { navigate !== undefined && navigate(-1) }}
-                size='lg'
-                variant='secondary'
-              >
-                Go Back
-              </Button>
+            {identity.user !== undefined 
+              ? <Link
+                  title='Return to the event landing page if you are logged in'
+                  to='/event/'
+                  className='btn btn-secondary btn-lg rounded-3'
+                >
+                  Return to Event
+                </Link>
+              : <Link
+                  title='Return to the login page'
+                  to='/'
+                  className='btn btn-secondary btn-lg rounded-3'
+                >
+                  Return to Login
+                </Link>
+            }
           </TextCard>
         </Section>
       </div>

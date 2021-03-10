@@ -1,6 +1,7 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
+import { useIdentityContext } from 'react-netlify-identity-gotrue'
 
 import Layout from '../layouts/layout'
 import Section from '../layouts/section'
@@ -13,11 +14,12 @@ import {
   TextCard
 } from '../components'
 
-import Button from 'react-bootstrap/Button'
+import Link from 'gatsby-link'
 
 interface Props extends RouteComponentProps {}
 
 const Help: React.FC<Props> = ({ location, navigate }: Props) => {
+  const identity = useIdentityContext()
   return (
     <Layout location={location}>
       <Helmet title={`Help | ${config.siteTitle}`} />
@@ -36,15 +38,26 @@ const Help: React.FC<Props> = ({ location, navigate }: Props) => {
                 <ContactForm />
               </div>
             </div>
-            <Button
-              type='button'
-              title='Return to the last page you were on'
-              onClick={() => { navigate !== undefined && navigate(-1) }}
-              size='lg'
-              variant='secondary'
-            >
-              Go Back
-            </Button>
+          </TextCard>
+        </Section>
+        <Section isContainer isTextCenter pos='middle'>
+          <TextCard>
+            {identity.user !== undefined 
+              ? <Link
+                  title='Return to the event landing page if you are logged in'
+                  to='/event/'
+                  className='btn btn-secondary btn-lg rounded-3'
+                >
+                  Return to Event
+                </Link>
+              : <Link
+                  title='Return to the login page'
+                  to='/'
+                  className='btn btn-secondary btn-lg rounded-3'
+                >
+                  Return to Login
+                </Link>
+            }
           </TextCard>
         </Section>
       </div>
