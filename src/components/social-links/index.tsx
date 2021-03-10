@@ -75,9 +75,10 @@ const SocialLinks: React.FC<Props> = ({ data }: Props) => {
       {
         !isStrEmpty(data.discord) &&
           <div className='col'>
-            <OutboundLink title='Discord' href={data.discord as string} target='_blank' rel='noopener noreferrer' className='icon-link'>
-              <Discord size='32px' className='icon discord' />
-            </OutboundLink>
+            <div title='Discord Handle'>
+              <Discord size='32px' className='icon discord' />{' '}
+              <p title='Discord Handle'>{data.discord as string}</p>
+            </div>
           </div>
       }
       {
