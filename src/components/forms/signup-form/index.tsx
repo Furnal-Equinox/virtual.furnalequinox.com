@@ -138,7 +138,7 @@ const SignUpForm: React.FC = () => {
               have at least one number
             </li>
             <li>
-              have at least one special character
+              may have at least one special character
             </li>
           </ul>
         </div>
