@@ -726,7 +726,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
   | 'childrenMarkdownRemark.frontmatter.layout'
-  | 'childrenMarkdownRemark.frontmatter.dealer'
   | 'childrenMarkdownRemark.frontmatter.kind'
   | 'childrenMarkdownRemark.frontmatter.isAdult'
   | 'childrenMarkdownRemark.frontmatter.isPremium'
@@ -736,8 +735,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.banner.desc'
   | 'childrenMarkdownRemark.frontmatter.images'
   | 'childrenMarkdownRemark.frontmatter.images.desc'
-  | 'childrenMarkdownRemark.frontmatter.gifs'
-  | 'childrenMarkdownRemark.frontmatter.gifs.desc'
   | 'childrenMarkdownRemark.frontmatter.social.behance'
   | 'childrenMarkdownRemark.frontmatter.social.deviantart'
   | 'childrenMarkdownRemark.frontmatter.social.discord'
@@ -758,6 +755,9 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.social.twitter'
   | 'childrenMarkdownRemark.frontmatter.social.youtube'
   | 'childrenMarkdownRemark.frontmatter.social.patreon'
+  | 'childrenMarkdownRemark.frontmatter.dealer'
+  | 'childrenMarkdownRemark.frontmatter.gifs'
+  | 'childrenMarkdownRemark.frontmatter.gifs.desc'
   | 'childrenMarkdownRemark.frontmatter.streaming.friday'
   | 'childrenMarkdownRemark.frontmatter.streaming.saturday'
   | 'childrenMarkdownRemark.frontmatter.streaming.sunday'
@@ -863,7 +863,6 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
   | 'childMarkdownRemark.frontmatter.layout'
-  | 'childMarkdownRemark.frontmatter.dealer'
   | 'childMarkdownRemark.frontmatter.kind'
   | 'childMarkdownRemark.frontmatter.isAdult'
   | 'childMarkdownRemark.frontmatter.isPremium'
@@ -873,8 +872,6 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.banner.desc'
   | 'childMarkdownRemark.frontmatter.images'
   | 'childMarkdownRemark.frontmatter.images.desc'
-  | 'childMarkdownRemark.frontmatter.gifs'
-  | 'childMarkdownRemark.frontmatter.gifs.desc'
   | 'childMarkdownRemark.frontmatter.social.behance'
   | 'childMarkdownRemark.frontmatter.social.deviantart'
   | 'childMarkdownRemark.frontmatter.social.discord'
@@ -895,6 +892,9 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.social.twitter'
   | 'childMarkdownRemark.frontmatter.social.youtube'
   | 'childMarkdownRemark.frontmatter.social.patreon'
+  | 'childMarkdownRemark.frontmatter.dealer'
+  | 'childMarkdownRemark.frontmatter.gifs'
+  | 'childMarkdownRemark.frontmatter.gifs.desc'
   | 'childMarkdownRemark.frontmatter.streaming.friday'
   | 'childMarkdownRemark.frontmatter.streaming.saturday'
   | 'childMarkdownRemark.frontmatter.streaming.sunday'
@@ -2017,7 +2017,6 @@ type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.title'
   | 'frontmatter.layout'
-  | 'frontmatter.dealer'
   | 'frontmatter.kind'
   | 'frontmatter.isAdult'
   | 'frontmatter.isPremium'
@@ -2103,6 +2102,27 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.images.imgFile.id'
   | 'frontmatter.images.imgFile.children'
   | 'frontmatter.images.desc'
+  | 'frontmatter.social.behance'
+  | 'frontmatter.social.deviantart'
+  | 'frontmatter.social.discord'
+  | 'frontmatter.social.etsy'
+  | 'frontmatter.social.facebook'
+  | 'frontmatter.social.flickr'
+  | 'frontmatter.social.furaffinity'
+  | 'frontmatter.social.github'
+  | 'frontmatter.social.instagram'
+  | 'frontmatter.social.other'
+  | 'frontmatter.social.picarto'
+  | 'frontmatter.social.pinterest'
+  | 'frontmatter.social.steam'
+  | 'frontmatter.social.telegram'
+  | 'frontmatter.social.tiktok'
+  | 'frontmatter.social.tumblr'
+  | 'frontmatter.social.twitch'
+  | 'frontmatter.social.twitter'
+  | 'frontmatter.social.youtube'
+  | 'frontmatter.social.patreon'
+  | 'frontmatter.dealer'
   | 'frontmatter.gifs'
   | 'frontmatter.gifs.imgFile.sourceInstanceName'
   | 'frontmatter.gifs.imgFile.absolutePath'
@@ -2143,26 +2163,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.gifs.imgFile.id'
   | 'frontmatter.gifs.imgFile.children'
   | 'frontmatter.gifs.desc'
-  | 'frontmatter.social.behance'
-  | 'frontmatter.social.deviantart'
-  | 'frontmatter.social.discord'
-  | 'frontmatter.social.etsy'
-  | 'frontmatter.social.facebook'
-  | 'frontmatter.social.flickr'
-  | 'frontmatter.social.furaffinity'
-  | 'frontmatter.social.github'
-  | 'frontmatter.social.instagram'
-  | 'frontmatter.social.other'
-  | 'frontmatter.social.picarto'
-  | 'frontmatter.social.pinterest'
-  | 'frontmatter.social.steam'
-  | 'frontmatter.social.telegram'
-  | 'frontmatter.social.tiktok'
-  | 'frontmatter.social.tumblr'
-  | 'frontmatter.social.twitch'
-  | 'frontmatter.social.twitter'
-  | 'frontmatter.social.youtube'
-  | 'frontmatter.social.patreon'
   | 'frontmatter.streaming.friday'
   | 'frontmatter.streaming.friday.start'
   | 'frontmatter.streaming.friday.end'
@@ -2390,7 +2390,6 @@ type MarkdownRemarkFilterListInput = {
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly layout: Maybe<Scalars['String']>;
-  readonly dealer: Maybe<Scalars['String']>;
   readonly kind: Maybe<Scalars['String']>;
   readonly isAdult: Maybe<Scalars['Boolean']>;
   readonly isPremium: Maybe<Scalars['Boolean']>;
@@ -2399,8 +2398,9 @@ type MarkdownRemarkFrontmatter = {
   readonly url: Maybe<Scalars['String']>;
   readonly banner: Maybe<MarkdownRemarkFrontmatterBanner>;
   readonly images: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterImages>>>;
-  readonly gifs: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterGifs>>>;
   readonly social: Maybe<MarkdownRemarkFrontmatterSocial>;
+  readonly dealer: Maybe<Scalars['String']>;
+  readonly gifs: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterGifs>>>;
   readonly streaming: Maybe<MarkdownRemarkFrontmatterStreaming>;
   readonly artist: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
@@ -2434,7 +2434,6 @@ type MarkdownRemarkFrontmatterBannerFilterInput = {
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly layout: Maybe<StringQueryOperatorInput>;
-  readonly dealer: Maybe<StringQueryOperatorInput>;
   readonly kind: Maybe<StringQueryOperatorInput>;
   readonly isAdult: Maybe<BooleanQueryOperatorInput>;
   readonly isPremium: Maybe<BooleanQueryOperatorInput>;
@@ -2443,8 +2442,9 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly url: Maybe<StringQueryOperatorInput>;
   readonly banner: Maybe<MarkdownRemarkFrontmatterBannerFilterInput>;
   readonly images: Maybe<MarkdownRemarkFrontmatterImagesFilterListInput>;
-  readonly gifs: Maybe<MarkdownRemarkFrontmatterGifsFilterListInput>;
   readonly social: Maybe<MarkdownRemarkFrontmatterSocialFilterInput>;
+  readonly dealer: Maybe<StringQueryOperatorInput>;
+  readonly gifs: Maybe<MarkdownRemarkFrontmatterGifsFilterListInput>;
   readonly streaming: Maybe<MarkdownRemarkFrontmatterStreamingFilterInput>;
   readonly artist: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
@@ -4532,7 +4532,7 @@ type AdCrawlQueryQuery = { readonly remark: { readonly dealers: ReadonlyArray<{ 
 type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG8K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG10K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type SocialLinksFragment = { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'behance' | 'deviantart' | 'discord' | 'etsy' | 'facebook' | 'furaffinity' | 'github' | 'instagram' | 'patreon' | 'picarto' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'twitter' | 'youtube'>> };
 

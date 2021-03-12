@@ -8,8 +8,10 @@ import { OutboundLink } from 'gatsby-plugin-google-gtag'
 const DonationsMeter: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.DonationsMeterQueryQuery>(donationsMeterQuery)
   const donationsMeterBG = data?.donationsMeterBG?.childImageSharp?.fluid
+  const donationsMeterBG8K = data?.donationsMeterBG8K?.childImageSharp?.fluid
+  const donationsMeterBG10K = data?.donationsMeterBG10K?.childImageSharp?.fluid
   const [total, setTotal] = useState<number | null>(null)
-  const donationGoal = parseInt(process.env.GATSBY_DONATION_GOAL as string)
+  const donationGoals: number[] = [6000, 8000, 10000]
   const timeToCheck = parseInt(process.env.GATSBY_INTERVAL_IN_MS_TO_CHECK_TOTAL_DONATION_AMOUNT as string)
 
   const identity = useIdentityContext()
@@ -40,12 +42,26 @@ const DonationsMeter: React.FC = () => {
     return () => clearInterval(interval)
   }, [])
 
-  const getPercentOfGoal = (): number =>
-    ((total ?? 0) / donationGoal) * 100
+  const getPercentOfGoal = (goal: number): number =>
+    ((total ?? 0) / goal) * 100
+
+  let { goal, bg } = (() => {
+    if (total !== null) {
+      if (total >= donationGoals[1]) {
+        return { goal: donationGoals[2], bg: donationsMeterBG10K }
+      } else if (total >= donationGoals[0] && total <= donationGoals[1]) {
+        return { goal: donationGoals[1], bg: donationsMeterBG8K }
+      } else {
+        return { goal: donationGoals[0], bg: donationsMeterBG }
+      }
+    } else {
+      return { goal: donationGoals[0], bg: donationsMeterBG }
+    }
+  })()
+
+  let percent = getPercentOfGoal(goal)
 
   const ProgressBar: React.FC = () => {
-    const percent = getPercentOfGoal()
-
     return (
       <div className='progress progress-larger'>
         <div
@@ -56,7 +72,7 @@ const DonationsMeter: React.FC = () => {
           aria-valuemax={100}
           aria-label={[
             'This is our donations progress bar!',
-            `We're currently ${percent.toFixed()}% to our goal of ${donationGoal}!`
+            `We're currently ${percent.toFixed()}% to our goal of ${goal}!`
           ].join(' ')}
           style={{ width: `${percent}%` }}
         />
@@ -66,8 +82,8 @@ const DonationsMeter: React.FC = () => {
 
   return (
     <div className='card rounded-3 border border-primary border-5'>
-      {donationsMeterBG !== undefined && <Img
-        fluid={donationsMeterBG}
+      {bg !== undefined && <Img
+        fluid={bg}
         className='img-fluid rounded-3'
         alt={[
           'This image is the background for the donations meter.',
@@ -121,6 +137,20 @@ export default DonationsMeter
 export const donationsMeterQuery = graphql`
   query DonationsMeterQuery {
     donationsMeterBG: file(relativePath: { eq: "donation_meter_bg.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 1140) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    donationsMeterBG8K: file(relativePath: { eq: "donation_meter_bg_8k.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 1140) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    donationsMeterBG10K: file(relativePath: { eq: "donation_meter_bg_10k.png"}) {
       childImageSharp {
         fluid(maxWidth: 1140) {
           ...GatsbyImageSharpFluid
