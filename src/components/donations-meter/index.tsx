@@ -101,6 +101,8 @@ const DonationsMeter: React.FC = () => {
               <OutboundLink
                 title='Link to our donation page on RegFox'
                 href='https://fe.regfox.com/pixel-purrfect-donations'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='link h3'
                 style={{ textShadow: '0px 0px 10px #ff3d6f, 0px 0px 10px #ff3d6f' }}
               >
