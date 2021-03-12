@@ -45,7 +45,7 @@ const DonationsMeter: React.FC = () => {
   const getPercentOfGoal = (goal: number): number =>
     ((total ?? 0) / goal) * 100
 
-  let { goal, bg } = (() => {
+  const getCurrentGoalAndBG = () => {
     if (total !== null) {
       if (total >= donationGoals[1]) {
         return { goal: donationGoals[2], bg: donationsMeterBG10K }
@@ -57,7 +57,9 @@ const DonationsMeter: React.FC = () => {
     } else {
       return { goal: donationGoals[0], bg: donationsMeterBG }
     }
-  })()
+  }
+
+  let { goal, bg } = getCurrentGoalAndBG()
 
   let percent = getPercentOfGoal(goal)
 
