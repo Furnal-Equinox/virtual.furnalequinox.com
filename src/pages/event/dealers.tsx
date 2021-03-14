@@ -84,7 +84,6 @@ export const dealersQuery = graphql`
             }
             frontmatter {
               title
-              dealer
               description
               isPremium
               banner {
@@ -126,7 +125,6 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
 
   const dealerReducer = (dealer: any): Dealer => ({
     title: dealer.dealer.frontmatter?.title,
-    dealer: dealer.dealer.frontmatter?.dealer,
     description: dealer.dealer.frontmatter?.description,
     banner: dealer.dealer.frontmatter?.banner?.imgFile?.childImageSharp?.fluid,
     slug: dealer.dealer.fields?.slug,

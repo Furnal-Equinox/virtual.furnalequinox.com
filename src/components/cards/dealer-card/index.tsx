@@ -4,11 +4,8 @@ import { Link } from 'gatsby'
 import { PlaceholderImage } from '../../placeholders'
 import Img, { FluidObject } from 'gatsby-image'
 
-import { isStrEmpty } from '../../../utils/tools'
-
 export interface Dealer {
   title?: string | null | undefined
-  dealer?: string | null | undefined
   description?: string | null | undefined
   banner?: FluidObject
   slug?: string | null | undefined
@@ -17,18 +14,18 @@ export interface Dealer {
 
 type Props = Dealer
 
-const DealerCard: React.FC<Props> = ({ title, dealer, description, banner, slug }: Props) => {
+const DealerCard: React.FC<Props> = ({ title, description, banner, slug }: Props) => {
   return (
     <div className='card rounded-3 border border-primary border-5 mb-5'>
       {banner !== undefined
-        ? <Img title={`Thumbnail banner image for ${dealer ?? 'this dealer'}`} fluid={banner} className='card-img-top' />
+        ? <Img title={`Thumbnail banner image for ${title ?? 'this dealer'}`} fluid={banner} className='card-img-top' />
         : <PlaceholderImage />}
       <div className='card-body'>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-6'>
               <p className='card-title text-center h2'>
-                {`${title ?? 'Store Name'}${!isStrEmpty(dealer) ? ` by ${dealer}` : ''}`}
+                {title ?? 'Store Name'}
               </p>
             </div>
             <div className='col-lg-6'>

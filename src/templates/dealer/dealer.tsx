@@ -79,7 +79,6 @@ export const dealerQuery = graphql`
       }
       frontmatter {
         title
-        dealer
         description
         url
         social {
@@ -175,7 +174,6 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
           <div className='row'>
             <div className='col-lg-6 text-left p-1'>
               <h1>{post?.title ?? ''}</h1>
-              <h2>by {post?.dealer ?? ''}</h2>
               <hr />
               <p>{post?.description ?? ''}</p>
             </div>

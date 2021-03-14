@@ -77,7 +77,6 @@ export const gqlDealerTile = graphql`
         }
         desc
       }
-      dealer
       description
       title
     }

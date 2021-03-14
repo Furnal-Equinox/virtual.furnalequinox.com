@@ -266,7 +266,6 @@ module.exports = {
                 }
                 frontmatter {
                   title
-                  dealer
                   description
                   keywords
                 }
@@ -277,16 +276,15 @@ module.exports = {
         ref: 'slug',
 
         // What to search against
-        index: ['title', 'dealer', 'description', 'keywords'],
+        index: ['title', 'description', 'keywords'],
 
         // What results will be represented as
-        store: ['id', 'slug', 'title', 'dealer'],
+        store: ['id', 'slug', 'title'],
 
         normalizer: ({ data }) => data.allMarkdownRemark.nodes.map(node => ({
           id: node.id,
           slug: node.fields.slug,
           title: node.frontmatter.title,
-          dealer: node.frontmatter.dealer,
           description: node.frontmatter.description
         }))
       }

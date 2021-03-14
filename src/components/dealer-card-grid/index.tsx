@@ -13,7 +13,6 @@ const DealerCardGrid: React.FC<Props> = ({ data }: Props) => {
     >
       <DealerCard
         title={dealer?.title}
-        dealer={dealer?.dealer}
         description={dealer?.description}
         banner={dealer?.banner}
         slug={dealer?.slug}

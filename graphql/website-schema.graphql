@@ -839,7 +839,6 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___id
   childrenMarkdownRemark___frontmatter___title
   childrenMarkdownRemark___frontmatter___layout
-  childrenMarkdownRemark___frontmatter___dealer
   childrenMarkdownRemark___frontmatter___kind
   childrenMarkdownRemark___frontmatter___isAdult
   childrenMarkdownRemark___frontmatter___isPremium
@@ -979,7 +978,6 @@ enum FileFieldsEnum {
   childMarkdownRemark___id
   childMarkdownRemark___frontmatter___title
   childMarkdownRemark___frontmatter___layout
-  childMarkdownRemark___frontmatter___dealer
   childMarkdownRemark___frontmatter___kind
   childMarkdownRemark___frontmatter___isAdult
   childMarkdownRemark___frontmatter___isPremium
@@ -2085,7 +2083,6 @@ enum MarkdownRemarkFieldsEnum {
   id
   frontmatter___title
   frontmatter___layout
-  frontmatter___dealer
   frontmatter___kind
   frontmatter___isAdult
   frontmatter___isPremium
@@ -2547,7 +2544,6 @@ input MarkdownRemarkFilterListInput {
 type MarkdownRemarkFrontmatter {
   title: String
   layout: String
-  dealer: String
   kind: String
   isAdult: Boolean
   isPremium: Boolean
@@ -2600,7 +2596,6 @@ input MarkdownRemarkFrontmatterBannerFilterInput {
 input MarkdownRemarkFrontmatterFilterInput {
   title: StringQueryOperatorInput
   layout: StringQueryOperatorInput
-  dealer: StringQueryOperatorInput
   kind: StringQueryOperatorInput
   isAdult: BooleanQueryOperatorInput
   isPremium: BooleanQueryOperatorInput
