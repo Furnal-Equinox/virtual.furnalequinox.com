@@ -18,6 +18,11 @@ export const Vimeo: React.FC<Props> = ({ url, title }: Props) => {
         width='100%'
         height='100%'
         controls
+        config={{
+          playerOptions: {
+            autoplay: true
+          }
+        }}
       />
     </div>
   )

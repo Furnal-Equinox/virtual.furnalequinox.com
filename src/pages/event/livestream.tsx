@@ -6,10 +6,10 @@ import config from '../../../site-config'
 
 import {
   AdCrawl,
+  CountdownLiveStream,
   DonationsMeter,
-  Meta,
-  ResponsiveVimeoPlayer,
-  TextCard
+  Lineup,
+  Meta
 } from '../../components'
 
 import {
@@ -17,8 +17,6 @@ import {
   makePrivateContent,
   Section
 } from '../../layouts'
-
-import Img from 'gatsby-image'
 
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.LivestreamQueryQuery
@@ -65,16 +63,17 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
         <div className='container'>
           <div className='row'>
-            {martyPlaceholder !== undefined && <Img
-              fluid={martyPlaceholder}
-              className='img-fluid'
-              alt={[
+            <CountdownLiveStream
+              title="Furnal Equinox's Pixel Purrfect livestream from Vimeo"
+              url='https://vimeo.com/285337458'
+              placeholderImage={martyPlaceholder}
+              placeholderImageAlt={[
                 'This image reads',
                 "'The convention is being held March 19, 20, 21.",
                 "Visit www.furnalequinox.com and Furnal Equinox on Twitter.'",
                 'This is the livestream placeholder image featuring Marty in a VR headset.'
               ].join(' ')}
-            />}
+            />
           </div>
         </div>
       </Section>
@@ -85,27 +84,7 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
         <AdCrawl />
       </Section>
       <Section isContainer pos='middle'>
-        <TextCard>
-          <h1>Lineup</h1>
-          <p className='fs-3'>Stay tuned - we'll be filling this out soon!</p>
-          <h2>Friday, March 19th</h2>
-          <div className='table-responsive'>
-            <table className='table align-middle table-striped table-hover'>
-              <thead>
-                <tr>
-                  <th scope='col'>Time (EST)</th>
-                  <th scope='col'>Event Name</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope='row'>12:00 PM</th>
-                  <td>Opening Ceremony</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </TextCard>
+        <Lineup />
       </Section>
     </>
   )

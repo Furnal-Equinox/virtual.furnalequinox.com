@@ -7,6 +7,8 @@ import Img, { FluidObject } from 'gatsby-image'
 import config from '../../../site-config'
 import './style.scss'
 
+import { isStrEmpty } from '../../utils/tools'
+
 import {
   Meta,
   SocialLinks,
@@ -191,9 +193,10 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
             </div>
           </div>
           <div className='row'>
-            {(post?.streaming?.friday !== undefined ||
-           post?.streaming?.saturday !== undefined ||
-           post?.streaming?.sunday !== undefined) &&
+            {(!isStrEmpty(post?.streaming?.friday) ||
+              !isStrEmpty(post?.streaming?.saturday) ||
+              !isStrEmpty(post?.streaming?.sunday)
+            ) &&
              <div className='col-lg-6 p-2'>
                <h2>Streaming Times</h2>
                <hr />

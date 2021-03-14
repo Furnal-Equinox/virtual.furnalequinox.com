@@ -839,6 +839,7 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___id
   childrenMarkdownRemark___frontmatter___title
   childrenMarkdownRemark___frontmatter___layout
+  childrenMarkdownRemark___frontmatter___dealer
   childrenMarkdownRemark___frontmatter___kind
   childrenMarkdownRemark___frontmatter___isAdult
   childrenMarkdownRemark___frontmatter___isPremium
@@ -848,6 +849,8 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___banner___desc
   childrenMarkdownRemark___frontmatter___images
   childrenMarkdownRemark___frontmatter___images___desc
+  childrenMarkdownRemark___frontmatter___gifs
+  childrenMarkdownRemark___frontmatter___gifs___desc
   childrenMarkdownRemark___frontmatter___social___behance
   childrenMarkdownRemark___frontmatter___social___deviantart
   childrenMarkdownRemark___frontmatter___social___discord
@@ -868,12 +871,9 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___social___twitter
   childrenMarkdownRemark___frontmatter___social___youtube
   childrenMarkdownRemark___frontmatter___social___patreon
-  childrenMarkdownRemark___frontmatter___dealer
-  childrenMarkdownRemark___frontmatter___gifs
-  childrenMarkdownRemark___frontmatter___gifs___desc
+  childrenMarkdownRemark___frontmatter___streaming___sunday
   childrenMarkdownRemark___frontmatter___streaming___friday
   childrenMarkdownRemark___frontmatter___streaming___saturday
-  childrenMarkdownRemark___frontmatter___streaming___sunday
   childrenMarkdownRemark___frontmatter___artist
   childrenMarkdownRemark___frontmatter___image___sourceInstanceName
   childrenMarkdownRemark___frontmatter___image___absolutePath
@@ -914,6 +914,9 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___image___id
   childrenMarkdownRemark___frontmatter___image___children
   childrenMarkdownRemark___frontmatter___desc
+  childrenMarkdownRemark___frontmatter___schedule___friday
+  childrenMarkdownRemark___frontmatter___schedule___saturday
+  childrenMarkdownRemark___frontmatter___schedule___sunday
   childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___date
   childrenMarkdownRemark___frontmatter___path
@@ -976,6 +979,7 @@ enum FileFieldsEnum {
   childMarkdownRemark___id
   childMarkdownRemark___frontmatter___title
   childMarkdownRemark___frontmatter___layout
+  childMarkdownRemark___frontmatter___dealer
   childMarkdownRemark___frontmatter___kind
   childMarkdownRemark___frontmatter___isAdult
   childMarkdownRemark___frontmatter___isPremium
@@ -985,6 +989,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___banner___desc
   childMarkdownRemark___frontmatter___images
   childMarkdownRemark___frontmatter___images___desc
+  childMarkdownRemark___frontmatter___gifs
+  childMarkdownRemark___frontmatter___gifs___desc
   childMarkdownRemark___frontmatter___social___behance
   childMarkdownRemark___frontmatter___social___deviantart
   childMarkdownRemark___frontmatter___social___discord
@@ -1005,12 +1011,9 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___social___twitter
   childMarkdownRemark___frontmatter___social___youtube
   childMarkdownRemark___frontmatter___social___patreon
-  childMarkdownRemark___frontmatter___dealer
-  childMarkdownRemark___frontmatter___gifs
-  childMarkdownRemark___frontmatter___gifs___desc
+  childMarkdownRemark___frontmatter___streaming___sunday
   childMarkdownRemark___frontmatter___streaming___friday
   childMarkdownRemark___frontmatter___streaming___saturday
-  childMarkdownRemark___frontmatter___streaming___sunday
   childMarkdownRemark___frontmatter___artist
   childMarkdownRemark___frontmatter___image___sourceInstanceName
   childMarkdownRemark___frontmatter___image___absolutePath
@@ -1051,6 +1054,9 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___image___id
   childMarkdownRemark___frontmatter___image___children
   childMarkdownRemark___frontmatter___desc
+  childMarkdownRemark___frontmatter___schedule___friday
+  childMarkdownRemark___frontmatter___schedule___saturday
+  childMarkdownRemark___frontmatter___schedule___sunday
   childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___date
   childMarkdownRemark___frontmatter___path
@@ -2079,6 +2085,7 @@ enum MarkdownRemarkFieldsEnum {
   id
   frontmatter___title
   frontmatter___layout
+  frontmatter___dealer
   frontmatter___kind
   frontmatter___isAdult
   frontmatter___isPremium
@@ -2164,27 +2171,44 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___images___imgFile___id
   frontmatter___images___imgFile___children
   frontmatter___images___desc
-  frontmatter___social___behance
-  frontmatter___social___deviantart
-  frontmatter___social___discord
-  frontmatter___social___etsy
-  frontmatter___social___facebook
-  frontmatter___social___flickr
-  frontmatter___social___furaffinity
-  frontmatter___social___github
-  frontmatter___social___instagram
-  frontmatter___social___other
-  frontmatter___social___picarto
-  frontmatter___social___pinterest
-  frontmatter___social___steam
-  frontmatter___social___telegram
-  frontmatter___social___tiktok
-  frontmatter___social___tumblr
-  frontmatter___social___twitch
-  frontmatter___social___twitter
-  frontmatter___social___youtube
-  frontmatter___social___patreon
-  frontmatter___dealer
+  frontmatter___images___file___sourceInstanceName
+  frontmatter___images___file___absolutePath
+  frontmatter___images___file___relativePath
+  frontmatter___images___file___extension
+  frontmatter___images___file___size
+  frontmatter___images___file___prettySize
+  frontmatter___images___file___modifiedTime
+  frontmatter___images___file___accessTime
+  frontmatter___images___file___changeTime
+  frontmatter___images___file___birthTime
+  frontmatter___images___file___root
+  frontmatter___images___file___dir
+  frontmatter___images___file___base
+  frontmatter___images___file___ext
+  frontmatter___images___file___name
+  frontmatter___images___file___relativeDirectory
+  frontmatter___images___file___dev
+  frontmatter___images___file___mode
+  frontmatter___images___file___nlink
+  frontmatter___images___file___uid
+  frontmatter___images___file___gid
+  frontmatter___images___file___rdev
+  frontmatter___images___file___ino
+  frontmatter___images___file___atimeMs
+  frontmatter___images___file___mtimeMs
+  frontmatter___images___file___ctimeMs
+  frontmatter___images___file___atime
+  frontmatter___images___file___mtime
+  frontmatter___images___file___ctime
+  frontmatter___images___file___birthtime
+  frontmatter___images___file___birthtimeMs
+  frontmatter___images___file___blksize
+  frontmatter___images___file___blocks
+  frontmatter___images___file___publicURL
+  frontmatter___images___file___childrenImageSharp
+  frontmatter___images___file___childrenMarkdownRemark
+  frontmatter___images___file___id
+  frontmatter___images___file___children
   frontmatter___gifs
   frontmatter___gifs___imgFile___sourceInstanceName
   frontmatter___gifs___imgFile___absolutePath
@@ -2225,15 +2249,73 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___gifs___imgFile___id
   frontmatter___gifs___imgFile___children
   frontmatter___gifs___desc
+  frontmatter___gifs___file___sourceInstanceName
+  frontmatter___gifs___file___absolutePath
+  frontmatter___gifs___file___relativePath
+  frontmatter___gifs___file___extension
+  frontmatter___gifs___file___size
+  frontmatter___gifs___file___prettySize
+  frontmatter___gifs___file___modifiedTime
+  frontmatter___gifs___file___accessTime
+  frontmatter___gifs___file___changeTime
+  frontmatter___gifs___file___birthTime
+  frontmatter___gifs___file___root
+  frontmatter___gifs___file___dir
+  frontmatter___gifs___file___base
+  frontmatter___gifs___file___ext
+  frontmatter___gifs___file___name
+  frontmatter___gifs___file___relativeDirectory
+  frontmatter___gifs___file___dev
+  frontmatter___gifs___file___mode
+  frontmatter___gifs___file___nlink
+  frontmatter___gifs___file___uid
+  frontmatter___gifs___file___gid
+  frontmatter___gifs___file___rdev
+  frontmatter___gifs___file___ino
+  frontmatter___gifs___file___atimeMs
+  frontmatter___gifs___file___mtimeMs
+  frontmatter___gifs___file___ctimeMs
+  frontmatter___gifs___file___atime
+  frontmatter___gifs___file___mtime
+  frontmatter___gifs___file___ctime
+  frontmatter___gifs___file___birthtime
+  frontmatter___gifs___file___birthtimeMs
+  frontmatter___gifs___file___blksize
+  frontmatter___gifs___file___blocks
+  frontmatter___gifs___file___publicURL
+  frontmatter___gifs___file___childrenImageSharp
+  frontmatter___gifs___file___childrenMarkdownRemark
+  frontmatter___gifs___file___id
+  frontmatter___gifs___file___children
+  frontmatter___social___behance
+  frontmatter___social___deviantart
+  frontmatter___social___discord
+  frontmatter___social___etsy
+  frontmatter___social___facebook
+  frontmatter___social___flickr
+  frontmatter___social___furaffinity
+  frontmatter___social___github
+  frontmatter___social___instagram
+  frontmatter___social___other
+  frontmatter___social___picarto
+  frontmatter___social___pinterest
+  frontmatter___social___steam
+  frontmatter___social___telegram
+  frontmatter___social___tiktok
+  frontmatter___social___tumblr
+  frontmatter___social___twitch
+  frontmatter___social___twitter
+  frontmatter___social___youtube
+  frontmatter___social___patreon
+  frontmatter___streaming___sunday
+  frontmatter___streaming___sunday___start
+  frontmatter___streaming___sunday___end
   frontmatter___streaming___friday
   frontmatter___streaming___friday___start
   frontmatter___streaming___friday___end
   frontmatter___streaming___saturday
   frontmatter___streaming___saturday___start
   frontmatter___streaming___saturday___end
-  frontmatter___streaming___sunday
-  frontmatter___streaming___sunday___start
-  frontmatter___streaming___sunday___end
   frontmatter___artist
   frontmatter___image___sourceInstanceName
   frontmatter___image___absolutePath
@@ -2314,6 +2396,18 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___image___internal___owner
   frontmatter___image___internal___type
   frontmatter___desc
+  frontmatter___schedule___friday
+  frontmatter___schedule___friday___time
+  frontmatter___schedule___friday___title
+  frontmatter___schedule___friday___host
+  frontmatter___schedule___saturday
+  frontmatter___schedule___saturday___time
+  frontmatter___schedule___saturday___title
+  frontmatter___schedule___saturday___host
+  frontmatter___schedule___sunday
+  frontmatter___schedule___sunday___time
+  frontmatter___schedule___sunday___title
+  frontmatter___schedule___sunday___host
   frontmatter___staff
   frontmatter___date
   frontmatter___path
@@ -2453,6 +2547,7 @@ input MarkdownRemarkFilterListInput {
 type MarkdownRemarkFrontmatter {
   title: String
   layout: String
+  dealer: String
   kind: String
   isAdult: Boolean
   isPremium: Boolean
@@ -2461,13 +2556,13 @@ type MarkdownRemarkFrontmatter {
   url: String
   banner: MarkdownRemarkFrontmatterBanner
   images: [MarkdownRemarkFrontmatterImages]
-  social: MarkdownRemarkFrontmatterSocial
-  dealer: String
   gifs: [MarkdownRemarkFrontmatterGifs]
+  social: MarkdownRemarkFrontmatterSocial
   streaming: MarkdownRemarkFrontmatterStreaming
   artist: String
   image: File
   desc: String
+  schedule: MarkdownRemarkFrontmatterSchedule
   staff: [String]
   date(
     # Format the date using Moment.js' date tokens, e.g. `date(formatString: "YYYY
@@ -2505,6 +2600,7 @@ input MarkdownRemarkFrontmatterBannerFilterInput {
 input MarkdownRemarkFrontmatterFilterInput {
   title: StringQueryOperatorInput
   layout: StringQueryOperatorInput
+  dealer: StringQueryOperatorInput
   kind: StringQueryOperatorInput
   isAdult: BooleanQueryOperatorInput
   isPremium: BooleanQueryOperatorInput
@@ -2513,13 +2609,13 @@ input MarkdownRemarkFrontmatterFilterInput {
   url: StringQueryOperatorInput
   banner: MarkdownRemarkFrontmatterBannerFilterInput
   images: MarkdownRemarkFrontmatterImagesFilterListInput
-  social: MarkdownRemarkFrontmatterSocialFilterInput
-  dealer: StringQueryOperatorInput
   gifs: MarkdownRemarkFrontmatterGifsFilterListInput
+  social: MarkdownRemarkFrontmatterSocialFilterInput
   streaming: MarkdownRemarkFrontmatterStreamingFilterInput
   artist: StringQueryOperatorInput
   image: FileFilterInput
   desc: StringQueryOperatorInput
+  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   staff: StringQueryOperatorInput
   date: DateQueryOperatorInput
   path: StringQueryOperatorInput
@@ -2531,11 +2627,13 @@ input MarkdownRemarkFrontmatterFilterInput {
 type MarkdownRemarkFrontmatterGifs {
   imgFile: File
   desc: String
+  file: File
 }
 
 input MarkdownRemarkFrontmatterGifsFilterInput {
   imgFile: FileFilterInput
   desc: StringQueryOperatorInput
+  file: FileFilterInput
 }
 
 input MarkdownRemarkFrontmatterGifsFilterListInput {
@@ -2545,15 +2643,77 @@ input MarkdownRemarkFrontmatterGifsFilterListInput {
 type MarkdownRemarkFrontmatterImages {
   imgFile: File
   desc: String
+  file: File
 }
 
 input MarkdownRemarkFrontmatterImagesFilterInput {
   imgFile: FileFilterInput
   desc: StringQueryOperatorInput
+  file: FileFilterInput
 }
 
 input MarkdownRemarkFrontmatterImagesFilterListInput {
   elemMatch: MarkdownRemarkFrontmatterImagesFilterInput
+}
+
+type MarkdownRemarkFrontmatterSchedule {
+  friday: [MarkdownRemarkFrontmatterScheduleFriday]
+  saturday: [MarkdownRemarkFrontmatterScheduleSaturday]
+  sunday: [MarkdownRemarkFrontmatterScheduleSunday]
+}
+
+input MarkdownRemarkFrontmatterScheduleFilterInput {
+  friday: MarkdownRemarkFrontmatterScheduleFridayFilterListInput
+  saturday: MarkdownRemarkFrontmatterScheduleSaturdayFilterListInput
+  sunday: MarkdownRemarkFrontmatterScheduleSundayFilterListInput
+}
+
+type MarkdownRemarkFrontmatterScheduleFriday {
+  time: String
+  title: String
+  host: String
+}
+
+input MarkdownRemarkFrontmatterScheduleFridayFilterInput {
+  time: StringQueryOperatorInput
+  title: StringQueryOperatorInput
+  host: StringQueryOperatorInput
+}
+
+input MarkdownRemarkFrontmatterScheduleFridayFilterListInput {
+  elemMatch: MarkdownRemarkFrontmatterScheduleFridayFilterInput
+}
+
+type MarkdownRemarkFrontmatterScheduleSaturday {
+  time: String
+  title: String
+  host: String
+}
+
+input MarkdownRemarkFrontmatterScheduleSaturdayFilterInput {
+  time: StringQueryOperatorInput
+  title: StringQueryOperatorInput
+  host: StringQueryOperatorInput
+}
+
+input MarkdownRemarkFrontmatterScheduleSaturdayFilterListInput {
+  elemMatch: MarkdownRemarkFrontmatterScheduleSaturdayFilterInput
+}
+
+type MarkdownRemarkFrontmatterScheduleSunday {
+  time: String
+  title: String
+  host: String
+}
+
+input MarkdownRemarkFrontmatterScheduleSundayFilterInput {
+  time: StringQueryOperatorInput
+  title: StringQueryOperatorInput
+  host: StringQueryOperatorInput
+}
+
+input MarkdownRemarkFrontmatterScheduleSundayFilterListInput {
+  elemMatch: MarkdownRemarkFrontmatterScheduleSundayFilterInput
 }
 
 type MarkdownRemarkFrontmatterSocial {
@@ -2603,15 +2763,15 @@ input MarkdownRemarkFrontmatterSocialFilterInput {
 }
 
 type MarkdownRemarkFrontmatterStreaming {
+  sunday: [MarkdownRemarkFrontmatterStreamingSunday]
   friday: [MarkdownRemarkFrontmatterStreamingFriday]
   saturday: [MarkdownRemarkFrontmatterStreamingSaturday]
-  sunday: [MarkdownRemarkFrontmatterStreamingSunday]
 }
 
 input MarkdownRemarkFrontmatterStreamingFilterInput {
+  sunday: MarkdownRemarkFrontmatterStreamingSundayFilterListInput
   friday: MarkdownRemarkFrontmatterStreamingFridayFilterListInput
   saturday: MarkdownRemarkFrontmatterStreamingSaturdayFilterListInput
-  sunday: MarkdownRemarkFrontmatterStreamingSundayFilterListInput
 }
 
 type MarkdownRemarkFrontmatterStreamingFriday {
@@ -2742,7 +2902,7 @@ type Query {
   allFile(filter: FileFilterInput, sort: FileSortInput, skip: Int, limit: Int): FileConnection!
   directory(sourceInstanceName: StringQueryOperatorInput, absolutePath: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, extension: StringQueryOperatorInput, size: IntQueryOperatorInput, prettySize: StringQueryOperatorInput, modifiedTime: DateQueryOperatorInput, accessTime: DateQueryOperatorInput, changeTime: DateQueryOperatorInput, birthTime: DateQueryOperatorInput, root: StringQueryOperatorInput, dir: StringQueryOperatorInput, base: StringQueryOperatorInput, ext: StringQueryOperatorInput, name: StringQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, dev: IntQueryOperatorInput, mode: IntQueryOperatorInput, nlink: IntQueryOperatorInput, uid: IntQueryOperatorInput, gid: IntQueryOperatorInput, rdev: IntQueryOperatorInput, ino: FloatQueryOperatorInput, atimeMs: FloatQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, atime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, ctime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Directory
   allDirectory(filter: DirectoryFilterInput, sort: DirectorySortInput, skip: Int, limit: Int): DirectoryConnection!
-  site(buildTime: DateQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, port: IntQueryOperatorInput, host: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Site
+  site(buildTime: DateQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Site
   allSite(filter: SiteFilterInput, sort: SiteSortInput, skip: Int, limit: Int): SiteConnection!
   sitePage(path: StringQueryOperatorInput, component: StringQueryOperatorInput, internalComponentName: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, matchPath: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, context: SitePageContextFilterInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput, componentPath: StringQueryOperatorInput): SitePage
   allSitePage(filter: SitePageFilterInput, sort: SitePageSortInput, skip: Int, limit: Int): SitePageConnection!
@@ -2777,8 +2937,6 @@ type Site implements Node {
     locale: String
   ): Date
   siteMetadata: SiteSiteMetadata
-  port: Int
-  host: String
   polyfill: Boolean
   pathPrefix: String
   id: ID!
@@ -2960,8 +3118,6 @@ enum SiteFieldsEnum {
   siteMetadata___author___name
   siteMetadata___siteUrl
   siteMetadata___logo
-  port
-  host
   polyfill
   pathPrefix
   id
@@ -3055,8 +3211,6 @@ enum SiteFieldsEnum {
 input SiteFilterInput {
   buildTime: DateQueryOperatorInput
   siteMetadata: SiteSiteMetadataFilterInput
-  port: IntQueryOperatorInput
-  host: StringQueryOperatorInput
   polyfill: BooleanQueryOperatorInput
   pathPrefix: StringQueryOperatorInput
   id: StringQueryOperatorInput
