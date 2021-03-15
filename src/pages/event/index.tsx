@@ -6,7 +6,7 @@ import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import config from '../../../site-config'
 
 import {
-  AdCrawl,
+  DonationsMeter,
   Meta,
   TextCard
 } from '../../components'
@@ -155,6 +155,9 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
           </div>
         </div>
       </Section>
+      <Section isContainer pos='middle'>
+        <DonationsMeter />
+      </Section>
       <Section isContainer isTextCenter pos='middle'>
         <div className='row'>
           <div className='col'>
@@ -176,6 +179,8 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               <OutboundLink
                 title='Link to our donation page on RegFox'
                 href='https://fe.regfox.com/pixel-purrfect-donations'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='btn btn-primary btn-lg rounded-3'
               >
                 DONATE

@@ -22,20 +22,20 @@ export interface PlaceholderProps {
 }
 
 export const LiveStreamPlaceholder: React.FC<PlaceholderProps> = ({
-  placeholderImage, 
+  placeholderImage,
   placeholderImageAlt,
   days,
   hours,
   minutes,
   seconds
 }) => {
-    return <>
+  return (
+    <>
       {placeholderImage !== undefined && <Img
         fluid={placeholderImage}
         className='img-fluid'
         alt={placeholderImageAlt}
-      />
-      }
+                                         />}
       <div className='text-center'>
         <p className='h1 py-3'>
           {zeroPad(days)} : {zeroPad(hours)} : {zeroPad(minutes)} : {zeroPad(seconds)}
@@ -49,39 +49,48 @@ export const LiveStreamPlaceholder: React.FC<PlaceholderProps> = ({
           The livestream will autoplay when the timer hits zero!
         </p>
       </div>
-  </>
+    </>
+  )
 }
 
 export const LiveStream: React.FC<{ title: string, url: string }> = ({ title, url }) => {
-  return <ResponsiveVimeoPlayer
-    title={title}
-    url={url}
-  />
+  return (
+    <ResponsiveVimeoPlayer
+      title={title}
+      url={url}
+    />
+  )
 }
 
 const CountdownLiveStream: React.FC<Props> = ({ url, title, placeholderImage, placeholderImageAlt }: Props) => {
   const renderer: CountdownRendererFn = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
-      return <LiveStream
-        title={title}
-        url={url}
-      />
+      return (
+        <LiveStream
+          title={title}
+          url={url}
+        />
+      )
     } else {
-      return <LiveStreamPlaceholder
-        placeholderImage={placeholderImage}
-        placeholderImageAlt={placeholderImageAlt}
-        days={days}
-        hours={hours}
-        minutes={minutes}
-        seconds={seconds}
-      />
+      return (
+        <LiveStreamPlaceholder
+          placeholderImage={placeholderImage}
+          placeholderImageAlt={placeholderImageAlt}
+          days={days}
+          hours={hours}
+          minutes={minutes}
+          seconds={seconds}
+        />
+      )
     }
   }
 
-  return <Countdown
-    date={new Date(Date.UTC(2021, 2, 19, 16, 0, 0))}
-    renderer={renderer}
-  />
+  return (
+    <Countdown
+      date={new Date(Date.UTC(2021, 2, 19, 16, 0, 0))}
+      renderer={renderer}
+    />
+  )
 }
 
 export default CountdownLiveStream

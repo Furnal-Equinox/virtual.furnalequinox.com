@@ -24,7 +24,7 @@ const Lineup: React.FC = () => {
       <table className='table table-sm align-middle table-striped table-hover'>
         <TableHeader />
         <tbody>
-          { children }
+          {children}
         </tbody>
       </table>
     </div>

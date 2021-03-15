@@ -65,7 +65,7 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
           <div className='row'>
             <CountdownLiveStream
               title="Furnal Equinox's Pixel Purrfect livestream from Vimeo"
-              url='https://vimeo.com/285337458'
+              url={process.env.GATSBY_STREAM_URL as string}
               placeholderImage={martyPlaceholder}
               placeholderImageAlt={[
                 'This image reads',

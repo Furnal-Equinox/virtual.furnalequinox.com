@@ -195,46 +195,46 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               !isStrEmpty(post?.streaming?.saturday) ||
               !isStrEmpty(post?.streaming?.sunday)
             ) &&
-             <div className='col-lg-6 p-2'>
-               <h2>Streaming Times</h2>
-               <hr />
-               <div className='table-responsive'>
-                 <table className='table table-striped table-hover'>
-                   <thead>
-                     <tr>
-                       <th scope='col'>Date</th>
-                       <th scope='col'>Time (24 Hour Clock)</th>
-                     </tr>
-                   </thead>
-                   <tbody>
-                     {post?.streaming?.friday?.map((block, i) =>
-                       <tr key={`friday-time-${i}`}>
-                         <th scope='row'>Friday, March 19th</th>
-                         <td>
-                           {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                         </td>
-                       </tr>
-                     )}
-                     {post?.streaming?.saturday?.map((block, i) =>
-                       <tr key={`saturday-time-${i}`}>
-                         <th scope='row'>Saturday, March 20th</th>
-                         <td>
-                           {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                         </td>
-                       </tr>
-                     )}
-                     {post?.streaming?.sunday?.map((block, i) =>
-                       <tr key={`sunday-time-${i}`}>
-                         <th scope='row'>Sunday, March 21st</th>
-                         <td>
-                           {`${block?.start ?? ''} to ${block?.end ?? ''}`}
-                         </td>
-                       </tr>
-                     )}
-                   </tbody>
-                 </table>
-               </div>
-             </div>}
+              <div className='col-lg-6 p-2'>
+                <h2>Streaming Times</h2>
+                <hr />
+                <div className='table-responsive'>
+                  <table className='table table-striped table-hover'>
+                    <thead>
+                      <tr>
+                        <th scope='col'>Date</th>
+                        <th scope='col'>Time (24 Hour Clock)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {post?.streaming?.friday?.map((block, i) =>
+                        <tr key={`friday-time-${i}`}>
+                          <th scope='row'>Friday, March 19th</th>
+                          <td>
+                            {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                          </td>
+                        </tr>
+                      )}
+                      {post?.streaming?.saturday?.map((block, i) =>
+                        <tr key={`saturday-time-${i}`}>
+                          <th scope='row'>Saturday, March 20th</th>
+                          <td>
+                            {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                          </td>
+                        </tr>
+                      )}
+                      {post?.streaming?.sunday?.map((block, i) =>
+                        <tr key={`sunday-time-${i}`}>
+                          <th scope='row'>Sunday, March 21st</th>
+                          <td>
+                            {`${block?.start ?? ''} to ${block?.end ?? ''}`}
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>}
             <div className='col-lg-6 text-center p-2'>
               {post?.url !== null && post?.url !== undefined
                 ? <Button

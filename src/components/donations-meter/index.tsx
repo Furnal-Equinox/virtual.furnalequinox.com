@@ -59,9 +59,9 @@ const DonationsMeter: React.FC = () => {
     }
   }
 
-  let { goal, bg } = getCurrentGoalAndBG()
+  const { goal, bg } = getCurrentGoalAndBG()
 
-  let percent = getPercentOfGoal(goal)
+  const percent = getPercentOfGoal(goal)
 
   const ProgressBar: React.FC = () => {
     return (
