@@ -27,7 +27,9 @@ export { default as DealerCardGrid } from './dealer-card-grid'
 export { default as Footer } from './footer'
 export { default as Icon } from './icon'
 export { default as Jumbotron } from './jumbotron'
-export { default as Lineup } from './lineup'
+
+export { default as DJLineup } from './dj-lineup'
+export { default as PanelLineup } from './panel-lineup'
 
 export { default as Meta } from './meta'
 export { FakeNavbar } from './navbars'

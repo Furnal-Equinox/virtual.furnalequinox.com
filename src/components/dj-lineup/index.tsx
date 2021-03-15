@@ -3,19 +3,18 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import { TextCard } from '../index'
 
-const Lineup: React.FC = () => {
-  const data = useStaticQuery<GatsbyTypes.LineupQueryQuery>(lineupQuery)
+const DJLineup: React.FC = () => {
+  const data = useStaticQuery<GatsbyTypes.DJLineupQueryQuery>(djLineupQuery)
 
-  const friday = data?.remark?.frontmatter?.schedule?.friday
-  const saturday = data?.remark?.frontmatter?.schedule?.saturday
-  const sunday = data?.remark?.frontmatter?.schedule?.sunday
+  const friday = data?.remark?.frontmatter?.djLineup?.friday
+  const saturday = data?.remark?.frontmatter?.djLineup?.saturday
+  const sunday = data?.remark?.frontmatter?.djLineup?.sunday
 
   const TableHeader: React.FC = () =>
     <thead>
       <tr>
-        <th scope='col'>Time (EST)</th>
-        <th scope='col'>Event Name</th>
-        <th scope='col'>Host</th>
+        <th scope='col'>Time (EDT)</th>
+        <th scope='col'>DJ</th>
       </tr>
     </thead>
 
@@ -38,8 +37,7 @@ const Lineup: React.FC = () => {
           {friday?.map((event) =>
             <tr key={event?.time}>
               <th scope='row'>{event?.time}</th>
-              <td>{event?.title}</td>
-              <td>{event?.host}</td>
+              <td>{event?.dj}</td>
             </tr>
           )}
         </Table>
@@ -50,8 +48,7 @@ const Lineup: React.FC = () => {
           {saturday?.map((event) =>
             <tr key={event?.time}>
               <th scope='row'>{event?.time}</th>
-              <td>{event?.title}</td>
-              <td>{event?.host}</td>
+              <td>{event?.dj}</td>
             </tr>
           )}
         </Table>
@@ -62,8 +59,7 @@ const Lineup: React.FC = () => {
           {sunday?.map((event) =>
             <tr key={event?.time}>
               <th scope='row'>{event?.time}</th>
-              <td>{event?.title}</td>
-              <td>{event?.host}</td>
+              <td>{event?.dj}</td>
             </tr>
           )}
         </Table>
@@ -72,27 +68,24 @@ const Lineup: React.FC = () => {
   )
 }
 
-export default Lineup
+export default DJLineup
 
-export const lineupQuery = graphql`
-  query LineupQuery {
-    remark: markdownRemark(fileAbsolutePath: { regex: "/schedule.md/" }) {
+export const djLineupQuery = graphql`
+  query DJLineupQuery {
+    remark: markdownRemark(fileAbsolutePath: { regex: "/djs.md/" }) {
       frontmatter {
-        schedule {
+        djLineup {
           friday {
             time
-            title
-            host
+            dj
           }
           saturday {
             time
-            title
-            host
+            dj
           }
           sunday {
             time
-            title
-            host
+            dj
           }
         }
       }

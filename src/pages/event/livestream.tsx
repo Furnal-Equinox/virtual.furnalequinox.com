@@ -8,7 +8,7 @@ import {
   AdCrawl,
   CountdownLiveStream,
   DonationsMeter,
-  Lineup,
+  PanelLineup,
   Meta
 } from '../../components'
 
@@ -84,7 +84,7 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
         <AdCrawl />
       </Section>
       <Section isContainer pos='middle'>
-        <Lineup />
+        <PanelLineup />
       </Section>
     </>
   )
