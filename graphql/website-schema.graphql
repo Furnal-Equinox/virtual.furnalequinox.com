@@ -871,8 +871,8 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___social___youtube
   childrenMarkdownRemark___frontmatter___social___patreon
   childrenMarkdownRemark___frontmatter___streaming___sunday
-  childrenMarkdownRemark___frontmatter___streaming___friday
   childrenMarkdownRemark___frontmatter___streaming___saturday
+  childrenMarkdownRemark___frontmatter___streaming___friday
   childrenMarkdownRemark___frontmatter___artist
   childrenMarkdownRemark___frontmatter___image___sourceInstanceName
   childrenMarkdownRemark___frontmatter___image___absolutePath
@@ -1014,8 +1014,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___social___youtube
   childMarkdownRemark___frontmatter___social___patreon
   childMarkdownRemark___frontmatter___streaming___sunday
-  childMarkdownRemark___frontmatter___streaming___friday
   childMarkdownRemark___frontmatter___streaming___saturday
+  childMarkdownRemark___frontmatter___streaming___friday
   childMarkdownRemark___frontmatter___artist
   childMarkdownRemark___frontmatter___image___sourceInstanceName
   childMarkdownRemark___frontmatter___image___absolutePath
@@ -2315,12 +2315,12 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___streaming___sunday
   frontmatter___streaming___sunday___start
   frontmatter___streaming___sunday___end
-  frontmatter___streaming___friday
-  frontmatter___streaming___friday___start
-  frontmatter___streaming___friday___end
   frontmatter___streaming___saturday
   frontmatter___streaming___saturday___start
   frontmatter___streaming___saturday___end
+  frontmatter___streaming___friday
+  frontmatter___streaming___friday___start
+  frontmatter___streaming___friday___end
   frontmatter___artist
   frontmatter___image___sourceInstanceName
   frontmatter___image___absolutePath
@@ -2835,14 +2835,14 @@ input MarkdownRemarkFrontmatterSocialFilterInput {
 
 type MarkdownRemarkFrontmatterStreaming {
   sunday: [MarkdownRemarkFrontmatterStreamingSunday]
-  friday: [MarkdownRemarkFrontmatterStreamingFriday]
   saturday: [MarkdownRemarkFrontmatterStreamingSaturday]
+  friday: [MarkdownRemarkFrontmatterStreamingFriday]
 }
 
 input MarkdownRemarkFrontmatterStreamingFilterInput {
   sunday: MarkdownRemarkFrontmatterStreamingSundayFilterListInput
-  friday: MarkdownRemarkFrontmatterStreamingFridayFilterListInput
   saturday: MarkdownRemarkFrontmatterStreamingSaturdayFilterListInput
+  friday: MarkdownRemarkFrontmatterStreamingFridayFilterListInput
 }
 
 type MarkdownRemarkFrontmatterStreamingFriday {
