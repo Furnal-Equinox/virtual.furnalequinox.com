@@ -14,12 +14,10 @@ const DonationsMeter: React.FC = () => {
   const donationGoals: number[] = [6000, 8000, 10000]
   const timeToCheck = parseInt(process.env.GATSBY_INTERVAL_IN_MS_TO_CHECK_TOTAL_DONATION_AMOUNT as string)
 
-  const identity = useIdentityContext()
-
   useEffect(() => {
     const fetchTotals = async (): Promise<void> => {
       try {
-        const res = await identity.authorizedFetch('/.netlify/functions/fetch-totals', {
+        const res = await fetch('/.netlify/functions/fetch-totals', {
           method: 'POST'
         })
 
