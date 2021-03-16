@@ -87,7 +87,7 @@ const CountdownLiveStream: React.FC<Props> = ({ url, title, placeholderImage, pl
 
   return (
     <Countdown
-      date={new Date(Date.UTC(2021, 2, 19, 16, 0, 0))}
+      date={new Date(Date.UTC(2021, 2, 19, 15, 0, 0))}
       renderer={renderer}
     />
   )
