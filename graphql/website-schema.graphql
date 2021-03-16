@@ -855,20 +855,20 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___social___discord
   childrenMarkdownRemark___frontmatter___social___etsy
   childrenMarkdownRemark___frontmatter___social___facebook
-  childrenMarkdownRemark___frontmatter___social___flickr
   childrenMarkdownRemark___frontmatter___social___furaffinity
   childrenMarkdownRemark___frontmatter___social___github
   childrenMarkdownRemark___frontmatter___social___instagram
-  childrenMarkdownRemark___frontmatter___social___other
   childrenMarkdownRemark___frontmatter___social___picarto
   childrenMarkdownRemark___frontmatter___social___pinterest
   childrenMarkdownRemark___frontmatter___social___steam
   childrenMarkdownRemark___frontmatter___social___telegram
-  childrenMarkdownRemark___frontmatter___social___tiktok
   childrenMarkdownRemark___frontmatter___social___tumblr
   childrenMarkdownRemark___frontmatter___social___twitch
   childrenMarkdownRemark___frontmatter___social___twitter
   childrenMarkdownRemark___frontmatter___social___youtube
+  childrenMarkdownRemark___frontmatter___social___flickr
+  childrenMarkdownRemark___frontmatter___social___other
+  childrenMarkdownRemark___frontmatter___social___tiktok
   childrenMarkdownRemark___frontmatter___social___patreon
   childrenMarkdownRemark___frontmatter___streaming___sunday
   childrenMarkdownRemark___frontmatter___streaming___saturday
@@ -998,20 +998,20 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___social___discord
   childMarkdownRemark___frontmatter___social___etsy
   childMarkdownRemark___frontmatter___social___facebook
-  childMarkdownRemark___frontmatter___social___flickr
   childMarkdownRemark___frontmatter___social___furaffinity
   childMarkdownRemark___frontmatter___social___github
   childMarkdownRemark___frontmatter___social___instagram
-  childMarkdownRemark___frontmatter___social___other
   childMarkdownRemark___frontmatter___social___picarto
   childMarkdownRemark___frontmatter___social___pinterest
   childMarkdownRemark___frontmatter___social___steam
   childMarkdownRemark___frontmatter___social___telegram
-  childMarkdownRemark___frontmatter___social___tiktok
   childMarkdownRemark___frontmatter___social___tumblr
   childMarkdownRemark___frontmatter___social___twitch
   childMarkdownRemark___frontmatter___social___twitter
   childMarkdownRemark___frontmatter___social___youtube
+  childMarkdownRemark___frontmatter___social___flickr
+  childMarkdownRemark___frontmatter___social___other
+  childMarkdownRemark___frontmatter___social___tiktok
   childMarkdownRemark___frontmatter___social___patreon
   childMarkdownRemark___frontmatter___streaming___sunday
   childMarkdownRemark___frontmatter___streaming___saturday
@@ -2297,20 +2297,20 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___social___discord
   frontmatter___social___etsy
   frontmatter___social___facebook
-  frontmatter___social___flickr
   frontmatter___social___furaffinity
   frontmatter___social___github
   frontmatter___social___instagram
-  frontmatter___social___other
   frontmatter___social___picarto
   frontmatter___social___pinterest
   frontmatter___social___steam
   frontmatter___social___telegram
-  frontmatter___social___tiktok
   frontmatter___social___tumblr
   frontmatter___social___twitch
   frontmatter___social___twitter
   frontmatter___social___youtube
+  frontmatter___social___flickr
+  frontmatter___social___other
+  frontmatter___social___tiktok
   frontmatter___social___patreon
   frontmatter___streaming___sunday
   frontmatter___streaming___sunday___start
@@ -2793,20 +2793,20 @@ type MarkdownRemarkFrontmatterSocial {
   discord: String
   etsy: String
   facebook: String
-  flickr: String
   furaffinity: String
   github: String
   instagram: String
-  other: String
   picarto: String
   pinterest: String
   steam: String
   telegram: String
-  tiktok: String
   tumblr: String
   twitch: String
   twitter: String
   youtube: String
+  flickr: String
+  other: String
+  tiktok: String
   patreon: String
 }
 
@@ -2816,20 +2816,20 @@ input MarkdownRemarkFrontmatterSocialFilterInput {
   discord: StringQueryOperatorInput
   etsy: StringQueryOperatorInput
   facebook: StringQueryOperatorInput
-  flickr: StringQueryOperatorInput
   furaffinity: StringQueryOperatorInput
   github: StringQueryOperatorInput
   instagram: StringQueryOperatorInput
-  other: StringQueryOperatorInput
   picarto: StringQueryOperatorInput
   pinterest: StringQueryOperatorInput
   steam: StringQueryOperatorInput
   telegram: StringQueryOperatorInput
-  tiktok: StringQueryOperatorInput
   tumblr: StringQueryOperatorInput
   twitch: StringQueryOperatorInput
   twitter: StringQueryOperatorInput
   youtube: StringQueryOperatorInput
+  flickr: StringQueryOperatorInput
+  other: StringQueryOperatorInput
+  tiktok: StringQueryOperatorInput
   patreon: StringQueryOperatorInput
 }
 
@@ -2973,7 +2973,7 @@ type Query {
   allFile(filter: FileFilterInput, sort: FileSortInput, skip: Int, limit: Int): FileConnection!
   directory(sourceInstanceName: StringQueryOperatorInput, absolutePath: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, extension: StringQueryOperatorInput, size: IntQueryOperatorInput, prettySize: StringQueryOperatorInput, modifiedTime: DateQueryOperatorInput, accessTime: DateQueryOperatorInput, changeTime: DateQueryOperatorInput, birthTime: DateQueryOperatorInput, root: StringQueryOperatorInput, dir: StringQueryOperatorInput, base: StringQueryOperatorInput, ext: StringQueryOperatorInput, name: StringQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, dev: IntQueryOperatorInput, mode: IntQueryOperatorInput, nlink: IntQueryOperatorInput, uid: IntQueryOperatorInput, gid: IntQueryOperatorInput, rdev: IntQueryOperatorInput, ino: FloatQueryOperatorInput, atimeMs: FloatQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, atime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, ctime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Directory
   allDirectory(filter: DirectoryFilterInput, sort: DirectorySortInput, skip: Int, limit: Int): DirectoryConnection!
-  site(buildTime: DateQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Site
+  site(buildTime: DateQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, port: IntQueryOperatorInput, host: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Site
   allSite(filter: SiteFilterInput, sort: SiteSortInput, skip: Int, limit: Int): SiteConnection!
   sitePage(path: StringQueryOperatorInput, component: StringQueryOperatorInput, internalComponentName: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, matchPath: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, context: SitePageContextFilterInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput, componentPath: StringQueryOperatorInput): SitePage
   allSitePage(filter: SitePageFilterInput, sort: SitePageSortInput, skip: Int, limit: Int): SitePageConnection!
@@ -3008,6 +3008,8 @@ type Site implements Node {
     locale: String
   ): Date
   siteMetadata: SiteSiteMetadata
+  port: Int
+  host: String
   polyfill: Boolean
   pathPrefix: String
   id: ID!
@@ -3189,6 +3191,8 @@ enum SiteFieldsEnum {
   siteMetadata___author___name
   siteMetadata___siteUrl
   siteMetadata___logo
+  port
+  host
   polyfill
   pathPrefix
   id
@@ -3282,6 +3286,8 @@ enum SiteFieldsEnum {
 input SiteFilterInput {
   buildTime: DateQueryOperatorInput
   siteMetadata: SiteSiteMetadataFilterInput
+  port: IntQueryOperatorInput
+  host: StringQueryOperatorInput
   polyfill: BooleanQueryOperatorInput
   pathPrefix: StringQueryOperatorInput
   id: StringQueryOperatorInput

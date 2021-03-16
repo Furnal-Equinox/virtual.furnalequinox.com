@@ -1,3 +1,4 @@
+export { default as ComponentDisplay } from './component-display'
 export { default as Event } from './event'
 export { default as FakeEvent } from './fake-event'
 export { default as Layout } from './layout'
