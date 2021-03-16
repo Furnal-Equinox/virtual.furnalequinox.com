@@ -129,7 +129,7 @@ export const dealerQuery = graphql`
         images {
           imgFile {
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 1140) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -261,20 +261,31 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
           </TextCard>
         </Section>}
       <Section isContainer>
-        <ResponsiveMasonry
-          columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
-        >
-          <Masonry>
-            {images?.map(image =>
-              image?.imgFile?.childImageSharp?.fluid !== undefined &&
-                <Img
-                  title={image?.desc ?? "One of this dealer's images"}
-                  fluid={image?.imgFile?.childImageSharp?.fluid as FluidObject}
-                  className='d-block rounded-3 border border-primary m-1'
-                />
-            )}
-          </Masonry>
-        </ResponsiveMasonry>
+        {((images?.length ?? 0 ) > 1) ? (
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
+          >
+            <Masonry>
+              {images?.map(image =>
+                image?.imgFile?.childImageSharp?.fluid !== undefined && (
+                  <Img
+                    title={image?.desc ?? "One of this dealer's images"}
+                    fluid={image?.imgFile?.childImageSharp?.fluid}
+                    className='d-block rounded-3 border border-primary m-1'
+                  />
+                )
+              )}
+            </Masonry>
+          </ResponsiveMasonry>
+        ) : (
+          images !== null && images[0]?.imgFile?.childImageSharp?.fluid !== undefined && (
+            <Img
+              title={images[0]?.desc ?? "One of this dealer's images"}
+              fluid={images[0]?.imgFile?.childImageSharp?.fluid}
+              className='d-block rounded-3 border border-primary m-1'
+            />
+          )
+        )}
       </Section>
       <Section isContainer>
         <TextCard>

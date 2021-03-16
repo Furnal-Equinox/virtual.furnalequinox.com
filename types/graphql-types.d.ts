@@ -742,20 +742,20 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.social.discord'
   | 'childrenMarkdownRemark.frontmatter.social.etsy'
   | 'childrenMarkdownRemark.frontmatter.social.facebook'
+  | 'childrenMarkdownRemark.frontmatter.social.flickr'
   | 'childrenMarkdownRemark.frontmatter.social.furaffinity'
   | 'childrenMarkdownRemark.frontmatter.social.github'
   | 'childrenMarkdownRemark.frontmatter.social.instagram'
+  | 'childrenMarkdownRemark.frontmatter.social.other'
   | 'childrenMarkdownRemark.frontmatter.social.picarto'
   | 'childrenMarkdownRemark.frontmatter.social.pinterest'
   | 'childrenMarkdownRemark.frontmatter.social.steam'
   | 'childrenMarkdownRemark.frontmatter.social.telegram'
+  | 'childrenMarkdownRemark.frontmatter.social.tiktok'
   | 'childrenMarkdownRemark.frontmatter.social.tumblr'
   | 'childrenMarkdownRemark.frontmatter.social.twitch'
   | 'childrenMarkdownRemark.frontmatter.social.twitter'
   | 'childrenMarkdownRemark.frontmatter.social.youtube'
-  | 'childrenMarkdownRemark.frontmatter.social.flickr'
-  | 'childrenMarkdownRemark.frontmatter.social.other'
-  | 'childrenMarkdownRemark.frontmatter.social.tiktok'
   | 'childrenMarkdownRemark.frontmatter.social.patreon'
   | 'childrenMarkdownRemark.frontmatter.streaming.sunday'
   | 'childrenMarkdownRemark.frontmatter.streaming.saturday'
@@ -800,14 +800,14 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.image.id'
   | 'childrenMarkdownRemark.frontmatter.image.children'
   | 'childrenMarkdownRemark.frontmatter.desc'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.friday'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.saturday'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childrenMarkdownRemark.frontmatter.schedule.friday'
   | 'childrenMarkdownRemark.frontmatter.schedule.saturday'
   | 'childrenMarkdownRemark.frontmatter.schedule.sunday'
-  | 'childrenMarkdownRemark.frontmatter.staff'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.friday'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.saturday'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childrenMarkdownRemark.frontmatter.vrChatWorldLinks'
+  | 'childrenMarkdownRemark.frontmatter.staff'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.path'
   | 'childrenMarkdownRemark.frontmatter.category'
@@ -885,20 +885,20 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.social.discord'
   | 'childMarkdownRemark.frontmatter.social.etsy'
   | 'childMarkdownRemark.frontmatter.social.facebook'
+  | 'childMarkdownRemark.frontmatter.social.flickr'
   | 'childMarkdownRemark.frontmatter.social.furaffinity'
   | 'childMarkdownRemark.frontmatter.social.github'
   | 'childMarkdownRemark.frontmatter.social.instagram'
+  | 'childMarkdownRemark.frontmatter.social.other'
   | 'childMarkdownRemark.frontmatter.social.picarto'
   | 'childMarkdownRemark.frontmatter.social.pinterest'
   | 'childMarkdownRemark.frontmatter.social.steam'
   | 'childMarkdownRemark.frontmatter.social.telegram'
+  | 'childMarkdownRemark.frontmatter.social.tiktok'
   | 'childMarkdownRemark.frontmatter.social.tumblr'
   | 'childMarkdownRemark.frontmatter.social.twitch'
   | 'childMarkdownRemark.frontmatter.social.twitter'
   | 'childMarkdownRemark.frontmatter.social.youtube'
-  | 'childMarkdownRemark.frontmatter.social.flickr'
-  | 'childMarkdownRemark.frontmatter.social.other'
-  | 'childMarkdownRemark.frontmatter.social.tiktok'
   | 'childMarkdownRemark.frontmatter.social.patreon'
   | 'childMarkdownRemark.frontmatter.streaming.sunday'
   | 'childMarkdownRemark.frontmatter.streaming.saturday'
@@ -943,14 +943,14 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.image.id'
   | 'childMarkdownRemark.frontmatter.image.children'
   | 'childMarkdownRemark.frontmatter.desc'
-  | 'childMarkdownRemark.frontmatter.djLineup.friday'
-  | 'childMarkdownRemark.frontmatter.djLineup.saturday'
-  | 'childMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childMarkdownRemark.frontmatter.schedule.friday'
   | 'childMarkdownRemark.frontmatter.schedule.saturday'
   | 'childMarkdownRemark.frontmatter.schedule.sunday'
-  | 'childMarkdownRemark.frontmatter.staff'
+  | 'childMarkdownRemark.frontmatter.djLineup.friday'
+  | 'childMarkdownRemark.frontmatter.djLineup.saturday'
+  | 'childMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childMarkdownRemark.frontmatter.vrChatWorldLinks'
+  | 'childMarkdownRemark.frontmatter.staff'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.path'
   | 'childMarkdownRemark.frontmatter.category'
@@ -2235,20 +2235,20 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.social.discord'
   | 'frontmatter.social.etsy'
   | 'frontmatter.social.facebook'
+  | 'frontmatter.social.flickr'
   | 'frontmatter.social.furaffinity'
   | 'frontmatter.social.github'
   | 'frontmatter.social.instagram'
+  | 'frontmatter.social.other'
   | 'frontmatter.social.picarto'
   | 'frontmatter.social.pinterest'
   | 'frontmatter.social.steam'
   | 'frontmatter.social.telegram'
+  | 'frontmatter.social.tiktok'
   | 'frontmatter.social.tumblr'
   | 'frontmatter.social.twitch'
   | 'frontmatter.social.twitter'
   | 'frontmatter.social.youtube'
-  | 'frontmatter.social.flickr'
-  | 'frontmatter.social.other'
-  | 'frontmatter.social.tiktok'
   | 'frontmatter.social.patreon'
   | 'frontmatter.streaming.sunday'
   | 'frontmatter.streaming.sunday.start'
@@ -2339,15 +2339,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.image.internal.owner'
   | 'frontmatter.image.internal.type'
   | 'frontmatter.desc'
-  | 'frontmatter.djLineup.friday'
-  | 'frontmatter.djLineup.friday.time'
-  | 'frontmatter.djLineup.friday.dj'
-  | 'frontmatter.djLineup.saturday'
-  | 'frontmatter.djLineup.saturday.time'
-  | 'frontmatter.djLineup.saturday.dj'
-  | 'frontmatter.djLineup.sunday'
-  | 'frontmatter.djLineup.sunday.time'
-  | 'frontmatter.djLineup.sunday.dj'
   | 'frontmatter.schedule.friday'
   | 'frontmatter.schedule.friday.time'
   | 'frontmatter.schedule.friday.title'
@@ -2360,8 +2351,17 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.schedule.sunday.time'
   | 'frontmatter.schedule.sunday.title'
   | 'frontmatter.schedule.sunday.host'
-  | 'frontmatter.staff'
+  | 'frontmatter.djLineup.friday'
+  | 'frontmatter.djLineup.friday.time'
+  | 'frontmatter.djLineup.friday.dj'
+  | 'frontmatter.djLineup.saturday'
+  | 'frontmatter.djLineup.saturday.time'
+  | 'frontmatter.djLineup.saturday.dj'
+  | 'frontmatter.djLineup.sunday'
+  | 'frontmatter.djLineup.sunday.time'
+  | 'frontmatter.djLineup.sunday.dj'
   | 'frontmatter.vrChatWorldLinks'
+  | 'frontmatter.staff'
   | 'frontmatter.date'
   | 'frontmatter.path'
   | 'frontmatter.category'
@@ -2513,10 +2513,10 @@ type MarkdownRemarkFrontmatter = {
   readonly artist: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
   readonly desc: Maybe<Scalars['String']>;
-  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineup>;
   readonly schedule: Maybe<MarkdownRemarkFrontmatterSchedule>;
-  readonly staff: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineup>;
   readonly vrChatWorldLinks: Maybe<Scalars['String']>;
+  readonly staff: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly date: Maybe<Scalars['Date']>;
   readonly path: Maybe<Scalars['String']>;
   readonly category: Maybe<Scalars['String']>;
@@ -2613,10 +2613,10 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly artist: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
   readonly desc: Maybe<StringQueryOperatorInput>;
-  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineupFilterInput>;
   readonly schedule: Maybe<MarkdownRemarkFrontmatterScheduleFilterInput>;
-  readonly staff: Maybe<StringQueryOperatorInput>;
+  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineupFilterInput>;
   readonly vrChatWorldLinks: Maybe<StringQueryOperatorInput>;
+  readonly staff: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly category: Maybe<StringQueryOperatorInput>;
@@ -2722,20 +2722,20 @@ type MarkdownRemarkFrontmatterSocial = {
   readonly discord: Maybe<Scalars['String']>;
   readonly etsy: Maybe<Scalars['String']>;
   readonly facebook: Maybe<Scalars['String']>;
+  readonly flickr: Maybe<Scalars['String']>;
   readonly furaffinity: Maybe<Scalars['String']>;
   readonly github: Maybe<Scalars['String']>;
   readonly instagram: Maybe<Scalars['String']>;
+  readonly other: Maybe<Scalars['String']>;
   readonly picarto: Maybe<Scalars['String']>;
   readonly pinterest: Maybe<Scalars['String']>;
   readonly steam: Maybe<Scalars['String']>;
   readonly telegram: Maybe<Scalars['String']>;
+  readonly tiktok: Maybe<Scalars['String']>;
   readonly tumblr: Maybe<Scalars['String']>;
   readonly twitch: Maybe<Scalars['String']>;
   readonly twitter: Maybe<Scalars['String']>;
   readonly youtube: Maybe<Scalars['String']>;
-  readonly flickr: Maybe<Scalars['String']>;
-  readonly other: Maybe<Scalars['String']>;
-  readonly tiktok: Maybe<Scalars['String']>;
   readonly patreon: Maybe<Scalars['String']>;
 };
 
@@ -2745,20 +2745,20 @@ type MarkdownRemarkFrontmatterSocialFilterInput = {
   readonly discord: Maybe<StringQueryOperatorInput>;
   readonly etsy: Maybe<StringQueryOperatorInput>;
   readonly facebook: Maybe<StringQueryOperatorInput>;
+  readonly flickr: Maybe<StringQueryOperatorInput>;
   readonly furaffinity: Maybe<StringQueryOperatorInput>;
   readonly github: Maybe<StringQueryOperatorInput>;
   readonly instagram: Maybe<StringQueryOperatorInput>;
+  readonly other: Maybe<StringQueryOperatorInput>;
   readonly picarto: Maybe<StringQueryOperatorInput>;
   readonly pinterest: Maybe<StringQueryOperatorInput>;
   readonly steam: Maybe<StringQueryOperatorInput>;
   readonly telegram: Maybe<StringQueryOperatorInput>;
+  readonly tiktok: Maybe<StringQueryOperatorInput>;
   readonly tumblr: Maybe<StringQueryOperatorInput>;
   readonly twitch: Maybe<StringQueryOperatorInput>;
   readonly twitter: Maybe<StringQueryOperatorInput>;
   readonly youtube: Maybe<StringQueryOperatorInput>;
-  readonly flickr: Maybe<StringQueryOperatorInput>;
-  readonly other: Maybe<StringQueryOperatorInput>;
-  readonly tiktok: Maybe<StringQueryOperatorInput>;
   readonly patreon: Maybe<StringQueryOperatorInput>;
 };
 
