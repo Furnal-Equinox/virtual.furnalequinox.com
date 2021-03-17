@@ -19,7 +19,7 @@ const DonationsMeterPage: React.FC<Props> = () => {
       <Meta />
       <div className='container py-5'>
         <DonationsMeter />
-      </div> 
+      </div>
     </ComponentDisplay>
   )
 }

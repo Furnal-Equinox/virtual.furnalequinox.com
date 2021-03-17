@@ -81,7 +81,7 @@ const DonationsMeter: React.FC = () => {
   }
 
   return (
-    <div className='card rounded-3 border border-primary border-5'>
+    <div className='card rounded-3 border border-primary border-5' tabIndex={0}>
       {bg !== undefined && <Img
         fluid={bg}
         className='img-fluid rounded-3'
@@ -100,12 +100,12 @@ const DonationsMeter: React.FC = () => {
             </div>
           </div>
           <div className='row'>
-            <div className='col-9'>
+            <div className='col-9' tabIndex={0}>
               <ProgressBar />
             </div>
           </div>
           <div className='row justify-content-start'>
-            <div className='col'>
+            <div className='col' tabIndex={0}>
               <p
                 className='h3 m-0'
                 style={{ textShadow: '0px 0px 10px #ff3d6f, 0px 0px 10px #ff3d6f' }}
@@ -113,14 +113,15 @@ const DonationsMeter: React.FC = () => {
                 {`$${total?.toFixed() ?? 0}`}
               </p>
             </div>
-            <div className='col'>
+            <div className='col' tabIndex={0}>
               <OutboundLink
-                title='Link to our donation page on RegFox'
+                title='Link to our donation page on RegFox. This link will open in a new tab.'
                 href='https://fe.regfox.com/pixel-purrfect-donations'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='link h3'
                 style={{ textShadow: '0px 0px 10px #ff3d6f, 0px 0px 10px #ff3d6f' }}
+                tabIndex={0}
               >
                 DONATE
               </OutboundLink>

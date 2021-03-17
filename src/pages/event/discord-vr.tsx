@@ -103,11 +103,11 @@ const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer isTextCenter pos='middle'>
         <TextCard>
           <h1>Safety in VRChat</h1>
-          <div className="alert alert-warning" role="alert">
+          <div className='alert alert-warning' role='alert'>
             <p className='visually-hidden'>
               Warning:{' '}
             </p>
-            <h4 className='alert-heading'>Hold on!</h4>
+            <h2 className='alert-heading'>Hold on!</h2>
             <p>
               Before you hop into VRChat, please read this section carefully!
             </p>
@@ -123,15 +123,15 @@ const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
             className='img-fluid rounded-3'
             alt={[
               "This image reads'",
-              "if someone is being a pest, you can get rid of them fast by following these steps!",
-              "1. Open your menu by pressing the menu button on your VR controller, or the escape key on a PC!",
-              "2. Select the user by putting the little white circle cursor over their avatar.",
-              "They will look like a silhouette with a blue capsule outline!",
+              'if someone is being a pest, you can get rid of them fast by following these steps!',
+              '1. Open your menu by pressing the menu button on your VR controller, or the escape key on a PC!',
+              '2. Select the user by putting the little white circle cursor over their avatar.',
+              'They will look like a silhouette with a blue capsule outline!',
               "3. Toggle the 'Not Blocked / Blocked' button to block them. If they were doing something very bad,",
               "click 'Report User' as well!",
-              "Furnal Equinox staff cannot control public instances in VRChat,",
+              'Furnal Equinox staff cannot control public instances in VRChat,',
               "so it's up to you to choose who to interact with.",
-              "Have a fun and exciting convention!"
+              'Have a fun and exciting convention!'
             ].join(' ')}
           />}
         </TextCard>
@@ -139,11 +139,11 @@ const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer isTextCenter pos='middle'>
         <TextCard>
           <h1>VRChat links coming soon!</h1>
-          <div className="alert alert-info" role="alert">
+          <div className='alert alert-info' role='alert'>
             <p className='visually-hidden'>
               Info:{' '}
             </p>
-            <h4 className="alert-heading">No VR headset?</h4>
+            <h2 className='alert-heading'>No VR headset?</h2>
             <p className='mb-0'>
               No worries! You don't need a VR headset to play VRChat!{' '}
               Just launch VRChat in Desktop mode instead!

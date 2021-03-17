@@ -16,9 +16,9 @@ type Props = Dealer
 
 const DealerCard: React.FC<Props> = ({ title, description, banner, slug }: Props) => {
   return (
-    <div className='card rounded-3 border border-primary border-5 mb-5'>
+    <div className='card rounded-3 border border-primary border-5 mb-5' tabIndex={0}>
       {banner !== undefined
-        ? <Img title={`Thumbnail banner image for ${title ?? 'this dealer'}`} fluid={banner} className='card-img-top' />
+        ? <Img alt={`Thumbnail banner image for ${title ?? 'this dealer'}`} fluid={banner} className='card-img-top' />
         : <PlaceholderImage />}
       <div className='card-body'>
         <div className='container'>
@@ -40,6 +40,7 @@ const DealerCard: React.FC<Props> = ({ title, description, banner, slug }: Props
                 title={`Link to the dealer page for ${title ?? 'this dealer'}`}
                 to={`.${slug ?? ''}`}
                 className='btn btn-primary btn-lg rounded-3'
+                tabIndex={0}
               >
                 Let's go!
               </Link>

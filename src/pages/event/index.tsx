@@ -7,6 +7,7 @@ import config from '../../../site-config'
 
 import {
   DonationsMeter,
+  Jumbotron,
   Meta,
   TextCard
 } from '../../components'
@@ -67,11 +68,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
 
   return (
     <>
-      <Section isContainer isTextCenter pos='middle'>
-        <TextCard>
-          <h3>{`Hello, ${name}!`}</h3>
-        </TextCard>
-      </Section>
+      <Jumbotron title='Home' subtitle={`Welcome to Pixel Purrfect, ${name}!`} />
       <Section isContainer isTextCenter pos='middle'>
         <div className='row'>
           <div className='col-lg-6 mb-3 mb-lg-0'>

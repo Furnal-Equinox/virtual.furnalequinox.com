@@ -18,10 +18,10 @@ type Props = GalleryItem
 
 const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: Props) => {
   return (
-    <div className='card rounded-3 border-primary border-5 m-2'>
+    <div className='card rounded-3 border-primary border-5 m-2' tabIndex={0}>
       {image !== undefined
         ? <Img
-            title={
+            alt={
               `${
                 isStrEmpty(title) ? 'Untitled' : title as string
               } by ${
@@ -42,9 +42,12 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: P
           </p>
           {url !== undefined &&
             <OutboundLink
-              title={'Link to the artist\'s page for this art piece'}
+              title={'Link to the artist\'s page for this art piece. This link will open in a new tab.'}
               href={url}
+              target='_blank'
+              rel='noopener noreferrer'
               className='btn btn-primary btn-lg rounded-3'
+              tabIndex={0}
             >
               Learn More
             </OutboundLink>}

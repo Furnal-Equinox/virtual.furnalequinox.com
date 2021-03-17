@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://virtual-furnal-equinox.netlify.app/info/index.html
+ > Running Pa11y on URL file:///Users/whowell/Programming/JavaScript/virtual.furnalequinox.com/public/info/index.html
 
-Results for URL: https://virtual-furnal-equinox.netlify.app/info/
+Results for URL: file:///Users/whowell/Programming/JavaScript/virtual.furnalequinox.com/public/info/index.html
 
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42

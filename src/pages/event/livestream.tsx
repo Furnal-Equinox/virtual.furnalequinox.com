@@ -61,7 +61,7 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <>
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
-        <div className='container'>
+        <div className='container' tabIndex={0}>
           <div className='row'>
             <CountdownLiveStream
               title="Furnal Equinox's Pixel Purrfect livestream from Vimeo"

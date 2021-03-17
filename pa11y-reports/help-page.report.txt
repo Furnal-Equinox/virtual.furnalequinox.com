@@ -1,9 +1,9 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://virtual-furnal-equinox.netlify.app/help/index.html
+ > Running Pa11y on URL file:///Users/whowell/Programming/JavaScript/virtual.furnalequinox.com/public/help/index.html
 
-Results for URL: https://virtual-furnal-equinox.netlify.app/help/
+Results for URL: file:///Users/whowell/Programming/JavaScript/virtual.furnalequinox.com/public/help/index.html
 
  • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
    ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs

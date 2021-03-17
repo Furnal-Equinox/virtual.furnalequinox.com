@@ -85,9 +85,9 @@ const DjsContent: React.FC<Props> = ({ data, location }: Props) => {
             fluid={djLineupImg}
             className='img-fluid rounded-3'
             alt={[
-              "This image shows the DJ lineup for Pixel Purrfect.",
-              "For your convenience, we have reproduced the lineup below as three tables:",
-              "one for Friday, one for Saturday, and one for Sunday."
+              'This image shows the DJ lineup for Pixel Purrfect.',
+              'For your convenience, we have reproduced the lineup below as three tables:',
+              'one for Friday, one for Saturday, and one for Sunday.'
             ].join(' ')}
             aria-labelledby='lineup-table'
           />}

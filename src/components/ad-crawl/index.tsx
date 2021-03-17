@@ -18,9 +18,10 @@ const AdCrawl: React.FC = () => {
               <Link
                 title={`Link to ${dealer?.frontmatter?.title ?? "this ad's dealer"}'s page on this website.`}
                 to={`/event/dealers${dealer?.fields?.slug ?? ''}`}
+                tabIndex={0}
               >
                 <img
-                  title={gif?.desc ?? 'No description'}
+                  alt={gif?.desc ?? 'An ad from one of our dealers'}
                   src={gif?.imgFile?.publicURL ?? placeholderAdBanner}
                   className='border border-light d-block img-fluid'
                 />

@@ -72,7 +72,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                   For more information, follow them on Facebook or visit their website to learn more!
                 </p>
                 <OutboundLink
-                  title="Link to Hobbitstee Wildlife Refuge's website"
+                  title="Link to Hobbitstee Wildlife Refuge's website. This link will open in a new tab."
                   href='http://www.hobbitstee.com/'
                   target='_blank'
                   rel='noopener noreferrer'
@@ -93,7 +93,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                   <div className='row py-3'>
                     <div className='col'>
                       <OutboundLink
-                        title="Link to Vancoufur's website"
+                        title="Link to Vancoufur's website. This link will open in a new tab."
                         href='https://vancoufur.org/'
                         target='_blank'
                         rel='noopener noreferrer'
@@ -106,7 +106,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                   <div className='row py-3'>
                     <div className='col'>
                       <OutboundLink
-                        title="Link to Fur Eh!'s website"
+                        title="Link to Fur Eh!'s website. This link will open in a new tab."
                         href='https://www.fureh.ca/'
                         target='_blank'
                         rel='noopener noreferrer'
@@ -119,7 +119,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                   <div className='row py-3'>
                     <div className='col'>
                       <OutboundLink
-                        title="Link to Anthro East Coast's website"
+                        title="Link to Anthro East Coast's website. This link will open in a new tab."
                         href='https://anthroeastcoast.ca/'
                         target='_blank'
                         rel='noopener noreferrer'
@@ -132,7 +132,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                   <div className='row py-3'>
                     <div className='col'>
                       <OutboundLink
-                        title="Link to Furality's website"
+                        title="Link to Furality's website. This link will open in a new tab."
                         href='https://furality.org/'
                         target='_blank'
                         rel='noopener noreferrer'

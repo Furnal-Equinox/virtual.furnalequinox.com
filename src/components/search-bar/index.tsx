@@ -28,22 +28,33 @@ const SearchBar: React.FC<Props> = ({ searchQuery, setSearchQuery, navigate }: P
       }}
       className='mx-auto py-5'
     >
-      <label htmlFor='inputSearchTerm' className='form-label visually-hidden'>
-        Search for a dealer
-      </label>
-      <input
-        aria-label='Search Term'
-        type='text'
-        id='inputSearchTerm'
-        className='form-control-lg'
-        style={{ width: '18rem' }}
-        placeholder='Tails'
-        name='search'
-        value={searchQuery ?? ''}
-        onInput={event => {
-          setSearchQuery((event.target as HTMLInputElement).value)
-        }}
-      />
+      <div className='form-floating mb-3'>
+        <input
+          aria-label='Search Term'
+          type='text'
+          id='inputSearchTerm'
+          aria-aria-labelledby='inputSearchTermLabel'
+          className='form-control'
+          placeholder='Tails'
+          name='search'
+          value={searchQuery ?? ''}
+          onInput={event => {
+            setSearchQuery((event.target as HTMLInputElement).value)
+          }}
+        />
+        <label id='inputSearchTermLabel' htmlFor='inputSearchTerm'>
+          Search for a dealer
+        </label>
+      </div>
+      <div>
+        <button
+          className='btn btn-lg btn-primary rounded-3'
+          type='submit'
+        >
+          Search
+        </button>
+      </div>
+
     </form>
   )
 }

@@ -14,6 +14,7 @@ const Navbar: React.FC<Props> = ({ location }: Props) => {
         <Link
           title='Link to the login page. If you are already logged in, this link will take you to the event landing page. This navigation bar will also be replaced with links you can use to move around the event pages.'
           to='/'
+          tabIndex={0}
         >
           <img src={logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
         </Link>

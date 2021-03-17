@@ -19,7 +19,11 @@ const FakeMainNavbar: React.FC<Props> = ({ location, navigate }: Props) => {
   }
 
   const Logo: React.FC = () =>
-    <Link className='navbar-brand mr-2' to='/event/'>
+    <Link
+      className='navbar-brand mr-2'
+      to='/event/'
+      tabIndex={0}
+    >
       <img src={logo} height='64' className='d-inline-block mb-0' alt='Furnal Equinox logo' />
     </Link>
 
@@ -32,6 +36,7 @@ const FakeMainNavbar: React.FC<Props> = ({ location, navigate }: Props) => {
       aria-controls='navbarCollapse'
       aria-expanded='false'
       aria-label='Toggle navigation'
+      title='Toggle navigation and expand navigation bar'
     >
       <span className='navbar-toggler-icon' />
     </button>
@@ -48,8 +53,18 @@ const FakeMainNavbar: React.FC<Props> = ({ location, navigate }: Props) => {
                 ? 'nav-item active'
                 : 'nav-item'
             }
+            aria-current={
+              location !== undefined &&
+              location?.pathname === elem.to
+                ? 'page'
+                : false
+            }
           >
-            <Link to='.' className='nav-link'>
+            <Link
+              to='.'
+              className='nav-link'
+              tabIndex={0}
+            >
               {elem.name}
             </Link>
           </li>
@@ -62,6 +77,7 @@ const FakeMainNavbar: React.FC<Props> = ({ location, navigate }: Props) => {
           to='/'
           className='btn btn-primary btn-sm rounded-3'
           onClick={handleLogout}
+          tabIndex={0}
         >
           Logout
         </Link>}

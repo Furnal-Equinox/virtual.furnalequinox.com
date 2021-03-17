@@ -60,29 +60,29 @@ type ReportName = Text
 
 -- | The URL of the root website to check. Should match the form https://subdomain.domain.com/
 website :: Url
-website = "https://virtual-furnal-equinox.netlify.app/"
+website = ""
 
 -- | Paths to check, paired with the name of the report for that path.
 pathsToCheck :: [(Url, ReportName)]
 pathsToCheck =
   [
-      ( "event/index.html",                         "landing-page"                    )
-    , ( "event/con-store/index.html",               "con-store-page"                  )
-    , ( "event/dealers/index.html",                 "dealers-index-page"              )
-    , ( "event/dealers/beast-within.html",          "beast-within-dealer-page"        )
-    , ( "event/dealers/chex-rhox.html",             "chex-rhox-dealer-page"           )
-    , ( "event/dealers/dragonstorm-studios.html",   "dragonstorm-studios-dealer-page" )
-    , ( "event/discord-vr/index.html",              "discord-vr-page"                 )
-    , ( "event/djs/index.html",                     "djs-page"                        )
-    , ( "event/gallery/index.html",                 "gallery-index-page"              )
-    , ( "event/how-to/index.html",                  "how-to-page"                     )
-    , ( "event/livestream/index.html",              "livestream-page"                 )
-    , ( "event/news/index.html",                    "news-index-page"                 )
-    , ( "event/news/2020-12-09-welcome/index.html", "2020-12-09-welcome-page"         )
-    , ( "help/index.html",                          "help-page"                       )
-    , ( "info/index.html",                          "info-page"                       )
-    , ( "index.html",                               "login-page"                      )
-    , ( "404/index.html",                           "404-page"                        )
+      ( "../../public/event/index.html",                               "landing-page"                    )
+    , ( "../../public/event/con-store/index.html",                     "con-store-page"                  )
+    , ( "../../public/event/dealers/index.html",                       "dealers-index-page"              )
+    , ( "../../public/event/dealers/beast-within/index.html",          "beast-within-dealer-page"        )
+    , ( "../../public/event/dealers/chez-rhox/index.html",             "chex-rhox-dealer-page"           )
+    , ( "../../public/event/dealers/dragonstorm-studios/index.html",   "dragonstorm-studios-dealer-page" )
+    , ( "../../public/event/discord-vr/index.html",                    "discord-vr-page"                 )
+    , ( "../../public/event/djs/index.html",                           "djs-page"                        )
+    , ( "../../public/event/gallery/index.html",                       "gallery-index-page"              )
+    , ( "../../public/event/how-to/index.html",                        "how-to-page"                     )
+    , ( "../../public/event/livestream/index.html",                    "livestream-page"                 )
+    , ( "../../public/event/news/index.html",                          "news-index-page"                 )
+    , ( "../../public/event/news/2020-12-09-welcome/index.html",       "2020-12-09-welcome-page"         )
+    , ( "../../public/help/index.html",                                "help-page"                       )
+    , ( "../../public/info/index.html",                                "info-page"                       )
+    , ( "../../public/index.html",                                     "login-page"                      )
+    , ( "../../public/404/index.html",                                 "404-page"                        )
   ]
 
 -- | Command-line settings for pa11y.

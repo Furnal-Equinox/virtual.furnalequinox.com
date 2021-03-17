@@ -157,11 +157,11 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
   return (
     <>
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
-        <div className='container'>
+        <div className='container' tabIndex={0}>
           <div className='row'>
             {banner !== undefined &&
               <Img
-                title={bannerDesc ?? "Dealer's banner for their store"}
+                alt={bannerDesc ?? "Dealer's banner for their store"}
                 fluid={banner}
                 className='img-fluid'
               />}
@@ -261,29 +261,36 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
           </TextCard>
         </Section>}
       <Section isContainer>
-        {((images?.length ?? 0 ) > 1) ? (
+        <span className='visually-hidden'>
+          Here, you'll find the dealers' images. You can navigate over them with your tab key!
+        </span>
+        {((images?.length ?? 0) > 1) ? (
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
           >
             <Masonry>
               {images?.map(image =>
                 image?.imgFile?.childImageSharp?.fluid !== undefined && (
-                  <Img
-                    title={image?.desc ?? "One of this dealer's images"}
-                    fluid={image?.imgFile?.childImageSharp?.fluid}
-                    className='d-block rounded-3 border border-primary m-1'
-                  />
+                  <div tabIndex={0}>
+                    <Img
+                      alt={image?.desc ?? "One of this dealer's images"}
+                      fluid={image?.imgFile?.childImageSharp?.fluid}
+                      className='d-block rounded-3 border border-primary m-1'
+                    />
+                  </div>
                 )
               )}
             </Masonry>
           </ResponsiveMasonry>
         ) : (
           images !== null && images[0]?.imgFile?.childImageSharp?.fluid !== undefined && (
-            <Img
-              title={images[0]?.desc ?? "One of this dealer's images"}
-              fluid={images[0]?.imgFile?.childImageSharp?.fluid}
-              className='d-block rounded-3 border border-primary m-1'
-            />
+            <div tabIndex={0}>
+              <Img
+                alt={images[0]?.desc ?? "One of this dealer's images"}
+                fluid={images[0]?.imgFile?.childImageSharp?.fluid}
+                className='d-block rounded-3 border border-primary m-1'
+              />
+            </div>
           )
         )}
       </Section>

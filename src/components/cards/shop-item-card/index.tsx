@@ -16,10 +16,10 @@ type Props = ShopItem
 
 const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props) => {
   return (
-    <div className='card rounded-3 border border-primary border-5 mb-5'>
+    <div className='card rounded-3 border border-primary border-5 mb-5' tabIndex={0}>
       {banner !== undefined
         ? <Img
-            title={`${name ?? 'Unnamed product'}, ${description ?? 'has no description.'}`}
+            alt={`${name ?? 'Unnamed product'}, ${description ?? 'has no description.'}`}
             fluid={banner} className='card-img-top'
         />
         : <PlaceholderSVG />}
@@ -40,9 +40,12 @@ const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props
           <div className='row mt-3'>
             <div className='d-grid'>
               <OutboundLink
-                title='Link to the page where you can buy this item'
+                title='Link to the page where you can buy this item. This link will open in a new tab.'
                 href={url ?? ''}
+                target='_blank'
+                rel='noopener noreferrer'
                 className='btn btn-primary btn-lg rounded-3'
+                tabIndex={0}
               >
                 Learn More
               </OutboundLink>

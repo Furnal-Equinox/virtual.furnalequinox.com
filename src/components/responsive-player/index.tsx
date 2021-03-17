@@ -12,7 +12,7 @@ export const Vimeo: React.FC<Props> = ({ url, title }: Props) => {
   return (
     <div className='player-wrapper'>
       <ReactVimeoPlayer
-        title={title}
+        alt={title}
         className='react-player'
         url={url}
         width='100%'
@@ -23,6 +23,7 @@ export const Vimeo: React.FC<Props> = ({ url, title }: Props) => {
             autoplay: true
           }
         }}
+        previewTabIndex={0}
       />
     </div>
   )
@@ -32,12 +33,13 @@ export const YouTube: React.FC<Props> = ({ url, title }: Props) => {
   return (
     <div className='player-wrapper'>
       <ReactYouTubePlayer
-        title={title}
+        alt={title}
         className='react-player'
         url={url}
         width='100%'
         height='100%'
         controls
+        previewTabIndex={0}
       />
     </div>
   )

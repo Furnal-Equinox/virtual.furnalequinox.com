@@ -1,29 +1,14 @@
 
 Welcome to Pa11y
 
- > Running Pa11y on URL https://virtual-furnal-equinox.netlify.app/event/dealers/index.html
+ > Running Pa11y on URL file:///Users/whowell/Programming/JavaScript/virtual.furnalequinox.com/public/event/dealers/index.html
 
-Results for URL: https://virtual-furnal-equinox.netlify.app/
-
- • Warning: This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage
-   ├── #gatsby-focus-wrapper > div > div:nth-child(1) > div:nth-child(1) > noscript
-   └── <noscript><picture><source srcset="/stati...</noscript>
-
- • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
-   ├── #inputEmailLabel
-   └── <label id="inputEmailLabel" for="inputEmail">Your email address</label>
-
- • Warning: This element is absolutely positioned and the background color can not be determined. Ensure the contrast ratio between the text and all covered parts of the background are at least 4.5:1.
-   ├── WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs
-   ├── #inputPasswordLabel
-   └── <label id="inputPasswordLabel" for="inputPassword">Your password</label>
+Results for URL: file:///Users/whowell/Programming/JavaScript/virtual.furnalequinox.com/public/event/dealers/index.html
 
  • Warning: Heading markup should be used if this content is intended as a heading.
    ├── WCAG2AA.Principle1.Guideline1_3.1_3_1.H42
    ├── #gatsby-focus-wrapper > div > div:nth-child(2) > div > div > div > div:nth-child(1) > div > p
    └── <p><strong>Copyright 2021 Anthropo...</p>
 
-4 Warnings
+1 Warnings
 
