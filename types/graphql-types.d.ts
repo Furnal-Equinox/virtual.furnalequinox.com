@@ -806,14 +806,14 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.schedule.saturday'
   | 'childrenMarkdownRemark.frontmatter.schedule.sunday'
   | 'childrenMarkdownRemark.frontmatter.vrChatWorldLinks'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.friday'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.saturday'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.path'
   | 'childrenMarkdownRemark.frontmatter.category'
   | 'childrenMarkdownRemark.frontmatter.tags'
   | 'childrenMarkdownRemark.frontmatter.limited'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.friday'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.saturday'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -950,14 +950,14 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.schedule.saturday'
   | 'childMarkdownRemark.frontmatter.schedule.sunday'
   | 'childMarkdownRemark.frontmatter.vrChatWorldLinks'
-  | 'childMarkdownRemark.frontmatter.djLineup.friday'
-  | 'childMarkdownRemark.frontmatter.djLineup.saturday'
-  | 'childMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.path'
   | 'childMarkdownRemark.frontmatter.category'
   | 'childMarkdownRemark.frontmatter.tags'
   | 'childMarkdownRemark.frontmatter.limited'
+  | 'childMarkdownRemark.frontmatter.djLineup.friday'
+  | 'childMarkdownRemark.frontmatter.djLineup.saturday'
+  | 'childMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -2280,6 +2280,11 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.schedule.sunday.title'
   | 'frontmatter.schedule.sunday.host'
   | 'frontmatter.vrChatWorldLinks'
+  | 'frontmatter.date'
+  | 'frontmatter.path'
+  | 'frontmatter.category'
+  | 'frontmatter.tags'
+  | 'frontmatter.limited'
   | 'frontmatter.djLineup.friday'
   | 'frontmatter.djLineup.friday.time'
   | 'frontmatter.djLineup.friday.dj'
@@ -2289,11 +2294,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.djLineup.sunday'
   | 'frontmatter.djLineup.sunday.time'
   | 'frontmatter.djLineup.sunday.dj'
-  | 'frontmatter.date'
-  | 'frontmatter.path'
-  | 'frontmatter.category'
-  | 'frontmatter.tags'
-  | 'frontmatter.limited'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -2444,12 +2444,12 @@ type MarkdownRemarkFrontmatter = {
   readonly staff: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly schedule: Maybe<MarkdownRemarkFrontmatterSchedule>;
   readonly vrChatWorldLinks: Maybe<Scalars['String']>;
-  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineup>;
   readonly date: Maybe<Scalars['Date']>;
   readonly path: Maybe<Scalars['String']>;
   readonly category: Maybe<Scalars['String']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly limited: Maybe<Scalars['Boolean']>;
+  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineup>;
 };
 
 
@@ -2545,12 +2545,12 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly staff: Maybe<StringQueryOperatorInput>;
   readonly schedule: Maybe<MarkdownRemarkFrontmatterScheduleFilterInput>;
   readonly vrChatWorldLinks: Maybe<StringQueryOperatorInput>;
-  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineupFilterInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly category: Maybe<StringQueryOperatorInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
   readonly limited: Maybe<BooleanQueryOperatorInput>;
+  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineupFilterInput>;
 };
 
 type MarkdownRemarkFrontmatterGifs = {
