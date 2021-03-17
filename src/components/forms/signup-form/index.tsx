@@ -145,14 +145,14 @@ const SignUpForm: React.FC = () => {
         <p>
           Having trouble making a password?
           <br />
-          Try this free password generator website!{' '}
+          Try LastPass's free password generator!{' '}
           <OutboundLink
             title='passwordsgenerator.net'
-            href='https://passwordsgenerator.net/'
+            href='https://www.lastpass.com/password-generator'
             target='_blank'
             rel='noopener noreferrer'
           >
-            passwordsgenerator.net
+            https://www.lastpass.com/password-generator
           </OutboundLink>
         </p>
       </div>

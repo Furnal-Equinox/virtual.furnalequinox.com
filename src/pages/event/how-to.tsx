@@ -44,6 +44,9 @@ export default HowTo
 
 export const howToQuery = graphql`
   query HowToQuery {
+    discordTutorialPDF: file(relativePath: { eq: "Discord-Basics.pdf" }) {
+      publicURL
+    }
     vrChatAvatarPDF: file(relativePath: { eq: "VRChat-Add-Your-Badge-Tutorial-Script.pdf" }) {
       publicURL
     }
@@ -57,6 +60,7 @@ export const howToQuery = graphql`
 `
 
 const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
+  const discordTutorialPDF = data?.discordTutorialPDF
   const vrChatAvatarPDF = data?.vrChatAvatarPDF
   const badgeAttendeeT1 = data?.badgeAttendeeT1
   const badgeAttendeeT2 = data?.badgeAttendeeT2
@@ -122,6 +126,37 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
             Looking for the Supporter badge? Hop on Discord{' '}
             and we'll get you set up with the Supporter role and give you the badge!
           </p>
+        </TextCard>
+      </Section>
+      <Section isContainer isTextCenter pos='middle'>
+        <TextCard>
+          <h2>
+            Discord Tutorial
+          </h2>
+          <p>
+            How to setup your Discord and join the FE Discord server!
+          </p>
+          <p className='visually-hidden'>
+            We have a PDF transcript below the video!
+          </p>
+          <ResponsiveYouTubePlayer
+            url='https://youtu.be/ibUUZw_XZSc'
+            title={[
+              'Our YouTube video tutorial showing you how to setup your Discord and join the FE Discord server!'
+            ].join(' ')}
+          />
+          <p className='text-warning'>
+            Open the video in fullscreen if the details are too small to view here,{' '}
+            especially if you are using a phone!
+          </p>
+          <a
+            title='Click this to download the Discord Basics PDF'
+            href={discordTutorialPDF?.publicURL}
+            className='btn btn-primary btn-lg rounded-3 m-3'
+            download
+          >
+            Download transcript
+          </a>
         </TextCard>
       </Section>
     </>
