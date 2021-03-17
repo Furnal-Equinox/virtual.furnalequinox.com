@@ -68,7 +68,7 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <>
       <Jumbotron title='How To' subtitle='Tutorials to help you make the most of Pixel Purrfect!' />
-      <Section isContainer isTextCenter pos='middle'>
+      <Section isContainer isTextCenter pos='middle' id='vrchat'>
         <TextCard>
           <h2>
             VRChat Avatar Tutorial
@@ -128,7 +128,7 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
           </p>
         </TextCard>
       </Section>
-      <Section isContainer isTextCenter pos='middle'>
+      <Section isContainer isTextCenter pos='middle' id='discord'>
         <TextCard>
           <h2>
             Discord Tutorial
