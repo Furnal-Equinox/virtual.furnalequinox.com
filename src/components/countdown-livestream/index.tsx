@@ -42,7 +42,7 @@ export const LiveStreamPlaceholder: React.FC<PlaceholderProps> = ({
         </p>
         <p className='text-warning'>
           <span className='visually-hidden'>Warning: </span>
-          The livestream starts at 12 PM EDT, but we're swapping the placehlder image out here at 11 AM!
+          The livestream starts at 12 PM EDT, but we're swapping the placeholder image out here at 11 AM!
         </p>
         <p className='text-warning'>
           <span className='visually-hidden'>Warning: </span>
