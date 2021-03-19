@@ -84,7 +84,6 @@
     "gatsby-image": "^2.11.0",
     "gatsby-link": "^2.11.0",
     "gatsby-plugin-catch-links": "^2.10.0",
-    "gatsby-plugin-csp": "^1.1.3",
     "gatsby-plugin-google-gtag": "^2.8.0",
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-local-search": "^2.0.0",
