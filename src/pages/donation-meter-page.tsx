@@ -22,9 +22,6 @@ const DonationsMeterPage: React.FC<Props> = () => {
     <ComponentDisplay>
       <Helmet title={`Donations Meter | ${config.siteTitle}`} />
       <Meta />
-      <div className='container py-5'>
-        <DonationsMeter />
-      </div>
     </ComponentDisplay>
   )
 }

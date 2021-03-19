@@ -152,9 +152,6 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
           </div>
         </div>
       </Section>
-      <Section isContainer pos='middle'>
-        <DonationsMeter />
-      </Section>
       <Section isContainer isTextCenter pos='middle'>
         <div className='row'>
           <div className='col'>
