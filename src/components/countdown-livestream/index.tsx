@@ -42,6 +42,10 @@ export const LiveStreamPlaceholder: React.FC<PlaceholderProps> = ({
         </p>
         <p className='text-warning'>
           <span className='visually-hidden'>Warning: </span>
+          The livestream starts at 12 PM EDT, but we're swapping the placehlder image out here at 11 AM!
+        </p>
+        <p className='text-warning'>
+          <span className='visually-hidden'>Warning: </span>
           If you've disabled autoplaying videos, please turn it on for this website!
         </p>
         <p className='text-warning'>

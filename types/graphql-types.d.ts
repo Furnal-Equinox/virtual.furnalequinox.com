@@ -801,13 +801,13 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.image.id'
   | 'childrenMarkdownRemark.frontmatter.image.children'
   | 'childrenMarkdownRemark.frontmatter.desc'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.friday'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.saturday'
+  | 'childrenMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childrenMarkdownRemark.frontmatter.schedule.friday'
   | 'childrenMarkdownRemark.frontmatter.schedule.saturday'
   | 'childrenMarkdownRemark.frontmatter.schedule.sunday'
   | 'childrenMarkdownRemark.frontmatter.staff'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.friday'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.saturday'
-  | 'childrenMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childrenMarkdownRemark.frontmatter.vrChatWorldLinks'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.path'
@@ -945,13 +945,13 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.image.id'
   | 'childMarkdownRemark.frontmatter.image.children'
   | 'childMarkdownRemark.frontmatter.desc'
+  | 'childMarkdownRemark.frontmatter.djLineup.friday'
+  | 'childMarkdownRemark.frontmatter.djLineup.saturday'
+  | 'childMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childMarkdownRemark.frontmatter.schedule.friday'
   | 'childMarkdownRemark.frontmatter.schedule.saturday'
   | 'childMarkdownRemark.frontmatter.schedule.sunday'
   | 'childMarkdownRemark.frontmatter.staff'
-  | 'childMarkdownRemark.frontmatter.djLineup.friday'
-  | 'childMarkdownRemark.frontmatter.djLineup.saturday'
-  | 'childMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childMarkdownRemark.frontmatter.vrChatWorldLinks'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.path'
@@ -2266,6 +2266,15 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.image.internal.owner'
   | 'frontmatter.image.internal.type'
   | 'frontmatter.desc'
+  | 'frontmatter.djLineup.friday'
+  | 'frontmatter.djLineup.friday.time'
+  | 'frontmatter.djLineup.friday.dj'
+  | 'frontmatter.djLineup.saturday'
+  | 'frontmatter.djLineup.saturday.time'
+  | 'frontmatter.djLineup.saturday.dj'
+  | 'frontmatter.djLineup.sunday'
+  | 'frontmatter.djLineup.sunday.time'
+  | 'frontmatter.djLineup.sunday.dj'
   | 'frontmatter.schedule.friday'
   | 'frontmatter.schedule.friday.time'
   | 'frontmatter.schedule.friday.title'
@@ -2279,15 +2288,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.schedule.sunday.title'
   | 'frontmatter.schedule.sunday.host'
   | 'frontmatter.staff'
-  | 'frontmatter.djLineup.friday'
-  | 'frontmatter.djLineup.friday.time'
-  | 'frontmatter.djLineup.friday.dj'
-  | 'frontmatter.djLineup.saturday'
-  | 'frontmatter.djLineup.saturday.time'
-  | 'frontmatter.djLineup.saturday.dj'
-  | 'frontmatter.djLineup.sunday'
-  | 'frontmatter.djLineup.sunday.time'
-  | 'frontmatter.djLineup.sunday.dj'
   | 'frontmatter.vrChatWorldLinks'
   | 'frontmatter.date'
   | 'frontmatter.path'
@@ -2441,9 +2441,9 @@ type MarkdownRemarkFrontmatter = {
   readonly artist: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
   readonly desc: Maybe<Scalars['String']>;
+  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineup>;
   readonly schedule: Maybe<MarkdownRemarkFrontmatterSchedule>;
   readonly staff: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineup>;
   readonly vrChatWorldLinks: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly path: Maybe<Scalars['String']>;
@@ -2542,9 +2542,9 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly artist: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
   readonly desc: Maybe<StringQueryOperatorInput>;
+  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineupFilterInput>;
   readonly schedule: Maybe<MarkdownRemarkFrontmatterScheduleFilterInput>;
   readonly staff: Maybe<StringQueryOperatorInput>;
-  readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineupFilterInput>;
   readonly vrChatWorldLinks: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
@@ -4535,8 +4535,6 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
 type PostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -4683,15 +4681,15 @@ type DJLineupQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type DJLineupQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly djLineup: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupFriday, 'time' | 'dj'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSaturday, 'time' | 'dj'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSunday, 'time' | 'dj'>>>> }> }> }> };
 
+type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG8K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG10K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBGBusted: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+
 type PanelLineupQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PanelLineupQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly schedule: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleFriday, 'time' | 'title' | 'host'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleSaturday, 'time' | 'title' | 'host'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleSunday, 'time' | 'title' | 'host'>>>> }> }> }> };
-
-type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG8K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG10K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type SocialLinksFragment = { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'behance' | 'deviantart' | 'discord' | 'etsy' | 'facebook' | 'furaffinity' | 'github' | 'instagram' | 'patreon' | 'picarto' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'twitter' | 'youtube'>> };
 
@@ -4716,6 +4714,8 @@ type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 't
 type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
 

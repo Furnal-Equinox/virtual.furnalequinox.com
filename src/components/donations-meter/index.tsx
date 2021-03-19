@@ -10,9 +10,12 @@ const DonationsMeter: React.FC = () => {
   const donationsMeterBG = data?.donationsMeterBG?.childImageSharp?.fluid
   const donationsMeterBG8K = data?.donationsMeterBG8K?.childImageSharp?.fluid
   const donationsMeterBG10K = data?.donationsMeterBG10K?.childImageSharp?.fluid
+  const donationsMeterBGBusted = data?.donationsMeterBGBusted?.childImageSharp?.fluid
   const [total, setTotal] = useState<number | null>(null)
   const donationGoals: number[] = [6000, 8000, 10000]
   const timeToCheck = parseInt(process.env.GATSBY_INTERVAL_IN_MS_TO_CHECK_TOTAL_DONATION_AMOUNT as string)
+
+  const [isBusted, setIsBusted] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchTotals = async (): Promise<void> => {
@@ -45,7 +48,10 @@ const DonationsMeter: React.FC = () => {
 
   const getCurrentGoalAndBG = () => {
     if (total !== null) {
-      if (total >= donationGoals[1]) {
+      if (total >= donationGoals[2]) {
+        setIsBusted(true)
+        return { goal: donationGoals[2], bg: donationsMeterBGBusted }
+      } else if (total >= donationGoals[1]) {
         return { goal: donationGoals[2], bg: donationsMeterBG10K }
       } else if (total >= donationGoals[0] && total <= donationGoals[1]) {
         return { goal: donationGoals[1], bg: donationsMeterBG8K }
@@ -88,8 +94,10 @@ const DonationsMeter: React.FC = () => {
         alt={[
           'This image is the background for the donations meter.',
           "It has the words 'Donation Meter' in the top left,",
-          'our donation goal of $6000 in the top right,',
-          'and Marty along the right side grinning and giving two thumbs up!'
+          `our donation goal of ${goal} in the top right,`,
+          'and Marty along the right side grinning and giving two thumbs up!',
+          "Once we're over $10,000, the meter displays a new image with the meter",
+          "appearing to break the image with Marty panicking!"
         ].join(' ')}
       />}
       <div className='card-img-overlay p-1 p-md-3'>
@@ -100,7 +108,7 @@ const DonationsMeter: React.FC = () => {
             </div>
           </div>
           <div className='row'>
-            <div className='col-9' tabIndex={0}>
+            <div className={`col-9 ${isBusted ? 'invisible' : ''}`} tabIndex={0}>
               <ProgressBar />
             </div>
           </div>
@@ -152,6 +160,13 @@ export const donationsMeterQuery = graphql`
       }
     }
     donationsMeterBG10K: file(relativePath: { eq: "donation_meter_bg_10k.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 1140) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    donationsMeterBGBusted: file(relativePath: { eq: "donation_meter_bg_busted.png" }) {
       childImageSharp {
         fluid(maxWidth: 1140) {
           ...GatsbyImageSharpFluid
