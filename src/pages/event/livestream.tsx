@@ -82,6 +82,9 @@ const LivestreamDashboard: React.FC<Props> = ({ data, location }: Props) => {
         <AdCrawl />
       </Section>
       <Section isContainer pos='middle'>
+        <DonationsMeter />
+      </Section>
+      <Section isContainer pos='middle'>
         <PanelLineup />
       </Section>
     </>

@@ -15,8 +15,6 @@ const DonationsMeter: React.FC = () => {
   const donationGoals: number[] = [6000, 8000, 10000]
   const timeToCheck = parseInt(process.env.GATSBY_INTERVAL_IN_MS_TO_CHECK_TOTAL_DONATION_AMOUNT as string)
 
-  const [isBusted, setIsBusted] = useState<boolean>(false)
-
   useEffect(() => {
     const fetchTotals = async (): Promise<void> => {
       try {
@@ -49,9 +47,8 @@ const DonationsMeter: React.FC = () => {
   const getCurrentGoalAndBG = () => {
     if (total !== null) {
       if (total >= donationGoals[2]) {
-        setIsBusted(true)
         return { goal: donationGoals[2], bg: donationsMeterBGBusted }
-      } else if (total >= donationGoals[1]) {
+      } else if (total >= donationGoals[1] && total <= donationGoals[2]) {
         return { goal: donationGoals[2], bg: donationsMeterBG10K }
       } else if (total >= donationGoals[0] && total <= donationGoals[1]) {
         return { goal: donationGoals[1], bg: donationsMeterBG8K }
@@ -108,7 +105,7 @@ const DonationsMeter: React.FC = () => {
             </div>
           </div>
           <div className='row'>
-            <div className={`col-9 ${isBusted ? 'invisible' : ''}`} tabIndex={0}>
+            <div className={`col-9 ${total !== null && total >= donationGoals[2] ? 'invisible' : ''}`} tabIndex={0}>
               <ProgressBar />
             </div>
           </div>

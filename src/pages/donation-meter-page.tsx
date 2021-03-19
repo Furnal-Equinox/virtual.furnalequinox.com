@@ -22,6 +22,9 @@ const DonationsMeterPage: React.FC<Props> = () => {
     <ComponentDisplay>
       <Helmet title={`Donations Meter | ${config.siteTitle}`} />
       <Meta />
+      <Section isContainer pos='middle'>
+        <DonationsMeter />
+      </Section>
     </ComponentDisplay>
   )
 }
