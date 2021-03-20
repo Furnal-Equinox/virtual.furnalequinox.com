@@ -917,10 +917,10 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___djLineup___friday
   childrenMarkdownRemark___frontmatter___djLineup___saturday
   childrenMarkdownRemark___frontmatter___djLineup___sunday
+  childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___schedule___friday
   childrenMarkdownRemark___frontmatter___schedule___saturday
   childrenMarkdownRemark___frontmatter___schedule___sunday
-  childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___vrChatWorldLinks
   childrenMarkdownRemark___frontmatter___date
   childrenMarkdownRemark___frontmatter___path
@@ -1061,10 +1061,10 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___djLineup___friday
   childMarkdownRemark___frontmatter___djLineup___saturday
   childMarkdownRemark___frontmatter___djLineup___sunday
+  childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___schedule___friday
   childMarkdownRemark___frontmatter___schedule___saturday
   childMarkdownRemark___frontmatter___schedule___sunday
-  childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___vrChatWorldLinks
   childMarkdownRemark___frontmatter___date
   childMarkdownRemark___frontmatter___path
@@ -2337,6 +2337,7 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___djLineup___sunday
   frontmatter___djLineup___sunday___time
   frontmatter___djLineup___sunday___dj
+  frontmatter___staff
   frontmatter___schedule___friday
   frontmatter___schedule___friday___time
   frontmatter___schedule___friday___title
@@ -2349,7 +2350,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___schedule___sunday___time
   frontmatter___schedule___sunday___title
   frontmatter___schedule___sunday___host
-  frontmatter___staff
   frontmatter___vrChatWorldLinks
   frontmatter___date
   frontmatter___path
@@ -2505,8 +2505,8 @@ type MarkdownRemarkFrontmatter {
   image: File
   desc: String
   djLineup: MarkdownRemarkFrontmatterDjLineup
-  schedule: MarkdownRemarkFrontmatterSchedule
   staff: [String]
+  schedule: MarkdownRemarkFrontmatterSchedule
   vrChatWorldLinks: String
   date(
     # Format the date using Moment.js' date tokens, e.g. `date(formatString: "YYYY
@@ -2614,8 +2614,8 @@ input MarkdownRemarkFrontmatterFilterInput {
   image: FileFilterInput
   desc: StringQueryOperatorInput
   djLineup: MarkdownRemarkFrontmatterDjLineupFilterInput
-  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   staff: StringQueryOperatorInput
+  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   vrChatWorldLinks: StringQueryOperatorInput
   date: DateQueryOperatorInput
   path: StringQueryOperatorInput
