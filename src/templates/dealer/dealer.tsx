@@ -82,24 +82,25 @@ export const dealerQuery = graphql`
         description
         url
         social {
+          behance
           deviantart
+          discord
+          etsy
           facebook
           flickr
           furaffinity
-          picarto
-          twitter
-          behance
-          discord
-          etsy
           github
           instagram
           other
+          patreon
+          picarto
           pinterest
           steam
           telegram
           tiktok
           tumblr
           twitch
+          twitter
           youtube
         }
         streaming {
