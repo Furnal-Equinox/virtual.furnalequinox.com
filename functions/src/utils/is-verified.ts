@@ -45,7 +45,7 @@ const isVerified = (
   // Do a quick check on their lengths, and then a time-constrained eqaulity test.
   if (checksum.length !== digest.length || !Crypto.timingSafeEqual(digest, checksum)) {
     throw new Error(
-      `Request body digest [${digest.toString('utf-8')}] did not match ${signatureHeaderName} [${checksum.toString('utf-8')}]`
+      `Request body digest did not match!`
     )
   }
 
