@@ -33,8 +33,10 @@ export const handler: APIGatewayProxyHandlerV2 = async (event, context) => {
     }
   } catch (err: any) {
     return {
-      statusCode: 400,
-      body: `Webhook Error: ${err.message as string}`
+      statusCode: 500,
+      body: JSON.stringify({
+        message: 'An error occurred.'
+      })
     }
   }
 }

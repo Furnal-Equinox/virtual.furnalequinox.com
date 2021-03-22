@@ -15,8 +15,10 @@ export const handler: APIGatewayProxyHandlerV2 = async () => {
     }
   } catch (err: any) {
     return {
-      statusCode: 402,
-      body: JSON.stringify(null)
+      statusCode: 500,
+      body: JSON.stringify({
+        message: 'An error occurred.'
+      })
     }
   }
 }

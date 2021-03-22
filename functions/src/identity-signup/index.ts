@@ -11,9 +11,9 @@ interface Payload {
 export const handler: APIGatewayProxyHandlerV2 = async (event) => {
   if (event.body === undefined) {
     return {
-      statusCode: 400,
+      statusCode: 500,
       body: JSON.stringify({
-        message: 'Event body is empty!'
+        message: 'An error occurred.'
       })
     }
   } else {
@@ -63,7 +63,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
       return {
         statusCode: 500,
         body: JSON.stringify({
-          message: 'An error occurred while signing up a user.'
+          message: 'An error occurred.'
         })
       }
     }

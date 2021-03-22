@@ -13,44 +13,48 @@ const isVerified = (
   signatureHeaderName: string,
   secretKey: string
 ): boolean => {
-  // If there are no headers, bail out.
-  if (headers === undefined || headers === null) {
-    throw new Error('Headers are empty!')
-  }
+  
+  // If ANYTHING fails, bail out.
+  try {
+    // If there are no headers, bail out.
+    if (headers === undefined || headers === null) {
+      return false
+    }
 
-  // If the body is empty, bail out.
-  if (body === undefined || body === null || body === '') {
-    throw new Error('Request body is empty!')
-  }
+    // If the body is empty, bail out.
+    if (body === undefined || body === null || body === '') {
+      return false
+    }
 
-  // Convert AWS's headers into the standard Headers object.
-  const headersRec = new Headers(headers as Record<string, string>)
+    // Convert AWS's headers into the standard Headers object.
+    const headersRec = new Headers(headers as Record<string, string>)
 
-  // Extract the payload's signature.
-  const sig: string = headersRec.get(signatureHeaderName) ?? ''
+    // Extract the payload's signature.
+    const sig: string = headersRec.get(signatureHeaderName) ?? ''
 
-  // Build an HMAC from our webhook secret.
-  const hmac: Crypto.Hmac = Crypto.createHmac(
-    'sha256', secretKey
-  )
-
-  // Build a digest from our HMAC.
-  const digest: Buffer = Buffer.from(
-    hmac.update(body).digest('hex'), 'utf-8'
-  )
-
-  const checksum: Buffer = Buffer.from(sig, 'utf-8')
-
-  // Check if the checksum and the digest match.
-  // Do a quick check on their lengths, and then a time-constrained eqaulity test.
-  if (checksum.length !== digest.length || !Crypto.timingSafeEqual(digest, checksum)) {
-    throw new Error(
-      `Request body digest did not match!`
+    // Build an HMAC from our webhook secret.
+    const hmac: Crypto.Hmac = Crypto.createHmac(
+      'sha256', secretKey
     )
-  }
 
-  // If no errors are thrown, then the payload is fine.
-  return true
+    // Build a digest from our HMAC.
+    const digest: Buffer = Buffer.from(
+      hmac.update(body).digest('hex'), 'utf-8'
+    )
+
+    const checksum: Buffer = Buffer.from(sig, 'utf-8')
+
+    // Check if the checksum and the digest match.
+    // Do a quick check on their lengths, and then a time-constrained eqaulity test.
+    if (checksum.length !== digest.length || !Crypto.timingSafeEqual(digest, checksum)) {
+      return false
+    }
+
+    // If no errors are thrown, then the payload is fine.
+    return true
+  } catch (err: any) {
+    return false
+  }
 }
 
 export default isVerified
