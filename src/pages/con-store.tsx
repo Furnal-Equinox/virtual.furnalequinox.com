@@ -2,38 +2,34 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import config from '../../../site-config'
+import config from '../../site-config'
 
 import {
   Jumbotron,
   Meta,
   ShopItemCard,
   TextCard
-} from '../../components'
+} from '../components'
 
 import {
   Event,
-  makePrivateContent,
   Section
-} from '../../layouts'
+} from '../layouts'
 
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.ConStoreQueryQuery
 }
 
 const ConStore: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const Content = makePrivateContent(ConStoreContent)
 
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Con-Store | ${config.siteTitle}`} />
       <Meta />
       <div>
-        <Content
+        <ConStoreContent
           data={data}
           location={location}
-          callbackPath='/event/con-store/'
-          allowedRoles={['free']}
         />
       </div>
     </Event>

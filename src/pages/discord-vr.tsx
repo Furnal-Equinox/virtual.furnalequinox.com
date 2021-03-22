@@ -1,20 +1,19 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
-import config from '../../../site-config'
+import config from '../../site-config'
 import { graphql, Link } from 'gatsby'
 
 import {
   Jumbotron,
   Meta,
   TextCard
-} from '../../components'
+} from '../components'
 
 import {
   Event,
-  makePrivateContent,
   Section
-} from '../../layouts'
+} from '../layouts'
 
 import Img from 'gatsby-image'
 
@@ -25,18 +24,15 @@ interface Props extends RouteComponentProps {
 }
 
 const DiscordVR: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const Content = makePrivateContent(DiscordVRContent)
 
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Discord & VR | ${config.siteTitle}`} />
       <Meta customDescription='Information about the Discord and the VRChat worlds' />
       <div>
-        <Content
+        <DiscordVRContent
           data={data}
           location={location}
-          callbackPath='/event/discord-vr/'
-          allowedRoles={['free']}
         />
       </div>
     </Event>
@@ -93,7 +89,7 @@ const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
           </p>
           <Link
             title='Link to the Discord tutorial on the How-To page'
-            to='/event/how-to/#discord'
+            to='/how-to/#discord'
             className='btn btn-secondary btn-lg rounded-3'
           >
             Tutorial
@@ -150,78 +146,8 @@ const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
             </p>
           </div>
           <p className='h4'>
-            Click on these links to launch VRChat and join the fun!
+            Search for the FE worlds in VRChat!
           </p>
-          <div className='container'>
-            <div className='row py-3'>
-              <div className='col-12 py-3'>
-                <OutboundLink
-                  title="Link to the hotel lobby world. This link will open in a new tab."
-                  href='https://vrchat.com/home/world/wrld_dab24f34-f0b5-430a-a13a-90b364a61935'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='btn btn-primary btn-lg rounded-3'
-                >
-                  HOTEL LOBBY
-                </OutboundLink>
-              </div>
-              <div className='col-12 py-3'>
-                <OutboundLink
-                  title="Link to the main stage world. This link will open in a new tab."
-                  href='https://vrchat.com/home/world/wrld_da937921-0ca0-4297-b107-af6462d6648b'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='btn btn-secondary btn-lg rounded-3'
-                >
-                  MAIN STAGE
-                </OutboundLink>
-              </div>
-              <div className='col-12 py-3'>
-                <OutboundLink
-                  title="Link to the dealers den world. This link will open in a new tab."
-                  href='https://vrchat.com/home/world/wrld_f7517cdf-d0b2-452a-94f1-bed177323fe3'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='btn btn-info btn-lg rounded-3'
-                >
-                  DEALERS DEN
-                </OutboundLink>
-              </div>
-              <div className='col-12 py-3'>
-                <OutboundLink
-                  title="Link to the lounge world. This link will open in a new tab."
-                  href='https://vrchat.com/home/world/wrld_2cdc7423-f17c-4cbb-a5de-68ee8fb22c6d'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='btn btn-warning btn-lg rounded-3'
-                >
-                  LOUNGE
-                </OutboundLink>
-              </div>
-              <div className='col-12 py-3'>
-                <OutboundLink
-                  title="Link to the hotel pool world. This link will open in a new tab."
-                  href='https://vrchat.com/home/world/wrld_efd6d412-7c26-4648-8c7c-3d98ebe074c6'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='btn btn-danger btn-lg rounded-3'
-                >
-                  POOL
-                </OutboundLink>
-              </div>
-              <div className='col-12 py-3'>
-                <OutboundLink
-                  title="Link to the dance floor world. This link will open in a new tab."
-                  href='https://vrchat.com/home/world/wrld_dc320019-a441-4f66-8650-474365653339'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='btn btn-primary btn-lg rounded-3'
-                >
-                  DANCE FLOOR
-                </OutboundLink>
-              </div>
-            </div>
-          </div>
         </TextCard>
       </Section>
     </>

@@ -12,7 +12,7 @@ import {
 import Img from 'gatsby-image'
 
 import {
-  Layout,
+  Event,
   Section
 } from '../layouts'
 
@@ -30,7 +30,7 @@ const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
   const marty404 = data?.marty404?.childImageSharp?.fluid
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`404 | ${config.siteTitle}`} />
       <Meta />
       <div>
@@ -67,7 +67,7 @@ const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
           </TextCard>
         </Section>
       </div>
-    </Layout>
+    </Event>
   )
 }
 

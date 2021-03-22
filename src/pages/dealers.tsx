@@ -12,19 +12,16 @@ import {
   SearchBar,
   SearchParams,
   TextCard
-} from '../../components'
+} from '../components'
 
 import {
   Event,
-  makePrivateContent,
   Section
-} from '../../layouts'
+} from '../layouts'
 
-import Button from 'react-bootstrap/Button'
+import config from '../../site-config'
 
-import config from '../../../site-config'
-
-import { sample } from '../../utils/tools'
+import { sample } from '../utils/tools'
 
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
@@ -34,19 +31,16 @@ interface Props extends RouteComponentProps {
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const Content = makePrivateContent(DealersDashboard)
 
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
       <Meta customDescription='Dealers Den' />
       <div>
-        <Content
+        <DealersDashboard
           data={data}
           location={location}
           navigate={navigate}
-          callbackPath='/event/dealers/'
-          allowedRoles={['free']}
         />
       </div>
     </Event>

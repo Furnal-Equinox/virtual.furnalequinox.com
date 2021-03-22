@@ -11,36 +11,9 @@ const DonationsMeter: React.FC = () => {
   const donationsMeterBG8K = data?.donationsMeterBG8K?.childImageSharp?.fluid
   const donationsMeterBG10K = data?.donationsMeterBG10K?.childImageSharp?.fluid
   const donationsMeterBGBusted = data?.donationsMeterBGBusted?.childImageSharp?.fluid
-  const [total, setTotal] = useState<number | null>(null)
+  const [total, setTotal] = useState<number | null>(16049)
   const donationGoals: number[] = [6000, 8000, 10000]
-  const timeToCheck = parseInt(process.env.GATSBY_INTERVAL_IN_MS_TO_CHECK_TOTAL_DONATION_AMOUNT as string)
-
-  useEffect(() => {
-    const fetchTotals = async (): Promise<void> => {
-      try {
-        const res = await fetch('/.netlify/functions/fetch-totals', {
-          method: 'POST'
-        })
-
-        const data: number | null = await res.json()
-
-        setTotal(data)
-      } catch (err: any) {
-        console.error(err)
-      }
-    }
-
-    fetchTotals()
-      .catch((err: any) => console.error(err))
-
-    const interval = setInterval(() => {
-      fetchTotals()
-        .catch((err: any) => console.error(err))
-    }, timeToCheck)
-
-    return () => clearInterval(interval)
-  }, [])
-
+  
   const getPercentOfGoal = (goal: number): number =>
     ((total ?? 0) / goal) * 100
 

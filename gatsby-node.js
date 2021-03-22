@@ -88,7 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach(edge => {
     createPage({
-      path: `/event/news${edge.node.fields.slug}`,
+      path: `/news${edge.node.fields.slug}`,
       component: postPage,
       context: {
         slug: edge.node.fields.slug
@@ -104,7 +104,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const prevEdge = dealersSfw[prevID]
 
     createPage({
-      path: `/event/dealers${edge.node.fields.slug}`,
+      path: `/dealers${edge.node.fields.slug}`,
       component: dealerPage,
       context: {
         isSfw: true,

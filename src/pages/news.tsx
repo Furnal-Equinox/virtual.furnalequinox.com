@@ -2,35 +2,31 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import config from '../../../site-config'
+import config from '../../site-config'
 
 import {
   Meta
-} from '../../components'
+} from '../components'
 
 import {
   Event,
-  makePrivateContent,
   Section
-} from '../../layouts'
+} from '../layouts'
 
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.NewsQueryQuery
 }
 
 const News: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const Content = makePrivateContent(NewsDashboard)
 
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`News | ${config.siteTitle}`} />
       <Meta customDescription='News posts' />
       <div>
-        <Content
+        <NewsDashboard
           data={data}
           location={location}
-          callbackPath='/event/news/'
-          allowedRoles={['free']}
         />
       </div>
     </Event>

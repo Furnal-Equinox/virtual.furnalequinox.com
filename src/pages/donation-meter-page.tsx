@@ -5,8 +5,7 @@ import config from '../../site-config'
 
 import {
   DonationsMeter,
-  Meta,
-  TextCard
+  Meta
 } from '../components'
 
 import {

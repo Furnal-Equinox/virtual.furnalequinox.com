@@ -914,13 +914,13 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___image___id
   childrenMarkdownRemark___frontmatter___image___children
   childrenMarkdownRemark___frontmatter___desc
-  childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___djLineup___friday
   childrenMarkdownRemark___frontmatter___djLineup___saturday
   childrenMarkdownRemark___frontmatter___djLineup___sunday
   childrenMarkdownRemark___frontmatter___schedule___friday
   childrenMarkdownRemark___frontmatter___schedule___saturday
   childrenMarkdownRemark___frontmatter___schedule___sunday
+  childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___vrChatWorldLinks
   childrenMarkdownRemark___frontmatter___date
   childrenMarkdownRemark___frontmatter___path
@@ -1058,13 +1058,13 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___image___id
   childMarkdownRemark___frontmatter___image___children
   childMarkdownRemark___frontmatter___desc
-  childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___djLineup___friday
   childMarkdownRemark___frontmatter___djLineup___saturday
   childMarkdownRemark___frontmatter___djLineup___sunday
   childMarkdownRemark___frontmatter___schedule___friday
   childMarkdownRemark___frontmatter___schedule___saturday
   childMarkdownRemark___frontmatter___schedule___sunday
+  childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___vrChatWorldLinks
   childMarkdownRemark___frontmatter___date
   childMarkdownRemark___frontmatter___path
@@ -2328,7 +2328,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___image___internal___owner
   frontmatter___image___internal___type
   frontmatter___desc
-  frontmatter___staff
   frontmatter___djLineup___friday
   frontmatter___djLineup___friday___time
   frontmatter___djLineup___friday___dj
@@ -2350,6 +2349,7 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___schedule___sunday___time
   frontmatter___schedule___sunday___title
   frontmatter___schedule___sunday___host
+  frontmatter___staff
   frontmatter___vrChatWorldLinks
   frontmatter___date
   frontmatter___path
@@ -2504,9 +2504,9 @@ type MarkdownRemarkFrontmatter {
   artist: String
   image: File
   desc: String
-  staff: [String]
   djLineup: MarkdownRemarkFrontmatterDjLineup
   schedule: MarkdownRemarkFrontmatterSchedule
+  staff: [String]
   vrChatWorldLinks: String
   date(
     # Format the date using Moment.js' date tokens, e.g. `date(formatString: "YYYY
@@ -2613,9 +2613,9 @@ input MarkdownRemarkFrontmatterFilterInput {
   artist: StringQueryOperatorInput
   image: FileFilterInput
   desc: StringQueryOperatorInput
-  staff: StringQueryOperatorInput
   djLineup: MarkdownRemarkFrontmatterDjLineupFilterInput
   schedule: MarkdownRemarkFrontmatterScheduleFilterInput
+  staff: StringQueryOperatorInput
   vrChatWorldLinks: StringQueryOperatorInput
   date: DateQueryOperatorInput
   path: StringQueryOperatorInput
@@ -3436,7 +3436,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___crossOrigin
   pluginCreator___pluginOptions___include_favicon
   pluginCreator___pluginOptions___cacheDigest
-  pluginCreator___pluginOptions___url
   pluginCreator___pluginOptions___output
   pluginCreator___pluginOptions___createLinkInHead
   pluginCreator___pluginOptions___devMode
@@ -3486,6 +3485,18 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___sassOptions___sourceMapEmbed
   pluginCreator___pluginOptions___color
   pluginCreator___pluginOptions___showSpinner
+  pluginCreator___pluginOptions___disableOnDev
+  pluginCreator___pluginOptions___reportOnly
+  pluginCreator___pluginOptions___mergeScriptHashes
+  pluginCreator___pluginOptions___mergeStyleHashes
+  pluginCreator___pluginOptions___mergeDefaultDirectives
+  pluginCreator___pluginOptions___directives___connect_src
+  pluginCreator___pluginOptions___directives___default_src
+  pluginCreator___pluginOptions___directives___font_src
+  pluginCreator___pluginOptions___directives___frame_src
+  pluginCreator___pluginOptions___directives___img_src
+  pluginCreator___pluginOptions___directives___script_src
+  pluginCreator___pluginOptions___directives___style_src
   pluginCreator___pluginOptions___pathCheck
   pluginCreator___nodeAPIs
   pluginCreator___browserAPIs
@@ -3697,7 +3708,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___crossOrigin
   pluginOptions___include_favicon
   pluginOptions___cacheDigest
-  pluginOptions___url
   pluginOptions___output
   pluginOptions___createLinkInHead
   pluginOptions___devMode
@@ -3750,6 +3760,18 @@ enum SitePluginFieldsEnum {
   pluginOptions___sassOptions___sourceMapEmbed
   pluginOptions___color
   pluginOptions___showSpinner
+  pluginOptions___disableOnDev
+  pluginOptions___reportOnly
+  pluginOptions___mergeScriptHashes
+  pluginOptions___mergeStyleHashes
+  pluginOptions___mergeDefaultDirectives
+  pluginOptions___directives___connect_src
+  pluginOptions___directives___default_src
+  pluginOptions___directives___font_src
+  pluginOptions___directives___frame_src
+  pluginOptions___directives___img_src
+  pluginOptions___directives___script_src
+  pluginOptions___directives___style_src
   pluginOptions___pathCheck
   nodeAPIs
   browserAPIs
@@ -3879,7 +3901,6 @@ type SitePluginPluginOptions {
   crossOrigin: String
   include_favicon: Boolean
   cacheDigest: String
-  url: String
   output: String
   createLinkInHead: Boolean
   devMode: Boolean
@@ -3938,7 +3959,33 @@ type SitePluginPluginOptions {
   sassOptions: SitePluginPluginOptionsSassOptions
   color: String
   showSpinner: Boolean
+  disableOnDev: Boolean
+  reportOnly: Boolean
+  mergeScriptHashes: Boolean
+  mergeStyleHashes: Boolean
+  mergeDefaultDirectives: Boolean
+  directives: SitePluginPluginOptionsDirectives
   pathCheck: Boolean
+}
+
+type SitePluginPluginOptionsDirectives {
+  connect_src: String
+  default_src: String
+  font_src: String
+  frame_src: String
+  img_src: String
+  script_src: String
+  style_src: String
+}
+
+input SitePluginPluginOptionsDirectivesFilterInput {
+  connect_src: StringQueryOperatorInput
+  default_src: StringQueryOperatorInput
+  font_src: StringQueryOperatorInput
+  frame_src: StringQueryOperatorInput
+  img_src: StringQueryOperatorInput
+  script_src: StringQueryOperatorInput
+  style_src: StringQueryOperatorInput
 }
 
 type SitePluginPluginOptionsEmitSchema {
@@ -4047,7 +4094,6 @@ input SitePluginPluginOptionsFilterInput {
   crossOrigin: StringQueryOperatorInput
   include_favicon: BooleanQueryOperatorInput
   cacheDigest: StringQueryOperatorInput
-  url: StringQueryOperatorInput
   output: StringQueryOperatorInput
   createLinkInHead: BooleanQueryOperatorInput
   devMode: BooleanQueryOperatorInput
@@ -4090,6 +4136,12 @@ input SitePluginPluginOptionsFilterInput {
   sassOptions: SitePluginPluginOptionsSassOptionsFilterInput
   color: StringQueryOperatorInput
   showSpinner: BooleanQueryOperatorInput
+  disableOnDev: BooleanQueryOperatorInput
+  reportOnly: BooleanQueryOperatorInput
+  mergeScriptHashes: BooleanQueryOperatorInput
+  mergeStyleHashes: BooleanQueryOperatorInput
+  mergeDefaultDirectives: BooleanQueryOperatorInput
+  directives: SitePluginPluginOptionsDirectivesFilterInput
   pathCheck: BooleanQueryOperatorInput
 }
 

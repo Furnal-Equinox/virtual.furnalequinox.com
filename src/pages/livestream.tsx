@@ -2,40 +2,35 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
-import config from '../../../site-config'
+import config from '../../site-config'
 
 import {
   AdCrawl,
   CountdownLiveStream,
   DonationsMeter,
   PanelLineup,
-  Meta,
-  TextCard
-} from '../../components'
+  Meta
+} from '../components'
 
 import {
   Event,
-  makePrivateContent,
   Section
-} from '../../layouts'
+} from '../layouts'
 
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.LivestreamQueryQuery
 }
 
 const Livestream: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const Content = makePrivateContent(LivestreamDashboard)
 
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Home | ${config.siteTitle}`} />
       <Meta />
       <div>
-        <Content
+        <LivestreamDashboard
           data={data}
           location={location}
-          callbackPath='/event/livestream/'
-          allowedRoles={['free']}
         />
       </div>
     </Event>

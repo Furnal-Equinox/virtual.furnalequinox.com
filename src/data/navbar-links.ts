@@ -6,37 +6,37 @@ interface NavLink {
 
 export const NavbarLinks: NavLink[] = [
   {
-    to: '/event/livestream/',
+    to: '/livestream/',
     name: 'Livestream',
     desc: "Link to the livestream page, where you'll find the livestream, our event lineup, and our progress towards our donations goal!"
   },
   {
-    to: '/event/dealers/',
+    to: '/dealers/',
     name: 'Dealers Den',
     desc: "Link to the dealers den page, where you'll find all our dealers! You can search for specific dealers or use our 'Feeling lucky?' button to discover dealers."
   },
   {
-    to: '/event/discord-vr/',
+    to: '/discord-vr/',
     name: 'Discord & VR',
     desc: "Link to the Discord and Virtual Reality page, where you'll find links to our Discord server and our VRChat worlds."
   },
   {
-    to: '/event/gallery/',
+    to: '/gallery/',
     name: 'Gallery',
     desc: "Link to the art gallery page, where you'll find all the art pieces artists have submitted to the website!"
   },
   {
-    to: '/event/con-store/',
+    to: '/con-store/',
     name: 'Con-Store',
     desc: "Link to the con store page, where you'll find the items we're selling and links to where you can buy them."
   },
   {
-    to: '/event/djs/',
+    to: '/djs/',
     name: 'DJs',
     desc: 'Link to the DJs page, where you can learn more about our DJs and find links to their websites and social media.'
   },
   {
-    to: '/event/how-to/',
+    to: '/how-to/',
     name: 'How-To',
     desc: 'Link to the how to page, where you can learn how to make the most of Discord and VRChat! We have tutorial videos with transcriptions.'
   },

@@ -17,7 +17,6 @@ import {
 
 import {
   Event,
-  makePrivateContent,
   Section
 } from '../../layouts'
 
@@ -45,7 +44,6 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
 
   const { isSfw } = pageContext
 
-  const Content = makePrivateContent(DealerContent)
 
   return (
     <Event location={location}>
@@ -58,12 +56,10 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
         postSEO
       />
       <div>
-        <Content
+        <DealerContent
           data={data}
           location={location}
           pageContext={pageContext}
-          callbackPath={`/dealers${postNode?.fields?.slug ?? '/'}`}
-          allowedRoles={isSfw ? ['free'] : ['adult']}
         />
       </div>
     </Event>

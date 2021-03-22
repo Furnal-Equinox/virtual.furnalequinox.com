@@ -13,7 +13,6 @@ import {
 
 import {
   Event,
-  makePrivateContent
 } from '../../layouts'
 
 interface Props extends RouteComponentProps {
@@ -24,7 +23,6 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
 
-  const Content = makePrivateContent(PostContent)
 
   return (
     <Event location={location}>
@@ -36,11 +34,9 @@ const Post: React.FC<Props> = ({ data, location }: Props) => {
         postNode={postNode}
         postSEO
       />
-      <Content
+      <PostContent
         data={data}
         location={location}
-        callbackPath={`/news${postNode?.fields?.slug ?? '/'}`}
-        allowedRoles={['free']}
       />
     </Event>
   )

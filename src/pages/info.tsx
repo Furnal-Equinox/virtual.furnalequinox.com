@@ -2,7 +2,6 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import config from '../../site-config'
 
 import {
@@ -12,11 +11,9 @@ import {
 } from '../components'
 
 import {
-  Layout,
+  Event,
   Section
 } from '../layouts'
-
-import Link from 'gatsby-link'
 
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
@@ -25,34 +22,14 @@ interface Props extends RouteComponentProps {
 }
 
 const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const identity = useIdentityContext()
   const staff = data?.remark?.frontmatter?.staff
 
   return (
-    <Layout location={location}>
+    <Event location={location}>
       <Helmet title={`Info | ${config.siteTitle}`} />
       <Meta customDescription='Information' />
       <div>
         <Jumbotron title='Info' subtitle='' />
-        <Section isContainer>
-          <TextCard>
-            {identity.user !== undefined
-              ? <Link
-                  title='Return to the event landing page if you are logged in'
-                  to='/event/'
-                  className='btn btn-secondary btn-lg rounded-3'
-                >
-                Return to Event
-                </Link>
-              : <Link
-                  title='Return to the login page'
-                  to='/'
-                  className='btn btn-secondary btn-lg rounded-3'
-                >
-                Return to Login
-                </Link>}
-          </TextCard>
-        </Section>
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <div className='row'>
@@ -166,27 +143,8 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
             </div>
           </TextCard>
         </Section>
-        <Section isContainer>
-          <TextCard>
-            {identity.user !== undefined
-              ? <Link
-                  title='Return to the event landing page if you are logged in'
-                  to='/event/'
-                  className='btn btn-secondary btn-lg rounded-3'
-                >
-                Return to Event
-              </Link>
-              : <Link
-                  title='Return to the login page'
-                  to='/'
-                  className='btn btn-secondary btn-lg rounded-3'
-                >
-                Return to Login
-              </Link>}
-          </TextCard>
-        </Section>
       </div>
-    </Layout>
+    </Event>
   )
 }
 

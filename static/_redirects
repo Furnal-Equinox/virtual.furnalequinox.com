@@ -1,4 +1,0 @@
-# Let users into /event/ if they are logged in.
-# Return them to the login page if they aren't.
-/event/*     200!  Role=free
-/event/*  /  401! 

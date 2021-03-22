@@ -2,19 +2,18 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import config from '../../../site-config'
+import config from '../../site-config'
 
 import {
   GalleryItemCard,
   Jumbotron,
   Meta
-} from '../../components'
+} from '../components'
 
 import {
   Event,
-  makePrivateContent,
   Section
-} from '../../layouts'
+} from '../layouts'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
@@ -23,18 +22,15 @@ interface Props extends RouteComponentProps {
 }
 
 const Gallery: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const Content = makePrivateContent(GalleryContent)
 
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Gallery | ${config.siteTitle}`} />
       <Meta customDescription='Art Gallery' />
       <div>
-        <Content
+        <GalleryContent
           data={data}
           location={location}
-          callbackPath='/event/gallery/'
-          allowedRoles={['free']}
         />
       </div>
     </Event>

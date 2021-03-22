@@ -2,20 +2,19 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import config from '../../../site-config'
+import config from '../../site-config'
 
 import {
   DJLineup,
   Jumbotron,
   Meta,
   TextCard
-} from '../../components'
+} from '../components'
 
 import {
   Event,
-  makePrivateContent,
   Section
-} from '../../layouts'
+} from '../layouts'
 
 import Img from 'gatsby-image'
 
@@ -24,18 +23,15 @@ interface Props extends RouteComponentProps {
 }
 
 const Djs: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const Content = makePrivateContent(DjsContent)
 
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`DJs | ${config.siteTitle}`} />
       <Meta customDescription='DJs' />
       <div>
-        <Content
+        <DjsContent
           data={data}
           location={location}
-          callbackPath='/event/djs/'
-          allowedRoles={['free']}
         />
       </div>
     </Event>

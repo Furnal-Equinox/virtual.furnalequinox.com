@@ -2,7 +2,6 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import {
-  AuthOverlay,
   Footer,
   LogoNavbar
 } from '../components'
@@ -29,7 +28,6 @@ const Layout: React.FC<Props> = ({ children, location, navigate }: Props) => {
 
   return (
     <>
-      <AuthOverlay />
       <LogoNavbar location={location} navigate={navigate} />
       <div className='layout-container d-flex flex-column justify-content-between'>
         {children}

@@ -1,0 +1,11 @@
+Query(
+  Lambda(
+    "_",
+    Count(
+      Map(
+        Paginate(Documents(Collection("Donation")), { size: 5000 }),
+        Lambda("x", Get(Var("x")))
+      )
+    )
+  )
+)

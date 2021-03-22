@@ -57,14 +57,6 @@ module.exports = {
       }
     },
 
-    /// React Netlify Identity
-    {
-      resolve: 'gatsby-plugin-netlify-identity-gotrue',
-      options: {
-        url: 'https://virtual-furnal-equinox.netlify.app'
-      }
-    },
-
     /// Prevent Gatsby from automatically generating hashes for its bundled output files.
     /// See https://community.netlify.com/t/support-guide-making-the-most-of-netlifys-cdn-cache/127
     /// for more information - tl;dr, Gatsby's hashes invalidate Netlify's cache even if Gatsby
@@ -334,10 +326,63 @@ module.exports = {
         color: '#02bcc7',
         showSpinner: false
       }
-    }
+    },
 
     /// ==============================================================================================///
     ///                                          SECURITY                                             ///
     /// ==============================================================================================///
+
+    {
+      resolve: 'gatsby-plugin-csp',
+      options: {
+        disableOnDev: true,
+        reportOnly: false,
+        mergeScriptHashes: true,
+        mergeStyleHashes: false,
+        mergeDefaultDirectives: true,
+        directives: {
+          'connect-src': [
+            "'self'", 
+            "https://virtual-furnal-equinox.netlify.app",
+            "https://db.fauna.com https://vimeo.com",
+            "https://www.google-analytics.com",
+            "https://www.googletagmanager.com",
+            "https://www.youtube.com"
+          ].join(' '),
+          'default-src': [
+            "'self'",
+            "https://player.vimeo.com"
+          ].join(' '),
+          'font-src': [
+            "'self'",
+            "fonts.gstatic.com"
+          ].join(' '),
+          'frame-src': [
+            "youtube.com",
+            "www.youtube.com"
+          ].join(' '),
+          'img-src': [
+            "'self'",
+            "data: www.googletagmanager.com",
+            "data: www.google-analytics.com",
+            "data: http.cat",
+            "data: www.netlify.com"
+          ].join(' '),
+          'script-src': [
+            "'self'",
+            "'unsafe-eval'",
+            "www.google-analytics.com",
+            "www.googletagmanager.com",
+            "player.vimeo.com",
+            "www.youtube.com"
+          ].join(' '),
+          'style-src': [
+            "'self'",
+            "'unsafe-inline'",
+            "fonts.googleapis.com"
+          ].join(' ')
+        }
+      }
+    }
   ]
 }

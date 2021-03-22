@@ -1,0 +1,20 @@
+Query(
+  Lambda(
+    ["size", "before", "after"],
+    Let(
+      {
+        match: Match(Index("allDonationsSortedByAmount")),
+        page: If(
+          Equals(Var("after"), null),
+          If(
+            Equals(Var("before"), null),
+            Paginate(Var("match"), { size: Var("size") }),
+            Paginate(Var("match"), { after: Var("before"), size: Var("size") })
+          ),
+          Paginate(Var("match"), { before: Var("after"), size: Var("size") })
+        )
+      },
+      Map(Var("page"), Lambda("values", Get(Select(1, Var("values")))))
+    )
+  )
+)
