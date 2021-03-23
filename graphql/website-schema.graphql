@@ -855,20 +855,20 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___social___discord
   childrenMarkdownRemark___frontmatter___social___etsy
   childrenMarkdownRemark___frontmatter___social___facebook
+  childrenMarkdownRemark___frontmatter___social___flickr
   childrenMarkdownRemark___frontmatter___social___furaffinity
   childrenMarkdownRemark___frontmatter___social___github
   childrenMarkdownRemark___frontmatter___social___instagram
+  childrenMarkdownRemark___frontmatter___social___other
   childrenMarkdownRemark___frontmatter___social___picarto
   childrenMarkdownRemark___frontmatter___social___pinterest
   childrenMarkdownRemark___frontmatter___social___steam
   childrenMarkdownRemark___frontmatter___social___telegram
+  childrenMarkdownRemark___frontmatter___social___tiktok
   childrenMarkdownRemark___frontmatter___social___tumblr
   childrenMarkdownRemark___frontmatter___social___twitch
   childrenMarkdownRemark___frontmatter___social___twitter
   childrenMarkdownRemark___frontmatter___social___youtube
-  childrenMarkdownRemark___frontmatter___social___flickr
-  childrenMarkdownRemark___frontmatter___social___other
-  childrenMarkdownRemark___frontmatter___social___tiktok
   childrenMarkdownRemark___frontmatter___social___patreon
   childrenMarkdownRemark___frontmatter___streaming___sunday
   childrenMarkdownRemark___frontmatter___streaming___saturday
@@ -914,13 +914,13 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___image___id
   childrenMarkdownRemark___frontmatter___image___children
   childrenMarkdownRemark___frontmatter___desc
-  childrenMarkdownRemark___frontmatter___schedule___friday
-  childrenMarkdownRemark___frontmatter___schedule___saturday
-  childrenMarkdownRemark___frontmatter___schedule___sunday
   childrenMarkdownRemark___frontmatter___djLineup___friday
   childrenMarkdownRemark___frontmatter___djLineup___saturday
   childrenMarkdownRemark___frontmatter___djLineup___sunday
   childrenMarkdownRemark___frontmatter___staff
+  childrenMarkdownRemark___frontmatter___schedule___friday
+  childrenMarkdownRemark___frontmatter___schedule___saturday
+  childrenMarkdownRemark___frontmatter___schedule___sunday
   childrenMarkdownRemark___frontmatter___vrChatWorldLinks
   childrenMarkdownRemark___frontmatter___date
   childrenMarkdownRemark___frontmatter___path
@@ -999,20 +999,20 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___social___discord
   childMarkdownRemark___frontmatter___social___etsy
   childMarkdownRemark___frontmatter___social___facebook
+  childMarkdownRemark___frontmatter___social___flickr
   childMarkdownRemark___frontmatter___social___furaffinity
   childMarkdownRemark___frontmatter___social___github
   childMarkdownRemark___frontmatter___social___instagram
+  childMarkdownRemark___frontmatter___social___other
   childMarkdownRemark___frontmatter___social___picarto
   childMarkdownRemark___frontmatter___social___pinterest
   childMarkdownRemark___frontmatter___social___steam
   childMarkdownRemark___frontmatter___social___telegram
+  childMarkdownRemark___frontmatter___social___tiktok
   childMarkdownRemark___frontmatter___social___tumblr
   childMarkdownRemark___frontmatter___social___twitch
   childMarkdownRemark___frontmatter___social___twitter
   childMarkdownRemark___frontmatter___social___youtube
-  childMarkdownRemark___frontmatter___social___flickr
-  childMarkdownRemark___frontmatter___social___other
-  childMarkdownRemark___frontmatter___social___tiktok
   childMarkdownRemark___frontmatter___social___patreon
   childMarkdownRemark___frontmatter___streaming___sunday
   childMarkdownRemark___frontmatter___streaming___saturday
@@ -1058,13 +1058,13 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___image___id
   childMarkdownRemark___frontmatter___image___children
   childMarkdownRemark___frontmatter___desc
-  childMarkdownRemark___frontmatter___schedule___friday
-  childMarkdownRemark___frontmatter___schedule___saturday
-  childMarkdownRemark___frontmatter___schedule___sunday
   childMarkdownRemark___frontmatter___djLineup___friday
   childMarkdownRemark___frontmatter___djLineup___saturday
   childMarkdownRemark___frontmatter___djLineup___sunday
   childMarkdownRemark___frontmatter___staff
+  childMarkdownRemark___frontmatter___schedule___friday
+  childMarkdownRemark___frontmatter___schedule___saturday
+  childMarkdownRemark___frontmatter___schedule___sunday
   childMarkdownRemark___frontmatter___vrChatWorldLinks
   childMarkdownRemark___frontmatter___date
   childMarkdownRemark___frontmatter___path
@@ -2223,20 +2223,20 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___social___discord
   frontmatter___social___etsy
   frontmatter___social___facebook
+  frontmatter___social___flickr
   frontmatter___social___furaffinity
   frontmatter___social___github
   frontmatter___social___instagram
+  frontmatter___social___other
   frontmatter___social___picarto
   frontmatter___social___pinterest
   frontmatter___social___steam
   frontmatter___social___telegram
+  frontmatter___social___tiktok
   frontmatter___social___tumblr
   frontmatter___social___twitch
   frontmatter___social___twitter
   frontmatter___social___youtube
-  frontmatter___social___flickr
-  frontmatter___social___other
-  frontmatter___social___tiktok
   frontmatter___social___patreon
   frontmatter___streaming___sunday
   frontmatter___streaming___sunday___start
@@ -2328,6 +2328,16 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___image___internal___owner
   frontmatter___image___internal___type
   frontmatter___desc
+  frontmatter___djLineup___friday
+  frontmatter___djLineup___friday___time
+  frontmatter___djLineup___friday___dj
+  frontmatter___djLineup___saturday
+  frontmatter___djLineup___saturday___time
+  frontmatter___djLineup___saturday___dj
+  frontmatter___djLineup___sunday
+  frontmatter___djLineup___sunday___time
+  frontmatter___djLineup___sunday___dj
+  frontmatter___staff
   frontmatter___schedule___friday
   frontmatter___schedule___friday___time
   frontmatter___schedule___friday___title
@@ -2340,16 +2350,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___schedule___sunday___time
   frontmatter___schedule___sunday___title
   frontmatter___schedule___sunday___host
-  frontmatter___djLineup___friday
-  frontmatter___djLineup___friday___time
-  frontmatter___djLineup___friday___dj
-  frontmatter___djLineup___saturday
-  frontmatter___djLineup___saturday___time
-  frontmatter___djLineup___saturday___dj
-  frontmatter___djLineup___sunday
-  frontmatter___djLineup___sunday___time
-  frontmatter___djLineup___sunday___dj
-  frontmatter___staff
   frontmatter___vrChatWorldLinks
   frontmatter___date
   frontmatter___path
@@ -2504,9 +2504,9 @@ type MarkdownRemarkFrontmatter {
   artist: String
   image: File
   desc: String
-  schedule: MarkdownRemarkFrontmatterSchedule
   djLineup: MarkdownRemarkFrontmatterDjLineup
   staff: [String]
+  schedule: MarkdownRemarkFrontmatterSchedule
   vrChatWorldLinks: String
   date(
     # Format the date using Moment.js' date tokens, e.g. `date(formatString: "YYYY
@@ -2613,9 +2613,9 @@ input MarkdownRemarkFrontmatterFilterInput {
   artist: StringQueryOperatorInput
   image: FileFilterInput
   desc: StringQueryOperatorInput
-  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   djLineup: MarkdownRemarkFrontmatterDjLineupFilterInput
   staff: StringQueryOperatorInput
+  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   vrChatWorldLinks: StringQueryOperatorInput
   date: DateQueryOperatorInput
   path: StringQueryOperatorInput
@@ -2718,20 +2718,20 @@ type MarkdownRemarkFrontmatterSocial {
   discord: String
   etsy: String
   facebook: String
+  flickr: String
   furaffinity: String
   github: String
   instagram: String
+  other: String
   picarto: String
   pinterest: String
   steam: String
   telegram: String
+  tiktok: String
   tumblr: String
   twitch: String
   twitter: String
   youtube: String
-  flickr: String
-  other: String
-  tiktok: String
   patreon: String
 }
 
@@ -2741,20 +2741,20 @@ input MarkdownRemarkFrontmatterSocialFilterInput {
   discord: StringQueryOperatorInput
   etsy: StringQueryOperatorInput
   facebook: StringQueryOperatorInput
+  flickr: StringQueryOperatorInput
   furaffinity: StringQueryOperatorInput
   github: StringQueryOperatorInput
   instagram: StringQueryOperatorInput
+  other: StringQueryOperatorInput
   picarto: StringQueryOperatorInput
   pinterest: StringQueryOperatorInput
   steam: StringQueryOperatorInput
   telegram: StringQueryOperatorInput
+  tiktok: StringQueryOperatorInput
   tumblr: StringQueryOperatorInput
   twitch: StringQueryOperatorInput
   twitter: StringQueryOperatorInput
   youtube: StringQueryOperatorInput
-  flickr: StringQueryOperatorInput
-  other: StringQueryOperatorInput
-  tiktok: StringQueryOperatorInput
   patreon: StringQueryOperatorInput
 }
 
@@ -3428,6 +3428,20 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___plugins___nodeAPIs
   pluginCreator___pluginOptions___plugins___browserAPIs
   pluginCreator___pluginOptions___plugins___pluginFilepath
+  pluginCreator___pluginOptions___name
+  pluginCreator___pluginOptions___short_name
+  pluginCreator___pluginOptions___description
+  pluginCreator___pluginOptions___start_url
+  pluginCreator___pluginOptions___theme_color
+  pluginCreator___pluginOptions___background_color
+  pluginCreator___pluginOptions___display
+  pluginCreator___pluginOptions___icon
+  pluginCreator___pluginOptions___legacy
+  pluginCreator___pluginOptions___theme_color_in_head
+  pluginCreator___pluginOptions___cache_busting_mode
+  pluginCreator___pluginOptions___crossOrigin
+  pluginCreator___pluginOptions___include_favicon
+  pluginCreator___pluginOptions___cacheDigest
   pluginCreator___pluginOptions___output
   pluginCreator___pluginOptions___createLinkInHead
   pluginCreator___pluginOptions___devMode
@@ -3441,7 +3455,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___defaultQuality
   pluginCreator___pluginOptions___failOnError
   pluginCreator___pluginOptions___path
-  pluginCreator___pluginOptions___name
   pluginCreator___pluginOptions___maxWidth
   pluginCreator___pluginOptions___quality
   pluginCreator___pluginOptions___linkImagesToOriginal
@@ -3491,19 +3504,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___directives___script_src
   pluginCreator___pluginOptions___directives___style_src
   pluginCreator___pluginOptions___pathCheck
-  pluginCreator___pluginOptions___short_name
-  pluginCreator___pluginOptions___description
-  pluginCreator___pluginOptions___start_url
-  pluginCreator___pluginOptions___theme_color
-  pluginCreator___pluginOptions___background_color
-  pluginCreator___pluginOptions___display
-  pluginCreator___pluginOptions___icon
-  pluginCreator___pluginOptions___legacy
-  pluginCreator___pluginOptions___theme_color_in_head
-  pluginCreator___pluginOptions___cache_busting_mode
-  pluginCreator___pluginOptions___crossOrigin
-  pluginCreator___pluginOptions___include_favicon
-  pluginCreator___pluginOptions___cacheDigest
   pluginCreator___nodeAPIs
   pluginCreator___browserAPIs
   pluginCreator___ssrAPIs
@@ -3700,6 +3700,20 @@ enum SitePluginFieldsEnum {
   pluginOptions___plugins___nodeAPIs
   pluginOptions___plugins___browserAPIs
   pluginOptions___plugins___pluginFilepath
+  pluginOptions___name
+  pluginOptions___short_name
+  pluginOptions___description
+  pluginOptions___start_url
+  pluginOptions___theme_color
+  pluginOptions___background_color
+  pluginOptions___display
+  pluginOptions___icon
+  pluginOptions___legacy
+  pluginOptions___theme_color_in_head
+  pluginOptions___cache_busting_mode
+  pluginOptions___crossOrigin
+  pluginOptions___include_favicon
+  pluginOptions___cacheDigest
   pluginOptions___output
   pluginOptions___createLinkInHead
   pluginOptions___devMode
@@ -3716,7 +3730,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___defaultQuality
   pluginOptions___failOnError
   pluginOptions___path
-  pluginOptions___name
   pluginOptions___maxWidth
   pluginOptions___quality
   pluginOptions___linkImagesToOriginal
@@ -3766,19 +3779,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___directives___script_src
   pluginOptions___directives___style_src
   pluginOptions___pathCheck
-  pluginOptions___short_name
-  pluginOptions___description
-  pluginOptions___start_url
-  pluginOptions___theme_color
-  pluginOptions___background_color
-  pluginOptions___display
-  pluginOptions___icon
-  pluginOptions___legacy
-  pluginOptions___theme_color_in_head
-  pluginOptions___cache_busting_mode
-  pluginOptions___crossOrigin
-  pluginOptions___include_favicon
-  pluginOptions___cacheDigest
   nodeAPIs
   browserAPIs
   ssrAPIs
@@ -3893,6 +3893,20 @@ input SitePluginPackageJsonPeerDependenciesFilterListInput {
 
 type SitePluginPluginOptions {
   plugins: [SitePluginPluginOptionsPlugins]
+  name: String
+  short_name: String
+  description: String
+  start_url: String
+  theme_color: String
+  background_color: String
+  display: String
+  icon: String
+  legacy: Boolean
+  theme_color_in_head: Boolean
+  cache_busting_mode: String
+  crossOrigin: String
+  include_favicon: Boolean
+  cacheDigest: String
   output: String
   createLinkInHead: Boolean
   devMode: Boolean
@@ -3923,7 +3937,6 @@ type SitePluginPluginOptions {
   defaultQuality: Int
   failOnError: Boolean
   path: String
-  name: String
   maxWidth: Int
   quality: Int
   linkImagesToOriginal: Boolean
@@ -3959,19 +3972,6 @@ type SitePluginPluginOptions {
   mergeDefaultDirectives: Boolean
   directives: SitePluginPluginOptionsDirectives
   pathCheck: Boolean
-  short_name: String
-  description: String
-  start_url: String
-  theme_color: String
-  background_color: String
-  display: String
-  icon: String
-  legacy: Boolean
-  theme_color_in_head: Boolean
-  cache_busting_mode: String
-  crossOrigin: String
-  include_favicon: Boolean
-  cacheDigest: String
 }
 
 type SitePluginPluginOptionsDirectives {
@@ -4086,6 +4086,20 @@ input SitePluginPluginOptionsEnvProductionPolicyFilterListInput {
 
 input SitePluginPluginOptionsFilterInput {
   plugins: SitePluginPluginOptionsPluginsFilterListInput
+  name: StringQueryOperatorInput
+  short_name: StringQueryOperatorInput
+  description: StringQueryOperatorInput
+  start_url: StringQueryOperatorInput
+  theme_color: StringQueryOperatorInput
+  background_color: StringQueryOperatorInput
+  display: StringQueryOperatorInput
+  icon: StringQueryOperatorInput
+  legacy: BooleanQueryOperatorInput
+  theme_color_in_head: BooleanQueryOperatorInput
+  cache_busting_mode: StringQueryOperatorInput
+  crossOrigin: StringQueryOperatorInput
+  include_favicon: BooleanQueryOperatorInput
+  cacheDigest: StringQueryOperatorInput
   output: StringQueryOperatorInput
   createLinkInHead: BooleanQueryOperatorInput
   devMode: BooleanQueryOperatorInput
@@ -4100,7 +4114,6 @@ input SitePluginPluginOptionsFilterInput {
   defaultQuality: IntQueryOperatorInput
   failOnError: BooleanQueryOperatorInput
   path: StringQueryOperatorInput
-  name: StringQueryOperatorInput
   maxWidth: IntQueryOperatorInput
   quality: IntQueryOperatorInput
   linkImagesToOriginal: BooleanQueryOperatorInput
@@ -4136,19 +4149,6 @@ input SitePluginPluginOptionsFilterInput {
   mergeDefaultDirectives: BooleanQueryOperatorInput
   directives: SitePluginPluginOptionsDirectivesFilterInput
   pathCheck: BooleanQueryOperatorInput
-  short_name: StringQueryOperatorInput
-  description: StringQueryOperatorInput
-  start_url: StringQueryOperatorInput
-  theme_color: StringQueryOperatorInput
-  background_color: StringQueryOperatorInput
-  display: StringQueryOperatorInput
-  icon: StringQueryOperatorInput
-  legacy: BooleanQueryOperatorInput
-  theme_color_in_head: BooleanQueryOperatorInput
-  cache_busting_mode: StringQueryOperatorInput
-  crossOrigin: StringQueryOperatorInput
-  include_favicon: BooleanQueryOperatorInput
-  cacheDigest: StringQueryOperatorInput
 }
 
 type SitePluginPluginOptionsGtagConfig {

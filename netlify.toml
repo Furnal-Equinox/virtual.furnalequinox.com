@@ -14,6 +14,9 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    Cross-Origin-Resource-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Opener-Policy = "same-origin"
     Permissions-Policy = '''
       accelerometer 'none';
       ambient-light-sensor 'none';

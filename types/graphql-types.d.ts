@@ -742,20 +742,20 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.social.discord'
   | 'childrenMarkdownRemark.frontmatter.social.etsy'
   | 'childrenMarkdownRemark.frontmatter.social.facebook'
+  | 'childrenMarkdownRemark.frontmatter.social.flickr'
   | 'childrenMarkdownRemark.frontmatter.social.furaffinity'
   | 'childrenMarkdownRemark.frontmatter.social.github'
   | 'childrenMarkdownRemark.frontmatter.social.instagram'
+  | 'childrenMarkdownRemark.frontmatter.social.other'
   | 'childrenMarkdownRemark.frontmatter.social.picarto'
   | 'childrenMarkdownRemark.frontmatter.social.pinterest'
   | 'childrenMarkdownRemark.frontmatter.social.steam'
   | 'childrenMarkdownRemark.frontmatter.social.telegram'
+  | 'childrenMarkdownRemark.frontmatter.social.tiktok'
   | 'childrenMarkdownRemark.frontmatter.social.tumblr'
   | 'childrenMarkdownRemark.frontmatter.social.twitch'
   | 'childrenMarkdownRemark.frontmatter.social.twitter'
   | 'childrenMarkdownRemark.frontmatter.social.youtube'
-  | 'childrenMarkdownRemark.frontmatter.social.flickr'
-  | 'childrenMarkdownRemark.frontmatter.social.other'
-  | 'childrenMarkdownRemark.frontmatter.social.tiktok'
   | 'childrenMarkdownRemark.frontmatter.social.patreon'
   | 'childrenMarkdownRemark.frontmatter.streaming.sunday'
   | 'childrenMarkdownRemark.frontmatter.streaming.saturday'
@@ -801,13 +801,13 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.image.id'
   | 'childrenMarkdownRemark.frontmatter.image.children'
   | 'childrenMarkdownRemark.frontmatter.desc'
-  | 'childrenMarkdownRemark.frontmatter.schedule.friday'
-  | 'childrenMarkdownRemark.frontmatter.schedule.saturday'
-  | 'childrenMarkdownRemark.frontmatter.schedule.sunday'
   | 'childrenMarkdownRemark.frontmatter.djLineup.friday'
   | 'childrenMarkdownRemark.frontmatter.djLineup.saturday'
   | 'childrenMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childrenMarkdownRemark.frontmatter.staff'
+  | 'childrenMarkdownRemark.frontmatter.schedule.friday'
+  | 'childrenMarkdownRemark.frontmatter.schedule.saturday'
+  | 'childrenMarkdownRemark.frontmatter.schedule.sunday'
   | 'childrenMarkdownRemark.frontmatter.vrChatWorldLinks'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.path'
@@ -886,20 +886,20 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.social.discord'
   | 'childMarkdownRemark.frontmatter.social.etsy'
   | 'childMarkdownRemark.frontmatter.social.facebook'
+  | 'childMarkdownRemark.frontmatter.social.flickr'
   | 'childMarkdownRemark.frontmatter.social.furaffinity'
   | 'childMarkdownRemark.frontmatter.social.github'
   | 'childMarkdownRemark.frontmatter.social.instagram'
+  | 'childMarkdownRemark.frontmatter.social.other'
   | 'childMarkdownRemark.frontmatter.social.picarto'
   | 'childMarkdownRemark.frontmatter.social.pinterest'
   | 'childMarkdownRemark.frontmatter.social.steam'
   | 'childMarkdownRemark.frontmatter.social.telegram'
+  | 'childMarkdownRemark.frontmatter.social.tiktok'
   | 'childMarkdownRemark.frontmatter.social.tumblr'
   | 'childMarkdownRemark.frontmatter.social.twitch'
   | 'childMarkdownRemark.frontmatter.social.twitter'
   | 'childMarkdownRemark.frontmatter.social.youtube'
-  | 'childMarkdownRemark.frontmatter.social.flickr'
-  | 'childMarkdownRemark.frontmatter.social.other'
-  | 'childMarkdownRemark.frontmatter.social.tiktok'
   | 'childMarkdownRemark.frontmatter.social.patreon'
   | 'childMarkdownRemark.frontmatter.streaming.sunday'
   | 'childMarkdownRemark.frontmatter.streaming.saturday'
@@ -945,13 +945,13 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.image.id'
   | 'childMarkdownRemark.frontmatter.image.children'
   | 'childMarkdownRemark.frontmatter.desc'
-  | 'childMarkdownRemark.frontmatter.schedule.friday'
-  | 'childMarkdownRemark.frontmatter.schedule.saturday'
-  | 'childMarkdownRemark.frontmatter.schedule.sunday'
   | 'childMarkdownRemark.frontmatter.djLineup.friday'
   | 'childMarkdownRemark.frontmatter.djLineup.saturday'
   | 'childMarkdownRemark.frontmatter.djLineup.sunday'
   | 'childMarkdownRemark.frontmatter.staff'
+  | 'childMarkdownRemark.frontmatter.schedule.friday'
+  | 'childMarkdownRemark.frontmatter.schedule.saturday'
+  | 'childMarkdownRemark.frontmatter.schedule.sunday'
   | 'childMarkdownRemark.frontmatter.vrChatWorldLinks'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.path'
@@ -2161,20 +2161,20 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.social.discord'
   | 'frontmatter.social.etsy'
   | 'frontmatter.social.facebook'
+  | 'frontmatter.social.flickr'
   | 'frontmatter.social.furaffinity'
   | 'frontmatter.social.github'
   | 'frontmatter.social.instagram'
+  | 'frontmatter.social.other'
   | 'frontmatter.social.picarto'
   | 'frontmatter.social.pinterest'
   | 'frontmatter.social.steam'
   | 'frontmatter.social.telegram'
+  | 'frontmatter.social.tiktok'
   | 'frontmatter.social.tumblr'
   | 'frontmatter.social.twitch'
   | 'frontmatter.social.twitter'
   | 'frontmatter.social.youtube'
-  | 'frontmatter.social.flickr'
-  | 'frontmatter.social.other'
-  | 'frontmatter.social.tiktok'
   | 'frontmatter.social.patreon'
   | 'frontmatter.streaming.sunday'
   | 'frontmatter.streaming.sunday.start'
@@ -2266,6 +2266,16 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.image.internal.owner'
   | 'frontmatter.image.internal.type'
   | 'frontmatter.desc'
+  | 'frontmatter.djLineup.friday'
+  | 'frontmatter.djLineup.friday.time'
+  | 'frontmatter.djLineup.friday.dj'
+  | 'frontmatter.djLineup.saturday'
+  | 'frontmatter.djLineup.saturday.time'
+  | 'frontmatter.djLineup.saturday.dj'
+  | 'frontmatter.djLineup.sunday'
+  | 'frontmatter.djLineup.sunday.time'
+  | 'frontmatter.djLineup.sunday.dj'
+  | 'frontmatter.staff'
   | 'frontmatter.schedule.friday'
   | 'frontmatter.schedule.friday.time'
   | 'frontmatter.schedule.friday.title'
@@ -2278,16 +2288,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.schedule.sunday.time'
   | 'frontmatter.schedule.sunday.title'
   | 'frontmatter.schedule.sunday.host'
-  | 'frontmatter.djLineup.friday'
-  | 'frontmatter.djLineup.friday.time'
-  | 'frontmatter.djLineup.friday.dj'
-  | 'frontmatter.djLineup.saturday'
-  | 'frontmatter.djLineup.saturday.time'
-  | 'frontmatter.djLineup.saturday.dj'
-  | 'frontmatter.djLineup.sunday'
-  | 'frontmatter.djLineup.sunday.time'
-  | 'frontmatter.djLineup.sunday.dj'
-  | 'frontmatter.staff'
   | 'frontmatter.vrChatWorldLinks'
   | 'frontmatter.date'
   | 'frontmatter.path'
@@ -2441,9 +2441,9 @@ type MarkdownRemarkFrontmatter = {
   readonly artist: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
   readonly desc: Maybe<Scalars['String']>;
-  readonly schedule: Maybe<MarkdownRemarkFrontmatterSchedule>;
   readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineup>;
   readonly staff: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly schedule: Maybe<MarkdownRemarkFrontmatterSchedule>;
   readonly vrChatWorldLinks: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly path: Maybe<Scalars['String']>;
@@ -2542,9 +2542,9 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly artist: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
   readonly desc: Maybe<StringQueryOperatorInput>;
-  readonly schedule: Maybe<MarkdownRemarkFrontmatterScheduleFilterInput>;
   readonly djLineup: Maybe<MarkdownRemarkFrontmatterDjLineupFilterInput>;
   readonly staff: Maybe<StringQueryOperatorInput>;
+  readonly schedule: Maybe<MarkdownRemarkFrontmatterScheduleFilterInput>;
   readonly vrChatWorldLinks: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
@@ -2647,20 +2647,20 @@ type MarkdownRemarkFrontmatterSocial = {
   readonly discord: Maybe<Scalars['String']>;
   readonly etsy: Maybe<Scalars['String']>;
   readonly facebook: Maybe<Scalars['String']>;
+  readonly flickr: Maybe<Scalars['String']>;
   readonly furaffinity: Maybe<Scalars['String']>;
   readonly github: Maybe<Scalars['String']>;
   readonly instagram: Maybe<Scalars['String']>;
+  readonly other: Maybe<Scalars['String']>;
   readonly picarto: Maybe<Scalars['String']>;
   readonly pinterest: Maybe<Scalars['String']>;
   readonly steam: Maybe<Scalars['String']>;
   readonly telegram: Maybe<Scalars['String']>;
+  readonly tiktok: Maybe<Scalars['String']>;
   readonly tumblr: Maybe<Scalars['String']>;
   readonly twitch: Maybe<Scalars['String']>;
   readonly twitter: Maybe<Scalars['String']>;
   readonly youtube: Maybe<Scalars['String']>;
-  readonly flickr: Maybe<Scalars['String']>;
-  readonly other: Maybe<Scalars['String']>;
-  readonly tiktok: Maybe<Scalars['String']>;
   readonly patreon: Maybe<Scalars['String']>;
 };
 
@@ -2670,20 +2670,20 @@ type MarkdownRemarkFrontmatterSocialFilterInput = {
   readonly discord: Maybe<StringQueryOperatorInput>;
   readonly etsy: Maybe<StringQueryOperatorInput>;
   readonly facebook: Maybe<StringQueryOperatorInput>;
+  readonly flickr: Maybe<StringQueryOperatorInput>;
   readonly furaffinity: Maybe<StringQueryOperatorInput>;
   readonly github: Maybe<StringQueryOperatorInput>;
   readonly instagram: Maybe<StringQueryOperatorInput>;
+  readonly other: Maybe<StringQueryOperatorInput>;
   readonly picarto: Maybe<StringQueryOperatorInput>;
   readonly pinterest: Maybe<StringQueryOperatorInput>;
   readonly steam: Maybe<StringQueryOperatorInput>;
   readonly telegram: Maybe<StringQueryOperatorInput>;
+  readonly tiktok: Maybe<StringQueryOperatorInput>;
   readonly tumblr: Maybe<StringQueryOperatorInput>;
   readonly twitch: Maybe<StringQueryOperatorInput>;
   readonly twitter: Maybe<StringQueryOperatorInput>;
   readonly youtube: Maybe<StringQueryOperatorInput>;
-  readonly flickr: Maybe<StringQueryOperatorInput>;
-  readonly other: Maybe<StringQueryOperatorInput>;
-  readonly tiktok: Maybe<StringQueryOperatorInput>;
   readonly patreon: Maybe<StringQueryOperatorInput>;
 };
 
@@ -3640,6 +3640,20 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.plugins.nodeAPIs'
   | 'pluginCreator.pluginOptions.plugins.browserAPIs'
   | 'pluginCreator.pluginOptions.plugins.pluginFilepath'
+  | 'pluginCreator.pluginOptions.name'
+  | 'pluginCreator.pluginOptions.short_name'
+  | 'pluginCreator.pluginOptions.description'
+  | 'pluginCreator.pluginOptions.start_url'
+  | 'pluginCreator.pluginOptions.theme_color'
+  | 'pluginCreator.pluginOptions.background_color'
+  | 'pluginCreator.pluginOptions.display'
+  | 'pluginCreator.pluginOptions.icon'
+  | 'pluginCreator.pluginOptions.legacy'
+  | 'pluginCreator.pluginOptions.theme_color_in_head'
+  | 'pluginCreator.pluginOptions.cache_busting_mode'
+  | 'pluginCreator.pluginOptions.crossOrigin'
+  | 'pluginCreator.pluginOptions.include_favicon'
+  | 'pluginCreator.pluginOptions.cacheDigest'
   | 'pluginCreator.pluginOptions.output'
   | 'pluginCreator.pluginOptions.createLinkInHead'
   | 'pluginCreator.pluginOptions.devMode'
@@ -3653,7 +3667,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.defaultQuality'
   | 'pluginCreator.pluginOptions.failOnError'
   | 'pluginCreator.pluginOptions.path'
-  | 'pluginCreator.pluginOptions.name'
   | 'pluginCreator.pluginOptions.maxWidth'
   | 'pluginCreator.pluginOptions.quality'
   | 'pluginCreator.pluginOptions.linkImagesToOriginal'
@@ -3703,19 +3716,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.directives.script_src'
   | 'pluginCreator.pluginOptions.directives.style_src'
   | 'pluginCreator.pluginOptions.pathCheck'
-  | 'pluginCreator.pluginOptions.short_name'
-  | 'pluginCreator.pluginOptions.description'
-  | 'pluginCreator.pluginOptions.start_url'
-  | 'pluginCreator.pluginOptions.theme_color'
-  | 'pluginCreator.pluginOptions.background_color'
-  | 'pluginCreator.pluginOptions.display'
-  | 'pluginCreator.pluginOptions.icon'
-  | 'pluginCreator.pluginOptions.legacy'
-  | 'pluginCreator.pluginOptions.theme_color_in_head'
-  | 'pluginCreator.pluginOptions.cache_busting_mode'
-  | 'pluginCreator.pluginOptions.crossOrigin'
-  | 'pluginCreator.pluginOptions.include_favicon'
-  | 'pluginCreator.pluginOptions.cacheDigest'
   | 'pluginCreator.nodeAPIs'
   | 'pluginCreator.browserAPIs'
   | 'pluginCreator.ssrAPIs'
@@ -3923,6 +3923,20 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.plugins.nodeAPIs'
   | 'pluginOptions.plugins.browserAPIs'
   | 'pluginOptions.plugins.pluginFilepath'
+  | 'pluginOptions.name'
+  | 'pluginOptions.short_name'
+  | 'pluginOptions.description'
+  | 'pluginOptions.start_url'
+  | 'pluginOptions.theme_color'
+  | 'pluginOptions.background_color'
+  | 'pluginOptions.display'
+  | 'pluginOptions.icon'
+  | 'pluginOptions.legacy'
+  | 'pluginOptions.theme_color_in_head'
+  | 'pluginOptions.cache_busting_mode'
+  | 'pluginOptions.crossOrigin'
+  | 'pluginOptions.include_favicon'
+  | 'pluginOptions.cacheDigest'
   | 'pluginOptions.output'
   | 'pluginOptions.createLinkInHead'
   | 'pluginOptions.devMode'
@@ -3939,7 +3953,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.defaultQuality'
   | 'pluginOptions.failOnError'
   | 'pluginOptions.path'
-  | 'pluginOptions.name'
   | 'pluginOptions.maxWidth'
   | 'pluginOptions.quality'
   | 'pluginOptions.linkImagesToOriginal'
@@ -3989,19 +4002,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.directives.script_src'
   | 'pluginOptions.directives.style_src'
   | 'pluginOptions.pathCheck'
-  | 'pluginOptions.short_name'
-  | 'pluginOptions.description'
-  | 'pluginOptions.start_url'
-  | 'pluginOptions.theme_color'
-  | 'pluginOptions.background_color'
-  | 'pluginOptions.display'
-  | 'pluginOptions.icon'
-  | 'pluginOptions.legacy'
-  | 'pluginOptions.theme_color_in_head'
-  | 'pluginOptions.cache_busting_mode'
-  | 'pluginOptions.crossOrigin'
-  | 'pluginOptions.include_favicon'
-  | 'pluginOptions.cacheDigest'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -4115,6 +4115,20 @@ type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 type SitePluginPluginOptions = {
   readonly plugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPlugins>>>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly short_name: Maybe<Scalars['String']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly start_url: Maybe<Scalars['String']>;
+  readonly theme_color: Maybe<Scalars['String']>;
+  readonly background_color: Maybe<Scalars['String']>;
+  readonly display: Maybe<Scalars['String']>;
+  readonly icon: Maybe<Scalars['String']>;
+  readonly legacy: Maybe<Scalars['Boolean']>;
+  readonly theme_color_in_head: Maybe<Scalars['Boolean']>;
+  readonly cache_busting_mode: Maybe<Scalars['String']>;
+  readonly crossOrigin: Maybe<Scalars['String']>;
+  readonly include_favicon: Maybe<Scalars['Boolean']>;
+  readonly cacheDigest: Maybe<Scalars['String']>;
   readonly output: Maybe<Scalars['String']>;
   readonly createLinkInHead: Maybe<Scalars['Boolean']>;
   readonly devMode: Maybe<Scalars['Boolean']>;
@@ -4129,7 +4143,6 @@ type SitePluginPluginOptions = {
   readonly defaultQuality: Maybe<Scalars['Int']>;
   readonly failOnError: Maybe<Scalars['Boolean']>;
   readonly path: Maybe<Scalars['String']>;
-  readonly name: Maybe<Scalars['String']>;
   readonly maxWidth: Maybe<Scalars['Int']>;
   readonly quality: Maybe<Scalars['Int']>;
   readonly linkImagesToOriginal: Maybe<Scalars['Boolean']>;
@@ -4165,19 +4178,6 @@ type SitePluginPluginOptions = {
   readonly mergeDefaultDirectives: Maybe<Scalars['Boolean']>;
   readonly directives: Maybe<SitePluginPluginOptionsDirectives>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
-  readonly short_name: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly start_url: Maybe<Scalars['String']>;
-  readonly theme_color: Maybe<Scalars['String']>;
-  readonly background_color: Maybe<Scalars['String']>;
-  readonly display: Maybe<Scalars['String']>;
-  readonly icon: Maybe<Scalars['String']>;
-  readonly legacy: Maybe<Scalars['Boolean']>;
-  readonly theme_color_in_head: Maybe<Scalars['Boolean']>;
-  readonly cache_busting_mode: Maybe<Scalars['String']>;
-  readonly crossOrigin: Maybe<Scalars['String']>;
-  readonly include_favicon: Maybe<Scalars['Boolean']>;
-  readonly cacheDigest: Maybe<Scalars['String']>;
 };
 
 
@@ -4300,6 +4300,20 @@ type SitePluginPluginOptionsEnvProductionPolicyFilterListInput = {
 
 type SitePluginPluginOptionsFilterInput = {
   readonly plugins: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  readonly name: Maybe<StringQueryOperatorInput>;
+  readonly short_name: Maybe<StringQueryOperatorInput>;
+  readonly description: Maybe<StringQueryOperatorInput>;
+  readonly start_url: Maybe<StringQueryOperatorInput>;
+  readonly theme_color: Maybe<StringQueryOperatorInput>;
+  readonly background_color: Maybe<StringQueryOperatorInput>;
+  readonly display: Maybe<StringQueryOperatorInput>;
+  readonly icon: Maybe<StringQueryOperatorInput>;
+  readonly legacy: Maybe<BooleanQueryOperatorInput>;
+  readonly theme_color_in_head: Maybe<BooleanQueryOperatorInput>;
+  readonly cache_busting_mode: Maybe<StringQueryOperatorInput>;
+  readonly crossOrigin: Maybe<StringQueryOperatorInput>;
+  readonly include_favicon: Maybe<BooleanQueryOperatorInput>;
+  readonly cacheDigest: Maybe<StringQueryOperatorInput>;
   readonly output: Maybe<StringQueryOperatorInput>;
   readonly createLinkInHead: Maybe<BooleanQueryOperatorInput>;
   readonly devMode: Maybe<BooleanQueryOperatorInput>;
@@ -4314,7 +4328,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly defaultQuality: Maybe<IntQueryOperatorInput>;
   readonly failOnError: Maybe<BooleanQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
-  readonly name: Maybe<StringQueryOperatorInput>;
   readonly maxWidth: Maybe<IntQueryOperatorInput>;
   readonly quality: Maybe<IntQueryOperatorInput>;
   readonly linkImagesToOriginal: Maybe<BooleanQueryOperatorInput>;
@@ -4350,19 +4363,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly mergeDefaultDirectives: Maybe<BooleanQueryOperatorInput>;
   readonly directives: Maybe<SitePluginPluginOptionsDirectivesFilterInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
-  readonly short_name: Maybe<StringQueryOperatorInput>;
-  readonly description: Maybe<StringQueryOperatorInput>;
-  readonly start_url: Maybe<StringQueryOperatorInput>;
-  readonly theme_color: Maybe<StringQueryOperatorInput>;
-  readonly background_color: Maybe<StringQueryOperatorInput>;
-  readonly display: Maybe<StringQueryOperatorInput>;
-  readonly icon: Maybe<StringQueryOperatorInput>;
-  readonly legacy: Maybe<BooleanQueryOperatorInput>;
-  readonly theme_color_in_head: Maybe<BooleanQueryOperatorInput>;
-  readonly cache_busting_mode: Maybe<StringQueryOperatorInput>;
-  readonly crossOrigin: Maybe<StringQueryOperatorInput>;
-  readonly include_favicon: Maybe<BooleanQueryOperatorInput>;
-  readonly cacheDigest: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsGtagConfig = {
@@ -4544,8 +4544,6 @@ type PostBySlugQuery = { readonly markdownRemark: Maybe<(
     )> }
   )> };
 
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
 type DealerBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -4674,15 +4672,15 @@ type DJLineupQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type DJLineupQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly djLineup: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupFriday, 'time' | 'dj'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSaturday, 'time' | 'dj'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSunday, 'time' | 'dj'>>>> }> }> }> };
 
-type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG8K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG10K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBGBusted: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
 type PanelLineupQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PanelLineupQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly schedule: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleFriday, 'time' | 'title' | 'host'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleSaturday, 'time' | 'title' | 'host'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleSunday, 'time' | 'title' | 'host'>>>> }> }> }> };
+
+type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG8K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBG10K: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly donationsMeterBGBusted: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type SocialLinksFragment = { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'behance' | 'deviantart' | 'discord' | 'etsy' | 'facebook' | 'furaffinity' | 'github' | 'instagram' | 'patreon' | 'picarto' | 'pinterest' | 'steam' | 'telegram' | 'tumblr' | 'twitch' | 'twitter' | 'youtube'>> };
 
@@ -4707,6 +4705,8 @@ type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 't
 type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
 
