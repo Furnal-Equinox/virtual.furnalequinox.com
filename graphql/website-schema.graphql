@@ -917,10 +917,10 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___djLineup___friday
   childrenMarkdownRemark___frontmatter___djLineup___saturday
   childrenMarkdownRemark___frontmatter___djLineup___sunday
-  childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___schedule___friday
   childrenMarkdownRemark___frontmatter___schedule___saturday
   childrenMarkdownRemark___frontmatter___schedule___sunday
+  childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___vrChatWorldLinks
   childrenMarkdownRemark___frontmatter___date
   childrenMarkdownRemark___frontmatter___path
@@ -1061,10 +1061,10 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___djLineup___friday
   childMarkdownRemark___frontmatter___djLineup___saturday
   childMarkdownRemark___frontmatter___djLineup___sunday
-  childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___schedule___friday
   childMarkdownRemark___frontmatter___schedule___saturday
   childMarkdownRemark___frontmatter___schedule___sunday
+  childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___vrChatWorldLinks
   childMarkdownRemark___frontmatter___date
   childMarkdownRemark___frontmatter___path
@@ -2337,7 +2337,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___djLineup___sunday
   frontmatter___djLineup___sunday___time
   frontmatter___djLineup___sunday___dj
-  frontmatter___staff
   frontmatter___schedule___friday
   frontmatter___schedule___friday___time
   frontmatter___schedule___friday___title
@@ -2350,6 +2349,7 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___schedule___sunday___time
   frontmatter___schedule___sunday___title
   frontmatter___schedule___sunday___host
+  frontmatter___staff
   frontmatter___vrChatWorldLinks
   frontmatter___date
   frontmatter___path
@@ -2505,8 +2505,8 @@ type MarkdownRemarkFrontmatter {
   image: File
   desc: String
   djLineup: MarkdownRemarkFrontmatterDjLineup
-  staff: [String]
   schedule: MarkdownRemarkFrontmatterSchedule
+  staff: [String]
   vrChatWorldLinks: String
   date(
     # Format the date using Moment.js' date tokens, e.g. `date(formatString: "YYYY
@@ -2614,8 +2614,8 @@ input MarkdownRemarkFrontmatterFilterInput {
   image: FileFilterInput
   desc: StringQueryOperatorInput
   djLineup: MarkdownRemarkFrontmatterDjLineupFilterInput
-  staff: StringQueryOperatorInput
   schedule: MarkdownRemarkFrontmatterScheduleFilterInput
+  staff: StringQueryOperatorInput
   vrChatWorldLinks: StringQueryOperatorInput
   date: DateQueryOperatorInput
   path: StringQueryOperatorInput
@@ -2898,7 +2898,7 @@ type Query {
   allFile(filter: FileFilterInput, sort: FileSortInput, skip: Int, limit: Int): FileConnection!
   directory(sourceInstanceName: StringQueryOperatorInput, absolutePath: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, extension: StringQueryOperatorInput, size: IntQueryOperatorInput, prettySize: StringQueryOperatorInput, modifiedTime: DateQueryOperatorInput, accessTime: DateQueryOperatorInput, changeTime: DateQueryOperatorInput, birthTime: DateQueryOperatorInput, root: StringQueryOperatorInput, dir: StringQueryOperatorInput, base: StringQueryOperatorInput, ext: StringQueryOperatorInput, name: StringQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, dev: IntQueryOperatorInput, mode: IntQueryOperatorInput, nlink: IntQueryOperatorInput, uid: IntQueryOperatorInput, gid: IntQueryOperatorInput, rdev: IntQueryOperatorInput, ino: FloatQueryOperatorInput, atimeMs: FloatQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, atime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, ctime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Directory
   allDirectory(filter: DirectoryFilterInput, sort: DirectorySortInput, skip: Int, limit: Int): DirectoryConnection!
-  site(buildTime: DateQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, port: IntQueryOperatorInput, host: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Site
+  site(buildTime: DateQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Site
   allSite(filter: SiteFilterInput, sort: SiteSortInput, skip: Int, limit: Int): SiteConnection!
   sitePage(path: StringQueryOperatorInput, component: StringQueryOperatorInput, internalComponentName: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, matchPath: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, context: SitePageContextFilterInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput, componentPath: StringQueryOperatorInput): SitePage
   allSitePage(filter: SitePageFilterInput, sort: SitePageSortInput, skip: Int, limit: Int): SitePageConnection!
@@ -2933,8 +2933,6 @@ type Site implements Node {
     locale: String
   ): Date
   siteMetadata: SiteSiteMetadata
-  port: Int
-  host: String
   polyfill: Boolean
   pathPrefix: String
   id: ID!
@@ -3116,8 +3114,6 @@ enum SiteFieldsEnum {
   siteMetadata___author___name
   siteMetadata___siteUrl
   siteMetadata___logo
-  port
-  host
   polyfill
   pathPrefix
   id
@@ -3211,8 +3207,6 @@ enum SiteFieldsEnum {
 input SiteFilterInput {
   buildTime: DateQueryOperatorInput
   siteMetadata: SiteSiteMetadataFilterInput
-  port: IntQueryOperatorInput
-  host: StringQueryOperatorInput
   polyfill: BooleanQueryOperatorInput
   pathPrefix: StringQueryOperatorInput
   id: StringQueryOperatorInput

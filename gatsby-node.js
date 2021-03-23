@@ -3,6 +3,8 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+require('sqreen')
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 

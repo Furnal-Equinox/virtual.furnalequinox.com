@@ -27,3 +27,5 @@ storybook-static
 
 # Do not track log files because they can pollute the repo
 *.log
+
+sqreen.json

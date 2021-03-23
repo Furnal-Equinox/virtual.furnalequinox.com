@@ -2,7 +2,7 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-
+import sanitizeHtml from 'sanitize-html'
 import Img, { FluidObject } from 'gatsby-image'
 import config from '../../../site-config'
 import './style.scss'
@@ -252,7 +252,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
             <div
               className='content'
               dangerouslySetInnerHTML={{
-                __html: html
+                __html: sanitizeHtml(html)
               }}
             />
           </TextCard>

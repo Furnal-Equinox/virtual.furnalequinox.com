@@ -48,3 +48,8 @@
       web-share 'self';
       xr-spatial-tracking 'none';
     '''
+  Referrer-Policy = "same-origin"
+  Strict-Transport-Security = "max-age=63072000; preload"
+  X-Content-Type-Options = "nosniff"
+  X-Frame-Options = "SAMEORIGIN"
+  X-XSS-Protection = "1; mode=block"
