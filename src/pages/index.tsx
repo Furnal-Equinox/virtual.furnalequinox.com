@@ -28,7 +28,7 @@ const Home: React.FC<Props> = ({ data, location, navigate }: Props) => {
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Home | ${config.siteTitle}`} />
-      <Meta />
+      <Meta customDescription="The home of Furnal Equinox 2021: Pixel Purrfect" />
       <div>
         <HomeDashboard
           data={data}

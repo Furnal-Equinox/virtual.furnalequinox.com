@@ -194,6 +194,11 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
               .map(result => dealerReducer(result))
           }
           />
+          <div className='pb-3'>
+            <TextCard>
+              <h2>END OF RESULTS</h2>
+            </TextCard>
+          </div>
         </Section>
       )}
       <Section pos='middle'>

@@ -17,7 +17,7 @@ const AdCrawl: React.FC = () => {
             <Carousel.Item>
               <Link
                 title={`Link to ${dealer?.frontmatter?.title ?? "this ad's dealer"}'s page on this website.`}
-                to={`/event/dealers${dealer?.fields?.slug ?? ''}`}
+                to={`/dealers${dealer?.fields?.slug ?? ''}`}
                 tabIndex={0}
               >
                 <img
