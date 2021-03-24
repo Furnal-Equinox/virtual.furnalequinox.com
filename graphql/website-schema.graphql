@@ -870,8 +870,8 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___social___twitter
   childrenMarkdownRemark___frontmatter___social___youtube
   childrenMarkdownRemark___frontmatter___social___patreon
-  childrenMarkdownRemark___frontmatter___streaming___sunday
   childrenMarkdownRemark___frontmatter___streaming___saturday
+  childrenMarkdownRemark___frontmatter___streaming___sunday
   childrenMarkdownRemark___frontmatter___streaming___friday
   childrenMarkdownRemark___frontmatter___dealer
   childrenMarkdownRemark___frontmatter___artist
@@ -914,12 +914,12 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___image___id
   childrenMarkdownRemark___frontmatter___image___children
   childrenMarkdownRemark___frontmatter___desc
-  childrenMarkdownRemark___frontmatter___djLineup___friday
-  childrenMarkdownRemark___frontmatter___djLineup___saturday
-  childrenMarkdownRemark___frontmatter___djLineup___sunday
   childrenMarkdownRemark___frontmatter___schedule___friday
   childrenMarkdownRemark___frontmatter___schedule___saturday
   childrenMarkdownRemark___frontmatter___schedule___sunday
+  childrenMarkdownRemark___frontmatter___djLineup___friday
+  childrenMarkdownRemark___frontmatter___djLineup___saturday
+  childrenMarkdownRemark___frontmatter___djLineup___sunday
   childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___vrChatWorldLinks
   childrenMarkdownRemark___frontmatter___date
@@ -1014,8 +1014,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___social___twitter
   childMarkdownRemark___frontmatter___social___youtube
   childMarkdownRemark___frontmatter___social___patreon
-  childMarkdownRemark___frontmatter___streaming___sunday
   childMarkdownRemark___frontmatter___streaming___saturday
+  childMarkdownRemark___frontmatter___streaming___sunday
   childMarkdownRemark___frontmatter___streaming___friday
   childMarkdownRemark___frontmatter___dealer
   childMarkdownRemark___frontmatter___artist
@@ -1058,12 +1058,12 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___image___id
   childMarkdownRemark___frontmatter___image___children
   childMarkdownRemark___frontmatter___desc
-  childMarkdownRemark___frontmatter___djLineup___friday
-  childMarkdownRemark___frontmatter___djLineup___saturday
-  childMarkdownRemark___frontmatter___djLineup___sunday
   childMarkdownRemark___frontmatter___schedule___friday
   childMarkdownRemark___frontmatter___schedule___saturday
   childMarkdownRemark___frontmatter___schedule___sunday
+  childMarkdownRemark___frontmatter___djLineup___friday
+  childMarkdownRemark___frontmatter___djLineup___saturday
+  childMarkdownRemark___frontmatter___djLineup___sunday
   childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___vrChatWorldLinks
   childMarkdownRemark___frontmatter___date
@@ -2238,12 +2238,12 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___social___twitter
   frontmatter___social___youtube
   frontmatter___social___patreon
-  frontmatter___streaming___sunday
-  frontmatter___streaming___sunday___start
-  frontmatter___streaming___sunday___end
   frontmatter___streaming___saturday
   frontmatter___streaming___saturday___start
   frontmatter___streaming___saturday___end
+  frontmatter___streaming___sunday
+  frontmatter___streaming___sunday___start
+  frontmatter___streaming___sunday___end
   frontmatter___streaming___friday
   frontmatter___streaming___friday___start
   frontmatter___streaming___friday___end
@@ -2328,15 +2328,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___image___internal___owner
   frontmatter___image___internal___type
   frontmatter___desc
-  frontmatter___djLineup___friday
-  frontmatter___djLineup___friday___time
-  frontmatter___djLineup___friday___dj
-  frontmatter___djLineup___saturday
-  frontmatter___djLineup___saturday___time
-  frontmatter___djLineup___saturday___dj
-  frontmatter___djLineup___sunday
-  frontmatter___djLineup___sunday___time
-  frontmatter___djLineup___sunday___dj
   frontmatter___schedule___friday
   frontmatter___schedule___friday___time
   frontmatter___schedule___friday___title
@@ -2349,6 +2340,15 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___schedule___sunday___time
   frontmatter___schedule___sunday___title
   frontmatter___schedule___sunday___host
+  frontmatter___djLineup___friday
+  frontmatter___djLineup___friday___time
+  frontmatter___djLineup___friday___dj
+  frontmatter___djLineup___saturday
+  frontmatter___djLineup___saturday___time
+  frontmatter___djLineup___saturday___dj
+  frontmatter___djLineup___sunday
+  frontmatter___djLineup___sunday___time
+  frontmatter___djLineup___sunday___dj
   frontmatter___staff
   frontmatter___vrChatWorldLinks
   frontmatter___date
@@ -2504,8 +2504,8 @@ type MarkdownRemarkFrontmatter {
   artist: String
   image: File
   desc: String
-  djLineup: MarkdownRemarkFrontmatterDjLineup
   schedule: MarkdownRemarkFrontmatterSchedule
+  djLineup: MarkdownRemarkFrontmatterDjLineup
   staff: [String]
   vrChatWorldLinks: String
   date(
@@ -2613,8 +2613,8 @@ input MarkdownRemarkFrontmatterFilterInput {
   artist: StringQueryOperatorInput
   image: FileFilterInput
   desc: StringQueryOperatorInput
-  djLineup: MarkdownRemarkFrontmatterDjLineupFilterInput
   schedule: MarkdownRemarkFrontmatterScheduleFilterInput
+  djLineup: MarkdownRemarkFrontmatterDjLineupFilterInput
   staff: StringQueryOperatorInput
   vrChatWorldLinks: StringQueryOperatorInput
   date: DateQueryOperatorInput
@@ -2759,14 +2759,14 @@ input MarkdownRemarkFrontmatterSocialFilterInput {
 }
 
 type MarkdownRemarkFrontmatterStreaming {
-  sunday: [MarkdownRemarkFrontmatterStreamingSunday]
   saturday: [MarkdownRemarkFrontmatterStreamingSaturday]
+  sunday: [MarkdownRemarkFrontmatterStreamingSunday]
   friday: [MarkdownRemarkFrontmatterStreamingFriday]
 }
 
 input MarkdownRemarkFrontmatterStreamingFilterInput {
-  sunday: MarkdownRemarkFrontmatterStreamingSundayFilterListInput
   saturday: MarkdownRemarkFrontmatterStreamingSaturdayFilterListInput
+  sunday: MarkdownRemarkFrontmatterStreamingSundayFilterListInput
   friday: MarkdownRemarkFrontmatterStreamingFridayFilterListInput
 }
 
@@ -3495,6 +3495,8 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___directives___font_src
   pluginCreator___pluginOptions___directives___frame_src
   pluginCreator___pluginOptions___directives___img_src
+  pluginCreator___pluginOptions___directives___media_src
+  pluginCreator___pluginOptions___directives___object_src
   pluginCreator___pluginOptions___directives___script_src
   pluginCreator___pluginOptions___directives___style_src
   pluginCreator___pluginOptions___pathCheck
@@ -3770,6 +3772,8 @@ enum SitePluginFieldsEnum {
   pluginOptions___directives___font_src
   pluginOptions___directives___frame_src
   pluginOptions___directives___img_src
+  pluginOptions___directives___media_src
+  pluginOptions___directives___object_src
   pluginOptions___directives___script_src
   pluginOptions___directives___style_src
   pluginOptions___pathCheck
@@ -3974,6 +3978,8 @@ type SitePluginPluginOptionsDirectives {
   font_src: String
   frame_src: String
   img_src: String
+  media_src: String
+  object_src: String
   script_src: String
   style_src: String
 }
@@ -3984,6 +3990,8 @@ input SitePluginPluginOptionsDirectivesFilterInput {
   font_src: StringQueryOperatorInput
   frame_src: StringQueryOperatorInput
   img_src: StringQueryOperatorInput
+  media_src: StringQueryOperatorInput
+  object_src: StringQueryOperatorInput
   script_src: StringQueryOperatorInput
   style_src: StringQueryOperatorInput
 }
