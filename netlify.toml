@@ -17,39 +17,9 @@
     Cross-Origin-Resource-Policy = "same-origin"
     Cross-Origin-Embedder-Policy = "require-corp"
     Cross-Origin-Opener-Policy = "same-origin"
-    Permissions-Policy = '''
-      accelerometer=(),
-      ambient-light-sensor=(),
-      autoplay=(self),
-      battery=(),
-      camera=(),
-      display-capture=(),
-      document-domain=(),
-      encrypted-media=(self),
-      execution-while-not-rendered=(self),
-      fullscreen=(self),
-      geolocation=(),
-      gyroscope=(),
-      layout-animations=(self),
-      legacy-image-formats=(self),
-      magnetometer=(),
-      microphone=(),
-      midi=(),
-      navigation-override=(self),
-      oversize-images=(self),
-      payment=(),
-      picture-in-picture=(self),
-      publickey-credentials-get=(self),
-      sync-xhr=(*),
-      usb=(),
-      vr=(),
-      wake-lock=(),
-      screen-wake-lock=(),
-      web-share=(self),
-      xr-spatial-tracking=()
-    '''
-  Referrer-Policy = "same-origin"
-  Strict-Transport-Security = "max-age=63072000; preload"
-  X-Content-Type-Options = "nosniff"
-  X-Frame-Options = "SAMEORIGIN"
-  X-XSS-Protection = "1; mode=block"
+    Permissions-Policy = "accelerometer=(), ambient-light-sensor=(), autoplay=(self), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(self), execution-while-not-rendered=(self), fullscreen=(self), geolocation=(), gyroscope=(), layout-animations=(self), legacy-image-formats=(self), magnetometer=(), microphone=(), midi=(), navigation-override=(self), oversize-images=(self), payment=(), picture-in-picture=(self), publickey-credentials-get=(self), sync-xhr=*, usb=(), vr=(), wake-lock=(), screen-wake-lock=(), web-share=(self), xr-spatial-tracking=()"
+    Referrer-Policy = "same-origin"
+    Strict-Transport-Security = "max-age=63072000; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
