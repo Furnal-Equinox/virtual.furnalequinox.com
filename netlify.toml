@@ -2,9 +2,6 @@
   publish = "public"
   command = "yarn build-all"
 
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
-
 [[headers]]
   for = "/*"
   [headers.values]

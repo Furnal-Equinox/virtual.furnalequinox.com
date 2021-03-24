@@ -914,12 +914,12 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___image___id
   childrenMarkdownRemark___frontmatter___image___children
   childrenMarkdownRemark___frontmatter___desc
-  childrenMarkdownRemark___frontmatter___schedule___friday
-  childrenMarkdownRemark___frontmatter___schedule___saturday
-  childrenMarkdownRemark___frontmatter___schedule___sunday
   childrenMarkdownRemark___frontmatter___djLineup___friday
   childrenMarkdownRemark___frontmatter___djLineup___saturday
   childrenMarkdownRemark___frontmatter___djLineup___sunday
+  childrenMarkdownRemark___frontmatter___schedule___friday
+  childrenMarkdownRemark___frontmatter___schedule___saturday
+  childrenMarkdownRemark___frontmatter___schedule___sunday
   childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___vrChatWorldLinks
   childrenMarkdownRemark___frontmatter___date
@@ -1058,12 +1058,12 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___image___id
   childMarkdownRemark___frontmatter___image___children
   childMarkdownRemark___frontmatter___desc
-  childMarkdownRemark___frontmatter___schedule___friday
-  childMarkdownRemark___frontmatter___schedule___saturday
-  childMarkdownRemark___frontmatter___schedule___sunday
   childMarkdownRemark___frontmatter___djLineup___friday
   childMarkdownRemark___frontmatter___djLineup___saturday
   childMarkdownRemark___frontmatter___djLineup___sunday
+  childMarkdownRemark___frontmatter___schedule___friday
+  childMarkdownRemark___frontmatter___schedule___saturday
+  childMarkdownRemark___frontmatter___schedule___sunday
   childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___vrChatWorldLinks
   childMarkdownRemark___frontmatter___date
@@ -2328,6 +2328,15 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___image___internal___owner
   frontmatter___image___internal___type
   frontmatter___desc
+  frontmatter___djLineup___friday
+  frontmatter___djLineup___friday___time
+  frontmatter___djLineup___friday___dj
+  frontmatter___djLineup___saturday
+  frontmatter___djLineup___saturday___time
+  frontmatter___djLineup___saturday___dj
+  frontmatter___djLineup___sunday
+  frontmatter___djLineup___sunday___time
+  frontmatter___djLineup___sunday___dj
   frontmatter___schedule___friday
   frontmatter___schedule___friday___time
   frontmatter___schedule___friday___title
@@ -2340,15 +2349,6 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___schedule___sunday___time
   frontmatter___schedule___sunday___title
   frontmatter___schedule___sunday___host
-  frontmatter___djLineup___friday
-  frontmatter___djLineup___friday___time
-  frontmatter___djLineup___friday___dj
-  frontmatter___djLineup___saturday
-  frontmatter___djLineup___saturday___time
-  frontmatter___djLineup___saturday___dj
-  frontmatter___djLineup___sunday
-  frontmatter___djLineup___sunday___time
-  frontmatter___djLineup___sunday___dj
   frontmatter___staff
   frontmatter___vrChatWorldLinks
   frontmatter___date
@@ -2504,8 +2504,8 @@ type MarkdownRemarkFrontmatter {
   artist: String
   image: File
   desc: String
-  schedule: MarkdownRemarkFrontmatterSchedule
   djLineup: MarkdownRemarkFrontmatterDjLineup
+  schedule: MarkdownRemarkFrontmatterSchedule
   staff: [String]
   vrChatWorldLinks: String
   date(
@@ -2613,8 +2613,8 @@ input MarkdownRemarkFrontmatterFilterInput {
   artist: StringQueryOperatorInput
   image: FileFilterInput
   desc: StringQueryOperatorInput
-  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   djLineup: MarkdownRemarkFrontmatterDjLineupFilterInput
+  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   staff: StringQueryOperatorInput
   vrChatWorldLinks: StringQueryOperatorInput
   date: DateQueryOperatorInput
