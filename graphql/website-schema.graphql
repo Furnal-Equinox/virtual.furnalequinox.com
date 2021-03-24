@@ -870,8 +870,8 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___social___twitter
   childrenMarkdownRemark___frontmatter___social___youtube
   childrenMarkdownRemark___frontmatter___social___patreon
-  childrenMarkdownRemark___frontmatter___streaming___saturday
   childrenMarkdownRemark___frontmatter___streaming___sunday
+  childrenMarkdownRemark___frontmatter___streaming___saturday
   childrenMarkdownRemark___frontmatter___streaming___friday
   childrenMarkdownRemark___frontmatter___dealer
   childrenMarkdownRemark___frontmatter___artist
@@ -914,14 +914,14 @@ enum FileFieldsEnum {
   childrenMarkdownRemark___frontmatter___image___id
   childrenMarkdownRemark___frontmatter___image___children
   childrenMarkdownRemark___frontmatter___desc
-  childrenMarkdownRemark___frontmatter___schedule___friday
-  childrenMarkdownRemark___frontmatter___schedule___saturday
-  childrenMarkdownRemark___frontmatter___schedule___sunday
   childrenMarkdownRemark___frontmatter___djLineup___friday
   childrenMarkdownRemark___frontmatter___djLineup___saturday
   childrenMarkdownRemark___frontmatter___djLineup___sunday
-  childrenMarkdownRemark___frontmatter___staff
+  childrenMarkdownRemark___frontmatter___schedule___friday
+  childrenMarkdownRemark___frontmatter___schedule___saturday
+  childrenMarkdownRemark___frontmatter___schedule___sunday
   childrenMarkdownRemark___frontmatter___vrChatWorldLinks
+  childrenMarkdownRemark___frontmatter___staff
   childrenMarkdownRemark___frontmatter___date
   childrenMarkdownRemark___frontmatter___path
   childrenMarkdownRemark___frontmatter___category
@@ -1014,8 +1014,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___social___twitter
   childMarkdownRemark___frontmatter___social___youtube
   childMarkdownRemark___frontmatter___social___patreon
-  childMarkdownRemark___frontmatter___streaming___saturday
   childMarkdownRemark___frontmatter___streaming___sunday
+  childMarkdownRemark___frontmatter___streaming___saturday
   childMarkdownRemark___frontmatter___streaming___friday
   childMarkdownRemark___frontmatter___dealer
   childMarkdownRemark___frontmatter___artist
@@ -1058,14 +1058,14 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___image___id
   childMarkdownRemark___frontmatter___image___children
   childMarkdownRemark___frontmatter___desc
-  childMarkdownRemark___frontmatter___schedule___friday
-  childMarkdownRemark___frontmatter___schedule___saturday
-  childMarkdownRemark___frontmatter___schedule___sunday
   childMarkdownRemark___frontmatter___djLineup___friday
   childMarkdownRemark___frontmatter___djLineup___saturday
   childMarkdownRemark___frontmatter___djLineup___sunday
-  childMarkdownRemark___frontmatter___staff
+  childMarkdownRemark___frontmatter___schedule___friday
+  childMarkdownRemark___frontmatter___schedule___saturday
+  childMarkdownRemark___frontmatter___schedule___sunday
   childMarkdownRemark___frontmatter___vrChatWorldLinks
+  childMarkdownRemark___frontmatter___staff
   childMarkdownRemark___frontmatter___date
   childMarkdownRemark___frontmatter___path
   childMarkdownRemark___frontmatter___category
@@ -2238,12 +2238,12 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___social___twitter
   frontmatter___social___youtube
   frontmatter___social___patreon
-  frontmatter___streaming___saturday
-  frontmatter___streaming___saturday___start
-  frontmatter___streaming___saturday___end
   frontmatter___streaming___sunday
   frontmatter___streaming___sunday___start
   frontmatter___streaming___sunday___end
+  frontmatter___streaming___saturday
+  frontmatter___streaming___saturday___start
+  frontmatter___streaming___saturday___end
   frontmatter___streaming___friday
   frontmatter___streaming___friday___start
   frontmatter___streaming___friday___end
@@ -2328,6 +2328,15 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___image___internal___owner
   frontmatter___image___internal___type
   frontmatter___desc
+  frontmatter___djLineup___friday
+  frontmatter___djLineup___friday___time
+  frontmatter___djLineup___friday___dj
+  frontmatter___djLineup___saturday
+  frontmatter___djLineup___saturday___time
+  frontmatter___djLineup___saturday___dj
+  frontmatter___djLineup___sunday
+  frontmatter___djLineup___sunday___time
+  frontmatter___djLineup___sunday___dj
   frontmatter___schedule___friday
   frontmatter___schedule___friday___time
   frontmatter___schedule___friday___title
@@ -2340,17 +2349,8 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___schedule___sunday___time
   frontmatter___schedule___sunday___title
   frontmatter___schedule___sunday___host
-  frontmatter___djLineup___friday
-  frontmatter___djLineup___friday___time
-  frontmatter___djLineup___friday___dj
-  frontmatter___djLineup___saturday
-  frontmatter___djLineup___saturday___time
-  frontmatter___djLineup___saturday___dj
-  frontmatter___djLineup___sunday
-  frontmatter___djLineup___sunday___time
-  frontmatter___djLineup___sunday___dj
-  frontmatter___staff
   frontmatter___vrChatWorldLinks
+  frontmatter___staff
   frontmatter___date
   frontmatter___path
   frontmatter___category
@@ -2504,10 +2504,10 @@ type MarkdownRemarkFrontmatter {
   artist: String
   image: File
   desc: String
-  schedule: MarkdownRemarkFrontmatterSchedule
   djLineup: MarkdownRemarkFrontmatterDjLineup
-  staff: [String]
+  schedule: MarkdownRemarkFrontmatterSchedule
   vrChatWorldLinks: String
+  staff: [String]
   date(
     # Format the date using Moment.js' date tokens, e.g. `date(formatString: "YYYY
     # MMMM DD")`. See https://momentjs.com/docs/#/displaying/format/ for
@@ -2613,10 +2613,10 @@ input MarkdownRemarkFrontmatterFilterInput {
   artist: StringQueryOperatorInput
   image: FileFilterInput
   desc: StringQueryOperatorInput
-  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   djLineup: MarkdownRemarkFrontmatterDjLineupFilterInput
-  staff: StringQueryOperatorInput
+  schedule: MarkdownRemarkFrontmatterScheduleFilterInput
   vrChatWorldLinks: StringQueryOperatorInput
+  staff: StringQueryOperatorInput
   date: DateQueryOperatorInput
   path: StringQueryOperatorInput
   category: StringQueryOperatorInput
@@ -2759,14 +2759,14 @@ input MarkdownRemarkFrontmatterSocialFilterInput {
 }
 
 type MarkdownRemarkFrontmatterStreaming {
-  saturday: [MarkdownRemarkFrontmatterStreamingSaturday]
   sunday: [MarkdownRemarkFrontmatterStreamingSunday]
+  saturday: [MarkdownRemarkFrontmatterStreamingSaturday]
   friday: [MarkdownRemarkFrontmatterStreamingFriday]
 }
 
 input MarkdownRemarkFrontmatterStreamingFilterInput {
-  saturday: MarkdownRemarkFrontmatterStreamingSaturdayFilterListInput
   sunday: MarkdownRemarkFrontmatterStreamingSundayFilterListInput
+  saturday: MarkdownRemarkFrontmatterStreamingSaturdayFilterListInput
   friday: MarkdownRemarkFrontmatterStreamingFridayFilterListInput
 }
 
@@ -3438,9 +3438,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___cacheDigest
   pluginCreator___pluginOptions___output
   pluginCreator___pluginOptions___createLinkInHead
-  pluginCreator___pluginOptions___devMode
-  pluginCreator___pluginOptions___analyzerMode
-  pluginCreator___pluginOptions___analyzerPort
   pluginCreator___pluginOptions___trackingIds
   pluginCreator___pluginOptions___gtagConfig___anonymize_ip
   pluginCreator___pluginOptions___pluginConfig___respectDNT
@@ -3712,9 +3709,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___cacheDigest
   pluginOptions___output
   pluginOptions___createLinkInHead
-  pluginOptions___devMode
-  pluginOptions___analyzerMode
-  pluginOptions___analyzerPort
   pluginOptions___trackingIds
   pluginOptions___gtagConfig___anonymize_ip
   pluginOptions___pluginConfig___respectDNT
@@ -3907,25 +3901,6 @@ type SitePluginPluginOptions {
   cacheDigest: String
   output: String
   createLinkInHead: Boolean
-  devMode: Boolean
-  analyzerMode: String
-  analyzerPort(
-    # Format the date using Moment.js' date tokens, e.g. `date(formatString: "YYYY
-    # MMMM DD")`. See https://momentjs.com/docs/#/displaying/format/ for
-    # documentation for different tokens.
-    formatString: String
-
-    # Returns a string generated with Moment.js' `fromNow` function
-    fromNow: Boolean
-
-    # Returns the difference between this date and the current time. Defaults to
-    # "milliseconds" but you can also pass in as the measurement "years",
-    # "months", "weeks", "days", "hours", "minutes", and "seconds".
-    difference: String
-
-    # Configures the locale Moment.js will use to format the date.
-    locale: String
-  ): Date
   trackingIds: [String]
   gtagConfig: SitePluginPluginOptionsGtagConfig
   pluginConfig: SitePluginPluginOptionsPluginConfig
@@ -4104,9 +4079,6 @@ input SitePluginPluginOptionsFilterInput {
   cacheDigest: StringQueryOperatorInput
   output: StringQueryOperatorInput
   createLinkInHead: BooleanQueryOperatorInput
-  devMode: BooleanQueryOperatorInput
-  analyzerMode: StringQueryOperatorInput
-  analyzerPort: DateQueryOperatorInput
   trackingIds: StringQueryOperatorInput
   gtagConfig: SitePluginPluginOptionsGtagConfigFilterInput
   pluginConfig: SitePluginPluginOptionsPluginConfigFilterInput

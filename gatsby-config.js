@@ -50,31 +50,15 @@ module.exports = {
     'gatsby-plugin-react-helmet',
 
     /// Netlify headers and redirects go here.
-    {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-
-      }
-    },
+    'gatsby-plugin-netlify',
 
     /// Prevent Gatsby from automatically generating hashes for its bundled output files.
     /// See https://community.netlify.com/t/support-guide-making-the-most-of-netlifys-cdn-cache/127
     /// for more information - tl;dr, Gatsby's hashes invalidate Netlify's cache even if Gatsby
     /// generates a new hash for a file that has not changed.
-    /// Leaving this commented out because it seems to cause problems with the cache.
-    /// 'gatsby-plugin-remove-fingerprints',
+    'gatsby-plugin-remove-fingerprints',
 
     'gatsby-plugin-sitemap',
-
-    /// Bundle size analysis
-    {
-      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-      options: {
-        devMode: true,
-        analyzerMode: 'server',
-        analyzerPort: '8001'
-      }
-    },
 
     /// Google Analytics 4
     {
