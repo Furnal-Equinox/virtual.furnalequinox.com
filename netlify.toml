@@ -18,35 +18,35 @@
     Cross-Origin-Embedder-Policy = "require-corp"
     Cross-Origin-Opener-Policy = "same-origin"
     Permissions-Policy = '''
-      accelerometer 'none';
-      ambient-light-sensor 'none';
-      autoplay 'self';
-      battery 'none';
-      camera 'none';
-      display-capture 'none';
-      document-domain 'none';
-      encrypted-media 'self';
-      execution-while-not-rendered 'self';
-      fullscreen 'self';
-      geolocation 'none';
-      gyroscope 'none';
-      layout-animations 'self';
-      legacy-image-formats 'self';
-      magnetometer 'none';
-      microphone 'none';
-      midi 'none';
-      navigation-override 'self';
-      oversize-images 'self';
-      payment 'none';
-      picture-in-picture 'self';
-      publickey-credentials-get 'self';
-      sync-xhr '*';
-      usb 'none';
-      vr 'none';
-      wake-lock 'none';
-      screen-wake-lock 'none';
-      web-share 'self';
-      xr-spatial-tracking 'none';
+      accelerometer=(),
+      ambient-light-sensor=(),
+      autoplay=(self),
+      battery=(),
+      camera=(),
+      display-capture=(),
+      document-domain=(),
+      encrypted-media=(self),
+      execution-while-not-rendered=(self),
+      fullscreen=(self),
+      geolocation=(),
+      gyroscope=(),
+      layout-animations=(self),
+      legacy-image-formats=(self),
+      magnetometer=(),
+      microphone=(),
+      midi=(),
+      navigation-override=(self),
+      oversize-images=(self),
+      payment=(),
+      picture-in-picture=(self),
+      publickey-credentials-get=(self),
+      sync-xhr=(*),
+      usb=(),
+      vr=(),
+      wake-lock=(),
+      screen-wake-lock=(),
+      web-share=(self),
+      xr-spatial-tracking=()
     '''
   Referrer-Policy = "same-origin"
   Strict-Transport-Security = "max-age=63072000; preload"
