@@ -21,7 +21,6 @@ interface Props extends RouteComponentProps {
 }
 
 const HowTo: React.FC<Props> = ({ data, location, navigate }: Props) => {
-
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`How To | ${config.siteTitle}`} />
@@ -87,9 +86,7 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
           </p>
           <ResponsiveYouTubePlayer
             url='https://youtu.be/Zez7m1oL82s'
-            title={
-              'Our YouTube video tutorial showing you the basics of VRChat'
-            }
+            title='Our YouTube video tutorial showing you the basics of VRChat'
           />
           <p className='text-warning'>
             Open the video in fullscreen if the details are too small to view here,{' '}
@@ -118,9 +115,7 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
           </p>
           <ResponsiveYouTubePlayer
             url='https://youtu.be/NdakFOqFuEU'
-            title={
-              'Our YouTube video tutorial showing you how to get around VRChat and explore worlds'
-            }
+            title='Our YouTube video tutorial showing you how to get around VRChat and explore worlds'
           />
           <p className='text-warning'>
             Open the video in fullscreen if the details are too small to view here,{' '}
@@ -149,9 +144,7 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
           </p>
           <ResponsiveYouTubePlayer
             url='https://youtu.be/bif429deKks'
-            title={
-              'Our YouTube video tutorial showing you how to add people and make friends on VRChat'
-            }
+            title='Our YouTube video tutorial showing you how to add people and make friends on VRChat'
           />
           <p className='text-warning'>
             Open the video in fullscreen if the details are too small to view here,{' '}

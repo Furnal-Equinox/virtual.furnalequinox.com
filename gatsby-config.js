@@ -111,6 +111,8 @@ module.exports = {
 ///==============================================================================================///
 ///                              IMAGES AND STATIC DATA                                          ///
 ///==============================================================================================///
+    'gatsby-plugin-image',    
+
     'gatsby-plugin-sharp',
 
     'gatsby-transformer-sharp',
@@ -187,26 +189,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-
-          /// IMAGES
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1140,
-              quality: 90,
-              linkImagesToOriginal: false,
-              wrapperStyle: 'margin-bottom: 1rem;'
-            }
-          },
-
-          /// IFRAMES
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem'
-            }
-          },
-
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants'
         ]
@@ -296,14 +278,6 @@ module.exports = {
       }
     },
 
-    /// {
-    ///   resolve: 'gatsby-plugin-purgecss',
-    ///   options: {
-    ///     develop: true,
-    ///     purgeOnly: ['bootstrap/']
-    ///   }
-    /// }
-
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
@@ -356,10 +330,10 @@ module.exports = {
           'script-src': [
             "'self'",
             "'unsafe-eval'",
-            "https://google-analytics.com",
-            "https://googletagmanager.com",
-            "https://player.vimeo.com",
-            "https://youtube.com"
+            "https://google-analytics.com/*",
+            "https://googletagmanager.com/*",
+            "https://player.vimeo.com/*",
+            "https://youtube.com/*"
           ].join(' '),
           'style-src': [
             "'self'",

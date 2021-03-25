@@ -10,9 +10,8 @@ import {
 
 import {
   Section
+  , ComponentDisplay
 } from '../layouts'
-
-import { ComponentDisplay } from '../layouts'
 
 interface Props extends RouteComponentProps {}
 

@@ -22,29 +22,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const postPage = path.resolve('./src/templates/post/post.tsx')
   const dealerPage = path.resolve('./src/templates/dealer/dealer.tsx')
-
-  // Get a full list of all Markdown posts
-  const markdownPosts = await graphql(`
-    query {
-      allMarkdownRemark(
-        filter: { frontmatter: { layout: { eq: "post" } } }
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-          }
-        }
-      }
-    }
-  `)
 
   const markdownDealersSfw = await graphql(`
     query {
@@ -74,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  if (markdownPosts.error || markdownDealersSfw.error) {
+  if (markdownDealersSfw.error) {
     const errors = [
       markdownPosts.errors,
       markdownDealersSfw.errors
@@ -83,18 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
     throw errors
   }
 
-  const posts = markdownPosts.data.allMarkdownRemark.edges
   const dealersSfw = markdownDealersSfw.data.allMarkdownRemark.edges
-
-  posts.forEach(edge => {
-    createPage({
-      path: `/news${edge.node.fields.slug}`,
-      component: postPage,
-      context: {
-        slug: edge.node.fields.slug
-      }
-    })
-  })
 
   dealersSfw.forEach((edge, index) => {
     const nextID = index + 1 < dealersSfw.length ? index + 1 : 0 // clamp to end of list

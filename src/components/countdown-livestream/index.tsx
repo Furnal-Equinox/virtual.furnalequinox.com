@@ -3,17 +3,18 @@ import React from 'react'
 import { ResponsiveVimeoPlayer } from '../index'
 
 import Countdown, { zeroPad, CountdownRendererFn } from 'react-countdown'
-import Img from 'gatsby-image'
+
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface Props {
   title: string
   url: string
-  placeholderImage: GatsbyTypes.Maybe<GatsbyTypes.GatsbyImageSharpFluidFragment>
+  placeholderImage: IGatsbyImageData | undefined
   placeholderImageAlt: string
 }
 
 export interface PlaceholderProps {
-  placeholderImage: GatsbyTypes.Maybe<GatsbyTypes.GatsbyImageSharpFluidFragment>
+  placeholderImage: IGatsbyImageData | undefined
   placeholderImageAlt: string
   days: number
   hours: number
@@ -31,8 +32,8 @@ export const LiveStreamPlaceholder: React.FC<PlaceholderProps> = ({
 }) => {
   return (
     <>
-      {placeholderImage !== undefined && <Img
-        fluid={placeholderImage}
+      {placeholderImage !== undefined && <GatsbyImage
+        image={placeholderImage}
         className='img-fluid'
         alt={placeholderImageAlt}
                                          />}

@@ -10,7 +10,7 @@ import {
   TextCard
 } from '../components'
 
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import {
   Event,
@@ -24,11 +24,10 @@ interface Props extends RouteComponentProps {
 }
 
 const Home: React.FC<Props> = ({ data, location, navigate }: Props) => {
-
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Home | ${config.siteTitle}`} />
-      <Meta customDescription="The home of Furnal Equinox 2021: Pixel Purrfect" />
+      <Meta customDescription='The home of Furnal Equinox 2021: Pixel Purrfect' />
       <div>
         <HomeDashboard
           data={data}
@@ -45,30 +44,26 @@ export const homeQuery = graphql`
   query HomeQuery {
     martySkateboard: file(relativePath: { eq: "marty-skateboard.png" }) {
       childImageSharp {
-        fluid(maxWidth: 768) {
-          ...GatsbyImageSharpFluid
-        }
+        ...MediumImage
       }
     }
     pixelBanner: file(relativePath: { eq: "VFE-2021-logo-TEXT-big.png" }) {
       childImageSharp {
-        fluid(maxWidth: 768) {
-          ...GatsbyImageSharpFluid
-        }
+        ...MediumImage
       }
     }
   }
 `
 
 const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
-  const martySkateboard = data?.martySkateboard?.childImageSharp?.fluid
-  const pixelBanner = data?.pixelBanner?.childImageSharp?.fluid
+  const martySkateboard = getImage(data?.martySkateboard?.childImageSharp?.gatsbyImageData)
+  const pixelBanner = getImage(data?.pixelBanner?.childImageSharp?.gatsbyImageData)
 
   return (
     <>
       <Section isContainer isTextCenter pos='middle'>
-        {pixelBanner !== undefined && <Img
-          fluid={pixelBanner}
+        {pixelBanner !== undefined && <GatsbyImage
+          image={pixelBanner}
           className='img-fluid'
           alt='Picture of the banner for Pixel Purrfect'
         />}
@@ -191,8 +186,8 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
         </div>
       </Section>
       <Section isContainer isTextCenter pos='middle'>
-        {martySkateboard !== undefined && <Img
-          fluid={martySkateboard}
+        {martySkateboard !== undefined && <GatsbyImage
+          image={martySkateboard}
           className='img-fluid'
           alt='Picture of Marty, the Pixel Purrfect mascot, jumping off of a skateboard'
         />}

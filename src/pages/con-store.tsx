@@ -21,7 +21,6 @@ interface Props extends RouteComponentProps {
 }
 
 const ConStore: React.FC<Props> = ({ data, location, navigate }: Props) => {
-
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Con-Store | ${config.siteTitle}`} />
@@ -54,9 +53,7 @@ export const conStoreQuery = graphql`
               limited
               image {
                 childImageSharp {
-                  fluid(maxWidth: 250) {
-                    ...GatsbyImageSharpFluid
-                  }
+                  ...SmallImage
                 }
               }
               desc
@@ -95,7 +92,7 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
                   name={product?.frontmatter?.title}
                   description={product?.frontmatter?.desc}
                   url={product?.frontmatter?.url}
-                  banner={product?.frontmatter?.image?.childImageSharp?.fluid}
+                  banner={product?.frontmatter?.image?.childImageSharp?.gatsbyImageData}
                 />
               </div>
             )}
@@ -121,7 +118,7 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
                   name={product?.frontmatter?.title}
                   description={product?.frontmatter?.desc}
                   url={product?.frontmatter?.url}
-                  banner={product?.frontmatter?.image?.childImageSharp?.fluid}
+                  banner={product?.frontmatter?.image?.childImageSharp?.gatsbyImageData}
                 />
               </div>
             )}

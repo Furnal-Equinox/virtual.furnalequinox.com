@@ -1,22 +1,48 @@
 import { graphql } from 'gatsby'
 
-/*
-Example usage:
-
-query MyQuery {
-  allMarkdownRemark {
-    edges {
-      node {
-        ...DealerTile
-        frontmatter {
-          ...SocialLinks
-          ...StreamTimes
-        }
-      }
-    }
+export const smallImageFragment = graphql`
+  fragment SmallImage on ImageSharp {
+    gatsbyImageData(
+      layout: CONSTRAINED
+      width: 250
+      placeholder: BLURRED
+      formats: [AUTO, WEBP]
+    )
   }
-}
-*/
+`
+
+export const dealerCardImageFragment = graphql`
+  fragment DealerCardImage on ImageSharp {
+    gatsbyImageData(
+      layout: CONSTRAINED
+      height: 360
+      placeholder: BLURRED
+      formats: [AUTO, WEBP]
+    )
+  }
+`
+
+export const mediumImageFragment = graphql`
+  fragment MediumImage on ImageSharp {
+    gatsbyImageData(
+      layout: CONSTRAINED
+      width: 768
+      placeholder: BLURRED
+      formats: [AUTO, WEBP]
+    )
+  }
+`
+
+export const largeImageFragment = graphql`
+  fragment LargeImage on ImageSharp {
+    gatsbyImageData(
+      layout: CONSTRAINED
+      width: 1140
+      placeholder: BLURRED
+      formats: [AUTO, WEBP]
+    )
+  }
+`
 
 export const gqlSocialLinks = graphql`
   fragment SocialLinks on MarkdownRemarkFrontmatter {

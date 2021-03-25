@@ -3,12 +3,12 @@ import React from 'react'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 import { PlaceholderSVG } from '../../placeholders'
-import Img, { FluidObject } from 'gatsby-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface ShopItem {
   name?: string
   description?: string
-  banner?: FluidObject
+  banner?: IGatsbyImageData
   url?: string
 }
 
@@ -18,9 +18,9 @@ const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props
   return (
     <div className='card rounded-3 border border-primary border-5 mb-5' tabIndex={0}>
       {banner !== undefined
-        ? <Img
+        ? <GatsbyImage
             alt={`${name ?? 'Unnamed product'}, ${description ?? 'has no description.'}`}
-            fluid={banner} className='card-img-top'
+            image={banner} className='card-img-top'
         />
         : <PlaceholderSVG />}
       <div className='card-body'>

@@ -16,14 +16,13 @@ import {
   Section
 } from '../layouts'
 
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.DJsQueryQuery
 }
 
 const Djs: React.FC<Props> = ({ data, location, navigate }: Props) => {
-
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`DJs | ${config.siteTitle}`} />
@@ -62,23 +61,22 @@ export const djsQuery = graphql`
     }
     djLineupImg: file(relativePath: { eq: "dj-lineup.png" }) {
       childImageSharp {
-        fluid(maxWidth: 768) {
-          ...GatsbyImageSharpFluid
-        }
+        ...MediumImage
       }
     }
   }
 `
 
 const DjsContent: React.FC<Props> = ({ data, location }: Props) => {
-  const djLineupImg = data?.djLineupImg?.childImageSharp?.fluid
+  const djLineupImg = getImage(data?.djLineupImg?.childImageSharp?.gatsbyImageData)
+
   return (
     <>
       <Jumbotron title='DJs' subtitle='' />
       <Section isContainer isTextCenter pos='middle'>
         <TextCard>
-          {djLineupImg !== undefined && <Img
-            fluid={djLineupImg}
+          {djLineupImg !== undefined && <GatsbyImage
+            image={djLineupImg}
             className='img-fluid rounded-3'
             alt={[
               'This image shows the DJ lineup for Pixel Purrfect.',

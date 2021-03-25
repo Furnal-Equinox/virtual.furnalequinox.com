@@ -5,11 +5,12 @@ import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import { PlaceholderSVG } from '../../placeholders'
 import Img, { FluidObject } from 'gatsby-image'
 import { isStrEmpty } from '../../../utils/tools'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface GalleryItem {
   title?: string
   artist?: string
-  image?: FluidObject
+  image?: IGatsbyImageData
   url?: string
   desc?: string
 }
@@ -20,7 +21,7 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: P
   return (
     <div className='card rounded-3 border-primary border-5 m-2' tabIndex={0}>
       {image !== undefined
-        ? <Img
+        ? <GatsbyImage
             alt={
               `${
                 isStrEmpty(title) ? 'Untitled' : title as string
@@ -30,7 +31,7 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: P
                 isStrEmpty(desc) ? 'An art piece' : desc as string
               }`
           }
-            fluid={image}
+            image={image}
             className='card-img-top'
         />
         : <PlaceholderSVG />}

@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const DonationsMeter: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.DonationsMeterQueryQuery>(donationsMeterQuery)
-  const donationsMeterBG = data?.donationsMeterBG?.childImageSharp?.fluid
-  const donationsMeterBG8K = data?.donationsMeterBG8K?.childImageSharp?.fluid
-  const donationsMeterBG10K = data?.donationsMeterBG10K?.childImageSharp?.fluid
-  const donationsMeterBGBusted = data?.donationsMeterBGBusted?.childImageSharp?.fluid
+  const donationsMeterBG = getImage(
+    data?.donationsMeterBG?.childImageSharp?.gatsbyImageData
+  )
+  const donationsMeterBG8K = getImage(
+    data?.donationsMeterBG8K?.childImageSharp?.gatsbyImageData
+  )
+  const donationsMeterBG10K = getImage(
+    data?.donationsMeterBG10K?.childImageSharp?.gatsbyImageData
+  )
+  const donationsMeterBGBusted = getImage(
+    data?.donationsMeterBGBusted?.childImageSharp?.gatsbyImageData
+  )
+
   const [total, setTotal] = useState<number | null>(16049)
+
   const donationGoals: number[] = [6000, 8000, 10000]
-  
+
   const getPercentOfGoal = (goal: number): number =>
     ((total ?? 0) / goal) * 100
 
@@ -58,8 +68,8 @@ const DonationsMeter: React.FC = () => {
 
   return (
     <div className='card rounded-3 border border-primary border-5' tabIndex={0}>
-      {bg !== undefined && <Img
-        fluid={bg}
+      {bg !== undefined && <GatsbyImage
+        image={bg}
         className='img-fluid rounded-3'
         alt={[
           'This image is the background for the donations meter.',
@@ -67,7 +77,7 @@ const DonationsMeter: React.FC = () => {
           `our donation goal of ${goal} in the top right,`,
           'and Marty along the right side grinning and giving two thumbs up!',
           "Once we're over $10,000, the meter displays a new image with the meter",
-          "appearing to break the image with Marty panicking!"
+          'appearing to break the image with Marty panicking!'
         ].join(' ')}
       />}
       <div className='card-img-overlay p-1 p-md-3'>
@@ -117,30 +127,22 @@ export const donationsMeterQuery = graphql`
   query DonationsMeterQuery {
     donationsMeterBG: file(relativePath: { eq: "donation_meter_bg.png"}) {
       childImageSharp {
-        fluid(maxWidth: 1140) {
-          ...GatsbyImageSharpFluid
-        }
+        ...LargeImage
       }
     }
     donationsMeterBG8K: file(relativePath: { eq: "donation_meter_bg_8k.png"}) {
       childImageSharp {
-        fluid(maxWidth: 1140) {
-          ...GatsbyImageSharpFluid
-        }
+        ...LargeImage
       }
     }
     donationsMeterBG10K: file(relativePath: { eq: "donation_meter_bg_10k.png"}) {
       childImageSharp {
-        fluid(maxWidth: 1140) {
-          ...GatsbyImageSharpFluid
-        }
+        ...LargeImage
       }
     }
     donationsMeterBGBusted: file(relativePath: { eq: "donation_meter_bg_busted.png" }) {
       childImageSharp {
-        fluid(maxWidth: 1140) {
-          ...GatsbyImageSharpFluid
-        }
+        ...LargeImage
       }
     }
   }

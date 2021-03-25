@@ -3,6 +3,7 @@ import { RouteComponentProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 import config from '../../site-config'
 import { graphql, Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import {
   Jumbotron,
@@ -15,8 +16,6 @@ import {
   Section
 } from '../layouts'
 
-import Img from 'gatsby-image'
-
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 interface Props extends RouteComponentProps {
@@ -24,7 +23,6 @@ interface Props extends RouteComponentProps {
 }
 
 const DiscordVR: React.FC<Props> = ({ data, location, navigate }: Props) => {
-
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Discord & VR | ${config.siteTitle}`} />
@@ -45,24 +43,20 @@ export const discordVRQuery = graphql`
   query DiscordVRQuery {
     howToBlockPoster: file(relativePath: { eq: "HowToBlockPoster.png" }) {
       childImageSharp {
-        fluid(maxWidth: 768) {
-          ...GatsbyImageSharpFluid
-        }
+        ...MediumImage
       }
     }
     attendeeBadgeExamples: file(relativePath: { eq: "attendee-badge-examples.png" }) {
       childImageSharp {
-        fluid(maxWidth: 768) {
-          ...GatsbyImageSharpFluid
-        }
+        ...MediumImage
       }
     }
   }
 `
 
 const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
-  const howToBlockPoster = data?.howToBlockPoster?.childImageSharp?.fluid
-  const attendeeBadgeExamples = data?.attendeeBadgeExamples?.childImageSharp?.fluid
+  const howToBlockPoster = getImage(data?.howToBlockPoster)
+  const attendeeBadgeExamples = getImage(data?.attendeeBadgeExamples)
 
   return (
     <>
@@ -114,8 +108,8 @@ const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
               Have a fun and exciting convention!
             </p>
           </div>
-          {howToBlockPoster !== undefined && <Img
-            fluid={howToBlockPoster}
+          {howToBlockPoster !== undefined && <GatsbyImage
+            image={howToBlockPoster}
             className='img-fluid rounded-3'
             alt={[
               "This image reads'",

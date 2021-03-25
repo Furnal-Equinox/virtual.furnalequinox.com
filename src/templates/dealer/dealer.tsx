@@ -3,7 +3,7 @@ import { RouteComponentProps } from '@reach/router'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import sanitizeHtml from 'sanitize-html'
-import Img, { FluidObject } from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import config from '../../../site-config'
 import './style.scss'
 
@@ -43,7 +43,6 @@ const Dealer: React.FC<Props> = ({ data, location, pageContext }: Props) => {
   const post = postNode?.frontmatter
 
   const { isSfw } = pageContext
-
 
   return (
     <Event location={location}>
@@ -116,9 +115,7 @@ export const dealerQuery = graphql`
         banner {
           imgFile {
             childImageSharp {
-              fluid(maxWidth: 1140) {
-                ...GatsbyImageSharpFluid
-              }
+              ...LargeImage
             }
           }
           desc
@@ -126,9 +123,7 @@ export const dealerQuery = graphql`
         images {
           imgFile {
             childImageSharp {
-              fluid(maxWidth: 1140) {
-                ...GatsbyImageSharpFluid
-              }
+              ...LargeImage
             }
           }
           desc
@@ -143,11 +138,17 @@ export default Dealer
 const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) => {
   const postNode = data.markdownRemark
   const post = postNode?.frontmatter
-  const banner = post?.banner?.imgFile?.childImageSharp?.fluid
-  const bannerDesc = post?.banner?.desc
-  const images = post?.images ?? null
   const socialLinks = post?.social
   const html = postNode?.html ?? null
+
+  const banner = {
+    image: getImage(post?.banner?.imgFile?.childImageSharp?.gatsbyImageData),
+    desc: post?.banner?.desc
+  }
+  const images = post?.images?.map(x => ({
+    image: getImage(x?.imgFile?.childImageSharp?.gatsbyImageData),
+    desc: x?.desc
+  }))
 
   const { prevTitle, prevSlug, nextTitle, nextSlug } = pageContext
 
@@ -156,10 +157,10 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
       <Section isContainer isFluid pos='first' bg='light' className='jumbotron'>
         <div className='container' tabIndex={0}>
           <div className='row'>
-            {banner !== undefined &&
-              <Img
-                alt={bannerDesc ?? "Dealer's banner for their store"}
-                fluid={banner}
+            {banner?.image !== undefined &&
+              <GatsbyImage
+                alt={banner?.desc ?? "Dealer's banner for their store"}
+                image={banner.image}
                 className='img-fluid'
               />}
           </div>
@@ -267,11 +268,11 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
           >
             <Masonry>
               {images?.map(image =>
-                image?.imgFile?.childImageSharp?.fluid !== undefined && (
+                image.image !== undefined && (
                   <div tabIndex={0}>
-                    <Img
+                    <GatsbyImage
                       alt={image?.desc ?? "One of this dealer's images"}
-                      fluid={image?.imgFile?.childImageSharp?.fluid}
+                      image={image.image}
                       className='d-block rounded-3 border border-primary m-1'
                     />
                   </div>
@@ -280,11 +281,11 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
             </Masonry>
           </ResponsiveMasonry>
         ) : (
-          images !== null && images[0]?.imgFile?.childImageSharp?.fluid !== undefined && (
+          images !== undefined && images[0]?.image !== undefined && (
             <div tabIndex={0}>
-              <Img
+              <GatsbyImage
                 alt={images[0]?.desc ?? "One of this dealer's images"}
-                fluid={images[0]?.imgFile?.childImageSharp?.fluid}
+                image={images[0]?.image}
                 className='d-block rounded-3 border border-primary m-1'
               />
             </div>

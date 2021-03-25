@@ -31,7 +31,6 @@ interface Props extends RouteComponentProps {
 }
 
 const DealersIndex: React.FC<Props> = ({ data, location, navigate }: Props) => {
-
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Dealers Den | ${config.siteTitle}`} />
@@ -83,9 +82,7 @@ export const dealersQuery = graphql`
               banner {
                 imgFile {
                   childImageSharp {
-                    fluid(maxHeight: 360) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    ...DealerCardImage
                   }
                 }
               }
@@ -120,7 +117,7 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
   const dealerReducer = (dealer: any): Dealer => ({
     title: dealer.dealer.frontmatter?.title,
     description: dealer.dealer.frontmatter?.description,
-    banner: dealer.dealer.frontmatter?.banner?.imgFile?.childImageSharp?.fluid,
+    banner: dealer.dealer.frontmatter?.banner?.imgFile?.childImageSharp?.gatsbyImageData,
     slug: dealer.dealer.fields?.slug,
     isPremium: dealer.dealer.frontmatter?.isPremium
   })

@@ -22,7 +22,6 @@ interface Props extends RouteComponentProps {
 }
 
 const Gallery: React.FC<Props> = ({ data, location, navigate }: Props) => {
-
   return (
     <Event location={location} navigate={navigate}>
       <Helmet title={`Gallery | ${config.siteTitle}`} />
@@ -54,9 +53,7 @@ export const galleryQuery = graphql`
             url
             image {
               childImageSharp {
-                fluid(maxWidth: 500) {
-                  ...GatsbyImageSharpFluid
-                }
+                ...MediumImage
               }
             }
             desc
@@ -85,7 +82,7 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
                 <GalleryItemCard
                   title={artwork.frontmatter?.title}
                   artist={artwork.frontmatter?.artist}
-                  image={artwork.frontmatter?.image?.childImageSharp?.fluid}
+                  image={artwork.frontmatter?.image?.childImageSharp?.gatsbyImageData}
                   url={artwork.frontmatter?.url}
                   desc={artwork.frontmatter?.desc}
                 />

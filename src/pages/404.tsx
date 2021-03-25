@@ -9,14 +9,13 @@ import {
   TextCard
 } from '../components'
 
-import Img from 'gatsby-image'
-
 import {
   Event,
   Section
 } from '../layouts'
 
 import Button from 'react-bootstrap/Button'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.NotFoundQueryQuery
@@ -27,7 +26,9 @@ interface Props extends RouteComponentProps {
  * @param {WindowLocation<unknown>} location the location of this page.
  */
 const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
-  const marty404 = data?.marty404?.childImageSharp?.fluid
+  const marty404 = data?.marty404
+
+  const marty404Image = getImage(marty404?.childImageSharp?.gatsbyImageData)
 
   return (
     <Event location={location}>
@@ -37,8 +38,8 @@ const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
         <Section isContainer isTextCenter pos='middle'>
           <TextCard>
             <h1>404</h1>
-            {marty404 !== undefined && <Img
-              fluid={marty404}
+            {marty404Image !== undefined && <GatsbyImage
+              image={marty404Image}
               className='img-fluid'
               alt='Picture of Marty, the Pixel Purrfect mascot, shrugging with the number 404 behind him'
             />}
@@ -77,9 +78,7 @@ export const notFoundQuery = graphql`
   query NotFoundQuery {
     marty404: file(relativePath: { eq: "404_75dpi.png" }) {
       childImageSharp {
-        fluid(maxWidth: 768) {
-          ...GatsbyImageSharpFluid
-        }
+        ...MediumImage
       }
     }
   }
