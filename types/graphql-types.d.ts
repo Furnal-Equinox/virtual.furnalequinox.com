@@ -849,9 +849,6 @@ type SitePluginPluginOptions = {
   readonly cacheDigest: Maybe<Scalars['String']>;
   readonly output: Maybe<Scalars['String']>;
   readonly createLinkInHead: Maybe<Scalars['Boolean']>;
-  readonly trackingIds: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly gtagConfig: Maybe<SitePluginPluginOptionsGtagConfig>;
-  readonly pluginConfig: Maybe<SitePluginPluginOptionsPluginConfig>;
   readonly env: Maybe<SitePluginPluginOptionsEnv>;
   readonly base64Width: Maybe<Scalars['Int']>;
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
@@ -888,14 +885,6 @@ type SitePluginPluginOptionsPlugins = {
   readonly name: Maybe<Scalars['String']>;
   readonly version: Maybe<Scalars['String']>;
   readonly pluginFilepath: Maybe<Scalars['String']>;
-};
-
-type SitePluginPluginOptionsGtagConfig = {
-  readonly anonymize_ip: Maybe<Scalars['Boolean']>;
-};
-
-type SitePluginPluginOptionsPluginConfig = {
-  readonly respectDNT: Maybe<Scalars['Boolean']>;
 };
 
 type SitePluginPluginOptionsEnv = {
@@ -2691,9 +2680,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly cacheDigest: Maybe<StringQueryOperatorInput>;
   readonly output: Maybe<StringQueryOperatorInput>;
   readonly createLinkInHead: Maybe<BooleanQueryOperatorInput>;
-  readonly trackingIds: Maybe<StringQueryOperatorInput>;
-  readonly gtagConfig: Maybe<SitePluginPluginOptionsGtagConfigFilterInput>;
-  readonly pluginConfig: Maybe<SitePluginPluginOptionsPluginConfigFilterInput>;
   readonly env: Maybe<SitePluginPluginOptionsEnvFilterInput>;
   readonly base64Width: Maybe<IntQueryOperatorInput>;
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
@@ -2734,14 +2720,6 @@ type SitePluginPluginOptionsPluginsFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly version: Maybe<StringQueryOperatorInput>;
   readonly pluginFilepath: Maybe<StringQueryOperatorInput>;
-};
-
-type SitePluginPluginOptionsGtagConfigFilterInput = {
-  readonly anonymize_ip: Maybe<BooleanQueryOperatorInput>;
-};
-
-type SitePluginPluginOptionsPluginConfigFilterInput = {
-  readonly respectDNT: Maybe<BooleanQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsEnvFilterInput = {
@@ -3051,9 +3029,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.cacheDigest'
   | 'pluginCreator.pluginOptions.output'
   | 'pluginCreator.pluginOptions.createLinkInHead'
-  | 'pluginCreator.pluginOptions.trackingIds'
-  | 'pluginCreator.pluginOptions.gtagConfig.anonymize_ip'
-  | 'pluginCreator.pluginOptions.pluginConfig.respectDNT'
   | 'pluginCreator.pluginOptions.base64Width'
   | 'pluginCreator.pluginOptions.stripMetadata'
   | 'pluginCreator.pluginOptions.defaultQuality'
@@ -4146,9 +4121,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.cacheDigest'
   | 'pluginOptions.output'
   | 'pluginOptions.createLinkInHead'
-  | 'pluginOptions.trackingIds'
-  | 'pluginOptions.gtagConfig.anonymize_ip'
-  | 'pluginOptions.pluginConfig.respectDNT'
   | 'pluginOptions.env.production.policy'
   | 'pluginOptions.env.branch_deploy.policy'
   | 'pluginOptions.env.deploy_preview.policy'
@@ -4229,21 +4201,6 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type DJLineupQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DJLineupQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly djLineup: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupFriday, 'time' | 'dj'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSaturday, 'time' | 'dj'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSunday, 'time' | 'dj'>>>> }> }> }> };
-
-type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }>, readonly donationsMeterBG8K: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }>, readonly donationsMeterBG10K: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }>, readonly donationsMeterBGBusted: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }> };
-
-type PanelLineupQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PanelLineupQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly schedule: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleFriday, 'time' | 'title' | 'host'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleSaturday, 'time' | 'title' | 'host'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleSunday, 'time' | 'title' | 'host'>>>> }> }> }> };
-
 type AdCrawlQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4257,6 +4214,26 @@ type AdCrawlQueryQuery = { readonly remark: { readonly dealers: ReadonlyArray<{ 
           )>>> }
         )> }
       ) }> } };
+
+type DJLineupQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DJLineupQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly djLineup: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupFriday, 'time' | 'dj'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSaturday, 'time' | 'dj'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSunday, 'time' | 'dj'>>>> }> }> }> };
+
+type NotFoundQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NotFoundQueryQuery = { readonly marty404: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }> };
+
+type DonationsMeterQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DonationsMeterQueryQuery = { readonly donationsMeterBG: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }>, readonly donationsMeterBG8K: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }>, readonly donationsMeterBG10K: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }>, readonly donationsMeterBGBusted: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }> };
+
+type PanelLineupQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PanelLineupQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly schedule: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleFriday, 'time' | 'title' | 'host'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleSaturday, 'time' | 'title' | 'host'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterScheduleSunday, 'time' | 'title' | 'host'>>>> }> }> }> };
 
 type ConStoreQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4272,31 +4249,15 @@ type ConStoreQueryQuery = { readonly remark: { readonly group: ReadonlyArray<(
         ) }> }
     )> } };
 
-type NotFoundQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type NotFoundQueryQuery = { readonly marty404: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }> };
-
-type DiscordVRQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DiscordVRQueryQuery = { readonly howToBlockPoster: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }>, readonly attendeeBadgeExamples: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }> };
-
 type DJsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type DJsQueryQuery = { readonly remark: Maybe<{ readonly frontmatter: Maybe<{ readonly djLineup: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupFriday, 'time' | 'dj'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSaturday, 'time' | 'dj'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterDjLineupSunday, 'time' | 'dj'>>>> }> }> }>, readonly djLineupImg: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }> };
 
-type GalleryQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type DiscordVRQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type GalleryQueryQuery = { readonly remark: { readonly artworks: ReadonlyArray<{ readonly artwork: (
-        Pick<MarkdownRemark, 'id'>
-        & { readonly frontmatter: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'title' | 'artist' | 'url' | 'desc'>
-          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }> }
-        )> }
-      ) }> } };
+type DiscordVRQueryQuery = { readonly howToBlockPoster: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }>, readonly attendeeBadgeExamples: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }> };
 
 type DealersIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4312,10 +4273,21 @@ type DealersIndexQueryQuery = { readonly localSearchDealersSfw: Maybe<Pick<Local
         ) }> }
     )> } };
 
+type GalleryQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type GalleryQueryQuery = { readonly remark: { readonly artworks: ReadonlyArray<{ readonly artwork: (
+        Pick<MarkdownRemark, 'id'>
+        & { readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title' | 'artist' | 'url' | 'desc'>
+          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }> }
+        )> }
+      ) }> } };
+
 type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomeQueryQuery = { readonly martySkateboard: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }>, readonly pixelBanner: Maybe<{ readonly childImageSharp: Maybe<MediumImageFragment> }> };
+type HomeQueryQuery = { readonly martySkateboard: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }>, readonly pixelBanner: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }> };
 
 type InfoQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4326,30 +4298,6 @@ type LivestreamQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type LivestreamQueryQuery = { readonly martyPlaceholder: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }> };
-
-type DealerBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
-
-
-type DealerBySlugQuery = { readonly markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'html'>
-    & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-      Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'url'>
-      & { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'behance' | 'deviantart' | 'discord' | 'etsy' | 'facebook' | 'flickr' | 'furaffinity' | 'github' | 'instagram' | 'other' | 'patreon' | 'picarto' | 'pinterest' | 'steam' | 'telegram' | 'tiktok' | 'tumblr' | 'twitch' | 'twitter' | 'youtube'>>, readonly streaming: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingFriday, 'start' | 'end'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSaturday, 'start' | 'end'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSunday, 'start' | 'end'>>>> }>, readonly banner: Maybe<(
-        Pick<MarkdownRemarkFrontmatterBanner, 'desc'>
-        & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }> }
-      )>, readonly images: Maybe<ReadonlyArray<Maybe<(
-        Pick<MarkdownRemarkFrontmatterImages, 'desc'>
-        & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }> }
-      )>>> }
-    )> }
-  )> };
-
-type HowToQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HowToQueryQuery = { readonly discordTutorialPDF: Maybe<Pick<File, 'publicURL'>>, readonly vrChatAvatarPDF: Maybe<Pick<File, 'publicURL'>>, readonly vrChatBasicsPDF: Maybe<Pick<File, 'publicURL'>>, readonly vrChatFriendsPDF: Maybe<Pick<File, 'publicURL'>>, readonly vrChatWorldsPDF: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeeT1: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeeT2: Maybe<Pick<File, 'publicURL'>> };
 
 type SmallImageFragment = Pick<ImageSharp, 'gatsbyImageData'>;
 
@@ -4368,6 +4316,25 @@ type DealerTileFragment = { readonly fields: Maybe<Pick<MarkdownRemarkFields, 's
     & { readonly banner: Maybe<(
       Pick<MarkdownRemarkFrontmatterBanner, 'desc'>
       & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+    )> }
+  )> };
+
+type DealerBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type DealerBySlugQuery = { readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'html'>
+    & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+      Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'url'>
+      & { readonly social: Maybe<Pick<MarkdownRemarkFrontmatterSocial, 'behance' | 'deviantart' | 'discord' | 'etsy' | 'facebook' | 'flickr' | 'furaffinity' | 'github' | 'instagram' | 'other' | 'patreon' | 'picarto' | 'pinterest' | 'steam' | 'telegram' | 'tiktok' | 'tumblr' | 'twitch' | 'twitter' | 'youtube'>>, readonly streaming: Maybe<{ readonly friday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingFriday, 'start' | 'end'>>>>, readonly saturday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSaturday, 'start' | 'end'>>>>, readonly sunday: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterStreamingSunday, 'start' | 'end'>>>> }>, readonly banner: Maybe<(
+        Pick<MarkdownRemarkFrontmatterBanner, 'desc'>
+        & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }> }
+      )>, readonly images: Maybe<ReadonlyArray<Maybe<(
+        Pick<MarkdownRemarkFrontmatterImages, 'desc'>
+        & { readonly imgFile: Maybe<{ readonly childImageSharp: Maybe<LargeImageFragment> }> }
+      )>>> }
     )> }
   )> };
 
@@ -4396,5 +4363,10 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type HowToQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HowToQueryQuery = { readonly discordTutorialPDF: Maybe<Pick<File, 'publicURL'>>, readonly vrChatAvatarPDF: Maybe<Pick<File, 'publicURL'>>, readonly vrChatBasicsPDF: Maybe<Pick<File, 'publicURL'>>, readonly vrChatFriendsPDF: Maybe<Pick<File, 'publicURL'>>, readonly vrChatWorldsPDF: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeeT1: Maybe<Pick<File, 'publicURL'>>, readonly badgeAttendeeT2: Maybe<Pick<File, 'publicURL'>> };
 
 }

@@ -267,9 +267,9 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
             columnsCountBreakPoints={{ 576: 1, 768: 2, 992: 2, 1200: 2 }}
           >
             <Masonry>
-              {images?.map(image =>
+              {images?.map((image, i) =>
                 image.image !== undefined && (
-                  <div tabIndex={0}>
+                  <div tabIndex={0} key={`dealer-image-${i}`}>
                     <GatsbyImage
                       alt={image?.desc ?? "One of this dealer's images"}
                       image={image.image}

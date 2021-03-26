@@ -1,8 +1,5 @@
 const urljoin = require('url-join')
 const config = require('./site-config')
-require('dotenv').config({
-  path: '.env'
-})
 
 const {
   NODE_ENV,
@@ -59,22 +56,6 @@ module.exports = {
     'gatsby-plugin-remove-fingerprints',
 
     'gatsby-plugin-sitemap',
-
-    /// Google Analytics 4
-    {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: {
-        trackingIds: [
-          process.env.GA_TRACKING_ID
-        ],
-        gtagConfig: {
-          anonymize_ip: true
-        },
-        pluginConfig: {
-          respectDNT: true
-        }
-      }
-    },
 
     /// robots.txt generation
     {
@@ -295,45 +276,35 @@ module.exports = {
       options: {
         disableOnDev: true,
         reportOnly: false,
-        mergeScriptHashes: true,
+        mergeScriptHashes: false,
         mergeStyleHashes: false,
         mergeDefaultDirectives: true,
         directives: {
           'connect-src': [
             "'self'", 
-            "https://virtual-furnal-equinox.netlify.app",
-            "https://db.fauna.com https://vimeo.com",
-            "https://www.google-analytics.com",
-            "https://www.googletagmanager.com",
-            "https://www.youtube.com"
+            "https://virtual-furnal-equinox.netlify.app"
           ].join(' '),
           'default-src': [
-            "'self'",
-            "https://player.vimeo.com"
+            "'self'"
           ].join(' '),
           'font-src': [
             "'self'",
             "https://fonts.gstatic.com"
           ].join(' '),
           'frame-src': [
-            "https://youtube.com"
+            "https://youtube.com",
+            "https://www.youtube.com"
           ].join(' '),
           'img-src': [
             "'self'",
-            "data: https://googletagmanager.com",
-            "data: https://google-analytics.com",
-            "data: https://http.cat",
-            "data: https://netlify.com"
+            "data:"
           ].join(' '),
-          'media-src': 'self',
-          'object-src': 'none',
+          'media-src': "'self'",
+          'object-src': "'none'",
           'script-src': [
             "'self'",
-            "'unsafe-eval'",
-            "https://google-analytics.com/*",
-            "https://googletagmanager.com/*",
-            "https://player.vimeo.com/*",
-            "https://youtube.com/*"
+            "'unsafe-inline'",
+            "https://www.youtube.com"
           ].join(' '),
           'style-src': [
             "'self'",

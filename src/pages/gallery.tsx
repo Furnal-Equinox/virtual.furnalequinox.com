@@ -78,13 +78,14 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
         >
           <Masonry>
             {artworks.map(({ artwork }) => (
-              artwork.frontmatter?.image?.childImageSharp?.fluid !== null &&
+              artwork.frontmatter?.image?.childImageSharp?.gatsbyImageData !== undefined &&
                 <GalleryItemCard
                   title={artwork.frontmatter?.title}
                   artist={artwork.frontmatter?.artist}
                   image={artwork.frontmatter?.image?.childImageSharp?.gatsbyImageData}
                   url={artwork.frontmatter?.url}
                   desc={artwork.frontmatter?.desc}
+                  key={artwork.frontmatter?.title}
                 />
             ))}
           </Masonry>

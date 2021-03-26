@@ -920,9 +920,6 @@ type SitePluginPluginOptions {
   cacheDigest: String
   output: String
   createLinkInHead: Boolean
-  trackingIds: [String]
-  gtagConfig: SitePluginPluginOptionsGtagConfig
-  pluginConfig: SitePluginPluginOptionsPluginConfig
   env: SitePluginPluginOptionsEnv
   base64Width: Int
   stripMetadata: Boolean
@@ -959,14 +956,6 @@ type SitePluginPluginOptionsPlugins {
   name: String
   version: String
   pluginFilepath: String
-}
-
-type SitePluginPluginOptionsGtagConfig {
-  anonymize_ip: Boolean
-}
-
-type SitePluginPluginOptionsPluginConfig {
-  respectDNT: Boolean
 }
 
 type SitePluginPluginOptionsEnv {
@@ -2468,9 +2457,6 @@ input SitePluginPluginOptionsFilterInput {
   cacheDigest: StringQueryOperatorInput
   output: StringQueryOperatorInput
   createLinkInHead: BooleanQueryOperatorInput
-  trackingIds: StringQueryOperatorInput
-  gtagConfig: SitePluginPluginOptionsGtagConfigFilterInput
-  pluginConfig: SitePluginPluginOptionsPluginConfigFilterInput
   env: SitePluginPluginOptionsEnvFilterInput
   base64Width: IntQueryOperatorInput
   stripMetadata: BooleanQueryOperatorInput
@@ -2511,14 +2497,6 @@ input SitePluginPluginOptionsPluginsFilterInput {
   name: StringQueryOperatorInput
   version: StringQueryOperatorInput
   pluginFilepath: StringQueryOperatorInput
-}
-
-input SitePluginPluginOptionsGtagConfigFilterInput {
-  anonymize_ip: BooleanQueryOperatorInput
-}
-
-input SitePluginPluginOptionsPluginConfigFilterInput {
-  respectDNT: BooleanQueryOperatorInput
 }
 
 input SitePluginPluginOptionsEnvFilterInput {
@@ -2816,9 +2794,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___cacheDigest
   pluginCreator___pluginOptions___output
   pluginCreator___pluginOptions___createLinkInHead
-  pluginCreator___pluginOptions___trackingIds
-  pluginCreator___pluginOptions___gtagConfig___anonymize_ip
-  pluginCreator___pluginOptions___pluginConfig___respectDNT
   pluginCreator___pluginOptions___base64Width
   pluginCreator___pluginOptions___stripMetadata
   pluginCreator___pluginOptions___defaultQuality
@@ -3856,9 +3831,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___cacheDigest
   pluginOptions___output
   pluginOptions___createLinkInHead
-  pluginOptions___trackingIds
-  pluginOptions___gtagConfig___anonymize_ip
-  pluginOptions___pluginConfig___respectDNT
   pluginOptions___env___production___policy
   pluginOptions___env___branch_deploy___policy
   pluginOptions___env___deploy_preview___policy

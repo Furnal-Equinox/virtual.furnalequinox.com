@@ -44,12 +44,12 @@ export const homeQuery = graphql`
   query HomeQuery {
     martySkateboard: file(relativePath: { eq: "marty-skateboard.png" }) {
       childImageSharp {
-        ...MediumImage
+        ...LargeImage
       }
     }
     pixelBanner: file(relativePath: { eq: "VFE-2021-logo-TEXT-big.png" }) {
       childImageSharp {
-        ...MediumImage
+        ...LargeImage
       }
     }
   }
