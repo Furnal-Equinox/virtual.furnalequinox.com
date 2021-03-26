@@ -15,8 +15,6 @@ import {
   Section
 } from '../layouts'
 
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
-
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.InfoQueryQuery
 }
@@ -48,7 +46,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                   an expanded raptor enclosure (no, not dinosaurs!) and a permanent beaver habitat.{' '}
                   For more information, follow them on Facebook or visit their website to learn more!
                 </p>
-                <OutboundLink
+                <a
                   title="Link to Hobbitstee Wildlife Refuge's website. This link will open in a new tab."
                   href='http://www.hobbitstee.com/'
                   target='_blank'
@@ -56,7 +54,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                   className='btn btn-primary btn-lg rounded-3'
                 >
                   SUPPORT
-                </OutboundLink>
+                </a>
               </div>
             </div>
           </TextCard>
@@ -69,7 +67,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                 <div className='container'>
                   <div className='row py-3'>
                     <div className='col'>
-                      <OutboundLink
+                      <a
                         title="Link to Vancoufur's website. This link will open in a new tab."
                         href='https://vancoufur.org/'
                         target='_blank'
@@ -77,12 +75,12 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                         className='btn btn-primary btn-lg rounded-3'
                       >
                         VANCOUFUR
-                      </OutboundLink>
+                      </a>
                     </div>
                   </div>
                   <div className='row py-3'>
                     <div className='col'>
-                      <OutboundLink
+                      <a
                         title="Link to Fur Eh!'s website. This link will open in a new tab."
                         href='https://www.fureh.ca/'
                         target='_blank'
@@ -90,12 +88,12 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                         className='btn btn-primary btn-lg rounded-3'
                       >
                         FUR EH!
-                      </OutboundLink>
+                      </a>
                     </div>
                   </div>
                   <div className='row py-3'>
                     <div className='col'>
-                      <OutboundLink
+                      <a
                         title="Link to Anthro East Coast's website. This link will open in a new tab."
                         href='https://anthroeastcoast.ca/'
                         target='_blank'
@@ -103,12 +101,12 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                         className='btn btn-primary btn-lg rounded-3'
                       >
                         ANTHRO EAST COAST
-                      </OutboundLink>
+                      </a>
                     </div>
                   </div>
                   <div className='row py-3'>
                     <div className='col'>
-                      <OutboundLink
+                      <a
                         title="Link to Furality's website. This link will open in a new tab."
                         href='https://furality.org/'
                         target='_blank'
@@ -116,7 +114,7 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
                         className='btn btn-primary btn-lg rounded-3'
                       >
                         FURALITY
-                      </OutboundLink>
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
-
 import { PlaceholderSVG } from '../../placeholders'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
@@ -39,7 +37,7 @@ const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props
           </div>
           <div className='row mt-3'>
             <div className='d-grid'>
-              <OutboundLink
+              <a
                 title='Link to the page where you can buy this item. This link will open in a new tab.'
                 href={url ?? ''}
                 target='_blank'
@@ -48,7 +46,7 @@ const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props
                 tabIndex={0}
               >
                 Learn More
-              </OutboundLink>
+              </a>
             </div>
           </div>
         </div>

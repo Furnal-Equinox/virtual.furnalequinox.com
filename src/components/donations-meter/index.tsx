@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { useIdentityContext } from 'react-netlify-identity-gotrue'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const DonationsMeter: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.DonationsMeterQueryQuery>(donationsMeterQuery)
@@ -102,7 +99,7 @@ const DonationsMeter: React.FC = () => {
               </p>
             </div>
             <div className='col' tabIndex={0}>
-              <OutboundLink
+              <a
                 title='Link to our donation page on RegFox. This link will open in a new tab.'
                 href='https://fe.regfox.com/pixel-purrfect-donations'
                 target='_blank'
@@ -112,7 +109,7 @@ const DonationsMeter: React.FC = () => {
                 tabIndex={0}
               >
                 DONATE
-              </OutboundLink>
+              </a>
             </div>
           </div>
         </div>

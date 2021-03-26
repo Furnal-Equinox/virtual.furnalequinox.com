@@ -1,7 +1,6 @@
 import React from 'react'
 import SocialLinks, { Props as SocialLinksProps } from '../social-links'
 import Link from 'gatsby-link'
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import './style.scss'
 
 import { TextCard } from '../index'
@@ -32,7 +31,7 @@ const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
           </Link>
         </div>
         <div className='col'>
-          <OutboundLink
+          <a
             href='https://furnalequinox.com/privacy-policy/'
             title='Link to privacy policy page on the main Furnal Equinox website. This link will open in a new tab.'
             target='_blank'
@@ -40,7 +39,7 @@ const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
             tabIndex={0}
           >
             Privacy Policies
-          </OutboundLink>
+          </a>
         </div>
         <div className='col'>
           <Link

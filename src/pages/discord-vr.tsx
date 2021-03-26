@@ -16,8 +16,6 @@ import {
   Section
 } from '../layouts'
 
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
-
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.DiscordVRQueryQuery
 }
@@ -56,7 +54,6 @@ export const discordVRQuery = graphql`
 
 const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
   const howToBlockPoster = getImage(data?.howToBlockPoster)
-  const attendeeBadgeExamples = getImage(data?.attendeeBadgeExamples)
 
   return (
     <>
@@ -69,7 +66,7 @@ const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
             You can talk to dealers, ask questions to panelists and game with friends!{' '}
             We have gaming channels set up for different games and to allow you to jump in!
           </p>
-          <OutboundLink
+          <a
             title='Link to the Discord invite for the Furnal Equinox Discord server'
             href='https://discord.com/invite/furnal-equinox'
             target='_blank'
@@ -77,7 +74,7 @@ const DiscordVRContent: React.FC<Props> = ({ data, location }: Props) => {
             className='btn btn-primary btn-lg rounded-3'
           >
             Discord
-          </OutboundLink>
+          </a>
           <p>
             New to Discord? We have a tutorial just for you on our How-To page!
           </p>

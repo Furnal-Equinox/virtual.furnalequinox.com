@@ -17,8 +17,6 @@ import {
   Section
 } from '../layouts'
 
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
-
 interface Props extends RouteComponentProps {
   data: GatsbyTypes.HomeQueryQuery
 }
@@ -136,7 +134,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                   </Link>
                 </div>
                 <div className='col-lg-4 p-3'>
-                  <OutboundLink
+                  <a
                     title='Link to the Discord where you can learn more about gaming during Furnal Equinox'
                     href='https://discord.com/invite/furnal-equinox'
                     target='_blank'
@@ -144,7 +142,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                     className='btn btn-secondary btn-lg rounded-3'
                   >
                     GAMING
-                  </OutboundLink>
+                  </a>
                 </div>
               </div>
             </TextCard>
@@ -172,7 +170,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
               <p>
                 Please use the link below to go to our donation page.
               </p>
-              <OutboundLink
+              <a
                 title='Link to our donation page on RegFox'
                 href='https://fe.regfox.com/pixel-purrfect-donations'
                 target='_blank'
@@ -180,7 +178,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                 className='btn btn-primary btn-lg rounded-3'
               >
                 DONATE
-              </OutboundLink>
+              </a>
             </TextCard>
           </div>
         </div>

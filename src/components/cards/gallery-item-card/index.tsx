@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 import { PlaceholderSVG } from '../../placeholders'
 import Img, { FluidObject } from 'gatsby-image'
@@ -42,7 +41,7 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: P
             {`by ${artist ?? 'Artist'}`}
           </p>
           {url !== undefined &&
-            <OutboundLink
+            <a
               title={'Link to the artist\'s page for this art piece. This link will open in a new tab.'}
               href={url}
               target='_blank'
@@ -51,7 +50,7 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: P
               tabIndex={0}
             >
               Learn More
-            </OutboundLink>}
+            </a>}
         </div>
       </div>
     </div>
