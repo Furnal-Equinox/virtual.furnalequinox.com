@@ -6,9 +6,6 @@
   for = "/*"
   [headers.values]
     Content-Security-Policy = "base-uri 'self'; default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; object-src 'none'; form-action 'self'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://virtual-furnal-equinox.netlify.app; img-src 'self' data:; frame-src https://youtube.com https://www.youtube.com; media-src 'self';"
-    Cross-Origin-Resource-Policy = "same-origin"
-    Cross-Origin-Embedder-Policy = "require-corp"
-    Cross-Origin-Opener-Policy = "same-origin"
     Permissions-Policy = "accelerometer=(), ambient-light-sensor=(), autoplay=(self), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(self), execution-while-not-rendered=(self), fullscreen=(self), geolocation=(), gyroscope=(), layout-animations=(self), legacy-image-formats=(self), magnetometer=(), microphone=(), midi=(), navigation-override=(self), oversized-images=(self), payment=(), picture-in-picture=(self), publickey-credentials-get=(self), sync-xhr=*, usb=(), vr=(), wake-lock=(), screen-wake-lock=(), web-share=(self), xr-spatial-tracking=()"
     Referrer-Policy = "same-origin"
     Strict-Transport-Security = "max-age=63072000; preload"
