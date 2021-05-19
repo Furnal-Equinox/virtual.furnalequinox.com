@@ -133,8 +133,8 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
   return (
     <>
       <Jumbotron
-        title='Dealers Den'
-        subtitle='Explore our dealers from the comfort of your home!'
+        title={'Dealers Den'}
+        subtitle={'Explore our dealers from the comfort of your home!'}
       />
       <Section pos='middle'>
         <AdCrawl />
@@ -143,27 +143,27 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
         <div className='row'>
           <div className='col-lg-6 mb-3 mb-lg-0'>
             <TextCard>
-              <h2>Feeling lucky?</h2>
+              <h2>{"Feeling lucky?"}</h2>
               <p>
-                Click this button to check out a random dealer!
+                {"Click this button to check out a random dealer!"}
               </p>
               <Link
-                title='Link to a random dealer page!'
+                title={'Link to a random dealer page!'}
                 to={`.${
                   sample(allDealers as any[]).dealer.fields?.slug ?? ''
                 }`}
                 role='button'
                 className='btn btn-primary btn-lg rounded-3'
               >
-                Let's go!
+                {"Let's go!"}
               </Link>
             </TextCard>
           </div>
           <div className='col-lg-6 mt-3 mt-lg-0'>
             <TextCard>
-              <h2>Have something in mind?</h2>
+              <h2>{"Have something in mind?"}</h2>
               <p>
-                Use the search bar!
+                {"Use the search bar!"}
               </p>
               <SearchBar
                 searchQuery={searchQuery}
@@ -178,7 +178,7 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
         <Section isContainer isTextCenter pos='middle'>
           <div className='pb-3'>
             <TextCard>
-              <h2>SEARCH RESULTS</h2>
+              <h2>{"SEARCH RESULTS"}</h2>
             </TextCard>
           </div>
           <DealerCardGrid data={
@@ -193,7 +193,7 @@ const DealersDashboard: React.FC<Props> = ({ data, location, navigate }: Props) 
           />
           <div className='pb-3'>
             <TextCard>
-              <h2>END OF RESULTS</h2>
+              <h2>{"END OF RESULTS"}</h2>
             </TextCard>
           </div>
         </Section>

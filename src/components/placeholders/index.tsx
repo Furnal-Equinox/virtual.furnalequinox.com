@@ -26,9 +26,9 @@ export const PlaceholderSVG: React.FC = () =>
     role='img'
     aria-label='Placeholder: Thumbnail'
   >
-    <title>Placeholder</title>
+    <title>{"Placeholder"}</title>
     <rect width='100%' height='100%' fill='#55595c' />
     <text x='50%' y='50%' fill='#eceeef' dy='.3em'>
-      Dealer Banner
+      {"Dealer Banner"}
     </text>
   </svg>

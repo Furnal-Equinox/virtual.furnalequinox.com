@@ -28,10 +28,10 @@ const Help: React.FC<Props> = ({ location, navigate }: Props) => {
           <TextCard>
             <div className='row'>
               <div className='col mx-auto'>
-                <h1>Contact Us</h1>
+                <h1>{"Contact Us"}</h1>
                 <p>
-                  Do you have questions, comments, or suggestions?{' '}
-                  Please send them using this form!
+                  {"Do you have questions, comments, or suggestions?"}{' '}
+                  {"Please send them using this form!"}
                 </p>
                 <ContactForm />
               </div>

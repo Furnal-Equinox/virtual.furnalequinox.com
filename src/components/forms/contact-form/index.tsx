@@ -59,7 +59,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
         role='status'
         aria-hidden='true'
       />{' '}
-      Submitting...
+      {"Submitting..."}
     </>
 
   const Form: React.FC = () =>
@@ -73,7 +73,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
       <input type='hidden' name='form-name' value='contact' />
       <div hidden>
         <label>
-          Don’t fill this out:{' '}
+          {"Don’t fill this out:"}{' '}
           <input name='bot-field' />
         </label>
       </div>
@@ -92,7 +92,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           autoFocus
         />
         <label id='inputNameLabel' htmlFor='inputName'>
-          Your name
+          {"Your name"}
         </label>
         {errors.name !== undefined &&
           <p className='text-danger'>
@@ -113,7 +113,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           placeholder='Email address'
         />
         <label id='inputEmailLabel' htmlFor='inputEmail'>
-          Your email address
+          {"Your email address"}
         </label>
         {errors.email !== undefined &&
           <p className='text-danger'>
@@ -134,7 +134,7 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
           placeholder='Your message'
         />
         <label id='inputMessageLabel' htmlFor='inputMessage'>
-          Your message
+          {"Your message"}
         </label>
         {errors.message !== undefined &&
           <p className='text-danger'>
@@ -158,8 +158,8 @@ const ContactForm: React.FC<Props> = ({ navigateTarget }) => {
       {isSubmitSuccessful &&
         <div className='mb-3'>
           <p className='lead'>
-            Thank you for your message! Please keep an eye on your email -{' '}
-            we'll reply to you as soon as we can.
+            {"Thank you for your message! Please keep an eye on your email -"}{' '}
+            {"we'll reply to you as soon as we can."}
           </p>
         </div>}
     </form>

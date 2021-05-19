@@ -43,7 +43,7 @@ const SearchBar: React.FC<Props> = ({ searchQuery, setSearchQuery, navigate }: P
           }}
         />
         <label id='inputSearchTermLabel' htmlFor='inputSearchTerm'>
-          Search for a dealer
+          {"Search for a dealer"}
         </label>
       </div>
       <div>
@@ -51,7 +51,7 @@ const SearchBar: React.FC<Props> = ({ searchQuery, setSearchQuery, navigate }: P
           className='btn btn-lg btn-primary rounded-3'
           type='submit'
         >
-          Search
+          {"Search"}
         </button>
       </div>
 

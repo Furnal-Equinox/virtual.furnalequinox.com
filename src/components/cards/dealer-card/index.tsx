@@ -42,7 +42,7 @@ const DealerCard: React.FC<Props> = ({ title, description, banner, slug }: Props
                 className='btn btn-primary btn-lg rounded-3'
                 tabIndex={0}
               >
-                Let's go!
+                {"Let's go!"}
               </Link>
             </div>
           </div>

@@ -89,9 +89,9 @@ const DjsContent: React.FC<Props> = ({ data, location }: Props) => {
       </Section>
       <Section isContainer isTextCenter pos='middle' id='lineup-table'>
         <div className='visually-hidden'>
-          Here, you will find a table of the times our DJs are playing. The table here is a{' '}
-          reproduction of the table in the image. We have three tables here: one for each day of our convention.
-          Please note that the AM times in the table refer to the next day - our DJs play overnight!
+          {"Here, you will find a table of the times our DJs are playing. The table here is a"}{' '}
+          {"reproduction of the table in the image. We have three tables here: one for each day of our convention."}
+          {"Please note that the AM times in the table refer to the next day - our DJs play overnight!"}
         </div>
         <DJLineup />
       </Section>

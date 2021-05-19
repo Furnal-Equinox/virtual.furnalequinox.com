@@ -70,37 +70,37 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
         <div className='row'>
           <div className='col-lg-6 mb-3 mb-lg-0'>
             <TextCard>
-              <h2>LIVESTREAM</h2>
+              <h2>{"LIVESTREAM"}</h2>
               <p>
-                We have events, panels, and DJs for you all weekend long!
+                {"We have events, panels, and DJs for you all weekend long!"}
               </p>
               <p>
-                Click below to check out the livestream!
+                {"Click below to check out the livestream!"}
               </p>
               <Link
                 title='Link to the Livestream page on this website'
                 to='/livestream/'
                 className='btn btn-primary btn-lg rounded-3'
               >
-                Let's go!
+                {"Let's go!"}
               </Link>
             </TextCard>
           </div>
           <div className='col-lg-6 mt-3 mt-lg-0'>
             <TextCard>
-              <h2>HOW TO</h2>
+              <h2>{"HOW TO"}</h2>
               <p>
-                Wondering how to join the VRChat world and the Discord?
+                {"Wondering how to join the VRChat world and the Discord?"}
               </p>
               <p>
-                We've got you covered! We've made some tutorial videos to help you join the fun!
+                {"We've got you covered! We've made some tutorial videos to help you join the fun!"}
               </p>
               <Link
                 title='Link to the How To page on this website'
                 to='/how-to/'
                 className='btn btn-primary btn-lg rounded-3'
               >
-                Let's go!
+                {"Let's go!"}
               </Link>
             </TextCard>
           </div>
@@ -110,9 +110,9 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
         <div className='row'>
           <div className='col'>
             <TextCard>
-              <h2>WAYS TO JOIN THE FUN</h2>
+              <h2>{"WAYS TO JOIN THE FUN"}</h2>
               <p>
-                There are a lot of ways to enjoy and participate in our virtual event!
+                {"There are a lot of ways to enjoy and participate in our virtual event!"}
               </p>
               <div className='row'>
                 <div className='col-lg-4 p-3'>
@@ -121,16 +121,16 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                     to='/dealers/'
                     className='btn btn-secondary btn-lg rounded-3'
                   >
-                    DEALERS DEN
+                    {"DEALERS DEN"}
                   </Link>
                 </div>
                 <div className='col-lg-4 p-3'>
                   <Link
-                    title='Link to the Discord & VR page on this website'
+                    title={'Link to the Discord & VR page on this website'}
                     to='/discord-vr/'
                     className='btn btn-primary btn-lg rounded-3'
                   >
-                    DISCORD & VR
+                    {"DISCORD & VR"}
                   </Link>
                 </div>
                 <div className='col-lg-4 p-3'>
@@ -141,7 +141,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                     rel='noopener noreferrer'
                     className='btn btn-secondary btn-lg rounded-3'
                   >
-                    GAMING
+                    {"GAMING"}
                   </a>
                 </div>
               </div>
@@ -156,19 +156,19 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
         <div className='row'>
           <div className='col'>
             <TextCard>
-              <h2>DONATIONS</h2>
+              <h2>{"DONATIONS"}</h2>
               <p>
-                We made Pixel Purrfect a free event because we know it's important for everyone to gather{' '}
-                together in these difficult times, and while we can't do a physical event, this is{' '}
-                the next best thing. As a free event, this is accessible to as many furs as possible,{' '}
-                and if you want to support the event, your donations are always welcome.
+                {"We made Pixel Purrfect a free event because we know it's important for everyone to gather"}{' '}
+                {"together in these difficult times, and while we can't do a physical event, this is"}{' '}
+                {"the next best thing. As a free event, this is accessible to as many furs as possible,"}{' '}
+                {"and if you want to support the event, your donations are always welcome."}
               </p>
               <p>
-                All proceeds donated to this event will be split 50/50 between Furnal Equinox and{' '}
-                Hobbitstee Wildlife Refuge.
+                {"All proceeds donated to this event will be split 50/50 between Furnal Equinox and"}{' '}
+                {"Hobbitstee Wildlife Refuge."}
               </p>
               <p>
-                Please use the link below to go to our donation page.
+                {"Please use the link below to go to our donation page."}
               </p>
               <a
                 title='Link to our donation page on RegFox'
@@ -177,7 +177,7 @@ const HomeDashboard: React.FC<Props> = ({ data, location }: Props) => {
                 rel='noopener noreferrer'
                 className='btn btn-primary btn-lg rounded-3'
               >
-                DONATE
+                {"DONATE"}
               </a>
             </TextCard>
           </div>

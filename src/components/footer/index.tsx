@@ -23,31 +23,31 @@ const Footer: React.FC<Props> = ({ copyright, socialLinks }: Props) => (
       <div className='row'>
         <div className='col'>
           <Link
-            title='Link to the help page on this website.'
+            title={'Link to the help page on this website.'}
             to='/help/'
             tabIndex={0}
           >
-            Help
+            {"Help"}
           </Link>
         </div>
         <div className='col'>
           <a
             href='https://furnalequinox.com/privacy-policy/'
-            title='Link to privacy policy page on the main Furnal Equinox website. This link will open in a new tab.'
+            title={'Link to privacy policy page on the main Furnal Equinox website. This link will open in a new tab.'}
             target='_blank'
             rel='noopener noreferrer'
             tabIndex={0}
           >
-            Privacy Policies
+            {"Privacy Policies"}
           </a>
         </div>
         <div className='col'>
           <Link
-            title='Link to the credits section on the info page on this website.'
+            title={'Link to the credits section on the info page on this website.'}
             to='/info/#credits'
             tabIndex={0}
           >
-            Credits
+            {"Credits"}
           </Link>
         </div>
       </div>

@@ -41,29 +41,29 @@ const NotFound: React.FC<Props> = ({ data, location, navigate }: Props) => {
             {marty404Image !== undefined && <GatsbyImage
               image={marty404Image}
               className='img-fluid'
-              alt='Picture of Marty, the Pixel Purrfect mascot, shrugging with the number 404 behind him'
+              alt={'Picture of Marty, the Pixel Purrfect mascot, shrugging with the number 404 behind him'}
             />}
             <p>
-              Oops! We couldn't find the page you were looking for.<br />
-              Please go back and try again.<br />
-              If you think you've found an error, email{' '}
+              {"Oops! We couldn't find the page you were looking for."}<br />
+              {"Please go back and try again."}<br />
+              {"If you think you've found an error, email"}{' '}
               <a
-                title="Ardal's email address"
+                title={"Ardal's email address"}
                 href='mailto:ardal@furnalequinox.com'
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                Ardal
+                {"Ardal"}
               </a>.
             </p>
             <Button
               type='button'
-              title='Return to the last page you were on'
+              title={'Return to the last page you were on'}
               onClick={() => { navigate !== undefined && navigate(-1) }}
               size='lg'
               variant='secondary'
             >
-              Go Back
+              {"Go Back"}
             </Button>
           </TextCard>
         </Section>

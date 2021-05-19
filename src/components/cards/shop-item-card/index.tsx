@@ -45,7 +45,7 @@ const ShopItemCard: React.FC<Props> = ({ name, description, banner, url }: Props
                 className='btn btn-primary btn-lg rounded-3'
                 tabIndex={0}
               >
-                Learn More
+                {"Learn More"}
               </a>
             </div>
           </div>

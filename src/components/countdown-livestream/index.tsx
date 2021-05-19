@@ -36,22 +36,22 @@ export const LiveStreamPlaceholder: React.FC<PlaceholderProps> = ({
         image={placeholderImage}
         className='img-fluid'
         alt={placeholderImageAlt}
-                                         />}
+      />}
       <div className='text-center'>
         <p className='h1 py-3'>
           {zeroPad(days)} : {zeroPad(hours)} : {zeroPad(minutes)} : {zeroPad(seconds)}
         </p>
         <p className='text-warning'>
-          <span className='visually-hidden'>Warning: </span>
-          The livestream starts at 12 PM EDT, but we're swapping the placeholder image out here at 11 AM!
+          <span className='visually-hidden'>{"Warning: "}</span>
+          {"The livestream starts at 12 PM EDT, but we're swapping the placeholder image out here at 11 AM!"}
+        </p>
+        <p className='text-warning'>
+          <span className='visually-hidden'>{"Warning: "}</span>
+          {"If you've disabled autoplaying videos, please turn it on for this website!"}
         </p>
         <p className='text-warning'>
           <span className='visually-hidden'>Warning: </span>
-          If you've disabled autoplaying videos, please turn it on for this website!
-        </p>
-        <p className='text-warning'>
-          <span className='visually-hidden'>Warning: </span>
-          The livestream will autoplay when the timer hits zero!
+          {"The livestream will autoplay when the timer hits zero!"}
         </p>
       </div>
     </>

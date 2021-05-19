@@ -179,11 +179,11 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               {
                 socialLinks !== null && socialLinks !== undefined
                   ? <div className='container text-center'>
-                    <h2>Say hello!</h2>
+                    <h2>{"Say hello!"}</h2>
                     <SocialLinks data={socialLinks} />
                     </div>
                   : <div className='container text-center'>
-                    <h2>I do not have any social media links to share!</h2>
+                    <h2>{"I do not have any social media links to share!"}</h2>
                     </div>
               }
             </div>
@@ -194,20 +194,20 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
               !isStrEmpty(post?.streaming?.sunday)
             ) &&
               <div className='col-lg-6 p-2'>
-                <h2>Streaming Times</h2>
+                <h2>{"Streaming Times"}</h2>
                 <hr />
                 <div className='table-responsive'>
                   <table className='table table-striped table-hover'>
                     <thead>
                       <tr>
-                        <th scope='col'>Date</th>
-                        <th scope='col'>Time (24 Hour Clock)</th>
+                        <th scope='col'>{"Date"}</th>
+                        <th scope='col'>{"Time (24 Hour Clock)"}</th>
                       </tr>
                     </thead>
                     <tbody>
                       {post?.streaming?.friday?.map((block, i) =>
                         <tr key={`friday-time-${i}`}>
-                          <th scope='row'>Friday, March 19th</th>
+                          <th scope='row'>{"Friday, March 19th"}</th>
                           <td>
                             {`${block?.start ?? ''} to ${block?.end ?? ''}`}
                           </td>
@@ -215,7 +215,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                       )}
                       {post?.streaming?.saturday?.map((block, i) =>
                         <tr key={`saturday-time-${i}`}>
-                          <th scope='row'>Saturday, March 20th</th>
+                          <th scope='row'>{"Saturday, March 20th"}</th>
                           <td>
                             {`${block?.start ?? ''} to ${block?.end ?? ''}`}
                           </td>
@@ -223,7 +223,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                       )}
                       {post?.streaming?.sunday?.map((block, i) =>
                         <tr key={`sunday-time-${i}`}>
-                          <th scope='row'>Sunday, March 21st</th>
+                          <th scope='row'>{"Sunday, March 21st"}</th>
                           <td>
                             {`${block?.start ?? ''} to ${block?.end ?? ''}`}
                           </td>
@@ -240,9 +240,9 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
                     href={post?.url ?? ''}
                     size='lg'
                   >
-                  Check out my store!
+                  {"Check out my store!"}
                 </Button>
-                : <h2>I do not have a website to share!</h2>}
+                : <h2>{"I do not have a website to share!"}</h2>}
             </div>
           </div>
         </TextCard>
@@ -260,7 +260,7 @@ const DealerContent: React.FC<Props> = ({ data, location, pageContext }: Props) 
         </Section>}
       <Section isContainer>
         <span className='visually-hidden'>
-          Here, you'll find the dealers' images. You can navigate over them with your tab key!
+          {"Here, you'll find the dealers' images. You can navigate over them with your tab key!"}
         </span>
         {((images?.length ?? 0) > 1) ? (
           <ResponsiveMasonry

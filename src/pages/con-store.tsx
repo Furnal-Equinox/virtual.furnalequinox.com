@@ -73,13 +73,13 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <>
       <Jumbotron
-        title='Con Store'
-        subtitle='Please buy something to support FE and Hobbitstee Wildlife Refuge!'
+        title={'Con Store'}
+        subtitle={'Please buy something to support FE and Hobbitstee Wildlife Refuge!'}
       />
       <Section isContainer pos='middle'>
         <TextCard>
           <p>
-            Show your support for Furnal Equinox with these Virtual Furnal Equinox: Pixel Purrfect merchandise!
+            {"Show your support for Furnal Equinox with these Virtual Furnal Equinox: Pixel Purrfect merchandise!"}
           </p>
         </TextCard>
       </Section>
@@ -101,11 +101,11 @@ const ConStoreContent: React.FC<Props> = ({ data, location }: Props) => {
       </Section>
       <Section isContainer pos='middle'>
         <TextCard>
-          <h2>Limited Stock</h2>
+          <h2>{"Limited Stock"}</h2>
           <p>
-            We’ve also had some exclusive products made this year, these are available in limited quantities!{' '}
-            These feature talented artists from the fandom.{' '}
-            A number of these products also help out our charity, Hobbitstee!
+            {"We’ve also had some exclusive products made this year, these are available in limited quantities!"}{' '}
+            {"These feature talented artists from the fandom."}{' '}
+            {"A number of these products also help out our charity, Hobbitstee!"}
           </p>
         </TextCard>
       </Section>

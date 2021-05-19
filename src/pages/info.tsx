@@ -32,28 +32,28 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
           <TextCard>
             <div className='row'>
               <div className='col mx-auto'>
-                <h1>Our Charity</h1>
-                <h2>Hobbitstee Wildlife Refuge</h2>
+                <h1>{"Our Charity"}</h1>
+                <h2>{"Hobbitstee Wildlife Refuge"}</h2>
                 <p className='py-3'>
-                  This year’s charity is none other than Hobbitstee Wildlife Refuge!
+                  {"This year’s charity is none other than Hobbitstee Wildlife Refuge!"}
                 </p>
                 <p className='pb-3'>
-                  Based in Jarvis, Ontario, Hobbitstee is an entirely volunteer-run wildlife rescue{' '}
-                  that ranges all over southwestern Ontario.{' '}
-                  If an animal lives outdoors and needs help, Hobbitstee has an army of volunteers{' '}
-                  to go and rescue them. Like any non-profit, they always have resources they need,{' '}
-                  and your donations this year will help fund things like a portable IV pump,{' '}
-                  an expanded raptor enclosure (no, not dinosaurs!) and a permanent beaver habitat.{' '}
-                  For more information, follow them on Facebook or visit their website to learn more!
+                  {"Based in Jarvis, Ontario, Hobbitstee is an entirely volunteer-run wildlife rescue"}{' '}
+                  {"that ranges all over southwestern Ontario."}{' '}
+                  {"If an animal lives outdoors and needs help, Hobbitstee has an army of volunteers"}{' '}
+                  {"to go and rescue them. Like any non-profit, they always have resources they need,"}{' '}
+                  {"and your donations this year will help fund things like a portable IV pump,"}{' '}
+                  {"an expanded raptor enclosure (no, not dinosaurs!) and a permanent beaver habitat."}{' '}
+                  {"For more information, follow them on Facebook or visit their website to learn more!"}
                 </p>
                 <a
-                  title="Link to Hobbitstee Wildlife Refuge's website. This link will open in a new tab."
+                  title={"Link to Hobbitstee Wildlife Refuge's website. This link will open in a new tab."}
                   href='http://www.hobbitstee.com/'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='btn btn-primary btn-lg rounded-3'
                 >
-                  SUPPORT
+                  {"SUPPORT"}
                 </a>
               </div>
             </div>
@@ -63,57 +63,57 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
           <TextCard>
             <div className='row'>
               <div className='col mx-auto'>
-                <h1>Affiliate Canadian Conventions</h1>
+                <h1>{"Affiliate Canadian Conventions"}</h1>
                 <div className='container'>
                   <div className='row py-3'>
                     <div className='col'>
                       <a
-                        title="Link to Vancoufur's website. This link will open in a new tab."
+                        title={"Link to Vancoufur's website. This link will open in a new tab."}
                         href='https://vancoufur.org/'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='btn btn-primary btn-lg rounded-3'
                       >
-                        VANCOUFUR
+                        {"VANCOUFUR"}
                       </a>
                     </div>
                   </div>
                   <div className='row py-3'>
                     <div className='col'>
                       <a
-                        title="Link to Fur Eh!'s website. This link will open in a new tab."
+                        title={"Link to Fur Eh!'s website. This link will open in a new tab."}
                         href='https://www.fureh.ca/'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='btn btn-primary btn-lg rounded-3'
                       >
-                        FUR EH!
+                        {"FUR EH!"}
                       </a>
                     </div>
                   </div>
                   <div className='row py-3'>
                     <div className='col'>
                       <a
-                        title="Link to Anthro East Coast's website. This link will open in a new tab."
+                        title={"Link to Anthro East Coast's website. This link will open in a new tab."}
                         href='https://anthroeastcoast.ca/'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='btn btn-primary btn-lg rounded-3'
                       >
-                        ANTHRO EAST COAST
+                        {"ANTHRO EAST COAST"}
                       </a>
                     </div>
                   </div>
                   <div className='row py-3'>
                     <div className='col'>
                       <a
-                        title="Link to Furality's website. This link will open in a new tab."
+                        title={"Link to Furality's website. This link will open in a new tab."}
                         href='https://furality.org/'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='btn btn-primary btn-lg rounded-3'
                       >
-                        FURALITY
+                        {"FURALITY"}
                       </a>
                     </div>
                   </div>
@@ -126,9 +126,9 @@ const Info: React.FC<Props> = ({ data, location, navigate }: Props) => {
           <TextCard>
             <div className='row'>
               <div className='col mx-auto'>
-                <h1>Credits</h1>
+                <h1>{"Credits"}</h1>
                 <p>
-                  Furnal Equinox 2021: Pixel Purrfect was made possible by
+                  {"Furnal Equinox 2021: Pixel Purrfect was made possible by"}
                 </p>
               </div>
             </div>

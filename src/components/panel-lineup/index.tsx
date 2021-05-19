@@ -13,9 +13,9 @@ const PanelLineup: React.FC = () => {
   const TableHeader: React.FC = () =>
     <thead>
       <tr>
-        <th scope='col'>Time (EDT)</th>
-        <th scope='col'>Event Name</th>
-        <th scope='col'>Host</th>
+        <th scope='col'>{"Time (EDT)"}</th>
+        <th scope='col'>{"Event Name"}</th>
+        <th scope='col'>{"Host"}</th>
       </tr>
     </thead>
 
@@ -31,9 +31,9 @@ const PanelLineup: React.FC = () => {
 
   return (
     <TextCard>
-      <h1>Lineup</h1>
+      <h1>{"Lineup"}</h1>
       <div className='py-3'>
-        <h2>Friday, March 19th</h2>
+        <h2>{"Friday, March 19th"}</h2>
         <Table>
           {friday?.map((event) =>
             <tr key={event?.time}>
@@ -45,7 +45,7 @@ const PanelLineup: React.FC = () => {
         </Table>
       </div>
       <div className='py-3'>
-        <h2>Saturday, March 20th</h2>
+        <h2>{"Saturday, March 20th"}</h2>
         <Table>
           {saturday?.map((event) =>
             <tr key={event?.time}>
@@ -57,7 +57,7 @@ const PanelLineup: React.FC = () => {
         </Table>
       </div>
       <div className='py-3'>
-        <h2>Sunday, March 21st</h2>
+        <h2>{"Sunday, March 21st"}</h2>
         <Table>
           {sunday?.map((event) =>
             <tr key={event?.time}>

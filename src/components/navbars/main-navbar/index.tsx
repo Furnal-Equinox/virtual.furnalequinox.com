@@ -10,7 +10,7 @@ export interface Props extends RouteComponentProps {}
 const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
   const Logo: React.FC = () =>
     <Link
-      title='Link to the event landing page'
+      title={'Link to the event landing page'}
       className='navbar-brand mr-2'
       to='/'
       tabIndex={0}
@@ -31,8 +31,8 @@ const Navbar: React.FC<Props> = ({ location, navigate }: Props) => {
       data-bs-target='#navbarCollapse'
       aria-controls='navbarCollapse'
       aria-expanded='false'
-      aria-label='Toggle navigation'
-      title='Toggle navigation and expand navigation bar'
+      aria-label={'Toggle navigation'}
+      title={'Toggle navigation and expand navigation bar'}
     >
       <span className='navbar-toggler-icon' />
     </button>

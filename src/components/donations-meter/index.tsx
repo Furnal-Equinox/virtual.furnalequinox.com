@@ -100,7 +100,7 @@ const DonationsMeter: React.FC = () => {
             </div>
             <div className='col' tabIndex={0}>
               <a
-                title='Link to our donation page on RegFox. This link will open in a new tab.'
+                title={'Link to our donation page on RegFox. This link will open in a new tab.'}
                 href='https://fe.regfox.com/pixel-purrfect-donations'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -108,7 +108,7 @@ const DonationsMeter: React.FC = () => {
                 style={{ textShadow: '0px 0px 10px #ff3d6f, 0px 0px 10px #ff3d6f' }}
                 tabIndex={0}
               >
-                DONATE
+                {"DONATE"}
               </a>
             </div>
           </div>

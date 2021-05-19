@@ -42,14 +42,14 @@ const GalleryItemCard: React.FC<Props> = ({ title, artist, image, url, desc }: P
           </p>
           {url !== undefined &&
             <a
-              title={'Link to the artist\'s page for this art piece. This link will open in a new tab.'}
+              title={"Link to the artist's page for this art piece. This link will open in a new tab."}
               href={url}
               target='_blank'
               rel='noopener noreferrer'
               className='btn btn-primary btn-lg rounded-3'
               tabIndex={0}
             >
-              Learn More
+              {"Learn More"}
             </a>}
         </div>
       </div>

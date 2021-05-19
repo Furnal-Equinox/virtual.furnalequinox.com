@@ -69,8 +69,8 @@ const GalleryContent: React.FC<Props> = ({ data, location }: Props) => {
   return (
     <>
       <Jumbotron
-        title='Art Gallery'
-        subtitle='Enjoy our virtual gallery!'
+        title={'Art Gallery'}
+        subtitle={'Enjoy our virtual gallery!'}
       />
       <Section isContainer>
         <ResponsiveMasonry

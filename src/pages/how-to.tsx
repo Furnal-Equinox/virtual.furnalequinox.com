@@ -76,21 +76,21 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
       <Section isContainer isTextCenter pos='middle' id='vrchat-basics'>
         <TextCard>
           <h2>
-            VRChat Basics Tutorial
+            {"VRChat Basics Tutorial"}
           </h2>
           <p>
-            Learn the ropes of VRChat with our VRChat Basics tutorial!
+            {"Learn the ropes of VRChat with our VRChat Basics tutorial!"}
           </p>
           <p className='visually-hidden'>
-            We have a PDF transcript below the video!
+            {"We have a PDF transcript below the video!"}
           </p>
           <ResponsiveYouTubePlayer
             url='https://youtu.be/Zez7m1oL82s'
-            title='Our YouTube video tutorial showing you the basics of VRChat'
+            title={'Our YouTube video tutorial showing you the basics of VRChat'}
           />
           <p className='text-warning'>
-            Open the video in fullscreen if the details are too small to view here,{' '}
-            especially if you are using a phone!
+            {"Open the video in fullscreen if the details are too small to view here,"}{' '}
+            {"especially if you are using a phone!"}
           </p>
           <a
             title='Click this to download the VRChat basics tutorial PDF'
@@ -98,80 +98,80 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
             className='btn btn-primary btn-lg rounded-3 m-3'
             download
           >
-            Download transcript
+            {"Download transcript"}
           </a>
         </TextCard>
       </Section>
       <Section isContainer isTextCenter pos='middle' id='vrchat-worlds'>
         <TextCard>
           <h2>
-            VRChat Worlds Tutorial
+            {"VRChat Worlds Tutorial"}
           </h2>
           <p>
-            Learn how to get around VRChat and check out worlds!
+            {"Learn how to get around VRChat and check out worlds!"}
           </p>
           <p className='visually-hidden'>
-            We have a PDF transcript below the video!
+            {"We have a PDF transcript below the video!"}
           </p>
           <ResponsiveYouTubePlayer
             url='https://youtu.be/NdakFOqFuEU'
-            title='Our YouTube video tutorial showing you how to get around VRChat and explore worlds'
+            title={'Our YouTube video tutorial showing you how to get around VRChat and explore worlds'}
           />
           <p className='text-warning'>
-            Open the video in fullscreen if the details are too small to view here,{' '}
-            especially if you are using a phone!
+            {"Open the video in fullscreen if the details are too small to view here,"}{' '}
+            {"especially if you are using a phone!"}
           </p>
           <a
-            title='Click this to download the VRChat worlds tutorial PDF'
+            title={'Click this to download the VRChat worlds tutorial PDF'}
             href={vrChatWorldsPDF?.publicURL}
             className='btn btn-primary btn-lg rounded-3 m-3'
             download
           >
-            Download transcript
+            {"Download transcript"}
           </a>
         </TextCard>
       </Section>
       <Section isContainer isTextCenter pos='middle' id='vrchat-friends'>
         <TextCard>
           <h2>
-            VRChat Friends Tutorial
+            {"VRChat Friends Tutorial"}
           </h2>
           <p>
-            Learn how to add people and make friends on VRChat!
+            {"Learn how to add people and make friends on VRChat!"}
           </p>
           <p className='visually-hidden'>
-            We have a PDF transcript below the video!
+            {"We have a PDF transcript below the video!"}
           </p>
           <ResponsiveYouTubePlayer
             url='https://youtu.be/bif429deKks'
-            title='Our YouTube video tutorial showing you how to add people and make friends on VRChat'
+            title={'Our YouTube video tutorial showing you how to add people and make friends on VRChat'}
           />
           <p className='text-warning'>
-            Open the video in fullscreen if the details are too small to view here,{' '}
-            especially if you are using a phone!
+            {"Open the video in fullscreen if the details are too small to view here,"}{' '}
+            {"especially if you are using a phone!"}
           </p>
           <a
-            title='Click this to download the VRChat friends tutorial PDF'
+            title={'Click this to download the VRChat friends tutorial PDF'}
             href={vrChatFriendsPDF?.publicURL}
             className='btn btn-primary btn-lg rounded-3 m-3'
             download
           >
-            Download transcript
+            {"Download transcript"}
           </a>
         </TextCard>
       </Section>
       <Section isContainer isTextCenter pos='middle' id='vrchat-avatar'>
         <TextCard>
           <h2>
-            VRChat Avatar Tutorial
+            {"VRChat Avatar Tutorial"}
           </h2>
           <p>
-            How to setup your own VRChat avatar with Unity,{' '}
-            add your badge to your avatar,{' '}
-            and test and upload your avatar to VRChat!
+            {"How to setup your own VRChat avatar with Unity,"}{' '}
+            {"add your badge to your avatar,"}{' '}
+            {"and test and upload your avatar to VRChat!"}
           </p>
           <p className='visually-hidden'>
-            We have a PDF transcript below the video!
+            {"We have a PDF transcript below the video!"}
           </p>
           <ResponsiveYouTubePlayer
             url='https://youtu.be/p9hEg4u2fxE'
@@ -181,29 +181,29 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
             ].join(' ')}
           />
           <p className='text-warning'>
-            Open the video in fullscreen if the details are too small to view here,{' '}
-            especially if you are using a phone!
+            {"Open the video in fullscreen if the details are too small to view here,"}{' '}
+            {"especially if you are using a phone!"}
           </p>
           <a
-            title='Click this to download the VRChat avatar tutorial PDF'
+            title={'Click this to download the VRChat avatar tutorial PDF'}
             href={vrChatAvatarPDF?.publicURL}
             className='btn btn-primary btn-lg rounded-3 m-3'
             download
           >
-            Download transcript
+            {"Download transcript"}
           </a>
         </TextCard>
       </Section>
       <Section isContainer isTextCenter pos='middle' id='discord'>
         <TextCard>
           <h2>
-            Discord Tutorial
+            {"Discord Tutorial"}
           </h2>
           <p>
-            How to setup your Discord and join the FE Discord server!
+            {"How to setup your Discord and join the FE Discord server!"}
           </p>
           <p className='visually-hidden'>
-            We have a PDF transcript below the video!
+            {"We have a PDF transcript below the video!"}
           </p>
           <ResponsiveYouTubePlayer
             url='https://youtu.be/ibUUZw_XZSc'
@@ -212,16 +212,16 @@ const HowToContent: React.FC<Props> = ({ data, location }: Props) => {
             ].join(' ')}
           />
           <p className='text-warning'>
-            Open the video in fullscreen if the details are too small to view here,{' '}
-            especially if you are using a phone!
+            {"Open the video in fullscreen if the details are too small to view here,"}{' '}
+            {"especially if you are using a phone!"}
           </p>
           <a
-            title='Click this to download the Discord Basics PDF'
+            title={'Click this to download the Discord Basics PDF'}
             href={discordTutorialPDF?.publicURL}
             className='btn btn-primary btn-lg rounded-3 m-3'
             download
           >
-            Download transcript
+            {"Download transcript"}
           </a>
         </TextCard>
       </Section>
